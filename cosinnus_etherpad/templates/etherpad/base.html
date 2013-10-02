@@ -1,0 +1,18 @@
+{% extends "authentication/base.html" %}
+{% load i18n %}
+
+{% block breadcrumbs %}
+{{ block.super }}
+<li>
+  <a href="{% url 'sinn_auth-group-detail' group=group.pk %}">
+    {{ group.name }}
+  </a>
+  <span class="divider">/</span>
+</li>
+<li>
+  <a href="{% url 'etherpad-list' group=group.pk %}">
+    {% trans "Etherpad" %}
+  </a>
+  <span class="divider">/</span>
+</li>
+{% endblock %}

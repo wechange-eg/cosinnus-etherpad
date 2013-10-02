@@ -1,0 +1,60 @@
+{% extends "etherpad/base.html" %}
+{% load i18n bootstrap_toolkit %}
+{% load static from staticfiles %}
+
+{% block page_title %}
+{% trans "Etherpad: Create" %}
+{% endblock %}
+
+{% block subnav_add_right %}{% endblock %}
+
+{% block extrahead %}
+{{ form.media }}
+<link rel="stylesheet" href="{% static 'css/vendor/jquery-ui-autocomplete.min.css' %}">
+{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}
+<li class="active">
+  {% if form_view == 'update' %}
+  {% trans "Update" %}
+  {% else %}
+  {% trans "Create" %}
+  {% endif %}
+</li>
+{% endblock %}
+
+{% block content %}
+<form action="." method="post" class="form-horizontal">{% csrf_token %}
+  {{ form|as_bootstrap }}
+  <div class="control-group">
+    <div class="controls">
+      <button type="submit" class="btn btn-primary">
+        {% if form_view == 'update' %}
+          {% trans "Save" context "sinn" %}
+        {% else %}
+          {% trans "Create" %}
+        {% endif %}
+      </button>
+      <a href="{% url 'etherpad-list' group=group.pk %}" class="btn">
+        {% trans "Cancel" %}
+      </a>
+    </div>
+  </div>
+</form>
+{% endblock %}
+
+{% block extrafooter %}
+{{ block.super }}
+<script type="text/javascript" src="{% static "js/vendor/jquery-ui-autocomplete.min.js" %}"></script>
+<script type="text/javascript">
+{% if form_view != 'update' %}
+$("#id_title").focus();
+{% endif %}
+var availableTags = [
+    {% for tag in tags %}
+        "{{ tag }}",
+    {% endfor %}
+];
+</script>
+<script type="text/javascript" src="{% static "js/vendor/jquery.ui.autocomplete-tags.js" %}"></script>
+{% endblock %}

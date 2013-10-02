@@ -1,0 +1,11 @@
+{% extends "etherpad/base.html" %}
+{% load i18n static %}
+{% block page_title %}{{ etherpad.title }}{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}
+<li class="active">{{ etherpad.title }}</li>
+{% endblock %}
+
+{% block content %}
+<iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
+{% endblock %}

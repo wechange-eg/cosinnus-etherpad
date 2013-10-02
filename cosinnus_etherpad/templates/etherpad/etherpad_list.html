@@ -1,0 +1,78 @@
+{% extends "etherpad/base.html" %}
+{% load i18n %}
+{% block page_title %}Etherpads{% endblock %}
+
+{% block breadcrumbs %}{{ block.super }}
+<li class="active">{% trans "List" %}</li>
+{% endblock %}
+
+{% block subnav_add_right %}
+<a href="{% url 'etherpad-create' group=group.pk %}" class="btn">
+  {% trans "New Etherpad" %}
+</a>
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+{% if tags %}
+  {% for tag in tags %}
+    <a href="{% url 'etherpad-list-filtered' group=group.pk tag=tag.slug %}"><span class="label">{{ tag.name }}</span></a>
+  {% endfor %}
+{% else %}
+  {% trans "No tags available." %}
+{% endif %}
+
+{% if etherpad_list %}
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_title }}">{% trans "Title" %}</a></th>
+      <th>{% trans "Tags" %}</th>
+      <th>{% trans "Actions" %}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in etherpad_list %}
+    <tr>
+      <td>
+        <a href="{% url 'etherpad-detail' group=group.pk slug=object.slug %}">
+          {{ object.title }}
+        </a>
+      </td>
+      <td>
+        {% for tag in object.tags.all %}
+          <a href="{% url 'etherpad-list-filtered' group=group.pk tag=tag.slug %}"><span class="label">{{ tag.name }}</span></a>
+        {% empty %}
+        -
+        {% endfor %}
+      </td>
+      <td>
+        <div class="btn-group">
+          <a class="btn btn-primary btn-mini" href="{% url 'etherpad-detail' group=group.pk slug=object.slug %}">
+            <i class="icon-eye-open icon-white"></i> {% trans "Show" %}
+          </a>
+          <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="{% url 'etherpad-update' group=group.pk slug=object.slug %}">
+                <i class="icon-pencil"></i> {% trans "Edit" %}
+              </a>
+            </li>
+            <li>
+              <a href="{% url 'etherpad-delete' group=group.pk slug=object.slug %}">
+                <i class="icon-trash"></i> {% trans "Delete" %}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>{% trans "No Etherpads created" %}</p>
+{% endif %}
+{% endblock %}
