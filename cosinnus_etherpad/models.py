@@ -11,8 +11,8 @@ from django.dispatch import receiver
 
 from django_extensions.db.fields import AutoSlugField
 
-from cosinnus.authentication.models import Group
-from cosinnus.utils.models import TaggableModel
+from cosinnus.models.group import Group
+from cosinnus.models.utils import TaggableModel
 
 from cosinnus_etherpad.client import EtherpadClient
 from cosinnus_etherpad.managers import EtherpadManager
@@ -43,7 +43,7 @@ class Etherpad(TaggableModel):
 
     def get_absolute_url(self):
         kwargs = {'group': self.group.pk, 'slug': self.slug}
-        return reverse('etherpad-detail', kwargs=kwargs)
+        return reverse('cosinnus:etherpad:detail', kwargs=kwargs)
 
     def get_pad_url(self):
         pad_id = quote_plus(self.pad_id.encode('utf8'))

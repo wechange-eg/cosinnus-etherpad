@@ -8,9 +8,9 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from extra_views.contrib.mixins import SortableListMixin
 
-from cosinnus.authentication.views import (RequireGroupMixin, FilterGroupMixin,
+from cosinnus.views.mixins.group import (RequireGroupMixin, FilterGroupMixin,
     GroupFormKwargsMixin)
-from cosinnus.utils.views import TaggedListMixin
+from cosinnus.views.mixins.tagged import TaggedListMixin
 
 from cosinnus_etherpad.models import Etherpad
 from cosinnus_etherpad.forms import EtherpadForm

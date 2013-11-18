@@ -1,4 +1,4 @@
-{% extends "etherpad/base.html" %}
+{% extends "cosinnus_etherpad/base.html" %}
 {% load i18n %}
 
 {% block page_title %}
@@ -28,7 +28,7 @@
       <button type="submit" class="btn btn-danger">
         {% trans "Delete" %}
       </button>
-      <a href="{% url 'etherpad-list' group=group.pk %}" class="btn">
+      <a href="{% url 'cosinnus:etherpad:list' group=group.pk %}" class="btn">
         {% trans "Cancel" %}
       </a>
     </div>

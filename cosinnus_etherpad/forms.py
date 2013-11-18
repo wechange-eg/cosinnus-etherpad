@@ -3,8 +3,18 @@ from __future__ import unicode_literals
 
 from django import forms
 
-from cosinnus.authentication.forms import GroupKwargModelFormMixin
-from cosinnus.utils.forms import BootstrapTagWidget
+from cosinnus.forms.authentication import GroupKwargModelFormMixin
+
+#######################################################################
+# This should probably fixed in core - or somewhat removed, as Markus
+# mentioned he wanted to get rid of django-bootstraptoolkit
+from cosinnus.forms.widgets.bootstrap import BaseBootstrapInputWidget
+from taggit.forms import TagWidget
+from django.utils.safestring import mark_safe
+class BootstrapTagWidget(BaseBootstrapInputWidget, TagWidget):
+    append = mark_safe('<i class="icon-tags"></i>')
+#######################################################################
+
 
 from cosinnus_etherpad.models import Etherpad
 

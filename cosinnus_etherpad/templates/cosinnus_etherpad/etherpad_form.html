@@ -1,4 +1,4 @@
-{% extends "etherpad/base.html" %}
+{% extends "cosinnus_etherpad/base.html" %}
 {% load i18n bootstrap_toolkit %}
 {% load static from staticfiles %}
 
@@ -35,7 +35,7 @@
           {% trans "Create" %}
         {% endif %}
       </button>
-      <a href="{% url 'etherpad-list' group=group.pk %}" class="btn">
+      <a href="{% url 'cosinnus:etherpad:list' group=group.pk %}" class="btn">
         {% trans "Cancel" %}
       </a>
     </div>

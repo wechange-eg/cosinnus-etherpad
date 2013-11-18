@@ -9,7 +9,7 @@ from django.db import models
 class EtherpadManager(models.Manager):
 
     def tags(self):
-        event_type = ContentType.objects.get(app_label="etherpad", model="etherpad")
+        event_type = ContentType.objects.get(app_label="cosinnus_etherpad", model="etherpad")
 
         tag_names = []
         for ti in TaggedItem.objects.filter(content_type_id=event_type):

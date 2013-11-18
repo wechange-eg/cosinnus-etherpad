@@ -5,13 +5,22 @@ import requests
 import time
 
 from datetime import datetime, timedelta
+from django.core.exceptions import ImproperlyConfigured
 
-from django.conf import settings
+from cosinnus_etherpad.conf import settings
 
 
 class EtherpadClient(object):
-    apiKey = settings.ETHERPAD_LITE_API_KEY
-    baseUrl = settings.ETHERPAD_LITE_BASE_URL
+    apiKey = settings.COSINNUS_ETHERPAD_API_KEY
+    baseUrl = settings.COSINNUS_ETHERPAD_BASE_URL
+
+    def __init__(self):
+        if not self.apiKey:
+            raise ImproperlyConfigured('Missing configuration of COSINNUS_ETHERPAD_API_KEY')
+
+        if not self.baseUrl:
+            raise ImproperlyConfigured('Missing configuration of COSINNUS_ETHERPAD_BASE_URL')
+
 
     def _method_url(self, method, version='1.2.7'):
         return '/'.join([self.baseUrl, 'api', version, method])
