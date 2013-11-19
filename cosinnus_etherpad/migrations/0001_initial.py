@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import datetime
+from south.utils import datetime_utils as datetime
 from south.db import db
 from south.v2 import SchemaMigration
 from django.db import models
@@ -9,24 +9,26 @@ class Migration(SchemaMigration):
 
     def forwards(self, orm):
         # Adding model 'Etherpad'
-        db.create_table(u'etherpad_etherpad', (
+        db.create_table(u'cosinnus_etherpad_etherpad', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+            ('media_tag', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cosinnus.TagObject'], unique=True, null=True, blank=True)),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255)),
-            ('slug', self.gf('django_extensions.db.fields.AutoSlugField')(allow_duplicates=False, max_length=255, separator=u'-', blank=True, populate_from='title', overwrite=False)),
+            ('slug', self.gf('django_extensions.db.fields.AutoSlugField')(allow_duplicates=False, max_length=255, separator=u'-', blank=True, populate_from=u'title', overwrite=False)),
             ('group', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.Group'])),
+            ('pad_id', self.gf('django.db.models.fields.CharField')(max_length=255)),
         ))
-        db.send_create_signal(u'etherpad', ['Etherpad'])
+        db.send_create_signal(u'cosinnus_etherpad', ['Etherpad'])
 
         # Adding unique constraint on 'Etherpad', fields ['group', 'slug']
-        db.create_unique(u'etherpad_etherpad', ['group_id', 'slug'])
+        db.create_unique(u'cosinnus_etherpad_etherpad', ['group_id', 'slug'])
 
 
     def backwards(self, orm):
         # Removing unique constraint on 'Etherpad', fields ['group', 'slug']
-        db.delete_unique(u'etherpad_etherpad', ['group_id', 'slug'])
+        db.delete_unique(u'cosinnus_etherpad_etherpad', ['group_id', 'slug'])
 
         # Deleting model 'Etherpad'
-        db.delete_table(u'etherpad_etherpad')
+        db.delete_table(u'cosinnus_etherpad_etherpad')
 
 
     models = {
@@ -50,13 +52,21 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        u'etherpad.etherpad': {
-            'Meta': {'unique_together': "(('group', 'slug'),)", 'object_name': 'Etherpad'},
+        u'cosinnus.tagobject': {
+            'Meta': {'object_name': 'TagObject'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'place': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'cosinnus_etherpad.etherpad': {
+            'Meta': {'unique_together': "((u'group', u'slug'),)", 'object_name': 'Etherpad'},
             'group': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.Group']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'slug': ('django_extensions.db.fields.AutoSlugField', [], {'allow_duplicates': 'False', 'max_length': '255', 'separator': "u'-'", 'blank': 'True', 'populate_from': "'title'", 'overwrite': 'False'}),
+            'media_tag': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['cosinnus.TagObject']", 'unique': 'True', 'null': 'True', 'blank': 'True'}),
+            'pad_id': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'slug': ('django_extensions.db.fields.AutoSlugField', [], {'allow_duplicates': 'False', 'max_length': '255', 'separator': "u'-'", 'blank': 'True', 'populate_from': "u'title'", 'overwrite': 'False'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})
         }
     }
 
-    complete_apps = ['etherpad']
+    complete_apps = ['cosinnus_etherpad']

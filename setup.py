@@ -52,6 +52,7 @@ setup(
     data_files=data_files,
     install_requires=[
         'cosinnus>=0.1a0',
+        'South>=0.7',
         'django-appconf>=0.6',
         'django-taggit>=0.10a1',
         'django-extensions>=1.2.5',

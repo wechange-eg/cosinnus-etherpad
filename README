@@ -2,7 +2,7 @@
 Installation
 ============
 
-* Add ``'cosinnus_etherpad', 'appconf' and 'taggit'`` to ``INSTALLED_APPS``
+* Add ``'cosinnus_etherpad', 'appconf', 'south' and 'taggit'`` to ``INSTALLED_APPS``
 * Add the following settings:
 ``
   COSINNUS_ETHERPAD_API_KEY = '<your API key>'
