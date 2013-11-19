@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from urllib import quote_plus
 
+from django.contrib.auth.models import Group
 from django.db import models
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.utils.translation import ugettext_lazy as _
@@ -11,14 +12,13 @@ from django.dispatch import receiver
 
 from django_extensions.db.fields import AutoSlugField
 
-from cosinnus.models.group import Group
-from cosinnus.models.utils import TaggableModel
+from cosinnus.models import BaseTaggableObjectModel
 
 from cosinnus_etherpad.client import EtherpadClient
 from cosinnus_etherpad.managers import EtherpadManager
 
 
-class Etherpad(TaggableModel):
+class Etherpad(BaseTaggableObjectModel):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
 
