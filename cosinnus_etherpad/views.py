@@ -67,7 +67,7 @@ class EtherpadDeleteView(RequireGroupMixin, FilterGroupMixin, DeleteView):
     model = Etherpad
 
     def get_success_url(self):
-        return reverse('etherpad-list', kwargs={'group': self.group.pk})
+        return reverse('cosinnus:etherpad:list', kwargs={'group': self.group.pk})
 
 
 class EtherpadUpdateView(RequireGroupMixin, FilterGroupMixin,
