@@ -4,7 +4,7 @@
 {% block breadcrumbs %}
 {{ block.super }}
 <li>
-  <a href="{% url 'sinn_auth-group-detail' group=group.pk %}">
+  <a href="{% url 'cosinnus:group-detail' group=group.pk %}">
     {{ group.name }}
   </a>
   <span class="divider">/</span>
