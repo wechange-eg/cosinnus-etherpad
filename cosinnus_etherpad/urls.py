@@ -7,7 +7,7 @@ from cosinnus_etherpad.views import (EtherpadView, EtherpadListView,
     EtherpadCreateView, EtherpadDeleteView, EtherpadUpdateView)
 
 
-urlpatterns = patterns('',
+cosinnus_group_patterns = patterns('',
     url(r'^list/$',
         EtherpadListView.as_view(),
         name='list'),
@@ -32,3 +32,7 @@ urlpatterns = patterns('',
         EtherpadUpdateView.as_view(),
         name='update'),
 )
+
+
+cosinnus_root_patterns = patterns(None)
+urlpatterns = cosinnus_group_patterns + cosinnus_root_patterns
