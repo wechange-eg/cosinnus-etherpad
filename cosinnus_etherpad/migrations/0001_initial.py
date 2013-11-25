@@ -11,10 +11,10 @@ class Migration(SchemaMigration):
         # Adding model 'Etherpad'
         db.create_table(u'cosinnus_etherpad_etherpad', (
             (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('media_tag', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cosinnus.TagObject'], unique=True, null=True, blank=True)),
+            ('media_tag', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cosinnus.TagObject'], unique=True, null=True, on_delete=models.PROTECT, blank=True)),
+            ('group', self.gf('django.db.models.fields.related.ForeignKey')(related_name=u'cosinnus_etherpad_etherpad_set', on_delete=models.PROTECT, to=orm['auth.Group'])),
             ('title', self.gf('django.db.models.fields.CharField')(max_length=255)),
             ('slug', self.gf('django_extensions.db.fields.AutoSlugField')(allow_duplicates=False, max_length=255, separator=u'-', blank=True, populate_from=u'title', overwrite=False)),
-            ('group', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['auth.Group'])),
             ('pad_id', self.gf('django.db.models.fields.CharField')(max_length=255)),
         ))
         db.send_create_signal(u'cosinnus_etherpad', ['Etherpad'])
@@ -60,9 +60,9 @@ class Migration(SchemaMigration):
         },
         u'cosinnus_etherpad.etherpad': {
             'Meta': {'unique_together': "((u'group', u'slug'),)", 'object_name': 'Etherpad'},
-            'group': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['auth.Group']"}),
+            'group': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'cosinnus_etherpad_etherpad_set'", 'on_delete': 'models.PROTECT', 'to': u"orm['auth.Group']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'media_tag': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['cosinnus.TagObject']", 'unique': 'True', 'null': 'True', 'blank': 'True'}),
+            'media_tag': ('django.db.models.fields.related.OneToOneField', [], {'to': u"orm['cosinnus.TagObject']", 'unique': 'True', 'null': 'True', 'on_delete': 'models.PROTECT', 'blank': 'True'}),
             'pad_id': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
             'slug': ('django_extensions.db.fields.AutoSlugField', [], {'allow_duplicates': 'False', 'max_length': '255', 'separator': "u'-'", 'blank': 'True', 'populate_from': "u'title'", 'overwrite': 'False'}),
             'title': ('django.db.models.fields.CharField', [], {'max_length': '255'})

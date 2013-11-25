@@ -29,8 +29,6 @@ class Etherpad(BaseTaggableObjectModel):
     title = models.CharField(_('Title'), max_length=255)
     slug = AutoSlugField(_('Slug'), max_length=255, populate_from='title')
 
-    group = models.ForeignKey(Group)
-
     pad_id = models.CharField(max_length=255, editable=False)
 
     objects = EtherpadManager()
@@ -42,7 +40,7 @@ class Etherpad(BaseTaggableObjectModel):
         return self.title
 
     def get_absolute_url(self):
-        kwargs = {'group': self.group.pk, 'slug': self.slug}
+        kwargs = {'group': self.group.name, 'slug': self.slug}
         return reverse('cosinnus:etherpad:detail', kwargs=kwargs)
 
     def get_pad_url(self):

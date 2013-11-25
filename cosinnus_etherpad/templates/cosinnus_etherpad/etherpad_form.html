@@ -15,10 +15,10 @@
 
 {% block breadcrumbs %}{{ block.super }}
 <li class="active">
-  {% if form_view == 'update' %}
-  {% trans "Update" %}
+  {% if form_view == 'edit' %}
+  {% trans "Edit" %}
   {% else %}
-  {% trans "Create" %}
+  {% trans "Add" %}
   {% endif %}
 </li>
 {% endblock %}
@@ -29,13 +29,13 @@
   <div class="control-group">
     <div class="controls">
       <button type="submit" class="btn btn-primary">
-        {% if form_view == 'update' %}
+        {% if form_view == 'edit' %}
           {% trans "Save" context "sinn" %}
         {% else %}
-          {% trans "Create" %}
+          {% trans "Add" %}
         {% endif %}
       </button>
-      <a href="{% url 'cosinnus:etherpad:list' group=group.pk %}" class="btn">
+      <a href="{% url 'cosinnus:etherpad:list' group=group.name %}" class="btn">
         {% trans "Cancel" %}
       </a>
     </div>
@@ -47,7 +47,7 @@
 {{ block.super }}
 <script type="text/javascript" src="{% static "js/vendor/jquery-ui-autocomplete.min.js" %}"></script>
 <script type="text/javascript">
-{% if form_view != 'update' %}
+{% if form_view != 'edit' %}
 $("#id_title").focus();
 {% endif %}
 var availableTags = [

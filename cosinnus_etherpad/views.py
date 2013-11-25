@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.core.urlresolvers import reverse
-from django.views.generic import DetailView
+from django.views.generic import DetailView, RedirectView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
@@ -14,6 +14,13 @@ from cosinnus.views.mixins.tagged import TaggedListMixin
 
 from cosinnus_etherpad.models import Etherpad
 from cosinnus_etherpad.forms import EtherpadForm
+
+
+class EtherpadIndexView(RequireGroupMixin, RedirectView):
+
+    def get_redirect_url(self, **kwargs):
+        return reverse('cosinnus:etherpad:list',
+                       kwargs={'group': self.group.name})
 
 
 class EtherpadView(RequireGroupMixin, FilterGroupMixin, DetailView):
@@ -41,13 +48,13 @@ class EtherpadListView(RequireGroupMixin, FilterGroupMixin, TaggedListMixin,
         return super(EtherpadListView, self).get(request, *args, **kwargs)
 
 
-class EtherpadCreateView(RequireGroupMixin, FilterGroupMixin,
+class EtherpadAddView(RequireGroupMixin, FilterGroupMixin,
                          GroupFormKwargsMixin, CreateView):
     form_class = EtherpadForm
     model = Etherpad
 
     def get_context_data(self, **kwargs):
-        context = super(EtherpadCreateView, self).get_context_data(**kwargs)
+        context = super(EtherpadAddView, self).get_context_data(**kwargs)
         tags = Etherpad.objects.tags()
         context.update({
             'tags': tags
@@ -58,7 +65,7 @@ class EtherpadCreateView(RequireGroupMixin, FilterGroupMixin,
         self.etherpad = form.save(commit=False)
         self.etherpad.group = self.group
         self.etherpad.save()
-        ret = super(EtherpadCreateView, self).form_valid(form)
+        ret = super(EtherpadAddView, self).form_valid(form)
         form.save_m2m()
         return ret
 
@@ -67,17 +74,18 @@ class EtherpadDeleteView(RequireGroupMixin, FilterGroupMixin, DeleteView):
     model = Etherpad
 
     def get_success_url(self):
-        return reverse('cosinnus:etherpad:list', kwargs={'group': self.group.pk})
+        return reverse('cosinnus:etherpad:list',
+            kwargs={'group': self.group.name})
 
 
-class EtherpadUpdateView(RequireGroupMixin, FilterGroupMixin,
+class EtherpadEditView(RequireGroupMixin, FilterGroupMixin,
                          GroupFormKwargsMixin, UpdateView):
     form_class = EtherpadForm
-    form_view = 'update'
+    form_view = 'edit'
     model = Etherpad
 
     def get_context_data(self, **kwargs):
-        context = super(EtherpadUpdateView, self).get_context_data(**kwargs)
+        context = super(EtherpadEditView, self).get_context_data(**kwargs)
         tags = Etherpad.objects.tags()
         context.update({
             'form_view': self.form_view,

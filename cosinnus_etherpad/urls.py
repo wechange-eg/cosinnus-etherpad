@@ -3,11 +3,16 @@ from __future__ import unicode_literals
 
 from django.conf.urls import patterns, url
 
-from cosinnus_etherpad.views import (EtherpadView, EtherpadListView,
-    EtherpadCreateView, EtherpadDeleteView, EtherpadUpdateView)
+from cosinnus_etherpad.views import (
+    EtherpadIndexView, EtherpadView, EtherpadListView,
+    EtherpadAddView, EtherpadDeleteView, EtherpadEditView)
 
 
 cosinnus_group_patterns = patterns('',
+    url(r'^$',
+        EtherpadIndexView.as_view(),
+        name='index'),
+
     url(r'^list/$',
         EtherpadListView.as_view(),
         name='list'),
@@ -16,21 +21,21 @@ cosinnus_group_patterns = patterns('',
         EtherpadListView.as_view(),
         name='list-filtered'),
 
-    url(r'^create/$',
-        EtherpadCreateView.as_view(),
-        name='create'),
+    url(r'^add/$',
+        EtherpadAddView.as_view(),
+        name='add'),
 
-    url(r'^pad/(?P<slug>[a-zA-Z0-9\-]+)/$',
+    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/$',
         EtherpadView.as_view(),
         name='detail'),
 
-    url(r'^pad/(?P<slug>[a-zA-Z0-9\-]+)/delete/$',
+    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/delete/$',
         EtherpadDeleteView.as_view(),
         name='delete'),
 
-    url(r'^pad/(?P<slug>[a-zA-Z0-9\-]+)/update/$',
-        EtherpadUpdateView.as_view(),
-        name='update'),
+    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/edit/$',
+        EtherpadEditView.as_view(),
+        name='edit'),
 )
 
 
