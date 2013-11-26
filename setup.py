@@ -55,7 +55,6 @@ setup(
         'South>=0.7',
         'django-appconf>=0.6',
         'django-taggit>=0.10a1',
-        'django-extensions>=1.2.5',
         'django-extra-views>=0.6.3',
         'requests>=2.0.1',
     ],
