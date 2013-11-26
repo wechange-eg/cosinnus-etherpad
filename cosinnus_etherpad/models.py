@@ -10,8 +10,6 @@ from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.dispatch import receiver
 
-from django_extensions.db.fields import AutoSlugField
-
 from cosinnus.models import BaseTaggableObjectModel
 
 from cosinnus_etherpad.client import EtherpadClient
@@ -26,13 +24,11 @@ class Etherpad(BaseTaggableObjectModel):
         super(Etherpad, self).__init__(*args, **kwargs)
         self.client = EtherpadClient()
 
-    title = models.CharField(_('Title'), max_length=255)
-    slug = AutoSlugField(_('Slug'), max_length=255, populate_from='title')
-
     pad_id = models.CharField(max_length=255, editable=False)
 
     objects = EtherpadManager()
 
+    # move to base model?
     class Meta:
         unique_together = (('group', 'slug'),)
 
@@ -70,7 +66,7 @@ def delete_etherpad_group(sender, instance, **kwargs):
 def create_group_etherpad(sender, instance, **kwargs):
     if not instance.pk:
         instance.pad_id = instance.client.create_pad(
-            instance.title, instance.group.name)
+            instance.slug, instance.group.name)
 
 
 @receiver(post_delete, sender=Etherpad)
