@@ -3,14 +3,13 @@ from __future__ import unicode_literals
 
 from urllib import quote_plus
 
-from django.contrib.auth.models import Group
 from django.db import models
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.dispatch import receiver
 
-from cosinnus.models import BaseTaggableObjectModel
+from cosinnus.models import BaseTaggableObjectModel, CosinnusGroup
 
 from cosinnus_etherpad.client import EtherpadClient
 from cosinnus_etherpad.managers import EtherpadManager
@@ -36,7 +35,7 @@ class Etherpad(BaseTaggableObjectModel):
         return self.title
 
     def get_absolute_url(self):
-        kwargs = {'group': self.group.name, 'slug': self.slug}
+        kwargs = {'group': self.group.slug, 'slug': self.slug}
         return reverse('cosinnus:etherpad:detail', kwargs=kwargs)
 
     def get_pad_url(self):
@@ -50,14 +49,14 @@ class Etherpad(BaseTaggableObjectModel):
         return self.client.create_session(group_id, user_id)
 
 
-@receiver(post_save, sender=Group)
+@receiver(post_save, sender=CosinnusGroup)
 def create_etherpad_group(sender, instance, created, **kwargs):
     if created:
         client = EtherpadClient()
         client.get_or_create_group(instance.name)
 
 
-@receiver(post_delete, sender=Group)
+@receiver(post_delete, sender=CosinnusGroup)
 def delete_etherpad_group(sender, instance, **kwargs):
     pass  # TODO
 

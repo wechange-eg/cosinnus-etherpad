@@ -20,7 +20,7 @@ class EtherpadIndexView(RequireGroupMixin, RedirectView):
 
     def get_redirect_url(self, **kwargs):
         return reverse('cosinnus:etherpad:list',
-                       kwargs={'group': self.group.name})
+                       kwargs={'group': self.group.slug})
 
 
 class EtherpadView(RequireGroupMixin, FilterGroupMixin, DetailView):
@@ -74,8 +74,8 @@ class EtherpadDeleteView(RequireGroupMixin, FilterGroupMixin, DeleteView):
     model = Etherpad
 
     def get_success_url(self):
-        return reverse('cosinnus:etherpad:list',
-            kwargs={'group': self.group.name})
+        kwargs = { 'group': self.group.slug }
+        return reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
 
 class EtherpadEditView(RequireGroupMixin, FilterGroupMixin,

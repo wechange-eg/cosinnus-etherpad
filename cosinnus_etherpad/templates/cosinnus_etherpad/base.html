@@ -4,13 +4,13 @@
 {% block breadcrumbs %}
 {{ block.super }}
 <li>
-  <a href="{% url 'cosinnus:group-detail' group=group.name %}">
-    {{ group.name }}
+  <a href="{% url 'cosinnus:group-detail' group=group.slug %}">
+    {{ group.slug }}
   </a>
   <span class="divider">/</span>
 </li>
 <li>
-  <a href="{% url 'cosinnus:etherpad:list' group=group.name %}">
+  <a href="{% url 'cosinnus:etherpad:list' group=group.slug %}">
     {% trans "Etherpad" %}
   </a>
   <span class="divider">/</span>

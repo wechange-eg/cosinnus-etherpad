@@ -36,7 +36,7 @@
           {% trans "Add" %}
         {% endif %}
       </button>
-      <a href="{% url 'cosinnus:etherpad:list' group=group.name %}" class="btn">
+      <a href="{% url 'cosinnus:etherpad:list' group=group.slug %}" class="btn">
         {% trans "Cancel" %}
       </a>
     </div>
