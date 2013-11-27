@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from django import forms
 
-from cosinnus.forms.authentication import GroupKwargModelFormMixin
+from cosinnus.forms.group import GroupKwargModelFormMixin
 from cosinnus_etherpad.models import Etherpad
 
 
