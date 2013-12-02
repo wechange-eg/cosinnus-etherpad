@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from urllib import quote_plus
+from six.moves.urllib.parse import quote_plus
 
 from django.db import models
 from django.db.models.signals import pre_save, post_save, post_delete
