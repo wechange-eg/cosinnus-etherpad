@@ -30,9 +30,9 @@ packages, data_files = [], []
 root_dir = os.path.dirname(__file__)
 if root_dir != '':
     os.chdir(root_dir)
-django_dir = 'cosinnus'
+pkgdir = 'cosinnus_etherpad'
 
-for dirpath, dirnames, filenames in os.walk(django_dir):
+for dirpath, dirnames, filenames in os.walk(pkgdir):
     # Ignore PEP 3147 cache dirs and those whose names start with '.'
     dirnames[:] = [d for d in dirnames if not d.startswith('.') and d != '__pycache__']
     if '__init__.py' in filenames:
@@ -40,10 +40,11 @@ for dirpath, dirnames, filenames in os.walk(django_dir):
     elif filenames:
         data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames]])
 
+from cosinnus_etherpad import get_version
 
 setup(
     name='cosinnus-etherpad',
-    version='0.1a0',
+    version=get_version(),
     description='cosinnus etherpad application',
     long_description=read('README'),
     author='Sinnwerkstatt Medienagentur GmbH Berlin',
@@ -52,15 +53,8 @@ setup(
     data_files=data_files,
     install_requires=[
         'cosinnus>=0.1dev',
-        'South>=0.7',
-        'django-appconf>=0.6',
         'django-extra-views>=0.6.3',
-        'django-taggit>=0.10a1',
         'requests>=2.0.1',
-        'django-bootstrap3',
-    ],
-    dependency_links=[
-        'git+git://github.com/Markush2010/django-bootstrap3.git@develop#egg=django-bootstrap3'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
