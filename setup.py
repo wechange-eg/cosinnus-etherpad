@@ -54,7 +54,6 @@ setup(
         'cosinnus>=0.1dev',
         'South>=0.7',
         'django-appconf>=0.6',
-        'django-crispy-forms>=1.4.0',
         'django-extra-views>=0.6.3',
         'django-taggit>=0.10a1',
         'requests>=2.0.1',

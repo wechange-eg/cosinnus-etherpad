@@ -1,6 +1,6 @@
 {% extends "cosinnus_etherpad/base.html" %}
 {% load i18n %}
-{% load crispy_forms_tags %}
+{% load bootstrap3 %}
 {% load static from staticfiles %}
 
 {% block page_title %}
@@ -26,7 +26,7 @@
 
 {% block content %}
 <form action="." method="post" class="form-horizontal">{% csrf_token %}
-  {{ form|crispy }}
+  {{ bootstrap_form form }}
   <div class="control-group">
     <div class="controls">
       <button type="submit" class="btn btn-primary">
