@@ -51,13 +51,17 @@ setup(
     packages=find_packages(exclude=["tests"]),
     data_files=data_files,
     install_requires=[
-        'cosinnus>=0.1a0',
+        'cosinnus>=0.1dev',
         'South>=0.7',
         'django-appconf>=0.6',
         'django-crispy-forms>=1.4.0',
         'django-extra-views>=0.6.3',
         'django-taggit>=0.10a1',
         'requests>=2.0.1',
+        'django-bootstrap3',
+    ],
+    dependency_links=[
+        'git+git://github.com/Markush2010/django-bootstrap3.git@develop#egg=django-bootstrap3'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
