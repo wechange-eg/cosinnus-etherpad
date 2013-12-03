@@ -12,7 +12,7 @@
 {% endif %}
 
 <ul class="nav nav-pills pull-right">
-  <li class="active"><a href="{% url 'cosinnus:etherpad:add' group=group.slug %}" class="btn">{% trans "Add" %}</a></li>
+  <li class="active"><a href="{% url 'cosinnus:etherpad:add' group=group.slug %}" class="btn"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a></li>
 </ul>
 
 
@@ -42,22 +42,16 @@
       </td>
       <td>
         <div class="btn-group">
-          <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:detail' group=group.slug slug=object.slug %}">
-            <i class="icon-eye-open icon-white"></i> {% trans "Show" %}
-          </a>
+          <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:detail' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-eye-open"></span> {% trans "Show" %}</a>
           <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
             <li>
-              <a href="{% url 'cosinnus:etherpad:edit' group=group.slug slug=object.slug %}">
-                <i class="icon-pencil"></i> {% trans "Edit" %}
-              </a>
+              <a href="{% url 'cosinnus:etherpad:edit' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"> {% trans "Edit" %}</a>
             </li>
             <li>
-              <a href="{% url 'cosinnus:etherpad:delete' group=group.slug slug=object.slug %}">
-                <i class="icon-trash"></i> {% trans "Delete" %}
-              </a>
+              <a href="{% url 'cosinnus:etherpad:delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
             </li>
           </ul>
         </div>
