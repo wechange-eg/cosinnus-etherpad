@@ -1,26 +1,20 @@
 {% extends "cosinnus_etherpad/base.html" %}
 {% load i18n %}
-{% block page_title %}Etherpads{% endblock %}
-
-{% block breadcrumbs %}{{ block.super }}
-<li class="active">{% trans "List" %}</li>
-{% endblock %}
-
-{% block subnav_add_right %}
-<a href="{% url 'cosinnus:etherpad:add' group=group.slug %}" class="btn">
-  {% trans "New Etherpad" %}
-</a>
-{{ block.super }}
-{% endblock %}
+{% block page_title %}{% trans "Etherpads" %}{% endblock %}
 
 {% block content %}
 {% if tags %}
   {% for tag in tags %}
-    <a href="{% url 'cosinnus:etherpad:list-filtered' group=group.slug tag=tag.slug %}"><span class="label">{{ tag.name }}</span></a>
+    <a href="{% url 'cosinnus:etherpad:list-filtered' group=group.slug tag=tag.slug %}"><span class="label label-default">{{ tag.name }}</span></a>
   {% endfor %}
 {% else %}
   {% trans "No tags available." %}
 {% endif %}
+
+<ul class="nav nav-pills pull-right">
+  <li class="active"><a href="{% url 'cosinnus:etherpad:add' group=group.slug %}" class="btn">{% trans "Add" %}</a></li>
+</ul>
+
 
 {% if etherpad_list %}
 <table class="table table-striped">
@@ -41,7 +35,7 @@
       </td>
       <td>
         {% for tag in object.tags.all %}
-          <a href="{% url 'cosinnus:etherpad:list-filtered' group=group.slug tag=tag.slug %}"><span class="label">{{ tag.name }}</span></a>
+          <a href="{% url 'cosinnus:etherpad:list-filtered' group=group.slug tag=tag.slug %}"><span class="label label-default">{{ tag.name }}</span></a>
         {% empty %}
         -
         {% endfor %}
