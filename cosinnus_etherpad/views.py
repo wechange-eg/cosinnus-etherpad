@@ -14,8 +14,8 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from extra_views.contrib.mixins import SortableListMixin
 
-from cosinnus.views.mixins.group import (RequireGroupMixin, FilterGroupMixin,
-    GroupFormKwargsMixin)
+from cosinnus.views.mixins.group import (
+    RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin)
 from cosinnus.views.mixins.tagged import TaggedListMixin
 
 from cosinnus_etherpad.conf import settings
@@ -23,14 +23,14 @@ from cosinnus_etherpad.models import Etherpad
 from cosinnus_etherpad.forms import EtherpadForm
 
 
-class EtherpadIndexView(RequireGroupMixin, RedirectView):
+class EtherpadIndexView(RequireReadMixin, RedirectView):
 
     def get_redirect_url(self, **kwargs):
         return reverse('cosinnus:etherpad:list',
                        kwargs={'group': self.group.slug})
 
 
-class EtherpadView(RequireGroupMixin, FilterGroupMixin, DetailView):
+class EtherpadView(RequireReadMixin, FilterGroupMixin, DetailView):
     model = Etherpad
 
     def _get_cookie_domain(self):
@@ -67,7 +67,7 @@ class EtherpadView(RequireGroupMixin, FilterGroupMixin, DetailView):
         return response
 
 
-class EtherpadListView(RequireGroupMixin, FilterGroupMixin, TaggedListMixin,
+class EtherpadListView(RequireReadMixin, FilterGroupMixin, TaggedListMixin,
                        SortableListMixin, ListView):
     model = Etherpad
 
@@ -76,7 +76,7 @@ class EtherpadListView(RequireGroupMixin, FilterGroupMixin, TaggedListMixin,
         return super(EtherpadListView, self).get(request, *args, **kwargs)
 
 
-class EtherpadAddView(RequireGroupMixin, FilterGroupMixin,
+class EtherpadAddView(RequireWriteMixin, FilterGroupMixin,
                          GroupFormKwargsMixin, CreateView):
     form_class = EtherpadForm
     model = Etherpad
@@ -98,7 +98,7 @@ class EtherpadAddView(RequireGroupMixin, FilterGroupMixin,
         return ret
 
 
-class EtherpadDeleteView(RequireGroupMixin, FilterGroupMixin, DeleteView):
+class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
     model = Etherpad
 
     def get_success_url(self):
@@ -106,7 +106,7 @@ class EtherpadDeleteView(RequireGroupMixin, FilterGroupMixin, DeleteView):
         return reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
 
-class EtherpadEditView(RequireGroupMixin, FilterGroupMixin,
+class EtherpadEditView(RequireWriteMixin, FilterGroupMixin,
                          GroupFormKwargsMixin, UpdateView):
     form_class = EtherpadForm
     form_view = 'edit'
