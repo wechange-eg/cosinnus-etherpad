@@ -7,10 +7,10 @@ cosinnus_group_patterns = patterns('cosinnus_etherpad.views',
     url(r'^$', 'index_view', name='index'),
     url(r'^list/$', 'list_view', name='list'),
     url(r'^list/(?P<tag>[^/]+)/$', 'list_view', name='list-filtered'),
-    url(r'^add/$', 'add_view', name='add'),
-    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/$', 'detail_view', name='detail'),
-    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/delete/$', 'delete_view', name='delete'),
-    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/edit/$', 'edit_view', name='edit'),
+    url(r'^add/$', 'pad_add_view', name='pad-add'),
+    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/$', 'pad_detail_view', name='pad-detail'),
+    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/delete/$', 'pad_delete_view', name='pad-delete'),
+    url(r'^(?P<slug>[a-zA-Z0-9\-]+)/edit/$', 'pad_edit_view', name='pad-edit'),
 )
 
 

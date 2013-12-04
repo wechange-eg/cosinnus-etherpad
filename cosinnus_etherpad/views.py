@@ -32,6 +32,17 @@ class EtherpadIndexView(RequireReadMixin, RedirectView):
 index_view = EtherpadIndexView.as_view()
 
 
+class EtherpadListView(RequireReadMixin, FilterGroupMixin, TaggedListMixin,
+                       SortableListMixin, ListView):
+    model = Etherpad
+
+    def get(self, request, *args, **kwargs):
+        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
+        return super(EtherpadListView, self).get(request, *args, **kwargs)
+
+list_view = EtherpadListView.as_view()
+
+
 class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
     model = Etherpad
 
@@ -68,18 +79,7 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 
         return response
 
-detail_view = EtherpadDetailView.as_view()
-
-
-class EtherpadListView(RequireReadMixin, FilterGroupMixin, TaggedListMixin,
-                       SortableListMixin, ListView):
-    model = Etherpad
-
-    def get(self, request, *args, **kwargs):
-        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
-        return super(EtherpadListView, self).get(request, *args, **kwargs)
-
-list_view = EtherpadListView.as_view()
+pad_detail_view = EtherpadDetailView.as_view()
 
 
 class EtherpadAddView(RequireWriteMixin, FilterGroupMixin,
@@ -103,7 +103,7 @@ class EtherpadAddView(RequireWriteMixin, FilterGroupMixin,
         form.save_m2m()
         return ret
 
-add_view = EtherpadAddView.as_view()
+pad_add_view = EtherpadAddView.as_view()
 
 
 class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
@@ -113,7 +113,7 @@ class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
         kwargs = { 'group': self.group.slug }
         return reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
-delete_view = EtherpadDeleteView.as_view()
+pad_delete_view = EtherpadDeleteView.as_view()
 
 
 class EtherpadEditView(RequireWriteMixin, FilterGroupMixin,
@@ -131,4 +131,4 @@ class EtherpadEditView(RequireWriteMixin, FilterGroupMixin,
         })
         return context
 
-edit_view = EtherpadEditView.as_view()
+pad_edit_view = EtherpadEditView.as_view()
