@@ -29,8 +29,10 @@ class EtherpadIndexView(RequireReadMixin, RedirectView):
         return reverse('cosinnus:etherpad:list',
                        kwargs={'group': self.group.slug})
 
+index_view = EtherpadIndexView.as_view()
 
-class EtherpadView(RequireReadMixin, FilterGroupMixin, DetailView):
+
+class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
     model = Etherpad
 
     def _get_cookie_domain(self):
@@ -51,7 +53,7 @@ class EtherpadView(RequireReadMixin, FilterGroupMixin, DetailView):
 
 
     def render_to_response(self, context, **response_kwargs):
-        response = super(EtherpadView, self).render_to_response(
+        response = super(EtherpadDetailView, self).render_to_response(
             context, **response_kwargs)
 
         # set cross-domain session cookie for etherpad app
@@ -66,6 +68,8 @@ class EtherpadView(RequireReadMixin, FilterGroupMixin, DetailView):
 
         return response
 
+detail_view = EtherpadDetailView.as_view()
+
 
 class EtherpadListView(RequireReadMixin, FilterGroupMixin, TaggedListMixin,
                        SortableListMixin, ListView):
@@ -74,6 +78,8 @@ class EtherpadListView(RequireReadMixin, FilterGroupMixin, TaggedListMixin,
     def get(self, request, *args, **kwargs):
         self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
         return super(EtherpadListView, self).get(request, *args, **kwargs)
+
+list_view = EtherpadListView.as_view()
 
 
 class EtherpadAddView(RequireWriteMixin, FilterGroupMixin,
@@ -97,6 +103,8 @@ class EtherpadAddView(RequireWriteMixin, FilterGroupMixin,
         form.save_m2m()
         return ret
 
+add_view = EtherpadAddView.as_view()
+
 
 class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
     model = Etherpad
@@ -104,6 +112,8 @@ class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
     def get_success_url(self):
         kwargs = { 'group': self.group.slug }
         return reverse('cosinnus:etherpad:list', kwargs=kwargs)
+
+delete_view = EtherpadDeleteView.as_view()
 
 
 class EtherpadEditView(RequireWriteMixin, FilterGroupMixin,
@@ -120,3 +130,5 @@ class EtherpadEditView(RequireWriteMixin, FilterGroupMixin,
             'tags': tags
         })
         return context
+
+edit_view = EtherpadEditView.as_view()
