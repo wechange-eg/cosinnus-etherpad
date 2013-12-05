@@ -1,28 +1,20 @@
 {% extends "cosinnus_etherpad/base.html" %}
 {% load i18n %}
 
+
 {% block page_title %}
-{% trans "Delete Etherpad" %}
-{% endblock %}
+{% trans "Delete" %} {{ etherpad.title }} : {{ block.super }}
+{% endblock page_title %}
 
-{% block breadcrumbs %}{{ block.super }}
-<li>
-  <a href="{{ etherpad.get_absolute_url }}">{{ etherpad.title }}</a>
-  <span class="divider">/</span>
-</li>
-<li class="active">
-  {% trans "Delete" %}
-</li>
-{% endblock %}
-
-{% block subnav_add_right %}{% endblock %}
 
 {% block content %}
-<form action="." method="post" class="form-inline">
+<h1>{% trans "Delete" %} {{ etherpad.title }} : {{ group.name }}</h1>
+
+<form action="" method="post" class="form-inline">
   {% csrf_token %}
   <div class="control-group">
     <label class="control-label">
-      {% trans "Are you sure you want to delete this Etherpad?" %}
+      <h3>{% trans "Are you sure you want to delete this Etherpad?" %}</h3>
     </label>
     <div class="controls">
       <button type="submit" class="btn btn-danger">
@@ -34,4 +26,4 @@
     </div>
   </div>
 </form>
-{% endblock %}
+{% endblock content %}

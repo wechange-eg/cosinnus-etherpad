@@ -1,8 +1,14 @@
 {% extends "cosinnus_etherpad/base.html" %}
 {% load i18n %}
-{% block page_title %}{% trans "Etherpads" %}{% endblock %}
+
+{% block page_title %}
+{% trans "Pads" %} : {{ block.super }}
+{% endblock page_title %}
+
 
 {% block content %}
+<h1>{% trans "Pads" %} : {{ group.name }}</h1>
+
 {% if tags %}
   {% for tag in tags %}
     <a href="{% url 'cosinnus:etherpad:list-filtered' group=group.slug tag=tag.slug %}"><span class="label label-default">{{ tag.name }}</span></a>
@@ -64,4 +70,4 @@
 {% else %}
 <p>{% trans "No Etherpads added" %}</p>
 {% endif %}
-{% endblock %}
+{% endblock content %}

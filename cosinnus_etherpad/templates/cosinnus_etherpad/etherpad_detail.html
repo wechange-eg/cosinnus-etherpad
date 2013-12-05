@@ -1,11 +1,14 @@
 {% extends "cosinnus_etherpad/base.html" %}
 {% load i18n static %}
-{% block page_title %}{{ etherpad.title }}{% endblock %}
 
-{% block breadcrumbs %}{{ block.super }}
-<li class="active">{{ etherpad.title }}</li>
-{% endblock %}
+{% block page_title %}
+{{ etherpad.title }} : {{ block.super }}
+{% endblock page_title %}
+
+
 
 {% block content %}
+<h1>{% trans "Pad" %} {{ etherpad.title }} : {{ group.name }} </h1>
+
 <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
 {% endblock %}

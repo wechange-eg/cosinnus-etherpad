@@ -86,11 +86,13 @@ class EtherpadAddView(RequireWriteMixin, FilterGroupMixin,
                          GroupFormKwargsMixin, CreateView):
     form_class = EtherpadForm
     model = Etherpad
+    form_view = 'add'
 
     def get_context_data(self, **kwargs):
         context = super(EtherpadAddView, self).get_context_data(**kwargs)
         tags = Etherpad.objects.tags()
         context.update({
+            'form_view': self.form_view,
             'tags': tags
         })
         return context
