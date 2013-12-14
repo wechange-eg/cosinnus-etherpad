@@ -70,4 +70,4 @@ def create_group_etherpad(sender, instance, **kwargs):
 
 @receiver(post_delete, sender=Etherpad)
 def delete_group_etherpad(sender, instance, **kwargs):
-    pass  # TODO
+    instance.client.delete_pad(instance.pad_id)
