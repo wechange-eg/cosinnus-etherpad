@@ -46,7 +46,7 @@ setup(
     name='cosinnus-etherpad',
     version=get_version(),
     description='cosinnus etherpad application',
-    long_description=read('README'),
+    long_description=read('README.md'),
     author='Sinnwerkstatt Medienagentur GmbH Berlin',
     author_email='sh@sinnwerkstatt.com',
     packages=find_packages(exclude=["tests"]),
