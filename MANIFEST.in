@@ -1,6 +1,6 @@
 include AUTHORS
 include LICENSE
-include README
+include README.md
 recursive-include cosinnus_etherpad/locale *
 recursive-include cosinnus_etherpad/migrations *
 recursive-include cosinnus_etherpad/templates *
