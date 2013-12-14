@@ -2,13 +2,13 @@
 {% load i18n static %}
 
 {% block page_title %}
-{{ etherpad.title }} : {{ block.super }}
+{{ etherpad.title }} {{ block.super }}
 {% endblock page_title %}
 
 
 
 {% block content %}
-<h1>{% trans "Pad" %} {{ etherpad.title }} : {{ group.name }} </h1>
+<h1>{{ group.name }}: {{ etherpad.title }}</h1>
 
 <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
 {% endblock %}

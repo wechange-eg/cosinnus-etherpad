@@ -3,12 +3,12 @@
 
 
 {% block page_title %}
-{% trans "Delete" %} {{ etherpad.title }} : {{ block.super }}
+{% trans "Delete" %} {{ etherpad.title }} {{ block.super }}
 {% endblock page_title %}
 
 
 {% block content %}
-<h1>{% trans "Delete" %} {{ etherpad.title }} : {{ group.name }}</h1>
+<h1>{{ group.name }}: {% trans "Delete" %} {{ etherpad.title }}</h1>
 
 <form action="" method="post" class="form-inline">
   {% csrf_token %}

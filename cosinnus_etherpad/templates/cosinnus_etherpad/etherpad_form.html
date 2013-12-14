@@ -9,7 +9,7 @@
 {% elif form_view == "edit" %}
   {% trans "Edit" %} {{ etherpad.title }}
 {% endif %}
-: {{ block.super }}
+{{ block.super }}
 {% endblock page_title %}
 
 
@@ -20,12 +20,12 @@
 
 {% block content %}
 <h1>
+{{ group.name }}:
 {% if form_view == "add" %}
   {% trans "Add pad" %}
 {% elif form_view == "edit" %}
   {% trans "Edit" %} {{ etherpad.title }}
 {% endif %}
-: {{ group.name }}
 </h1>
 
 <form action="" method="post" class="form-horizontal">{% csrf_token %}

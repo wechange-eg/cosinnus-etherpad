@@ -2,12 +2,12 @@
 {% load i18n %}
 
 {% block page_title %}
-{% trans "Pads" %} : {{ block.super }}
+{% trans "Pads" %} {{ block.super }}
 {% endblock page_title %}
 
 
 {% block content %}
-<h1>{% trans "Pads" %} : {{ group.name }}</h1>
+<h1>{{ group.name }}: {% trans "Pads" %}</h1>
 
 {% if tags %}
   {% for tag in tags %}
