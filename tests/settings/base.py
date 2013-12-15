@@ -19,7 +19,7 @@ USE_TZ = True
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 SECRET_KEY = 'test-secret-key'
-ROOT_URLCONF = 'cosinnus.urls'
+ROOT_URLCONF = 'tests.urls'
 INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
@@ -36,6 +36,14 @@ INSTALLED_APPS = (
     'cosinnus_etherpad',
     'tests',
 )
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+'cosinnus.utils.context_processors.settings',
+]
 COSINNUS_ETHERPAD_API_KEY = 'z1Y8DmomTWO1NaVV0OKzhUBfnkQdMZGk'
 COSINNUS_ETHERPAD_BASE_URL = 'http://pad.sinnwerkstatt.com'
 if django.VERSION[:2] < (1, 6):
