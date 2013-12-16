@@ -21,7 +21,6 @@ class EtherpadClient(object):
         if not self.baseUrl:
             raise ImproperlyConfigured('Missing configuration of COSINNUS_ETHERPAD_BASE_URL')
 
-
     def _method_url(self, method, version='1.2.7'):
         return '/'.join([self.baseUrl, 'api', version, method])
 

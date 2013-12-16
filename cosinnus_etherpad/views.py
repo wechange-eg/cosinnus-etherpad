@@ -62,7 +62,6 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
             domain = None
         return domain
 
-
     def render_to_response(self, context, **response_kwargs):
         response = super(EtherpadDetailView, self).render_to_response(
             context, **response_kwargs)
@@ -82,8 +81,9 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 pad_detail_view = EtherpadDetailView.as_view()
 
 
-class EtherpadAddView(RequireWriteMixin, FilterGroupMixin,
-                         GroupFormKwargsMixin, CreateView):
+class EtherpadAddView(
+        RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin, CreateView):
+
     form_class = EtherpadForm
     model = Etherpad
     form_view = 'add'
@@ -112,14 +112,15 @@ class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
     model = Etherpad
 
     def get_success_url(self):
-        kwargs = { 'group': self.group.slug }
+        kwargs = {'group': self.group.slug}
         return reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
 pad_delete_view = EtherpadDeleteView.as_view()
 
 
-class EtherpadEditView(RequireWriteMixin, FilterGroupMixin,
-                         GroupFormKwargsMixin, UpdateView):
+class EtherpadEditView(
+        RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin, UpdateView):
+
     form_class = EtherpadForm
     form_view = 'edit'
     model = Etherpad

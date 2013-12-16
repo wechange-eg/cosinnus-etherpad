@@ -5,7 +5,6 @@ from six.moves.urllib.parse import quote_plus
 
 from django.db import models
 from django.db.models.signals import pre_save, post_save, post_delete
-from django.utils.translation import ugettext_lazy as _
 from django.core.urlresolvers import reverse
 from django.dispatch import receiver
 
