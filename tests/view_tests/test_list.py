@@ -20,7 +20,7 @@ class ListTest(ViewTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(
             reverse('cosinnus:etherpad:pad-add', kwargs=kwargs),
-            response.content)
+            str(response.content)) # type byte in Python3.3
 
     def test_list_filtered_invalid_tag(self):
         """
@@ -48,7 +48,7 @@ class ListTest(ViewTestCase):
         kwargs = { 'group': self.group.slug, 'slug': pad.slug }
         self.assertIn(
             reverse('cosinnus:etherpad:pad-edit', kwargs=kwargs),
-            response.content)
+            str(response.content)) # type byte in Python3.3
 
         # be nice to remote server and delete pad also there
         pad.delete()

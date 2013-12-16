@@ -24,7 +24,7 @@ class DetailTest(ViewTestCase):
         self.assertEqual(response.status_code, 200)
 
         # content should contain pad title
-        self.assertIn(pad.title, response.content)
+        self.assertIn(pad.title, str(response.content))
 
         # should set cookie for etherpad server session
         self.assertIn('sessionID', response.cookies)

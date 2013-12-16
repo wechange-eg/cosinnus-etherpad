@@ -15,12 +15,10 @@ class EditTest(ViewTestCase):
         self.kwargs = { 'group': self.group.slug, 'slug': self.pad.slug }
         self.url = reverse('cosinnus:etherpad:pad-edit', kwargs=self.kwargs)
 
-
     def tearDown(self, *args, **kwargs):
         # be nice to remote server and delete pad also there
         self.pad.delete()
         super(EditTest, self).tearDown(*args, **kwargs)
-
 
     def test_edit_get_not_logged_in(self):
         """
@@ -39,12 +37,6 @@ class EditTest(ViewTestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
-        # content should have pad title in form set to readonlyy
-        # TODO: test less template HTML code here
-        self.assertIn(
-            '<input class="form-control" id="id_title" maxlength="255" name="title" placeholder="Title" readonly="True" required="" title="" type="text" value="%s" />' % self.pad.title,
-            response.content)
-
     def test_edit_post_not_logged_in(self):
         """
         Should return 403 on POST if not logged in
@@ -52,7 +44,6 @@ class EditTest(ViewTestCase):
         self.client.logout()
         response = self.client.post(self.url)
         self.assertEqual(response.status_code, 403)
-
 
     def test_edit_post_logged_in(self):
         """
