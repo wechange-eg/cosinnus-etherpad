@@ -65,6 +65,6 @@ class DeleteTest(ViewTestCase):
         kwargs = {'group': self.group.slug}
         self.assertIn(
             reverse('cosinnus:etherpad:list', kwargs=kwargs),
-            response.url)
+            response.get('location'))
         num_pads = len(Etherpad.objects.all())
         self.assertEqual(num_pads, 0)

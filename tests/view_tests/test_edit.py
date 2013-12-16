@@ -73,6 +73,6 @@ class EditTest(ViewTestCase):
         self.assertEqual(response.status_code, 302)
         self.assertIn(
             reverse('cosinnus:etherpad:pad-detail', kwargs=self.kwargs),
-            response.url)
+            response.get('location'))
         num_tags = len(self.pad.tags.filter(name=tag))
         self.assertEqual(num_tags, 1)

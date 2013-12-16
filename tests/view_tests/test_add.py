@@ -61,4 +61,4 @@ class AddTest(ViewTestCase):
         kwargs = { 'group': self.group.slug, 'slug': pad.slug }
         self.assertIn(
             reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs),
-            response.url)
+            response.get('location'))

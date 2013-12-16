@@ -20,4 +20,4 @@ class IndexTest(ViewTestCase):
         self.assertEqual(response.status_code, 301)
         self.assertIn(
             reverse('cosinnus:etherpad:list', kwargs=kwargs),
-            response.url)
+            response.get('location'))
