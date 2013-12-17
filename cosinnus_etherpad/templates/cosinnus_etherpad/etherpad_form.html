@@ -18,16 +18,17 @@
 {% endblock extrahead %}
 
 
-{% block content %}
-<h1>
+{% block content_title %}
 {{ group.name }}:
 {% if form_view == "add" %}
   {% trans "Add pad" %}
 {% elif form_view == "edit" %}
   {% trans "Edit" %} {{ etherpad.title }}
 {% endif %}
-</h1>
+{% endblock content_title %}
 
+
+{% block content %}
 <form action="" method="post" class="form-horizontal">{% csrf_token %}
   {% bootstrap_form form %}
 

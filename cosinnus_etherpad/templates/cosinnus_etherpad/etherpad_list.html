@@ -6,9 +6,12 @@
 {% endblock page_title %}
 
 
-{% block content %}
-<h1>{{ group.name }}: {% trans "Pads" %}</h1>
+{% block content_title %}
+{{ group.name }}: {% trans "Pads" %}
+{% endblock content_title %}
 
+
+{% block content %}
 {% if tags %}
   {% for tag in tags %}
     <a href="{% url 'cosinnus:etherpad:list-filtered' group=group.slug tag=tag.slug %}"><span class="label label-default">{{ tag.name }}</span></a>
