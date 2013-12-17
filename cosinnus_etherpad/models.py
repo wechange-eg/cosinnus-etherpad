@@ -3,9 +3,9 @@ from __future__ import unicode_literals
 
 from six.moves.urllib.parse import quote_plus
 
+from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save, post_save, post_delete
-from django.core.urlresolvers import reverse
 from django.dispatch import receiver
 
 from cosinnus.models import BaseTaggableObjectModel, CosinnusGroup
@@ -18,20 +18,13 @@ class Etherpad(BaseTaggableObjectModel):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
 
-    def __init__(self, *args, **kwargs):
-        super(Etherpad, self).__init__(*args, **kwargs)
-        self.client = EtherpadClient()
-
     pad_id = models.CharField(max_length=255, editable=False)
 
     objects = EtherpadManager()
 
-    # move to base model?
-    class Meta:
-        unique_together = (('group', 'slug'),)
-
-    def __unicode__(self):
-        return self.title
+    def __init__(self, *args, **kwargs):
+        super(Etherpad, self).__init__(*args, **kwargs)
+        self.client = EtherpadClient()
 
     def get_absolute_url(self):
         kwargs = {'group': self.group.slug, 'slug': self.slug}
