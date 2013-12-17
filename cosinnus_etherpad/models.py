@@ -48,11 +48,6 @@ def create_etherpad_group(sender, instance, created, **kwargs):
         client.get_or_create_group(instance.name)
 
 
-@receiver(post_delete, sender=CosinnusGroup)
-def delete_etherpad_group(sender, instance, **kwargs):
-    pass  # TODO
-
-
 @receiver(pre_save, sender=Etherpad)
 def create_group_etherpad(sender, instance, **kwargs):
     if not instance.pk:
