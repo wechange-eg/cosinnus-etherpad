@@ -16,7 +16,7 @@ class DetailTest(ViewTestCase):
         session
         """
         pad = Etherpad.objects.create(group=self.group, title='foopad')
-        kwargs = { 'group': self.group.slug, 'slug': pad.slug }
+        kwargs = {'group': self.group.slug, 'slug': pad.slug}
         url = reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
         response = self.client.get(url)
 

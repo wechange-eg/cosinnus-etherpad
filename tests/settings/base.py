@@ -42,12 +42,12 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
-'cosinnus.utils.context_processors.settings',
+    'cosinnus.utils.context_processors.settings',
 ]
 TEMPLATE_LOADERS = (
-     'django.template.loaders.filesystem.Loader',
-     'django.template.loaders.app_directories.Loader',
-     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 COSINNUS_ETHERPAD_API_KEY = 'z1Y8DmomTWO1NaVV0OKzhUBfnkQdMZGk'
 COSINNUS_ETHERPAD_BASE_URL = 'http://pad.sinnwerkstatt.com'

@@ -12,7 +12,7 @@ class EditTest(ViewTestCase):
     def setUp(self, *args, **kwargs):
         super(EditTest, self).setUp(*args, **kwargs)
         self.pad = Etherpad.objects.create(group=self.group, title='foopad')
-        self.kwargs = { 'group': self.group.slug, 'slug': self.pad.slug }
+        self.kwargs = {'group': self.group.slug, 'slug': self.pad.slug}
         self.url = reverse('cosinnus:etherpad:pad-edit', kwargs=self.kwargs)
 
     def tearDown(self, *args, **kwargs):

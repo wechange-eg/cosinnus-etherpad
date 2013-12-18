@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django import forms
 from django.test import TestCase
 from uuid import uuid4
 
@@ -18,7 +17,7 @@ class EtherpadFormTest(TestCase):
         title = 'testpad'
         self.pad = Etherpad.objects.create(
             group=self.group, title=title)
-        self.data = { 'title': title }
+        self.data = {'title': title}
 
     def tearDown(self):
         # explicitly need to delete object, otherwise signal post_delete

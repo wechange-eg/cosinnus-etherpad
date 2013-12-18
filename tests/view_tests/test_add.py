@@ -11,9 +11,8 @@ class AddTest(ViewTestCase):
 
     def setUp(self, *args, **kwargs):
         super(AddTest, self).setUp(*args, **kwargs)
-        self.kwargs = { 'group': self.group.slug }
+        self.kwargs = {'group': self.group.slug}
         self.url = reverse('cosinnus:etherpad:pad-add', kwargs=self.kwargs)
-
 
     def test_add_get_not_logged_in(self):
         """
@@ -58,7 +57,7 @@ class AddTest(ViewTestCase):
 
         # do not catch exception here
         pad = Etherpad.objects.get(title=title)
-        kwargs = { 'group': self.group.slug, 'slug': pad.slug }
+        kwargs = {'group': self.group.slug, 'slug': pad.slug}
         self.assertIn(
             reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs),
             response.get('location'))

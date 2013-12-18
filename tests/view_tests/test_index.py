@@ -12,7 +12,7 @@ class IndexTest(ViewTestCase):
         """
         Should permanently redirect to list view
         """
-        kwargs = { 'group': self.group.slug }
+        kwargs = {'group': self.group.slug}
         url = reverse('cosinnus:etherpad:index', kwargs=kwargs)
         response = self.client.get(url)
 

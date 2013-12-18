@@ -12,16 +12,14 @@ class DeleteTest(ViewTestCase):
     def setUp(self, *args, **kwargs):
         super(DeleteTest, self).setUp(*args, **kwargs)
         self.pad = Etherpad.objects.create(group=self.group, title='foopad')
-        self.kwargs = { 'group': self.group.slug, 'slug': self.pad.slug }
+        self.kwargs = {'group': self.group.slug, 'slug': self.pad.slug}
         self.url = reverse('cosinnus:etherpad:pad-delete', kwargs=self.kwargs)
-
 
     def tearDown(self, *args, **kwargs):
         # be nice to remote server and delete pad also there
-        if self.pad.id: # only if not deleted already
+        if self.pad.id:  # only if not deleted already
             self.pad.delete()
         super(DeleteTest, self).tearDown(*args, **kwargs)
-
 
     def test_delete_get_not_logged_in(self):
         """
@@ -47,7 +45,6 @@ class DeleteTest(ViewTestCase):
         self.client.logout()
         response = self.client.post(self.url)
         self.assertEqual(response.status_code, 403)
-
 
     def test_delete_post_logged_in(self):
         """
