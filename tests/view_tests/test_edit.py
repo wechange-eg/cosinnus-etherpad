@@ -11,7 +11,7 @@ class EditTest(ViewTestCase):
 
     def setUp(self, *args, **kwargs):
         super(EditTest, self).setUp(*args, **kwargs)
-        self.pad = Etherpad.objects.create(group=self.group, title='foopad')
+        self.pad = Etherpad.objects.create(group=self.group, title='testpad')
         self.kwargs = {'group': self.group.slug, 'slug': self.pad.slug}
         self.url = reverse('cosinnus:etherpad:pad-edit', kwargs=self.kwargs)
 
@@ -20,7 +20,7 @@ class EditTest(ViewTestCase):
         self.pad.delete()
         super(EditTest, self).tearDown(*args, **kwargs)
 
-    def test_edit_get_not_logged_in(self):
+    def test_get_not_logged_in(self):
         """
         Should return 403 on GET if not logged in
         """
@@ -28,7 +28,7 @@ class EditTest(ViewTestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 403)
 
-    def test_edit_get_logged_in(self):
+    def test_get_logged_in(self):
         """
         Should return 200 on GET and have pad title set to readonly in form
         when logged in
@@ -37,7 +37,7 @@ class EditTest(ViewTestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
-    def test_edit_post_not_logged_in(self):
+    def test_post_not_logged_in(self):
         """
         Should return 403 on POST if not logged in
         """
@@ -45,7 +45,7 @@ class EditTest(ViewTestCase):
         response = self.client.post(self.url)
         self.assertEqual(response.status_code, 403)
 
-    def test_edit_post_logged_in(self):
+    def test_post_logged_in(self):
         """
         Should return 302 to detail page on successful POST and have tag
         saved to pad

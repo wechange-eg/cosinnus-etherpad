@@ -15,7 +15,7 @@ class DetailTest(ViewTestCase):
         Should return 200, contain pad title and cookie for etherpad server
         session
         """
-        pad = Etherpad.objects.create(group=self.group, title='foopad')
+        pad = Etherpad.objects.create(group=self.group, title='testpad')
         kwargs = {'group': self.group.slug, 'slug': pad.slug}
         url = reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
         response = self.client.get(url)

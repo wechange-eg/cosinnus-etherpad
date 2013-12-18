@@ -14,6 +14,7 @@ class EtherpadTest(TestCase):
     pad_title = 'testpad'
 
     def setUp(self):
+        super(EtherpadTest, self).setUp()
         self.group = CosinnusGroup.objects.create(
             name='testgroup-' + str(uuid4()))
         self.pad = Etherpad.objects.create(
@@ -23,10 +24,11 @@ class EtherpadTest(TestCase):
         # explicitly need to delete object, otherwise signal post_delete
         # won't be fired and pad on server will persist
         self.pad.delete()
+        super(EtherpadTest, self).tearDown()
 
-    def test_new_etherpad(self):
+    def test_new_pad(self):
         """
-        Should have set pad title
+        Should have set title in new pad
         """
         self.assertEqual(self.pad.title, self.pad_title)
 

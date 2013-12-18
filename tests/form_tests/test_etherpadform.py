@@ -12,6 +12,7 @@ from cosinnus_etherpad.models import Etherpad
 class EtherpadFormTest(TestCase):
 
     def setUp(self):
+        super(EtherpadFormTest, self).setUp()
         self.group = CosinnusGroup.objects.create(
             name='testgroup-' + str(uuid4()))
         title = 'testpad'
@@ -23,6 +24,7 @@ class EtherpadFormTest(TestCase):
         # explicitly need to delete object, otherwise signal post_delete
         # won't be fired and pad on server will persist
         self.pad.delete()
+        super(EtherpadFormTest, self).tearDown()
 
     def test_readonly_title(self):
         """

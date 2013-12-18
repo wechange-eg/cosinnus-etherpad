@@ -14,7 +14,7 @@ class AddTest(ViewTestCase):
         self.kwargs = {'group': self.group.slug}
         self.url = reverse('cosinnus:etherpad:pad-add', kwargs=self.kwargs)
 
-    def test_add_get_not_logged_in(self):
+    def test_get_not_logged_in(self):
         """
         Should return 403 on GET if not logged in
         """
@@ -22,7 +22,7 @@ class AddTest(ViewTestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 403)
 
-    def test_add_get_logged_in(self):
+    def test_get_logged_in(self):
         """
         Should return 200 on GET when logged in
         """
@@ -30,7 +30,7 @@ class AddTest(ViewTestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
-    def test_add_post_not_logged_in(self):
+    def test_post_not_logged_in(self):
         """
         Should return 403 on POST if not logged in
         """
@@ -38,7 +38,7 @@ class AddTest(ViewTestCase):
         response = self.client.post(self.url)
         self.assertEqual(response.status_code, 403)
 
-    def test_add_post_logged_in(self):
+    def test_post_logged_in(self):
         """
         Should return 302 to detail page on successful POST and have a pad
         with given title
@@ -47,7 +47,7 @@ class AddTest(ViewTestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
 
-        title = 'foopad'
+        title = 'testpad'
         params = {
             'csrfmiddlewaretoken': response.cookies['csrftoken'].value,
             'title': title,

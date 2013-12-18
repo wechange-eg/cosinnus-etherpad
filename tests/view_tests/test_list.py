@@ -22,7 +22,7 @@ class ListTest(ViewTestCase):
             reverse('cosinnus:etherpad:pad-add', kwargs=kwargs),
             str(response.content))  # type byte in Python3.3
 
-    def test_list_filtered_invalid_tag(self):
+    def test_filtered_invalid_tag(self):
         """
         Should return 404 on invalid tag
         """
@@ -33,12 +33,12 @@ class ListTest(ViewTestCase):
         response = self.client.get(url)
         self.assertEqual(response.status_code, 404)
 
-    def test_list_filtered_valid_tag(self):
+    def test_filtered_valid_tag(self):
         """
         Should return 200 on valid tag and URL to edit pad
         """
         tag = 'foo'
-        pad = Etherpad.objects.create(group=self.group, title='foopad')
+        pad = Etherpad.objects.create(group=self.group, title='testpad')
         pad.tags.add(tag)
         kwargs = {'group': self.group.slug, 'tag': tag}
         url = reverse('cosinnus:etherpad:list-filtered', kwargs=kwargs)
