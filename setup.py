@@ -52,7 +52,7 @@ setup(
     packages=find_packages(exclude=["tests"]),
     data_files=data_files,
     install_requires=[
-        'cosinnus>=0.1.dev',
+        'cosinnus>=0.1.dev0',
         'django-extra-views>=0.6.3',
         'requests>=2.0.1',
     ],
