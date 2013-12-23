@@ -49,7 +49,7 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.app_directories.Loader',
     'django.template.loaders.eggs.Loader',
 )
-COSINNUS_ETHERPAD_API_KEY = 'z1Y8DmomTWO1NaVV0OKzhUBfnkQdMZGk'
-COSINNUS_ETHERPAD_BASE_URL = 'http://pad.sinnwerkstatt.com'
+COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
+COSINNUS_ETHERPAD_BASE_URL = 'http://pad.sinnwerkstatt.com/api'
 if django.VERSION[:2] < (1, 6):
     TEST_RUNNER = 'discover_runner.DiscoverRunner'
