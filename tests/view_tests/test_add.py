@@ -61,3 +61,7 @@ class AddTest(ViewTestCase):
         self.assertIn(
             reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs),
             response.get('location'))
+
+        # explicitly need to delete object, otherwise signals won't be fired
+        # and pad on server will persist
+        pad.delete()

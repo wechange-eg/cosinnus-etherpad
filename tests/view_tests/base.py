@@ -18,3 +18,9 @@ class ViewTestCase(TestCase):
         self.credential = 'admin'
         self.admin = User.objects.create_superuser(
             username=self.credential, email=None, password=self.credential)
+
+    def tearDown(self, *args, **kwargs):
+        # explicitly need to delete object, otherwise signals won't be fired
+        # and group on server will persist
+        self.group.delete()
+        super(ViewTestCase, self).tearDown(*args, **kwargs)

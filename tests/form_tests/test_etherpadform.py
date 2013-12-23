@@ -21,9 +21,10 @@ class EtherpadFormTest(TestCase):
         self.data = {'title': title}
 
     def tearDown(self):
-        # explicitly need to delete object, otherwise signal post_delete
-        # won't be fired and pad on server will persist
+        # explicitly need to delete object, otherwise signals won't be fired
+        # and pad/group on server will persist
         self.pad.delete()
+        self.group.delete()
         super(EtherpadFormTest, self).tearDown()
 
     def test_readonly_title(self):

@@ -17,7 +17,7 @@ class DeleteTest(ViewTestCase):
 
     def tearDown(self, *args, **kwargs):
         # be nice to remote server and delete pad also there
-        if self.pad.id:  # only if not deleted already
+        if self.pad:  # only if not deleted already
             self.pad.delete()
         super(DeleteTest, self).tearDown(*args, **kwargs)
 
@@ -65,3 +65,4 @@ class DeleteTest(ViewTestCase):
             response.get('location'))
         num_pads = len(Etherpad.objects.all())
         self.assertEqual(num_pads, 0)
+        self.pad = None

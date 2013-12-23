@@ -21,9 +21,10 @@ class EtherpadTest(TestCase):
             group=self.group, title=self.pad_title)
 
     def tearDown(self):
-        # explicitly need to delete object, otherwise signal post_delete
-        # won't be fired and pad on server will persist
+        # explicitly need to delete object, otherwise signals won't be fired
+        # and pad/group on server will persist
         self.pad.delete()
+        self.group.delete()
         super(EtherpadTest, self).tearDown()
 
     def test_new_pad(self):
