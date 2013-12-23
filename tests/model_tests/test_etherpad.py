@@ -39,7 +39,9 @@ class EtherpadTest(TestCase):
         """
         pad_url = self.pad.get_pad_url()
         # pad URL should contain base URL and pad title
-        self.assertIn(settings.COSINNUS_ETHERPAD_BASE_URL, pad_url)
+        base_url = settings.COSINNUS_ETHERPAD_BASE_URL
+        base_url = base_url[:base_url.rfind('/api')]
+        self.assertIn(base_url, pad_url)
         self.assertIn(self.pad_title, pad_url)
 
     def test_get_user_session_id(self):

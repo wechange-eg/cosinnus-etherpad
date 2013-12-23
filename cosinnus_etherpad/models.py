@@ -14,7 +14,7 @@ from django.utils.timezone import now
 from cosinnus.models import BaseTaggableObjectModel, CosinnusGroup
 
 #from cosinnus_etherpad.client import EtherpadClient
-from etherpad_lite import EtherpadLiteClient
+from etherpad_lite import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
 
@@ -45,7 +45,9 @@ class Etherpad(BaseTaggableObjectModel):
 
     def get_pad_url(self):
         pad_id = quote_plus(self.pad_id.encode('utf8'))
-        return '/'.join([self.client.base_url, 'p', pad_id])
+        base_url = self.client.base_url
+        base_url = base_url[:base_url.rfind('/api')]
+        return '/'.join([base_url, 'p', pad_id])
 
     def get_user_session_id(self, user):
         author_id = self.client.createAuthorIfNotExistsFor(
@@ -102,4 +104,9 @@ def delete_etherpad(sender, instance, **kwargs):
     """
     Receiver to delete a pad on etherpad server
     """
-    instance.client.deletePad(padID=instance.pad_id)
+    try:
+        instance.client.deletePad(padID=instance.pad_id)
+    except EtherpadException as exc:
+        # failed deletion of missing padIDs is ok
+        if not 'padID does not exist' in exc.message:
+            raise
