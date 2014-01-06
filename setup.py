@@ -54,7 +54,10 @@ setup(
     install_requires=[
         'cosinnus>=0.2.dev0',
         'django-extra-views>=0.6.3',
-        'etherpad-lite>=0.2.0',
+        'etherpad-lite',
+    ],
+    dependency_links=[
+        'git+git://github.com/shatsinn/python-etherpad_lite@master#egg=etherpad-lite',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
