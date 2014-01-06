@@ -10,7 +10,7 @@ from cosinnus_etherpad.models import Etherpad
 class EtherpadForm(GroupKwargModelFormMixin, forms.ModelForm):
     class Meta:
         model = Etherpad
-        fields = ('title', 'tags', 'media_tag')
+        fields = ('title', 'description', 'tags', 'media_tag')
 
     def __init__(self, *args, **kwargs):
         super(EtherpadForm, self).__init__(*args, **kwargs)

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-05 08:50+0000\n"
+"POT-Creation-Date: 2014-01-06 17:20+0100\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -15,38 +15,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/cosinnus_etherpad/base.html:5
+#: cosinnus_app.py:6 templates/cosinnus_etherpad/base.html:5
 msgid "Etherpad"
 msgstr "Etherpad"
 
+#: models.py:36
+msgid "Description"
+msgstr "Beschreibung"
+
 #: templates/cosinnus_etherpad/etherpad_confirm_delete.html:6
-#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:11
-#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:21
-#: templates/cosinnus_etherpad/etherpad_list.html:61
+#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:10
+#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:22
+#: templates/cosinnus_etherpad/etherpad_list.html:64
 msgid "Delete"
 msgstr "Löschen"
 
-#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:17
+#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:18
 msgid "Are you sure you want to delete this Etherpad?"
 msgstr "Sind Sie sicher, dass Sie dieses Etherpad löschen wollen?"
 
-#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:24
+#: templates/cosinnus_etherpad/etherpad_confirm_delete.html:25
 #: templates/cosinnus_etherpad/etherpad_form.html:44
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: templates/cosinnus_etherpad/etherpad_detail.html:11
-msgid "Pad"
-msgstr "Pad"
-
-#: templates/cosinnus_etherpad/etherpad_form.html:8
-#: templates/cosinnus_etherpad/etherpad_form.html:24
+#: templates/cosinnus_etherpad/etherpad_form.html:7
+#: templates/cosinnus_etherpad/etherpad_form.html:23
 msgid "Add pad"
 msgstr "Pad hinzufügen"
 
-#: templates/cosinnus_etherpad/etherpad_form.html:10
-#: templates/cosinnus_etherpad/etherpad_form.html:26
-#: templates/cosinnus_etherpad/etherpad_list.html:58
+#: templates/cosinnus_etherpad/etherpad_form.html:9
+#: templates/cosinnus_etherpad/etherpad_form.html:25
+#: templates/cosinnus_etherpad/etherpad_list.html:61
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -56,7 +56,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #: templates/cosinnus_etherpad/etherpad_form.html:40
-#: templates/cosinnus_etherpad/etherpad_list.html:21
+#: templates/cosinnus_etherpad/etherpad_list.html:24
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -65,26 +65,26 @@ msgstr "Hinzufügen"
 msgid "Pads"
 msgstr "Pads"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:17
+#: templates/cosinnus_etherpad/etherpad_list.html:20
 msgid "No tags available."
 msgstr "Keine Schlagwörter vorhanden."
 
-#: templates/cosinnus_etherpad/etherpad_list.html:29
+#: templates/cosinnus_etherpad/etherpad_list.html:32
 msgid "Title"
 msgstr "Titel"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:30
+#: templates/cosinnus_etherpad/etherpad_list.html:33
 msgid "Tags"
 msgstr "Schlagwörter"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:31
+#: templates/cosinnus_etherpad/etherpad_list.html:34
 msgid "Actions"
 msgstr "Aktionen"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:51
+#: templates/cosinnus_etherpad/etherpad_list.html:54
 msgid "Show"
 msgstr "Anzeigen"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:71
+#: templates/cosinnus_etherpad/etherpad_list.html:74
 msgid "No Etherpads added"
 msgstr "Es wurden keine Etherpads hinzugefügt"

@@ -10,6 +10,7 @@ from django.db import models
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.dispatch import receiver
 from django.utils.timezone import now
+from django.utils.translation import ugettext_lazy as _
 
 from cosinnus.models import BaseTaggableObjectModel, CosinnusGroup
 
@@ -32,6 +33,7 @@ class Etherpad(BaseTaggableObjectModel):
     SORT_FIELDS_ALIASES = [('title', 'title')]
 
     pad_id = models.CharField(max_length=255, editable=False)
+    description = models.TextField(_('Description'), blank=True)
 
     objects = EtherpadManager()
 
