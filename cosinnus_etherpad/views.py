@@ -81,21 +81,33 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 pad_detail_view = EtherpadDetailView.as_view()
 
 
-class EtherpadAddView(
-        RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin, CreateView):
+class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
+    model = Etherpad
 
+    def get_success_url(self):
+        kwargs = {'group': self.group.slug}
+        return reverse('cosinnus:etherpad:list', kwargs=kwargs)
+
+pad_delete_view = EtherpadDeleteView.as_view()
+
+
+class EtherpadFormMixin(
+        RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin):
     form_class = EtherpadForm
     model = Etherpad
-    form_view = 'add'
 
     def get_context_data(self, **kwargs):
-        context = super(EtherpadAddView, self).get_context_data(**kwargs)
+        context = super(EtherpadFormMixin, self).get_context_data(**kwargs)
         tags = Etherpad.objects.tags()
         context.update({
             'form_view': self.form_view,
             'tags': tags
         })
         return context
+
+
+class EtherpadAddView(EtherpadFormMixin, CreateView):
+    form_view = 'add'
 
     def form_valid(self, form):
         self.etherpad = form.save(commit=False)
@@ -108,30 +120,7 @@ class EtherpadAddView(
 pad_add_view = EtherpadAddView.as_view()
 
 
-class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
-    model = Etherpad
-
-    def get_success_url(self):
-        kwargs = {'group': self.group.slug}
-        return reverse('cosinnus:etherpad:list', kwargs=kwargs)
-
-pad_delete_view = EtherpadDeleteView.as_view()
-
-
-class EtherpadEditView(
-        RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin, UpdateView):
-
-    form_class = EtherpadForm
+class EtherpadEditView(EtherpadFormMixin, UpdateView):
     form_view = 'edit'
-    model = Etherpad
-
-    def get_context_data(self, **kwargs):
-        context = super(EtherpadEditView, self).get_context_data(**kwargs)
-        tags = Etherpad.objects.tags()
-        context.update({
-            'form_view': self.form_view,
-            'tags': tags
-        })
-        return context
 
 pad_edit_view = EtherpadEditView.as_view()
