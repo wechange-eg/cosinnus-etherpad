@@ -17,8 +17,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 MEDIA_URL = '/media/'
+MEDIA_ROOT = 'tests/media'
 STATIC_URL = '/static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = 'tests/static'
 SECRET_KEY = 'test-secret-key'
 ROOT_URLCONF = 'tests.urls'
 INSTALLED_APPS = (
@@ -35,6 +36,8 @@ INSTALLED_APPS = (
 
     'cosinnus',
     'cosinnus_etherpad',
+    'cosinnus_wiki',
+    'cosinnus_file',
     'tests',
 )
 TEMPLATE_CONTEXT_PROCESSORS = [

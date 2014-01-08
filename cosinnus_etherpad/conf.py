@@ -8,3 +8,5 @@ from appconf import AppConf
 class CosinnusEtherpadConf(AppConf):
     API_KEY = None
     BASE_URL = None
+    PREFIX_TITLE = 'Etherpad: '
+    FILE_PATH = '/etherpad'

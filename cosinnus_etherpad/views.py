@@ -7,7 +7,9 @@ except ImportError:
     from urlparse import urlparse
 import logging
 
+from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, RedirectView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
@@ -21,6 +23,13 @@ from cosinnus.views.mixins.tagged import TaggedListMixin
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.models import Etherpad
 from cosinnus_etherpad.forms import EtherpadForm
+
+if 'cosinnus_wiki' in settings.INSTALLED_APPS:
+    from cosinnus_wiki.models import Page
+
+if 'cosinnus_file' in settings.INSTALLED_APPS:
+    from django.core.files.base import ContentFile
+    from cosinnus_file.models import FileEntry
 
 
 class EtherpadIndexView(RequireReadMixin, RedirectView):
@@ -63,6 +72,11 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
         return domain
 
     def render_to_response(self, context, **response_kwargs):
+        if 'cosinnus_wiki' in settings.INSTALLED_APPS:
+            context['has_wiki'] = True
+        if 'cosinnus_file' in settings.INSTALLED_APPS:
+            context['has_file'] = True
+
         response = super(EtherpadDetailView, self).render_to_response(
             context, **response_kwargs)
 
@@ -124,3 +138,105 @@ class EtherpadEditView(EtherpadFormMixin, UpdateView):
     form_view = 'edit'
 
 pad_edit_view = EtherpadEditView.as_view()
+
+
+class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
+    def get_title(self, request, pad_title):
+        import time
+        from django.utils.timezone import now
+#        from django.utils.translation import to_locale
+#        import locale
+#
+#        old_locale = locale.getlocale()
+#        lang_code = getattr(request, 'LANGUAGE_CODE', settings.LANGUAGE_CODE)
+#        lang_locale = to_locale(settings.LANGUAGE_CODE)
+#        locale.setlocale(locale.LC_ALL, str(lang_locale))
+#        suffix = ' ' + now().strftime('%c')
+#        locale.setlocale(locale.LC_ALL, old_locale)
+
+        suffix = ' ' + str(int(time.mktime(now().timetuple())))
+        return settings.COSINNUS_ETHERPAD_PREFIX_TITLE + pad_title + suffix
+
+    def get_redirect_url(self, **kwargs):
+        return reverse('cosinnus:etherpad:pad-detail', kwargs={
+            'group': self.group.slug,
+            'slug': self.kwargs['slug'],
+        })
+
+
+class EtherpadArchiveWikiView(EtherpadArchiveMixin):
+    def post(self, request, *args, **kwargs):
+        if 'cosinnus_wiki' in settings.INSTALLED_APPS:
+            pad = Etherpad.objects.get(slug=kwargs['slug'], group=self.group)
+            title = self.get_title(request, pad.title)
+            try:
+                page = Page.objects.get(title=title, group=self.group)
+            except Page.DoesNotExist:
+                page = Page(
+                    title=title, group=self.group, created_by=request.user)
+            page.content = pad.get_pad_html()
+            page.save()
+
+            msg = _('Pad has been archived as Wiki page: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
+                'href': reverse('cosinnus:wiki:page-detail', kwargs={
+                    'group': self.group.slug,
+                    'slug': page.slug,
+                }),
+                'title': title,
+            }
+            messages.info(request, msg)
+        return super(EtherpadArchiveWikiView, self).post(request, *args, **kwargs)
+
+pad_archive_wiki = EtherpadArchiveWikiView.as_view()
+
+
+class EtherpadArchiveFileView(EtherpadArchiveMixin):
+    def _create_folder(self, request, path):
+        title = path[1:]
+
+        try:  # don't use get_or_create: uploaded_by doesn't matter for get
+            FileEntry.objects.get(title=title, group=self.group, isfolder=True)
+        except FileEntry.DoesNotExist:
+            FileEntry.objects.create(
+                title=title,
+                group=self.group,
+                isfolder=True,
+                uploaded_by=request.user,
+                path=path)
+
+    def post(self, request, *args, **kwargs):
+        if 'cosinnus_file' in settings.INSTALLED_APPS:
+            pad = Etherpad.objects.get(slug=kwargs['slug'], group=self.group)
+            title = self.get_title(request, pad.title)
+            content = ContentFile(pad.get_pad_html())
+            if settings.COSINNUS_ETHERPAD_FILE_PATH.startswith('/'):
+                path = settings.COSINNUS_ETHERPAD_FILE_PATH
+            else:
+                path = '/' + settings.COSINNUS_ETHERPAD_FILE_PATH
+
+            self._create_folder(request, path)
+            try:
+                entry = FileEntry.objects.get(title=title, group=self.group)
+                entry.file.delete(save=False)
+            except FileEntry.DoesNotExist:
+                entry = FileEntry(
+                    title=title,
+                    group=self.group,
+                    uploaded_by=request.user,
+                    mimetype='text/html',
+                    path=path)
+                entry.save()  # let slug be calculated
+            filename = entry.slug + '.html'
+            entry.file.save(filename, content, save=True)
+
+            msg = _('Pad has been archived as File entry: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
+                'href': reverse('cosinnus:file:file', kwargs={
+                    'group': self.group.slug,
+                    'slug': entry.slug,
+                }),
+                'title': title,
+            }
+            messages.info(request, msg)
+        return super(EtherpadArchiveFileView, self).post(request, *args, **kwargs)
+
+pad_archive_file = EtherpadArchiveFileView.as_view()

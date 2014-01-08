@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-06 17:20+0100\n"
+"POT-Creation-Date: 2014-01-08 13:22+0100\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -23,6 +23,24 @@ msgstr "Etherpad"
 msgid "Description"
 msgstr "Beschreibung"
 
+#: views.py:180
+#, python-format
+msgid ""
+"Pad has been archived as Wiki page: <a class=\"alert-link\" href=\"%(href)s"
+"\">%(title)s</a>"
+msgstr ""
+"Pad wurde als Wikiseite archiviert: <a class=\"alert-link\" href=\"%(href)s"
+"\">%(title)s</a>"
+
+#: views.py:228
+#, python-format
+msgid ""
+"Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
+"\">%(title)s</a>"
+msgstr ""
+"Pad wurde als Dateieintrag archiviert: <a class=\"alert-link\" href="
+"\"%(href)s\">%(title)s</a>"
+
 #: templates/cosinnus_etherpad/etherpad_confirm_delete.html:6
 #: templates/cosinnus_etherpad/etherpad_confirm_delete.html:10
 #: templates/cosinnus_etherpad/etherpad_confirm_delete.html:22
@@ -38,6 +56,22 @@ msgstr "Sind Sie sicher, dass Sie dieses Etherpad löschen wollen?"
 #: templates/cosinnus_etherpad/etherpad_form.html:44
 msgid "Cancel"
 msgstr "Abbrechen"
+
+#: templates/cosinnus_etherpad/etherpad_detail.html:22
+msgid "Archiving will create a new page"
+msgstr "Archivieren erzeugt eine neue Seite"
+
+#: templates/cosinnus_etherpad/etherpad_detail.html:22
+msgid "Archive as Wiki page"
+msgstr "Archiviere als Wikiseite"
+
+#: templates/cosinnus_etherpad/etherpad_detail.html:31
+msgid "Archiving will create a new file"
+msgstr "Archivieren erzeugt eine neue Datei"
+
+#: templates/cosinnus_etherpad/etherpad_detail.html:31
+msgid "Archive as File entry"
+msgstr "Archiviere als Dateieintrag"
 
 #: templates/cosinnus_etherpad/etherpad_form.html:7
 #: templates/cosinnus_etherpad/etherpad_form.html:23
