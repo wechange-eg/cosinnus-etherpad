@@ -18,7 +18,8 @@ class DetailTest(ViewTestCase):
         pad = Etherpad.objects.create(group=self.group, title='testpad')
         kwargs = {'group': self.group.slug, 'slug': pad.slug}
         url = reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
-        response = self.client.get(url)
+        client_kwargs = {'SERVER_NAME': 'localhost.sinnwerkstatt.com'}
+        response = self.client.get(url, **client_kwargs)
 
         # should return 200
         self.assertEqual(response.status_code, 200)
