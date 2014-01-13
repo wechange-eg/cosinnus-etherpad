@@ -54,7 +54,7 @@ setup(
     install_requires=[
         'cosinnus>=0.2.dev0',
         'django-extra-views>=0.6.3',
-        'etherpad-lite>=0.2.0',
+        'etherpad-lite>=0.2.1',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
