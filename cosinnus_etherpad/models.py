@@ -14,7 +14,6 @@ from django.utils.translation import ugettext_lazy as _
 
 from cosinnus.models import BaseTaggableObjectModel, CosinnusGroup
 
-#from cosinnus_etherpad.client import EtherpadClient
 from etherpad_lite import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
@@ -113,5 +112,5 @@ def delete_etherpad(sender, instance, **kwargs):
         instance.client.deletePad(padID=instance.pad_id)
     except EtherpadException as exc:
         # failed deletion of missing padIDs is ok
-        if not 'padID does not exist' in exc.message:
+        if not 'padID does not exist' in str(exc):
             raise
