@@ -115,3 +115,9 @@ def delete_etherpad(sender, instance, **kwargs):
         # failed deletion of missing padIDs is ok
         if not 'padID does not exist' in str(exc):
             raise
+
+
+import django
+if django.VERSION[:2] < (1, 7):
+    from cosinnus_etherpad import cosinnus_app
+    cosinnus_app.register()
