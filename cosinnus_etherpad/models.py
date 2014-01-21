@@ -64,7 +64,8 @@ class Etherpad(BaseTaggableObjectModel):
             validUntil=valid_until)
         return session_id['sessionID']
 
-    def get_pad_html(self):
+    @property
+    def content(self):
         return self.client.getHTML(padID=self.pad_id)['html']
 
 

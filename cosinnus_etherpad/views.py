@@ -174,7 +174,7 @@ class EtherpadArchiveWikiView(EtherpadArchiveMixin):
             except Page.DoesNotExist:
                 page = Page(
                     title=title, group=self.group, created_by=request.user)
-            page.content = pad.get_pad_html()
+            page.content = pad.content
             page.save()
 
             msg = _('Pad has been archived as Wiki page: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
@@ -208,7 +208,7 @@ class EtherpadArchiveFileView(EtherpadArchiveMixin):
         if 'cosinnus_file' in settings.INSTALLED_APPS:
             pad = Etherpad.objects.get(slug=kwargs['slug'], group=self.group)
             title = self.get_title(request, pad.title)
-            content = ContentFile(pad.get_pad_html())
+            content = ContentFile(pad.content)
             if settings.COSINNUS_ETHERPAD_FILE_PATH.startswith('/'):
                 path = settings.COSINNUS_ETHERPAD_FILE_PATH
             else:

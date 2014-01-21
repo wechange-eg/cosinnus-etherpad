@@ -78,7 +78,7 @@ class ArchiveTest(ViewTestCase):
         self._archive('wiki')
         page = Page.objects.all()[0]
         self.assertIn(settings.COSINNUS_ETHERPAD_PREFIX_TITLE, page.title)
-        self.assertEqual(page.content, self.pad.get_pad_html())
+        self.assertEqual(page.content, self.pad.content)
         page.delete() # ProtectedError otherwise when deleting CosinnusGroup
 
     def test_archive_file(self):
@@ -98,7 +98,7 @@ class ArchiveTest(ViewTestCase):
         # using `with entry.file.open('r')` fails with AttributeError: __exit__
         with open(entry.file.file.name, 'r') as f:
             file_content = smart_text(f.read())
-        self.assertEqual(file_content, self.pad.get_pad_html())
+        self.assertEqual(file_content, self.pad.content)
 
         # ProtectedError otherwise when deleting CosinnusGroup
         folder.delete()
