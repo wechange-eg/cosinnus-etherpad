@@ -5,7 +5,7 @@ from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.utils.encoding import smart_text
 
-from cosinnus_wiki.models import Page
+from cosinnus_document.models import Document
 from cosinnus_file.models import FileEntry
 from cosinnus_etherpad.models import Etherpad
 from tests.view_tests.base import ViewTestCase
@@ -42,12 +42,13 @@ class ArchiveTest(ViewTestCase):
         self.assertNotIn(has_kind, response.context)
 
 
-    def test_has_wiki(self):
+    def test_has_document(self):
         """
-        Should have has_wiki in context if cosinnus_wiki is installed and
-        should not have have_wiki in context if cosinnus_wiki is not installed
+        Should have has_document in context if cosinnus_document is installed
+        and should not have have_document in context if cosinnus_document is
+        not installed
         """
-        self._has('wiki')
+        self._has('document')
 
     def test_has_file(self):
         """
@@ -71,15 +72,15 @@ class ArchiveTest(ViewTestCase):
         self.assertEqual(response.status_code, 301)
         self.assertIn(self.url, response.get('location'))
 
-    def test_archive_wiki(self):
+    def test_archive_document(self):
         """
-        Should have archived a pad to a wiki page
+        Should have archived a pad to a document
         """
-        self._archive('wiki')
-        page = Page.objects.all()[0]
-        self.assertIn(settings.COSINNUS_ETHERPAD_PREFIX_TITLE, page.title)
-        self.assertEqual(page.content, self.pad.content)
-        page.delete() # ProtectedError otherwise when deleting CosinnusGroup
+        self._archive('document')
+        doc = Document.objects.all()[0]
+        self.assertIn(settings.COSINNUS_ETHERPAD_PREFIX_TITLE, doc.title)
+        self.assertEqual(doc.content, self.pad.content)
+        doc.delete() # ProtectedError otherwise when deleting CosinnusGroup
 
     def test_archive_file(self):
         """

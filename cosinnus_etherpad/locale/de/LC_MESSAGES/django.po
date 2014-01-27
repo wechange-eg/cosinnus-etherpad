@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-08 13:22+0100\n"
+"POT-Creation-Date: 2014-01-27 15:55+0100\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -19,20 +19,20 @@ msgstr ""
 msgid "Etherpad"
 msgstr "Etherpad"
 
-#: models.py:36
+#: models.py:35
 msgid "Description"
 msgstr "Beschreibung"
 
-#: views.py:180
+#: views.py:181
 #, python-format
 msgid ""
-"Pad has been archived as Wiki page: <a class=\"alert-link\" href=\"%(href)s"
-"\">%(title)s</a>"
+"Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
+"%(title)s</a>"
 msgstr ""
-"Pad wurde als Wikiseite archiviert: <a class=\"alert-link\" href=\"%(href)s"
-"\">%(title)s</a>"
+"Pad wurde als Dokument archiviert: <a class=\"alert-link\" href="
+"\"%(href)s\">%(title)s</a>"
 
-#: views.py:228
+#: views.py:233
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
@@ -44,7 +44,7 @@ msgstr ""
 #: templates/cosinnus_etherpad/etherpad_confirm_delete.html:6
 #: templates/cosinnus_etherpad/etherpad_confirm_delete.html:10
 #: templates/cosinnus_etherpad/etherpad_confirm_delete.html:22
-#: templates/cosinnus_etherpad/etherpad_list.html:64
+#: templates/cosinnus_etherpad/etherpad_list.html:67
 msgid "Delete"
 msgstr "Löschen"
 
@@ -58,12 +58,12 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 #: templates/cosinnus_etherpad/etherpad_detail.html:22
-msgid "Archiving will create a new page"
-msgstr "Archivieren erzeugt eine neue Seite"
+msgid "Archiving will create a new document"
+msgstr "Archivieren erzeugt ein neues Dokument"
 
 #: templates/cosinnus_etherpad/etherpad_detail.html:22
-msgid "Archive as Wiki page"
-msgstr "Archiviere als Wikiseite"
+msgid "Archive as Document"
+msgstr "Archiviere als Dokument"
 
 #: templates/cosinnus_etherpad/etherpad_detail.html:31
 msgid "Archiving will create a new file"
@@ -80,7 +80,7 @@ msgstr "Pad hinzufügen"
 
 #: templates/cosinnus_etherpad/etherpad_form.html:9
 #: templates/cosinnus_etherpad/etherpad_form.html:25
-#: templates/cosinnus_etherpad/etherpad_list.html:61
+#: templates/cosinnus_etherpad/etherpad_list.html:64
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -103,22 +103,27 @@ msgstr "Pads"
 msgid "No tags available."
 msgstr "Keine Schlagwörter vorhanden."
 
-#: templates/cosinnus_etherpad/etherpad_list.html:32
+#: templates/cosinnus_etherpad/etherpad_list.html:26
+msgctxt "the verb"
+msgid "Export"
+msgstr "Exportieren"
+
+#: templates/cosinnus_etherpad/etherpad_list.html:35
 msgid "Title"
 msgstr "Titel"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:33
+#: templates/cosinnus_etherpad/etherpad_list.html:36
 msgid "Tags"
 msgstr "Schlagwörter"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:34
+#: templates/cosinnus_etherpad/etherpad_list.html:37
 msgid "Actions"
 msgstr "Aktionen"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:54
+#: templates/cosinnus_etherpad/etherpad_list.html:57
 msgid "Show"
 msgstr "Anzeigen"
 
-#: templates/cosinnus_etherpad/etherpad_list.html:74
+#: templates/cosinnus_etherpad/etherpad_list.html:77
 msgid "No Etherpads added"
 msgstr "Es wurden keine Etherpads hinzugefügt"

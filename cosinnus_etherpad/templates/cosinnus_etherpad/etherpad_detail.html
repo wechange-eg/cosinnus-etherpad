@@ -15,17 +15,17 @@
 <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
 
 <div class="row">
-{% if has_wiki %}
-  <div class="col-md-2">
-      <form action="{% url 'cosinnus:etherpad:pad-archive-wiki' group=group.slug slug=etherpad.slug %}" method="post">
+{% if has_document %}
+  <div class="col-xs-3">
+      <form action="{% url 'cosinnus:etherpad:pad-archive-document' group=group.slug slug=etherpad.slug %}" method="post">
         {% csrf_token %}
-        <button type="submit" class="btn btn-default" title="{% trans "Archiving will create a new page" %}"><span class="glyphicon glyphicon-save"></span> {% trans "Archive as Wiki page" %}</button>
+        <button type="submit" class="btn btn-default" title="{% trans "Archiving will create a new document" %}"><span class="glyphicon glyphicon-save"></span> {% trans "Archive as Document" %}</button>
       </form>
   </div>
 {% endif %}
 
 {% if has_file %}
-  <div class="col-md-2">
+  <div class="col-xs-3">
       <form action="{% url 'cosinnus:etherpad:pad-archive-file' group=group.slug slug=etherpad.slug %}" method="post">
         {% csrf_token %}
         <button type="submit" class="btn btn-default" title="{% trans "Archiving will create a new file" %}"><span class="glyphicon glyphicon-save"></span> {% trans "Archive as File entry" %}</button>

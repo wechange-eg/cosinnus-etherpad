@@ -25,8 +25,8 @@ from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.models import Etherpad
 from cosinnus_etherpad.forms import EtherpadForm
 
-if 'cosinnus_wiki' in settings.INSTALLED_APPS:
-    from cosinnus_wiki.models import Page
+if 'cosinnus_document' in settings.INSTALLED_APPS:
+    from cosinnus_document.models import Document
 
 if 'cosinnus_file' in settings.INSTALLED_APPS:
     from django.core.files.base import ContentFile
@@ -73,8 +73,8 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
         return domain
 
     def render_to_response(self, context, **response_kwargs):
-        if 'cosinnus_wiki' in settings.INSTALLED_APPS:
-            context['has_wiki'] = True
+        if 'cosinnus_document' in settings.INSTALLED_APPS:
+            context['has_document'] = True
         if 'cosinnus_file' in settings.INSTALLED_APPS:
             context['has_file'] = True
 
@@ -165,30 +165,30 @@ class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
         })
 
 
-class EtherpadArchiveWikiView(EtherpadArchiveMixin):
+class EtherpadArchiveDocumentView(EtherpadArchiveMixin):
     def post(self, request, *args, **kwargs):
-        if 'cosinnus_wiki' in settings.INSTALLED_APPS:
+        if 'cosinnus_document' in settings.INSTALLED_APPS:
             pad = Etherpad.objects.get(slug=kwargs['slug'], group=self.group)
             title = self.get_title(request, pad.title)
             try:
-                page = Page.objects.get(title=title, group=self.group)
-            except Page.DoesNotExist:
-                page = Page(
+                doc = Document.objects.get(title=title, group=self.group)
+            except Document.DoesNotExist:
+                doc = Document(
                     title=title, group=self.group, created_by=request.user)
-            page.content = pad.content
-            page.save()
+            doc.content = pad.content
+            doc.save()
 
-            msg = _('Pad has been archived as Wiki page: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
-                'href': reverse('cosinnus:wiki:page-detail', kwargs={
+            msg = _('Pad has been archived as Document: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
+                'href': reverse('cosinnus:document:document-detail', kwargs={
                     'group': self.group.slug,
-                    'slug': page.slug,
+                    'slug': doc.slug,
                 }),
                 'title': title,
             }
             messages.info(request, msg)
-        return super(EtherpadArchiveWikiView, self).post(request, *args, **kwargs)
+        return super(EtherpadArchiveDocumentView, self).post(request, *args, **kwargs)
 
-pad_archive_wiki = EtherpadArchiveWikiView.as_view()
+pad_archive_document = EtherpadArchiveDocumentView.as_view()
 
 
 class EtherpadArchiveFileView(EtherpadArchiveMixin):

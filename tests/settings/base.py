@@ -36,7 +36,7 @@ INSTALLED_APPS = (
 
     'cosinnus',
     'cosinnus_etherpad',
-    'cosinnus_wiki',
+    'cosinnus_document',
     'cosinnus_file',
     'tests',
 )
