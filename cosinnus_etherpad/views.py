@@ -16,7 +16,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from extra_views.contrib.mixins import SortableListMixin
 
-from cosinnus.views.export import JSONExportView
+from cosinnus.views.export import CSVExportView
 from cosinnus.views.mixins.group import (
     RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin)
 from cosinnus.views.mixins.tagged import TaggedListMixin
@@ -243,7 +243,7 @@ class EtherpadArchiveFileView(EtherpadArchiveMixin):
 pad_archive_file = EtherpadArchiveFileView.as_view()
 
 
-class EtherpadExportView(JSONExportView):
+class EtherpadExportView(CSVExportView):
     fields = [
         'pad_id',
         'description',
