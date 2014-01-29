@@ -21,7 +21,9 @@
 {% endif %}
 
 <ul class="nav nav-pills pull-right">
+{% if user.is_superuser or user|is_group_member:object %}
   <li class="active"><a href="{% url 'cosinnus:etherpad:pad-add' group=group.slug %}" class="btn"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a></li>
+{% endif %}
 {% if user.is_superuser or user|is_group_admin:object %}
   <li class="active"><a href="{% url 'cosinnus:etherpad:export' group=group.slug %}" class="btn"><span class="glyphicon glyphicon-export"></span> {% trans "Export" context "the verb" %}</a></li>
 {% endif %}
@@ -55,7 +57,7 @@
       <td>
         <div class="btn-group">
           <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:pad-detail' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-eye-open"></span> {% trans "Show" %}</a>
-
+          {% if user.is_superuser or user|is_group_member:object %}
           <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#">
             <span class="caret"></span>
           </a>
@@ -67,6 +69,7 @@
               <a href="{% url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
             </li>
           </ul>
+          {% endif %}
         </div>
       </td>
     </tr>
