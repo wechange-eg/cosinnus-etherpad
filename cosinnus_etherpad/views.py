@@ -174,7 +174,10 @@ class EtherpadArchiveDocumentView(EtherpadArchiveMixin):
                 doc = Document.objects.get(title=title, group=self.group)
             except Document.DoesNotExist:
                 doc = Document(
-                    title=title, group=self.group, created_by=request.user)
+                    title=title,
+                    group=self.group,
+                    created_by=request.user,
+                    is_draft=False)
             doc.content = pad.content
             doc.save()
 

@@ -80,6 +80,7 @@ class ArchiveTest(ViewTestCase):
         doc = Document.objects.all()[0]
         self.assertIn(settings.COSINNUS_ETHERPAD_PREFIX_TITLE, doc.title)
         self.assertEqual(doc.content, self.pad.content)
+        self.assertFalse(doc.is_draft)
         doc.delete() # ProtectedError otherwise when deleting CosinnusGroup
 
     def test_archive_file(self):
