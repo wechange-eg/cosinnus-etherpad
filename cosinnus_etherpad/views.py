@@ -176,7 +176,7 @@ class EtherpadArchiveDocumentView(EtherpadArchiveMixin):
                 doc = Document(
                     title=title,
                     group=self.group,
-                    created_by=request.user,
+                    created=request.user,
                     is_draft=False)
             doc.content = pad.content
             doc.save()
