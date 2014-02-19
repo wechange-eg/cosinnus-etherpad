@@ -198,14 +198,14 @@ class EtherpadArchiveFileView(EtherpadArchiveMixin):
     def _create_folder(self, request, path):
         title = path[1:]
 
-        try:  # don't use get_or_create: uploaded_by doesn't matter for get
+        try:  # don't use get_or_create: creator doesn't matter for get
             FileEntry.objects.get(title=title, group=self.group, isfolder=True)
         except FileEntry.DoesNotExist:
             FileEntry.objects.create(
                 title=title,
                 group=self.group,
                 isfolder=True,
-                uploaded_by=request.user,
+                creator=request.user,
                 path=path)
 
     def post(self, request, *args, **kwargs):
@@ -226,7 +226,7 @@ class EtherpadArchiveFileView(EtherpadArchiveMixin):
                 entry = FileEntry(
                     title=title,
                     group=self.group,
-                    uploaded_by=request.user,
+                    creator=request.user,
                     mimetype='text/html',
                     path=path)
                 entry.save()  # let slug be calculated
