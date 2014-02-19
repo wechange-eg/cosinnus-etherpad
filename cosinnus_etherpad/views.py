@@ -96,20 +96,12 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 pad_detail_view = EtherpadDetailView.as_view()
 
 
-class EtherpadDeleteView(RequireWriteMixin, FilterGroupMixin, DeleteView):
-    model = Etherpad
-
-    def get_success_url(self):
-        kwargs = {'group': self.group.slug}
-        return reverse('cosinnus:etherpad:list', kwargs=kwargs)
-
-pad_delete_view = EtherpadDeleteView.as_view()
-
-
 class EtherpadFormMixin(
         RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin):
     form_class = EtherpadForm
     model = Etherpad
+    message_success = _('Etherpad "%(title)s" was edited successfully.')
+    message_error = _('Etherpad "%(title)s" could not be edited.')
 
     def get_context_data(self, **kwargs):
         context = super(EtherpadFormMixin, self).get_context_data(**kwargs)
@@ -120,9 +112,21 @@ class EtherpadFormMixin(
         })
         return context
 
+    def post(self, request, *args, **kwargs):
+        ret = super(EtherpadFormMixin, self).post(request, *args, **kwargs)
+        if ret.get('location', '') == self.get_success_url():
+            messages.success(request, self.message_success % {
+                'title': self.object.title})
+        else:
+            messages.error(request, self.message_error % {
+                'title': self.object.title})
+        return ret
+
 
 class EtherpadAddView(EtherpadFormMixin, CreateView):
     form_view = 'add'
+    message_success = _('Etherpad "%(title)s" was added successfully.')
+    message_error = _('Etherpad "%(title)s" could not be added.')
 
     def form_valid(self, form):
         self.etherpad = form.save(commit=False)
@@ -139,6 +143,18 @@ class EtherpadEditView(EtherpadFormMixin, UpdateView):
     form_view = 'edit'
 
 pad_edit_view = EtherpadEditView.as_view()
+
+
+class EtherpadDeleteView(EtherpadFormMixin, DeleteView):
+    form_view = 'delete'
+    message_success = _('Etherpad "%(title)s" was deleted successfully.')
+    message_error = _('Etherpad "%(title)s" could not be deleted.')
+
+    def get_success_url(self):
+        kwargs = {'group': self.group.slug}
+        return reverse('cosinnus:etherpad:list', kwargs=kwargs)
+
+pad_delete_view = EtherpadDeleteView.as_view()
 
 
 class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
