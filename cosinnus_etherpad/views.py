@@ -15,6 +15,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
 from extra_views.contrib.mixins import SortableListMixin
+from etherpad_lite import EtherpadException
 
 from cosinnus.views.export import CSVExportView
 from cosinnus.views.mixins.group import (
@@ -112,14 +113,20 @@ class EtherpadFormMixin(
         })
         return context
 
+    def get_success_url(self):
+        return reverse('cosinnus:etherpad:list', kwargs={
+            'group': self.group.slug,
+        })
+
     def post(self, request, *args, **kwargs):
         ret = super(EtherpadFormMixin, self).post(request, *args, **kwargs)
         if ret.get('location', '') == self.get_success_url():
             messages.success(request, self.message_success % {
                 'title': self.object.title})
         else:
-            messages.error(request, self.message_error % {
-                'title': self.object.title})
+            if self.object:
+                messages.error(request, self.message_error % {
+                    'title': self.object.title})
         return ret
 
 
@@ -131,7 +138,16 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
     def form_valid(self, form):
         self.etherpad = form.save(commit=False)
         self.etherpad.group = self.group
-        self.etherpad.save()
+        try:
+            self.etherpad.save()
+        except EtherpadException as exc:
+            if 'padName does already exist' in str(exc):
+                msg = _('Etherpad with name "%(name)s" already exists on pad server. Please use another name.')
+                messages.error(self.request, msg % {'name': self.etherpad.title})
+                return self.form_invalid(form)
+            else:
+                raise
+
         ret = super(EtherpadAddView, self).form_valid(form)
         form.save_m2m()
         return ret

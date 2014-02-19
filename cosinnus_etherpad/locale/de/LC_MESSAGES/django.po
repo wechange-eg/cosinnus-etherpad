@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-19 16:40+0100\n"
+"POT-Creation-Date: 2014-02-19 17:18+0100\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -23,37 +23,45 @@ msgstr "Etherpad"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: views.py:103
+#: views.py:104
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich bearbeitet."
 
-#: views.py:104
+#: views.py:105
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
 msgstr "Etherpad „%(title)s“ konnte nicht bearbeitet werden."
 
-#: views.py:128
+#: views.py:135
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich hinzugefügt."
 
-#: views.py:129
+#: views.py:136
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
 msgstr "Etherpad „%(title)s“ konnte nicht hinzugefügt werden."
 
-#: views.py:150
+#: views.py:145
+#, python-format
+msgid ""
+"Etherpad with name \"%(name)s\" already exists on pad server. Please use "
+"another name."
+msgstr "Etherpad mit dem Namen „%(name)s“ existiert bereits auf dem "
+"Pad-Server. Bitte einen anderen Namen benutzen."
+
+#: views.py:166
 #, python-format
 msgid "Etherpad \"%(title)s\" was deleted successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich gelöscht."
 
-#: views.py:151
+#: views.py:167
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be deleted."
 msgstr "Etherpad „%(title)s“ konnte nicht gelöscht werden."
 
-#: views.py:200
+#: views.py:216
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
@@ -62,7 +70,7 @@ msgstr ""
 "Pad wurde als Dokument archiviert: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 
-#: views.py:252
+#: views.py:268
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
