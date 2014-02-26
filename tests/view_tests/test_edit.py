@@ -62,8 +62,9 @@ class EditTest(ViewTestCase):
         }
         response = self.client.post(self.url, params)
         self.assertEqual(response.status_code, 302)
+        kwargs = {'group': self.group.slug}
         self.assertIn(
-            reverse('cosinnus:etherpad:pad-detail', kwargs=self.kwargs),
+            reverse('cosinnus:etherpad:list', kwargs=kwargs),
             response.get('location'))
         num_tags = len(self.pad.tags.filter(name=tag))
         self.assertEqual(num_tags, 1)

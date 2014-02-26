@@ -57,9 +57,9 @@ class AddTest(ViewTestCase):
 
         # do not catch exception here
         pad = Etherpad.objects.get(title=title)
-        kwargs = {'group': self.group.slug, 'slug': pad.slug}
+        kwargs = {'group': self.group.slug}
         self.assertIn(
-            reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs),
+            reverse('cosinnus:etherpad:list', kwargs=kwargs),
             response.get('location'))
 
         # explicitly need to delete object, otherwise signals won't be fired
