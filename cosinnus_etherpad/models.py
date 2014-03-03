@@ -12,7 +12,7 @@ from django.dispatch import receiver
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 
-from cosinnus.models import BaseTaggableObjectModel, CosinnusGroup
+from cosinnus.models import BaseHierarchicalTaggableObjectModel, CosinnusGroup
 
 from etherpad_lite import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.conf import settings
@@ -27,7 +27,7 @@ def _init_client():
         base_params={'apikey': settings.COSINNUS_ETHERPAD_API_KEY})
 
 
-class Etherpad(BaseTaggableObjectModel):
+class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
 

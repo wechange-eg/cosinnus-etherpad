@@ -18,9 +18,11 @@ from extra_views.contrib.mixins import SortableListMixin
 from etherpad_lite import EtherpadException
 
 from cosinnus.views.export import CSVExportView
+from cosinnus.views.hierarchy import AddContainerView
 from cosinnus.views.mixins.group import (
     RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin)
-from cosinnus.views.mixins.tagged import TaggedListMixin
+from cosinnus.views.mixins.tagged import (TaggedListMixin, HierarchyTreeMixin,
+    HierarchyPathMixin, HierarchyDeleteMixin)
 
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.models import Etherpad
@@ -44,12 +46,18 @@ index_view = EtherpadIndexView.as_view()
 
 
 class EtherpadListView(RequireReadMixin, FilterGroupMixin, TaggedListMixin,
-                       SortableListMixin, ListView):
+                       SortableListMixin, HierarchyTreeMixin, ListView):
     model = Etherpad
 
     def get(self, request, *args, **kwargs):
         self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
         return super(EtherpadListView, self).get(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(EtherpadListView, self).get_context_data(**kwargs)
+        tree = self.get_tree(self.object_list)
+        context.update({'tree': tree})
+        return context
 
 list_view = EtherpadListView.as_view()
 
@@ -97,8 +105,8 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 pad_detail_view = EtherpadDetailView.as_view()
 
 
-class EtherpadFormMixin(
-        RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin):
+class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
+        GroupFormKwargsMixin, HierarchyPathMixin):
     form_class = EtherpadForm
     model = Etherpad
     message_success = _('Etherpad "%(title)s" was edited successfully.')
@@ -120,13 +128,14 @@ class EtherpadFormMixin(
 
     def post(self, request, *args, **kwargs):
         ret = super(EtherpadFormMixin, self).post(request, *args, **kwargs)
-        if ret.get('location', '') == self.get_success_url():
-            messages.success(request, self.message_success % {
-                'title': self.object.title})
-        else:
-            if self.object:
-                messages.error(request, self.message_error % {
+        if self.message_success and self.message_error:
+            if ret.get('location', '') == self.get_success_url():
+                messages.success(request, self.message_success % {
                     'title': self.object.title})
+            else:
+                if self.object:
+                    messages.error(request, self.message_error % {
+                        'title': self.object.title})
         return ret
 
 
@@ -155,16 +164,27 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
 pad_add_view = EtherpadAddView.as_view()
 
 
+class EtherpadAddContainerView(AddContainerView):
+    model = Etherpad
+    appname = 'etherpad'
+
+    def form_valid(self, form):
+        """Add model-specific attributes to form.instance"""
+        return super(EtherpadAddContainerView, self).form_valid(form)
+
+container_add_view = EtherpadAddContainerView.as_view()
+
+
 class EtherpadEditView(EtherpadFormMixin, UpdateView):
     form_view = 'edit'
 
 pad_edit_view = EtherpadEditView.as_view()
 
 
-class EtherpadDeleteView(EtherpadFormMixin, DeleteView):
+class EtherpadDeleteView(EtherpadFormMixin, HierarchyDeleteMixin, DeleteView):
     form_view = 'delete'
-    message_success = _('Etherpad "%(title)s" was deleted successfully.')
-    message_error = _('Etherpad "%(title)s" could not be deleted.')
+    message_success = None
+    message_error = None
 
     def get_success_url(self):
         kwargs = {'group': self.group.slug}

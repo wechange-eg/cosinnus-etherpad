@@ -8,6 +8,7 @@ cosinnus_group_patterns = patterns('cosinnus_etherpad.views',
     url(r'^list/$', 'list_view', name='list'),
     url(r'^list/(?P<tag>[^/]+)/$', 'list_view', name='list-filtered'),
     url(r'^add/$', 'pad_add_view', name='pad-add'),
+    url(r'^add-container/$', 'container_add_view', name='container-add'),
     url(r'^export/$', 'export_view', name='export'),
     url(r'^(?P<slug>[^/]+)/$', 'pad_detail_view', name='pad-detail'),
     url(r'^(?P<slug>[^/]+)/delete/$', 'pad_delete_view', name='pad-delete'),
@@ -16,6 +17,9 @@ cosinnus_group_patterns = patterns('cosinnus_etherpad.views',
         'pad_archive_document', name='pad-archive-document'),
     url(r'^(?P<slug>[^/]+)/archive/file/$',
         'pad_archive_file', name='pad-archive-file'),
+    url(r'^(?P<slug>[^/]+)/add/$', 'pad_add_view', name='pad-add'),
+    url(r'^(?P<slug>[^/]+)/add-container/$',
+        'container_add_view', name='container-add'),
 )
 
 
