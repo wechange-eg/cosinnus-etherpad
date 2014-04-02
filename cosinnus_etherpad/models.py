@@ -36,6 +36,9 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     objects = EtherpadManager()
 
+    class Meta(BaseHierarchicalTaggableObjectModel.Meta):
+        pass
+
     def __init__(self, *args, **kwargs):
         super(Etherpad, self).__init__(*args, **kwargs)
         self.client = _init_client()
