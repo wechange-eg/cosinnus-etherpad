@@ -22,6 +22,6 @@ class EtherpadForm(GroupKwargModelFormMixin, TagObjectFormMixin,
 
     def clean_title(self):
         if self.instance.pk:
-            return instance.title
+            return self.instance.title
         else:
             return self.cleaned_data['title']

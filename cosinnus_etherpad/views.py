@@ -3,6 +3,8 @@ from __future__ import unicode_literals
 
 import sys
 
+import six
+
 try:
     from urllib.parse import urlparse
 except ImportError:
