@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import sys
+
 try:
     from urllib.parse import urlparse
 except ImportError:
@@ -9,6 +11,7 @@ import logging
 
 from django.contrib import messages
 from django.core.urlresolvers import reverse
+from django.db import transaction
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, RedirectView
 from django.views.generic.list import ListView
@@ -145,21 +148,20 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
     message_error = _('Etherpad "%(title)s" could not be added.')
 
     def form_valid(self, form):
-        self.etherpad = form.save(commit=False)
-        self.etherpad.group = self.group
         try:
-            self.etherpad.save()
+            # only commit changes to the database iff the etherpad has been created
+            sid = transaction.savepoint()
+            ret = super(EtherpadAddView, self).form_valid(form)
+            transaction.savepoint_commit(sid)
+            return ret
         except EtherpadException as exc:
+            transaction.savepoint_rollback(sid)
             if 'padName does already exist' in str(exc):
                 msg = _('Etherpad with name "%(name)s" already exists on pad server. Please use another name.')
                 messages.error(self.request, msg % {'name': self.etherpad.title})
                 return self.form_invalid(form)
             else:
-                raise
-
-        ret = super(EtherpadAddView, self).form_valid(form)
-        form.save_m2m()
-        return ret
+                six.reraise(*sys.exc_info())
 
 pad_add_view = EtherpadAddView.as_view()
 
@@ -167,10 +169,6 @@ pad_add_view = EtherpadAddView.as_view()
 class EtherpadAddContainerView(AddContainerView):
     model = Etherpad
     appname = 'etherpad'
-
-    def form_valid(self, form):
-        """Add model-specific attributes to form.instance"""
-        return super(EtherpadAddContainerView, self).form_valid(form)
 
 container_add_view = EtherpadAddContainerView.as_view()
 
