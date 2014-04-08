@@ -116,7 +116,7 @@ def delete_etherpad(sender, instance, **kwargs):
         instance.client.deletePad(padID=instance.pad_id)
     except EtherpadException as exc:
         # failed deletion of missing padIDs is ok
-        if not 'padID does not exist' in str(exc):
+        if 'padID does not exist' not in str(exc):
             raise
 
 

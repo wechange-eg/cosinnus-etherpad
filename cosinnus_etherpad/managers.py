@@ -13,7 +13,7 @@ class EtherpadManager(models.Manager):
 
         tag_names = []
         for ti in TaggedItem.objects.filter(content_type_id=event_type):
-            if not ti.tag.name in tag_names:
+            if ti.tag.name not in tag_names:
                 tag_names.append(ti.tag.name)
 
         return tag_names
