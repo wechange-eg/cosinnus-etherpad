@@ -131,16 +131,17 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
             'group': self.group.slug,
         })
 
-    def post(self, request, *args, **kwargs):
-        ret = super(EtherpadFormMixin, self).post(request, *args, **kwargs)
-        if self.message_success and self.message_error:
-            if ret.get('location', '') == self.get_success_url():
-                messages.success(request, self.message_success % {
-                    'title': self.object.title})
-            else:
-                if self.object:
-                    messages.error(request, self.message_error % {
-                        'title': self.object.title})
+    def form_valid(self, form):
+        ret = super(EtherpadFormMixin, self).form_valid(form)
+        messages.success(self.request,
+            self.message_success % {'title': self.object.title})
+        return ret
+
+    def form_invalid(self, form):
+        ret = super(EtherpadFormMixin, self).form_invalid(form)
+        if self.object:
+            messages.error(self.request,
+                self.message_error % {'title': self.object.title})
         return ret
 
 
