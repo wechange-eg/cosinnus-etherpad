@@ -39,6 +39,23 @@ if 'cosinnus_document' in settings.INSTALLED_APPS:
 if 'cosinnus_file' in settings.INSTALLED_APPS:
     from django.core.files.base import ContentFile
     from cosinnus_file.models import FileEntry
+    
+
+def _get_cookie_domain():
+    domain = urlparse(settings.COSINNUS_ETHERPAD_BASE_URL).netloc
+
+    # strip the port (if exists)
+    domain = domain.split(':')[0]
+
+    # strip the hostname
+    split_domain = domain.split('.')
+    # only if we have at least 2 dots use the split domain
+    # http://curl.haxx.se/rfc/cookie_spec.html
+    if len(split_domain) > 2:
+        domain = '.' + '.'.join(split_domain[1:])
+    else:
+        domain = None
+    return domain
 
 
 class EtherpadIndexView(RequireReadMixin, RedirectView):
@@ -70,22 +87,6 @@ list_view = EtherpadListView.as_view()
 class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
     model = Etherpad
 
-    def _get_cookie_domain(self):
-        domain = urlparse(settings.COSINNUS_ETHERPAD_BASE_URL).netloc
-
-        # strip the port (if exists)
-        domain = domain.split(':')[0]
-
-        # strip the hostname
-        split_domain = domain.split('.')
-        # only if we have at least 2 dots use the split domain
-        # http://curl.haxx.se/rfc/cookie_spec.html
-        if len(split_domain) > 2:
-            domain = '.' + '.'.join(split_domain[1:])
-        else:
-            domain = None
-        return domain
-
     def render_to_response(self, context, **response_kwargs):
         if 'cosinnus_document' in settings.INSTALLED_APPS:
             context['has_document'] = True
@@ -98,7 +99,7 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
         # set cross-domain session cookie for etherpad app
         etherpad = context['etherpad']
         user_session_id = etherpad.get_user_session_id(self.request.user)
-        domain = self._get_cookie_domain()
+        domain = _get_cookie_domain()
         if domain:
             server_name = self.request.META['SERVER_NAME']
             if domain not in server_name:
@@ -143,6 +144,27 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
             messages.error(self.request,
                 self.message_error % {'title': self.object.title})
         return ret
+    
+    def render_to_response(self, context, **response_kwargs):
+        if 'cosinnus_document' in settings.INSTALLED_APPS:
+            context['has_document'] = True
+        if 'cosinnus_file' in settings.INSTALLED_APPS:
+            context['has_file'] = True
+
+        response = super(EtherpadFormMixin, self).render_to_response(
+            context, **response_kwargs)
+
+        # set cross-domain session cookie for etherpad app
+        etherpad = context['etherpad']
+        user_session_id = etherpad.get_user_session_id(self.request.user)
+        domain = _get_cookie_domain()
+        if domain:
+            server_name = self.request.META['SERVER_NAME']
+            if domain not in server_name:
+                logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
+        response.set_cookie('sessionID', user_session_id, domain=domain)
+
+        return response
 
 
 class EtherpadAddView(EtherpadFormMixin, CreateView):
