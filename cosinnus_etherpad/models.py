@@ -37,7 +37,8 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     objects = EtherpadManager()
 
     class Meta(BaseHierarchicalTaggableObjectModel.Meta):
-        pass
+        verbose_name = _('Etherpad')
+        verbose_name_plural = _('Etherpads')
 
     def __init__(self, *args, **kwargs):
         super(Etherpad, self).__init__(*args, **kwargs)
