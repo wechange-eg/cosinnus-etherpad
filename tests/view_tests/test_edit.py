@@ -56,9 +56,8 @@ class EditTest(ViewTestCase):
 
         tag = 'foo'
         params = {
-            'csrfmiddlewaretoken': response.cookies['csrftoken'].value,
-            'title': self.pad.title,
-            'tags': tag,
+            'obj-title': self.pad.title,
+            'obj-tags': tag,
         }
         response = self.client.post(self.url, params)
         self.assertEqual(response.status_code, 302)

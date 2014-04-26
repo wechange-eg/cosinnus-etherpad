@@ -49,8 +49,7 @@ class AddTest(ViewTestCase):
 
         title = 'testpad'
         params = {
-            'csrfmiddlewaretoken': response.cookies['csrftoken'].value,
-            'title': title,
+            'obj-title': title,
         }
         response = self.client.post(self.url, params)
         self.assertEqual(response.status_code, 302)
