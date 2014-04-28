@@ -28,6 +28,7 @@ from cosinnus.views.mixins.group import (
     RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin)
 from cosinnus.views.mixins.tagged import (TaggedListMixin, HierarchyTreeMixin,
     HierarchyPathMixin, HierarchyDeleteMixin)
+from cosinnus.views.mixins.user import UserFormKwargsMixin
 
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.models import Etherpad
@@ -112,7 +113,8 @@ pad_detail_view = EtherpadDetailView.as_view()
 
 
 class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
-        GroupFormKwargsMixin, HierarchyPathMixin):
+                        GroupFormKwargsMixin, UserFormKwargsMixin,
+                        HierarchyPathMixin):
     form_class = EtherpadForm
     model = Etherpad
     message_success = _('Etherpad "%(title)s" was edited successfully.')

@@ -52,7 +52,7 @@ setup(
     packages=find_packages(exclude=["tests"]),
     data_files=data_files,
     install_requires=[
-        'cosinnus>=0.3.4.dev0',
+        'cosinnus>=0.4.2.dev0',
         'django-extra-views>=0.6.3',
         'etherpad-lite>=0.2.1',
     ],
@@ -63,7 +63,6 @@ setup(
         'Operating System :: OS Independent',
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',

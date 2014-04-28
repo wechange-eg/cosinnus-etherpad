@@ -56,7 +56,6 @@ class EditTest(ViewTestCase):
 
         tag = 'foo'
         params = {
-            'csrfmiddlewaretoken': response.cookies['csrftoken'].value,
             'title': self.pad.title,
             'tags': tag,
         }

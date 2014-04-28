@@ -49,7 +49,6 @@ class AddTest(ViewTestCase):
 
         title = 'testpad'
         params = {
-            'csrfmiddlewaretoken': response.cookies['csrftoken'].value,
             'title': title,
         }
         response = self.client.post(self.url, params)

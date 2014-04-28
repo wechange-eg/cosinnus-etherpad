@@ -32,28 +32,29 @@ class EtherpadFormTest(TestCase):
         Should not set the title to readonly in the widget if instance is not
         given
         """
-        form = EtherpadForm()
+        form = EtherpadForm(group=self.group).forms['obj']
         self.assertNotIn('readonly', form.fields['title'].widget.attrs)
 
     def test_readonly_title_instance(self):
         """
         Should set the title to readonly in the widget if instance is given
         """
-        form = EtherpadForm(instance=self.pad)
+        form = EtherpadForm(group=self.group, instance=self.pad).forms['obj']
         self.assertTrue(form.fields['title'].widget.attrs['readonly'])
 
     def test_clean_title(self):
         """
         Should clean the title
         """
-        form = EtherpadForm(self.data)
+        form = EtherpadForm(group=self.group, data=self.data)
         self.assertTrue(form.is_valid())
-        self.assertEqual(form.clean_title(), form.cleaned_data['title'])
+        self.assertEqual(form.forms['obj'].clean_title(),
+                         form.forms['obj'].cleaned_data['title'])
 
     def test_clean_title_instance(self):
         """
         Should clean the title with instance
         """
-        form = EtherpadForm(self.data, instance=self.pad)
+        form = EtherpadForm(group=self.group, data=self.data, instance=self.pad)
         self.assertTrue(form.is_valid())
-        self.assertEqual(form.clean_title(), self.pad.title)
+        self.assertEqual(form.forms['obj'].clean_title(), self.pad.title)
