@@ -56,8 +56,8 @@ class EditTest(ViewTestCase):
 
         tag = 'foo'
         params = {
-            'obj-title': self.pad.title,
-            'obj-tags': tag,
+            'title': self.pad.title,
+            'tags': tag,
         }
         response = self.client.post(self.url, params)
         self.assertEqual(response.status_code, 302)

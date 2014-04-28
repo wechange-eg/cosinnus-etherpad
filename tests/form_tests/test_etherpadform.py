@@ -18,7 +18,7 @@ class EtherpadFormTest(TestCase):
         title = 'testpad'
         self.pad = Etherpad.objects.create(
             group=self.group, title=title)
-        self.data = {'obj-title': title}
+        self.data = {'title': title}
 
     def tearDown(self):
         # explicitly need to delete object, otherwise signals won't be fired

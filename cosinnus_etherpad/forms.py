@@ -5,11 +5,13 @@ from django import forms
 
 from cosinnus.forms.group import GroupKwargModelFormMixin
 from cosinnus.forms.tagged import get_form
+from cosinnus.forms.user import UserKwargModelFormMixin
 
 from cosinnus_etherpad.models import Etherpad
 
 
-class _EtherpadForm(GroupKwargModelFormMixin, forms.ModelForm):
+class _EtherpadForm(GroupKwargModelFormMixin, UserKwargModelFormMixin,
+                    forms.ModelForm):
     class Meta:
         model = Etherpad
         fields = ('title', 'description', 'tags', 'media_tag')

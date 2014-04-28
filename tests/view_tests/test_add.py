@@ -49,7 +49,7 @@ class AddTest(ViewTestCase):
 
         title = 'testpad'
         params = {
-            'obj-title': title,
+            'title': title,
         }
         response = self.client.post(self.url, params)
         self.assertEqual(response.status_code, 302)

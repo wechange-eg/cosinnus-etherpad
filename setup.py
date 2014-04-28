@@ -52,7 +52,7 @@ setup(
     packages=find_packages(exclude=["tests"]),
     data_files=data_files,
     install_requires=[
-        'cosinnus>=0.4.0.dev0',
+        'cosinnus>=0.4.2.dev0',
         'django-extra-views>=0.6.3',
         'etherpad-lite>=0.2.1',
     ],
