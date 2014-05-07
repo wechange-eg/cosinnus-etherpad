@@ -1,5 +1,9 @@
 {% extends "cosinnus/base.html" %}
 {% load i18n %}
 
+{% block breadcrumb %}
+        {{ block.super }}
+        <li><a class="active" href="{% url 'cosinnus:etherpad:index' group=group.slug %}">{% trans "Etherpad" %}</a></li>
+{% endblock %}
 
 {% block page_title %}@ {{ group.name }} | {% trans "Etherpad" %}{% endblock page_title %}
