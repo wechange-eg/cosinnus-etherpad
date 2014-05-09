@@ -127,6 +127,10 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
             'form_view': self.form_view,
             'tags': tags
         })
+        if 'cosinnus_document' in settings.INSTALLED_APPS:
+            context['has_document'] = True
+        if 'cosinnus_file' in settings.INSTALLED_APPS:
+            context['has_file'] = True
         return context
 
     def get_success_url(self):

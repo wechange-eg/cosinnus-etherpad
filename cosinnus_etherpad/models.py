@@ -49,10 +49,12 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         return reverse('cosinnus:etherpad:pad-edit', kwargs=kwargs)
 
     def get_pad_url(self):
-        pad_id = quote_plus(self.pad_id.encode('utf8'))
-        base_url = self.client.base_url
-        base_url = base_url[:base_url.rfind('/api')]
-        return '/'.join([base_url, 'p', pad_id])
+        if self.pk:
+            pad_id = quote_plus(self.pad_id.encode('utf8'))
+            base_url = self.client.base_url
+            base_url = base_url[:base_url.rfind('/api')]
+            return '/'.join([base_url, 'p', pad_id])
+        return None
 
     def get_user_session_id(self, user):
         author_id = self.client.createAuthorIfNotExistsFor(
