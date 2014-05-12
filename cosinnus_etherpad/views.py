@@ -194,7 +194,7 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
         root = self.request.GET.get('path', '/')
         #tree = self.get_tree(self.object_list, root)
         # assemble container and current hierarchy objects
-        current_folder_node = self.get_tree(self.object_list, root, include_containers=True, include_leaves=True, recursive=False)
+        current_folder_node = self.get_tree(self.object_list, root, include_containers=True, include_leaves=True, recursive=True)
         current_folder = current_folder_node['container_object']
         if current_folder is None:
             # insert logic for "this folder doesn't exist" here
