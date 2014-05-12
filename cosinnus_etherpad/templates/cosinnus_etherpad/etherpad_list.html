@@ -5,34 +5,158 @@
 {% trans "Pads" %} {{ block.super }}
 {% endblock page_title %}
 
+{% block breadcrumb %}
+        {{ block.super }}
+        {% if current_folder %}
+            <li>{{ current_folder.title }}</li>
+        {% endif %}
+{% endblock %}
 
+{% block leftnav %}
+
+{% if current_folder and current_folder.path != '/' %}
+	{% captureas href %}{% url 'cosinnus:etherpad:list' group=group.slug %}{% endcaptureas %}
+	{% captureas label %}{% trans "Zurück" %}{% endcaptureas %}
+	{% include "cosinnus/leftnav_button.html" with extra_classes="fine-space" icon="fa-reply" label=label href=href  %}
+{% endif %}
+
+{% for folder in folders %}
+	{% captureas href %}{% url 'cosinnus:etherpad:list' group=group.slug %}?path={{ folder.path }}{% endcaptureas %}
+	{% captureas label %}{{ folder.name }}{% endcaptureas %}
+    {% captureas button_class %}{% if forloop.last %}regular-space{% else %}fine-space{% endif %}{% endcaptureas %}
+    
+    {% include "cosinnus/leftnav_button.html" with extra_classes=button_class icon="fa-question" label=label href=href  %}
+{% endfor %}
+
+<div type="button" class="btn btn-default w100">
+    <ul class="media-list">
+        <li class="media">
+            <a class="pull-left" href="#">
+                <i class="fa fa-plus"></i>
+            </a>
+            <div class="media-body">
+                <!-- use spaces for centering. CSS padding does not work here. -->
+                <input class="form-control" placeholder="Neuer Ordnername         " value="" />
+            </div>
+        </li>
+    </ul>
+</div>
+
+{% endblock leftnav %}
 
 
 
 
 {% block content %}
-<div class="nav">
-{% if tags %}
-  {% for tag in tags %}
-    <a href="{% url 'cosinnus:etherpad:list-filtered' group=group.slug tag=tag.slug %}"><span class="label label-default">{{ tag.name }}</span></a>
-  {% endfor %}
-{% else %}
-  {% trans "No tags available." %}
-{% endif %}
+<!-- a box with semi transparent background -->
+<div class="content-box">
+    <div type="button" class="btn btn-default w100 large-space">
+        <ul class="media-list">
+            <li class="media">
+                <a class="pull-left" href="#">
+                    <i class="fa fa-plus"></i>
+                </a>
+                <div class="media-body">
+                    <input class="form-control"
+                        placeholder="Gib den Titel für ein neues Dokument ein."
+                        value="" />
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    {% for object in objects %}
+    <div class="fadedown regular-space">
+        <div class="btn btn-emphasized w100">
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-book"></i>
+                    </a>
+                    <a class="pull-right" href="#">
+                        <i class="fa fa-chevron-down"></i>
+                    </a>
+                    <a class="pull-right" href="#">
+                        <i class="fa fa-chain"></i>
+                    </a>
+                    <div class="media-body">
+                        <a href="{% url 'cosinnus:etherpad:pad-detail' group=group.slug slug=object.slug %}">
+                            {{ object.title }}
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-<ul class="nav nav-pills pull-right">
-{% if user.is_superuser or user|is_group_admin:object %}
-  <li class="active"><a href="{% url 'cosinnus:etherpad:export' group=group.slug %}" class="btn"><span class="glyphicon glyphicon-export"></span> {% trans "Export" context "the verb" %}</a></li>
-{% endif %}
-</ul>
-</div>
-<br />
+        <ol class="input-area">
+            <li>
+                <ol>
+                    <li>
+                        <i class="fa fa-user"></i>
+                        Alice, Bob, Cindy
+                    </li>
+                    <li>
+                        <i class="fa fa-tags"></i>
+                        Baustelle, Maurer
+                    </li>
+                    <li>
+                        <i class="fa fa-paperclip"></i>
+                        (Anhänge)
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol>
+                    <li>
+                        <i class="fa fa-map-marker"></i>
+                        Berlin, Sinnwerkstatt
+                    </li>
+                    <li>
+                        <i class="fa fa-clock-o"></i>
+                        heute 00:07
+                    </li>
+                    <li>
+                        <i class="fa fa-fw fa-bolt"></i>
+                        Blitz an
+                    </li>
+                    <li>
+                        <i class="fa fa-fw fa-lightbulb-o"></i>
+                        mit Licht
+                    </li>
+                    <li>
+                        <i class="fa fa-fw fa-globe"></i>
+                        Öffentlich
+                    </li>
+                </ol>
+            </li>
+        </ol><!-- input-area -->
 
-<div class="media-list">
-  <div class="media">
-  {% with node=tree container=tree tree_template="cosinnus_etherpad/tree.html" %}
-    {% include tree_template %}
-  {% endwith %}
-  </div>
-</div>
+        <button type="button" class="btn btn-emphasized">
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-eraser"></i>
+                    </a>
+                    <div class="media-body">
+                        Löschen
+                    </div>
+                </li>
+            </ul>
+        </button>
+        <button type="button" class="btn btn-emphasized">
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <div class="media-body">
+                        Bearbeiten
+                    </div>
+                </li>
+            </ul>
+        </button>
+    </div><!-- fadedown -->
+    {% endfor %}
+
+</div><!-- content-box -->
 {% endblock content %}
