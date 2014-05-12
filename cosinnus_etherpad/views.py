@@ -168,7 +168,7 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
             transaction.savepoint_rollback(sid)
             if 'padName does already exist' in str(exc):
                 msg = _('Etherpad with name "%(name)s" already exists on pad server. Please use another name.')
-                messages.error(self.request, msg % {'name': self.etherpad.title})
+                messages.error(self.request, msg % {'name': form.data.get('title', '')})
                 return self.form_invalid(form)
             else:
                 six.reraise(*sys.exc_info())
