@@ -152,6 +152,7 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
         return ret
 
 
+
 class EtherpadAddView(EtherpadFormMixin, CreateView):
     form_view = 'add'
     message_success = _('Etherpad "%(title)s" was added successfully.')
@@ -174,6 +175,27 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
                 six.reraise(*sys.exc_info())
 
 pad_add_view = EtherpadAddView.as_view()
+
+
+class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
+                       SortableListMixin, HierarchyTreeMixin, EtherpadAddView):
+    
+    container_form_class = None # TODO HERE
+    template_name = 'cosinnus_etherpad/etherpad_list.html'
+
+    def get(self, request, *args, **kwargs):
+        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
+        self.object_list = self.get_queryset()
+        return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(EtherpadHybridListView, self).get_context_data(**kwargs)
+        root = self.request.GET.get('path', '/')
+        tree = self.get_tree(self.object_list, root)
+        context.update({'tree': tree})
+        return context
+
+pad_hybrid_list_view = EtherpadHybridListView.as_view()
 
 
 class EtherpadAddContainerView(AddContainerView):

@@ -5,8 +5,8 @@ from django.conf.urls import patterns, url
 
 cosinnus_group_patterns = patterns('cosinnus_etherpad.views',
     url(r'^$', 'index_view', name='index'),
-    url(r'^list/$', 'list_view', name='list'),
-    url(r'^list/(?P<tag>[^/]+)/$', 'list_view', name='list-filtered'),
+    url(r'^list/$', 'pad_hybrid_list_view', name='list'),
+    url(r'^list/(?P<tag>[^/]+)/$', 'pad_hybrid_list_view', name='list-filtered'),
     url(r'^add/$', 'pad_add_view', name='pad-add'),
     url(r'^add-container/$', 'container_add_view', name='container-add'),
     url(r'^export/$', 'export_view', name='export'),
