@@ -190,9 +190,20 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
 
     def get_context_data(self, *args, **kwargs):
         context = super(EtherpadHybridListView, self).get_context_data(**kwargs)
+        
         root = self.request.GET.get('path', '/')
-        tree = self.get_tree(self.object_list, root)
-        context.update({'tree': tree})
+        #tree = self.get_tree(self.object_list, root)
+        # assemble container and current hierarchy objects
+        current_folder_node = self.get_tree(self.object_list, root, include_containers=True, include_leaves=True, recursive=False)
+        current_folder = current_folder_node['container_object']
+        if current_folder is None:
+            # insert logic for "this folder doesn't exist" here
+            pass
+        
+        folders = current_folder_node['containers']
+        objects = current_folder_node['objects']
+        
+        context.update({'current_folder':current_folder, 'object_list': objects, 'objects':objects, 'folders':folders})
         return context
 
 pad_hybrid_list_view = EtherpadHybridListView.as_view()

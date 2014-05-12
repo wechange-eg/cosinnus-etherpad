@@ -6,4 +6,8 @@
         <li><a class="active" href="{% url 'cosinnus:etherpad:index' group=group.slug %}">{% trans "Etherpad" %}</a></li>
 {% endblock %}
 
+{% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/cosinnus_etherpad.css' %}">
+{% endblock %}
+
 {% block page_title %}@ {{ group.name }} | {% trans "Etherpad" %}{% endblock page_title %}
