@@ -1,5 +1,5 @@
 {% extends "cosinnus_etherpad/base.html" %}
-{% load i18n static cosinnus_tags %}
+{% load i18n static cosinnus_tags widget_tweaks %}
 
 {% block page_title %}
 {% trans "Pads" %} {{ block.super }}
@@ -47,20 +47,25 @@
 {% block content %}
 	<!-- a box with semi transparent background -->
 	<div class="content-box">
-	    <div type="button" class="btn btn-default w100 large-space">
-	        <ul class="media-list">
-	            <li class="media">
-	                <a class="pull-left" href="#">
-	                    <i class="fa fa-plus"></i>
-	                </a>
-	                <div class="media-body">
-	                    <input class="form-control"
-	                        placeholder="Gib den Titel für ein neues Dokument ein."
-	                        value="" />
-	                </div>
-	            </li>
-	        </ul>
-	    </div>
+	    {% with obj_form=form.forms.obj %}
+	    <form action="" method="post" class="form-horizontal">{% csrf_token %}
+		    {{ obj_form.non_field_errors }}
+		    <div type="button" class="btn btn-default w100 large-space">
+		        <ul class="media-list">
+		            <li class="media">
+		                <a class="pull-left" href="#">
+		                    <i class="fa fa-plus"></i>
+		                </a>
+		                <div class="media-body">
+		                    {{ obj_form.title.errors }}
+		                    {% captureas placeholder %}{% trans "Gib den Titel für ein neues Dokument ein." %}{% endcaptureas %}
+		                    {% render_field obj_form.title class+="form-control" placeholder=placeholder %}
+		                </div>
+		            </li>
+		        </ul>
+		    </div>
+	    </form>
+	    {% endwith %}
 	    
 	    {% for object in objects %}
 		    <div class="fadedown regular-space">

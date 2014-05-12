@@ -204,6 +204,8 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
         objects = current_folder_node['objects']
         
         context.update({'current_folder':current_folder, 'object_list': objects, 'objects':objects, 'folders':folders})
+        
+        #print ">> context", context.get('form', None).forms.get('obj').title
         return context
 
 pad_hybrid_list_view = EtherpadHybridListView.as_view()
