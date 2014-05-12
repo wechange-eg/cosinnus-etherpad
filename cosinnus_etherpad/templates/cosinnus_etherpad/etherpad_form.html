@@ -28,7 +28,9 @@
 
 
 {% block content %}
-<iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
+{% if etherpad.get_pad_url %}
+  <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
+{% endif %}
 
 <form action="" method="post" class="form-horizontal">{% csrf_token %}
   {% bootstrap_form form %}

@@ -127,6 +127,10 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
             'form_view': self.form_view,
             'tags': tags
         })
+        if 'cosinnus_document' in settings.INSTALLED_APPS:
+            context['has_document'] = True
+        if 'cosinnus_file' in settings.INSTALLED_APPS:
+            context['has_file'] = True
         return context
 
     def get_success_url(self):
@@ -146,27 +150,6 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
             messages.error(self.request,
                 self.message_error % {'title': self.object.title})
         return ret
-    
-    def render_to_response(self, context, **response_kwargs):
-        if 'cosinnus_document' in settings.INSTALLED_APPS:
-            context['has_document'] = True
-        if 'cosinnus_file' in settings.INSTALLED_APPS:
-            context['has_file'] = True
-
-        response = super(EtherpadFormMixin, self).render_to_response(
-            context, **response_kwargs)
-
-        # set cross-domain session cookie for etherpad app
-        etherpad = context['etherpad']
-        user_session_id = etherpad.get_user_session_id(self.request.user)
-        domain = _get_cookie_domain()
-        if domain:
-            server_name = self.request.META['SERVER_NAME']
-            if domain not in server_name:
-                logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
-        response.set_cookie('sessionID', user_session_id, domain=domain)
-
-        return response
 
 
 class EtherpadAddView(EtherpadFormMixin, CreateView):
@@ -202,6 +185,22 @@ container_add_view = EtherpadAddContainerView.as_view()
 
 class EtherpadEditView(EtherpadFormMixin, UpdateView):
     form_view = 'edit'
+
+    def render_to_response(self, context, **response_kwargs):
+        response = super(EtherpadFormMixin, self).render_to_response(
+            context, **response_kwargs)
+
+        # set cross-domain session cookie for etherpad app
+        etherpad = context['etherpad']
+        user_session_id = etherpad.get_user_session_id(self.request.user)
+        domain = _get_cookie_domain()
+        if domain:
+            server_name = self.request.META['SERVER_NAME']
+            if domain not in server_name:
+                logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
+        response.set_cookie('sessionID', user_session_id, domain=domain)
+
+        return response
 
 pad_edit_view = EtherpadEditView.as_view()
 
