@@ -50,20 +50,32 @@
 	    {% with obj_form=form.forms.obj %}
 	    <form action="" method="post" class="form-horizontal">{% csrf_token %}
 		    {{ obj_form.non_field_errors }}
-		    <div type="button" class="btn btn-default w100 large-space">
-		        <ul class="media-list">
-		            <li class="media">
-		                <a class="pull-left" href="#">
-		                    <i class="fa fa-plus"></i>
-		                </a>
-		                <div class="media-body">
-		                    {{ obj_form.title.errors }}
-		                    {% captureas placeholder %}{% trans "Gib den Titel für ein neues Dokument ein." %}{% endcaptureas %}
-		                    {% render_field obj_form.title class+="form-control" placeholder=placeholder %}
-		                </div>
-		            </li>
-		        </ul>
-		    </div>
+			<div type="button" class="btn btn-default w100 large-space">
+			    <ul class="media-list">
+			        <li class="media">
+			            <a class="pull-left" href="#">
+			                <i class="fa fa-plus"></i>
+			            </a>
+			            <div class="media-body">
+			                {{ obj_form.title.errors }}
+			                {% captureas placeholder %}{% trans "Gib den Titel für ein neues Dokument ein." %}{% endcaptureas %}
+			                {% render_field obj_form.title class+="form-control" placeholder=placeholder id="etherpadCreateButton" %}
+			            </div>
+			        </li>
+			    </ul>
+			</div>
+			<button type="submit" class="btn btn-emphasized large-space" id="etherpadCreateButton">
+			    <ul class="media-list">
+			        <li class="media">
+			            <a class="pull-left" href="#">
+			                <i class="fa fa-floppy-o"></i>
+			            </a>
+			            <div class="media-body">
+			                Speichern
+			            </div>
+			        </li>
+			    </ul>
+			</button>
 	    </form>
 	    {% endwith %}
 	    
