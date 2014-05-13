@@ -29,7 +29,7 @@
     <!-- a box with semi transparent background -->
     <div class="content-box">
         <form action="" method="post" class="form-horizontal">{% csrf_token %}
-	        {{ obj_form.non_field_errors }}
+	        {{ form.forms.obj.non_field_errors }}
 	        <div class="btn btn-extra-emphasized w100">
 	            <ul class="media-list">
 	                <li class="media">
@@ -47,7 +47,10 @@
 	                </li>
 	            </ul>
 	        </div>
-	
+	        
+	        <!-- TODO: connect to media_tag form!
+            {{ form.forms.media_tag.fieldname }}
+	         -->
 	        <ol class="input-area">
 	            <li>
 	                <ol>
