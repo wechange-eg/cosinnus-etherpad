@@ -189,6 +189,9 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
         return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
+        # on form invalids, we need to retrieve the objects
+        if not hasattr(self, 'object_list'):
+            self.object_list = self.get_queryset()
         context = super(EtherpadHybridListView, self).get_context_data(**kwargs)
         
         path = self.kwargs.pop('slug', None)
