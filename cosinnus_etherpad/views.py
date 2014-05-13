@@ -180,7 +180,6 @@ pad_add_view = EtherpadAddView.as_view()
 class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
                        SortableListMixin, HierarchyTreeMixin, EtherpadAddView):
     
-    container_form_class = None # TODO HERE
     template_name = 'cosinnus_etherpad/etherpad_list.html'
 
     def get(self, request, *args, **kwargs):
@@ -213,7 +212,12 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
         return context
     
     def get_success_url(self):
-        return self.object.get_absolute_url();
+        if self.object.is_container:
+            return reverse('cosinnus:etherpad:list', kwargs={
+                    'group': self.group.slug,
+                    'slug': self.object.slug})
+        else:
+            return self.object.get_absolute_url();
 
 pad_hybrid_list_view = EtherpadHybridListView.as_view()
 
