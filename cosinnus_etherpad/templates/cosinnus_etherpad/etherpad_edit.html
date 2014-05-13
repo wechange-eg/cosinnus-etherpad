@@ -1,0 +1,126 @@
+{% extends "cosinnus_etherpad/base.html" %}
+{% load i18n static cosinnus_tags widget_tweaks %}
+
+{% block page_title %}
+{% trans "Pads" %} {{ block.super }}
+{% endblock page_title %}
+
+{% block breadcrumb %}
+        {{ block.super }}
+        {% if object.path != '/' %}
+            <li><a href="{% url 'cosinnus:etherpad:list' group=group.slug slug=object.container.slug %}">{{ object.container.title }}</a></li>
+        {% endif %}
+        <li>{{ object.title }}</li>
+{% endblock %}
+
+{% block leftnav %}
+    {% if object.path == '/' %}
+        {% captureas href %}{% url 'cosinnus:etherpad:list' group=group.slug %}{% endcaptureas %}
+        {% captureas label %}{% trans "Zurück zu" %} {% trans "Etherpads" %} {% endcaptureas %}
+    {% else %}
+        {% captureas href %}{% url 'cosinnus:etherpad:list' group=group.slug slug=object.container.slug %}{% endcaptureas %}
+        {% captureas label %}{% trans "Zurück zu" %} „{{ object.container.title }}“ {% endcaptureas %}
+    {% endif %}
+	{% include "cosinnus/leftnav_button.html" with extra_classes="fine-space" icon="fa-reply" label=label href=href  %}
+{% endblock leftnav %}
+
+
+{% block content %}
+    <!-- a box with semi transparent background -->
+    <div class="content-box">
+
+        <div class="btn btn-extra-emphasized w100">
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-book"></i>
+                    </a>
+                    <a class="pull-right" href="#">
+                        <i class="fa fa-chain"></i>
+                    </a>
+                    <div class="media-body">
+                        <input class="form-control"
+                            placeholder="Gib den Titel für das Pad ein."
+                            value="Protokoll vom Plenum am 01.04.2013"
+                            id="etherpadTitle" />
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <ol class="input-area">
+            <li>
+                <ol>
+                    <li>
+                        <i class="fa fa-user"></i>
+                        <select class="user-selector" multiple="multiple" data-placeholder="Benutzer">
+                            <option value="Al">Alice</option>
+                            <option value="Bo">Bob</option>
+                            <option value="Cy">Cindy</option>
+                        </select>
+                    </li>
+                    <li>
+                        <i class="fa fa-tags"></i>
+                            <input type="hidden" class="tags-selector" data-tags="Baustelle, Gewerk, Elektrik" data-placeholder="Tags" />
+                    </li>
+                    <li>
+                        <i class="fa fa-paperclip"></i>
+                        (Anhänge)
+                    </li>
+                </ol>
+            </li>
+            <li>
+                <ol>
+                    <li>
+                        <i class="fa fa-map-marker"></i>
+                        <input type="hidden" class="location-selector" data-tags="Berlin, Kreuzberg, Oranienhof, Köln, Paris, London, Frankfurt, New York, Peking" data-placeholder="Ort" />
+                    </li>
+                    <li>
+                        <i class="fa fa-clock-o"></i>
+                        Uhr
+                    </li>
+                    <li>
+                        <i class="fa fa-fw fa-bolt"></i>
+                        <select class="bolt-selector">
+                            <option selected="selected" value="flash">Blitz an</option>
+                            <option value="noflash"></i>Blitz aus</option>
+                        </select>
+                    </li>
+                    <li>
+                        <i class="fa fa-fw fa-lightbulb-o"></i>
+                        <select class="light-selector">
+                            <option selected="selected" value="light">mit Licht</option>
+                            <option value="dark"></i>im Dunkeln</option>
+                        </select>
+                    </li>
+                    <li>
+                        <i class="fa fa-fw fa-globe"></i>
+                        <select class="privacy-selector">
+                            <option selected="selected" value="public">Öffentlich</option>
+                            <option value="private"></i>Privat</option>
+                        </select>
+                    </li>
+                </ol>
+            </li>
+        </ol><!-- input-area -->
+
+        <button type="button" class="btn btn-emphasized" id="etherpadSaveMetaButton">
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-floppy-o "></i>
+                    </a>
+                    <div class="media-body">
+                        Speichern
+                    </div>
+                </li>
+            </ul>
+        </button>
+
+
+        <div style="clear: both; margin-top: 40px;">
+            <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
+        </div>
+                
+    </div><!-- content-box -->
+{% endblock content %}

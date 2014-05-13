@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 import sys
 
 import six
+from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
 
 try:
     from urllib.parse import urlparse
@@ -113,8 +114,7 @@ pad_detail_view = EtherpadDetailView.as_view()
 
 
 class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
-                        GroupFormKwargsMixin, UserFormKwargsMixin,
-                        HierarchyPathMixin):
+                        GroupFormKwargsMixin, UserFormKwargsMixin):
     form_class = EtherpadForm
     model = Etherpad
     message_success = _('Etherpad "%(title)s" was edited successfully.')
@@ -153,7 +153,7 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
 
 
 
-class EtherpadAddView(EtherpadFormMixin, CreateView):
+class EtherpadAddView(EtherpadFormMixin, HierarchyPathMixin, CreateView):
     form_view = 'add'
     message_success = _('Etherpad "%(title)s" was added successfully.')
     message_error = _('Etherpad "%(title)s" could not be added.')
@@ -191,6 +191,7 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
         # on form invalids, we need to retrieve the objects
         if not hasattr(self, 'object_list'):
             self.object_list = self.get_queryset()
+            
         context = super(EtherpadHybridListView, self).get_context_data(**kwargs)
         
         path = self.kwargs.pop('slug', None)
@@ -231,11 +232,12 @@ container_add_view = EtherpadAddContainerView.as_view()
 
 class EtherpadEditView(EtherpadFormMixin, UpdateView):
     form_view = 'edit'
+    template_name = 'cosinnus_etherpad/etherpad_edit.html'
 
     def render_to_response(self, context, **response_kwargs):
         response = super(EtherpadFormMixin, self).render_to_response(
             context, **response_kwargs)
-
+        
         # set cross-domain session cookie for etherpad app
         etherpad = context['etherpad']
         user_session_id = etherpad.get_user_session_id(self.request.user)
