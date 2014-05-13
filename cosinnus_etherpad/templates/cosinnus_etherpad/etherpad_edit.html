@@ -123,4 +123,23 @@
         </div>
                 
     </div><!-- content-box -->
+    
+    <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#deleteModal">
+        <ul class="media-list">
+            <li class="media">
+                <a class="pull-left" href="#">
+                    <i class="fa fa-eraser"></i>
+                </a>
+                <div class="media-body">
+                    {% trans "Löschen" %}
+                </div>
+            </li>
+        </ul>
+    </button>
+    
+    {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
+    {% captureas title %}{% trans "Etherpad löschen" %}{% endcaptureas %}
+    {% include "cosinnus/modal_box.html" with label=label title=title form_action="./delete/" %}
+
+    
 {% endblock content %}
