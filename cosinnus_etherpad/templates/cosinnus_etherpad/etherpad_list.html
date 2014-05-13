@@ -20,7 +20,7 @@
 	{% endif %}
 	
 	{% for folder in folders %}
-		{% captureas href %}{% url 'cosinnus:etherpad:list' group=group.slug %}?path={{ folder.path }}{% endcaptureas %}
+		{% captureas href %}{% url 'cosinnus:etherpad:list' group=group.slug slug=folder.container_object.slug %}{% endcaptureas %}
 		{% captureas label %}{{ folder.name }}{% endcaptureas %}
 	    {% captureas button_class %}{% if forloop.last %}regular-space{% else %}fine-space{% endif %}{% endcaptureas %}
 	    {% captureas folder_size %}{{ folder.objects|length }}{% endcaptureas %}
@@ -59,7 +59,7 @@
 			            <div class="media-body">
 			                {{ obj_form.title.errors }}
 			                {% captureas placeholder %}{% trans "Gib den Titel für ein neues Dokument ein." %}{% endcaptureas %}
-			                {% render_field obj_form.title class+="form-control" placeholder=placeholder id="etherpadCreateButton" %}
+			                {% render_field obj_form.title class+="form-control" placeholder=placeholder id="etherpadCreateInput" %}
 			            </div>
 			        </li>
 			    </ul>

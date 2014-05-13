@@ -191,8 +191,8 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
     def get_context_data(self, *args, **kwargs):
         context = super(EtherpadHybridListView, self).get_context_data(**kwargs)
         
-        root = self.request.GET.get('path', '/')
-        #tree = self.get_tree(self.object_list, root)
+        path = self.kwargs.pop('slug', None)
+        root = '/' + path + '/' if path else '/'
         # assemble container and current hierarchy objects
         current_folder_node = self.get_tree(self.object_list, root, include_containers=True, include_leaves=True, recursive=True)
         current_folder = current_folder_node['container_object']
@@ -207,6 +207,9 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
         
         #print ">> context", context.get('form', None).forms.get('obj').title
         return context
+    
+    def get_success_url(self):
+        return self.object.get_absolute_url();
 
 pad_hybrid_list_view = EtherpadHybridListView.as_view()
 
