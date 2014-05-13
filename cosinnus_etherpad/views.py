@@ -193,19 +193,20 @@ class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
         
         path = self.kwargs.pop('slug', None)
         root = '/' + path + '/' if path else '/'
-        # assemble container and current hierarchy objects
+        # assemble container and current hierarchy objects.
+        # recursive must be =True, or we don't know how the size of a folder
         current_folder_node = self.get_tree(self.object_list, root, include_containers=True, include_leaves=True, recursive=True)
+        root_folder_node = self.get_tree(self.object_list, '/', include_containers=True, include_leaves=True, recursive=True)
+        
+        # we always show the folders from root, as we only have 1 hierarchy level
+        folders = root_folder_node['containers']
+        objects = current_folder_node['objects']
         current_folder = current_folder_node['container_object']
         if current_folder is None:
             # insert logic for "this folder doesn't exist" here
             pass
         
-        folders = current_folder_node['containers']
-        objects = current_folder_node['objects']
-        
         context.update({'current_folder':current_folder, 'object_list': objects, 'objects':objects, 'folders':folders})
-        
-        #print ">> context", context.get('form', None).forms.get('obj').title
         return context
     
     def get_success_url(self):
