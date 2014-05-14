@@ -48,56 +48,7 @@
 	            </ul>
 	        </div>
 	        
-	        <!-- TODO: connect to media_tag form!
-            {{ form.forms.media_tag.fieldname }}
-	         -->
-	        <ol class="input-area">
-	                    <li>
-	                        <i class="fa fa-user"></i>
-	                        <select class="user-selector" multiple="multiple" data-placeholder="Benutzer">
-	                            <option value="Al">Alice</option>
-	                            <option value="Bo">Bob</option>
-	                            <option value="Cy">Cindy</option>
-	                        </select>
-	                    </li>
-	                    <li>
-	                        <i class="fa fa-tags"></i>
-	                            <input type="hidden" class="tags-selector" data-tags="Baustelle, Gewerk, Elektrik" data-placeholder="Tags" />
-	                    </li>
-	                    <li>
-	                        <i class="fa fa-paperclip"></i>
-	                        (Anhänge)
-	                    </li>
-	                    <li>
-	                        <i class="fa fa-map-marker"></i>
-	                        <input type="hidden" class="location-selector" data-tags="Berlin, Kreuzberg, Oranienhof, Köln, Paris, London, Frankfurt, New York, Peking" data-placeholder="Ort" />
-	                    </li>
-	                    <li>
-	                        <i class="fa fa-clock-o"></i>
-	                        Uhr
-	                    </li>
-	                    <li>
-	                        <i class="fa fa-fw fa-bolt"></i>
-	                        <select class="bolt-selector">
-	                            <option selected="selected" value="flash">Blitz an</option>
-	                            <option value="noflash"></i>Blitz aus</option>
-	                        </select>
-	                    </li>
-	                    <li>
-	                        <i class="fa fa-fw fa-lightbulb-o"></i>
-	                        <select class="light-selector">
-	                            <option selected="selected" value="light">mit Licht</option>
-	                            <option value="dark"></i>im Dunkeln</option>
-	                        </select>
-	                    </li>
-	                    <li>
-	                        <i class="fa fa-fw fa-globe"></i>
-	                        <select class="privacy-selector">
-	                            <option selected="selected" value="public">Öffentlich</option>
-	                            <option value="private"></i>Privat</option>
-	                        </select>
-	                    </li>
-	        </ol><!-- input-area -->
+	        {% include 'cosinnus/media_tags.html' %}
 	
 	        <button type="submit" class="btn btn-emphasized" id="etherpadSaveMetaButton">
 	            <ul class="media-list">
