@@ -5,6 +5,7 @@ import sys
 
 import six
 from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
+from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
 
 try:
     from urllib.parse import urlparse
@@ -153,7 +154,7 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
 
 
 
-class EtherpadAddView(EtherpadFormMixin, HierarchyPathMixin, CreateView):
+class EtherpadAddView(EtherpadFormMixin, CreateView):
     form_view = 'add'
     message_success = _('Etherpad "%(title)s" was added successfully.')
     message_error = _('Etherpad "%(title)s" could not be added.')
@@ -177,41 +178,10 @@ class EtherpadAddView(EtherpadFormMixin, HierarchyPathMixin, CreateView):
 pad_add_view = EtherpadAddView.as_view()
 
 
-class EtherpadHybridListView(RequireReadMixin, TaggedListMixin,
-                       SortableListMixin, HierarchyTreeMixin, EtherpadAddView):
+class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, EtherpadAddView):
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
 
-    def get(self, request, *args, **kwargs):
-        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
-        self.object_list = self.get_queryset()
-        return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
-
-    def get_context_data(self, *args, **kwargs):
-        # on form invalids, we need to retrieve the objects
-        if not hasattr(self, 'object_list'):
-            self.object_list = self.get_queryset()
-            
-        context = super(EtherpadHybridListView, self).get_context_data(**kwargs)
-        
-        path = self.kwargs.pop('slug', None)
-        root = '/' + path + '/' if path else '/'
-        # assemble container and current hierarchy objects.
-        # recursive must be =True, or we don't know how the size of a folder
-        current_folder_node = self.get_tree(self.object_list, root, include_containers=True, include_leaves=True, recursive=True)
-        root_folder_node = self.get_tree(self.object_list, '/', include_containers=True, include_leaves=True, recursive=True)
-        
-        # we always show the folders from root, as we only have 1 hierarchy level
-        folders = root_folder_node['containers']
-        objects = current_folder_node['objects']
-        current_folder = current_folder_node['container_object']
-        if current_folder is None:
-            # insert logic for "this folder doesn't exist" here
-            pass
-        
-        context.update({'current_folder':current_folder, 'object_list': objects, 'objects':objects, 'folders':folders})
-        return context
-    
     def get_success_url(self):
         if self.object.is_container:
             return reverse('cosinnus:etherpad:list', kwargs={
