@@ -8,7 +8,7 @@
 {% block breadcrumb %}
         {{ block.super }}
         {% if current_folder %}
-            <li>{{ current_folder.title }}</li>
+            <li class="active">{{ current_folder.title }}</li>
         {% endif %}
 {% endblock %}
 
