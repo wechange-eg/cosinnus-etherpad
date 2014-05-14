@@ -21,11 +21,12 @@
 	
 	{% for folder in folders %}
 		{% captureas href %}{% url 'cosinnus:etherpad:list' group=group.slug slug=folder.container_object.slug %}{% endcaptureas %}
-		{% captureas label %}{{ folder.name }} {% if folder.path == current_folder.path %}&gt;&gt;&gt;{% endif%} {% endcaptureas %}
+		{% captureas label %}{{ folder.container_object.title }}{% endcaptureas %}
 	    {% captureas button_class %}{% if forloop.last %}regular-space{% else %}fine-space{% endif %}{% endcaptureas %}
 	    {% captureas folder_size %}{{ folder.objects|length }}{% endcaptureas %}
+        {% captureas active %}{% if folder.name == current_folder.slug %}True{% endif %}{% endcaptureas %}
 	    
-	    {% include "cosinnus/leftnav_button.html" with extra_classes=button_class icon_content=folder_size label=label href=href  %}
+	    {% include "cosinnus/leftnav_button.html" with active=active extra_classes=button_class icon_content=folder_size label=label href=href  %}
 	{% endfor %}
 	
     <form action="" method="post"class="form-horizontal">{% csrf_token %}
