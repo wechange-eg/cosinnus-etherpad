@@ -181,6 +181,7 @@ pad_add_view = EtherpadAddView.as_view()
 class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, EtherpadAddView):
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
+    allow_deep_hierarchy = False
 
     def get_success_url(self):
         if self.object.is_container:
