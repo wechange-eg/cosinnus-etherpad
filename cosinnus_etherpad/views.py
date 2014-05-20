@@ -182,9 +182,13 @@ class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalL
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
     allow_deep_hierarchy = False
-
+    
+    message_success_folder = _('Folder "%(title)s" was created successfully.')
+    
     def get_success_url(self):
         if self.object.is_container:
+            messages.success(self.request,
+                self.message_success_folder % {'title': self.object.title})
             return reverse('cosinnus:etherpad:list', kwargs={
                     'group': self.group.slug,
                     'slug': self.object.slug})
