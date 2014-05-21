@@ -1,0 +1,15 @@
+{% load i18n %}
+{% if rows %}
+  <table class="table table-striped table-hover table-condensed">
+    <tr>
+      <th>{% trans "Title" %}</th>
+    </tr>
+    {% for row in rows %}
+      <tr>
+        <td><a href="{% url "cosinnus:etherpad:pad-edit" group=row.group.slug slug=row.slug %}">{{ row.title }}</a></td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  {{ no_data }}
+{% endif %}
