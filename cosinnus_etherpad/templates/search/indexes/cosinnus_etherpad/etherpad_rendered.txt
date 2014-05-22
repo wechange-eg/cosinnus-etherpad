@@ -1,0 +1,5 @@
+<div class="etherpad">
+  <h2><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></h2>
+  <p>{{ object.description }}</p>
+  {% include "search/indexes/cosinnus/_media_tag_rendered.txt" %}
+</div>
