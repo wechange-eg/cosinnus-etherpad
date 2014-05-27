@@ -1,15 +1,25 @@
 {% load i18n %}
+
 {% if rows %}
-  <table class="table table-striped table-hover table-condensed">
-    <tr>
-      <th>{% trans "Title" %}</th>
-    </tr>
     {% for row in rows %}
-      <tr>
-        <td><a href="{% url "cosinnus:etherpad:pad-edit" group=row.group.slug slug=row.slug %}">{{ row.title }}</a></td>
-      </tr>
+        <div type="button" class="btn btn-emphasized dashboard-appwidget-contentline">
+		    <ul class="media-list fine-space">
+		        <li class="media">
+		            <a class="pull-left" href="#">
+		                <i class="fa fa-file-text-o"></i>
+		            </a>
+		            <div class="media-body">
+		                <a href="{% url "cosinnus:etherpad:pad-edit" group=row.group.slug slug=row.slug %}">{{ row.title }}</a>
+		                <div class="group-annotation">
+		                <i class="fa fa-users"></i>
+		                    {{ group.name }}
+		                </div>
+		            </div>
+		        </li>
+		    </ul>
+		</div><!-- btn -->
     {% endfor %}
-  </table>
 {% else %}
   {{ no_data }}
 {% endif %}
+

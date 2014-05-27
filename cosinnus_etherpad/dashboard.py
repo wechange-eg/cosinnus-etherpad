@@ -35,5 +35,6 @@ class Latest(DashboardWidget):
         data = {
             'rows': qs,
             'no_data': _('No etherpads'),
+            'group': self.config.group,
         }
         return render_to_string('cosinnus_etherpad/widgets/latest.html', data)
