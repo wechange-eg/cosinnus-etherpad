@@ -27,7 +27,7 @@ class Latest(DashboardWidget):
     def get_data(self):
         if self.request.user.is_authenticated():
             count = int(self.config['amount'])
-            qs = self.get_queryset().select_related('group').order_by('-created').all()
+            qs = self.get_queryset().select_related('group').order_by('-created').filter(is_container=False)
             if count != 0:
                 qs = qs[:count]
         else:
