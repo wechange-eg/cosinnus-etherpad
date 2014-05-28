@@ -25,7 +25,6 @@ class _EtherpadForm(GroupKwargModelFormMixin, UserKwargModelFormMixin,
     def __init__(self, *args, **kwargs):
         super(_EtherpadForm, self).__init__(*args, **kwargs)
         if self.instance.pk:
-            import ipdb; ipdb.set_trace()
             # TODO: Uncomment this to re-enable protecting the title of a pad
             #    self.fields['title'].widget.attrs['readonly'] = True
             self.fields['tags'].choices = self.instance.tags.values_list('name', 'name').all()
