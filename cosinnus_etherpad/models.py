@@ -73,6 +73,12 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     @property
     def content(self):
         return self.client.getHTML(padID=self.pad_id)['html']
+    
+    @classmethod
+    def get_current(self, group):
+        """ Returns a queryset of the current upcoming events """
+        return Etherpad.objects.filter(group=group).filter(is_container=False)
+        
 
 
 @receiver(post_save, sender=CosinnusGroup)
