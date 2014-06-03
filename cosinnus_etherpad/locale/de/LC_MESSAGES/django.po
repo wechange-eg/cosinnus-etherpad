@@ -228,7 +228,7 @@ msgstr "Sind Sie sicher, dass Sie Etherpad „%(title)s“ löschen wollen?"
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:30
 msgid "There are no etherpads yet"
-msgstr ""
+msgstr "Es wurden noch keiner Etherpads erstellt."
 
 #~ msgid "Etherpad \"%(title)s\" was deleted successfully."
 #~ msgstr "Etherpad „%(title)s“ wurde erfolgreich gelöscht."
