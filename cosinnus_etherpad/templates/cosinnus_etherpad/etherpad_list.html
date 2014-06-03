@@ -31,23 +31,23 @@
 			            <div class="media-body">
 			                {{ obj_form.title.errors }}
 			                {% captureas placeholder %}{% trans "Gib den Titel für ein neues Dokument ein." %}{% endcaptureas %}
-			                {% render_field obj_form.title class+="form-control" placeholder=placeholder id="etherpadCreateInput" %}
+			                {% render_field obj_form.title class+="form-control next-button-is-for-sending" placeholder=placeholder id="etherpadCreateInput" %}
 			            </div>
 			        </li>
 			    </ul>
 			</div>
-			<button type="submit" class="btn btn-emphasized large-space" id="etherpadCreateButton">
-			    <ul class="media-list">
-			        <li class="media">
-			            <a class="pull-left" href="#">
-			                <i class="fa fa-floppy-o"></i>
-			            </a>
-			            <div class="media-body">
-			                {% trans "Speichern" %}
-			            </div>
-			        </li>
-			    </ul>
-			</button>
+            <button type="submit" class="btn btn-emphasized large-space" style="display: none;">
+                <ul class="media-list">
+                    <li class="media">
+                        <a class="pull-left" href="#">
+                            <i class="fa fa-floppy-o"></i>
+                        </a>
+                        <div class="media-body">
+                            {% trans "Create" %}
+                        </div>
+                    </li>
+                </ul>
+            </button>
 	    </form>
 	    {% endwith %}
 	    
