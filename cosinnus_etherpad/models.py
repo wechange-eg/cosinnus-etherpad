@@ -17,6 +17,7 @@ from cosinnus.models import BaseHierarchicalTaggableObjectModel, CosinnusGroup
 from etherpad_lite import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
+from django.utils.encoding import smart_text
 
 
 def _init_client():
@@ -60,7 +61,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         author_id = self.client.createAuthorIfNotExistsFor(
             authorMapper=user.username)
         group_id = self.client.createGroupIfNotExistsFor(
-            groupMapper=self.group.name)
+            groupMapper=_get_group_mapping(self.group))
         one_year_from_now = now() + timedelta(days=365)
         valid_until = time.mktime(one_year_from_now.timetuple())
 
@@ -88,7 +89,7 @@ def create_etherpad_group(sender, instance, created, **kwargs):
     """
     if created:
         client = _init_client()
-        client.createGroupIfNotExistsFor(groupMapper=instance.name)
+        client.createGroupIfNotExistsFor(groupMapper=_get_group_mapping(instance))
 
 
 @receiver(post_delete, sender=CosinnusGroup)
@@ -98,7 +99,7 @@ def delete_etherpad_group(sender, instance, **kwargs):
     """
     client = _init_client()
     group_id = client.createGroupIfNotExistsFor(
-        groupMapper=instance.name)
+        groupMapper=_get_group_mapping(instance))
     client.deleteGroup(groupID=group_id['groupID'])
 
 
@@ -107,14 +108,13 @@ def create_etherpad(sender, instance, **kwargs):
     """
     Receiver to create a pad on etherpad server
     """
-    if not instance.pk:
+    if not instance.pk and not instance.is_container:
         group_id = instance.client.createGroupIfNotExistsFor(
-            groupMapper=instance.group.name)
+            groupMapper=_get_group_mapping(instance.group))
         pad_id = instance.client.createGroupPad(
             groupID=group_id['groupID'],
             padName=instance.slug)
         instance.pad_id = pad_id['padID']
-
 
 @receiver(post_delete, sender=Etherpad)
 def delete_etherpad(sender, instance, **kwargs):
@@ -127,6 +127,9 @@ def delete_etherpad(sender, instance, **kwargs):
         # failed deletion of missing padIDs is ok
         if 'padID does not exist' not in str(exc):
             raise
+
+def _get_group_mapping(group):
+    return smart_text(group.slug).encode('utf-8')
 
 
 import django
