@@ -12,7 +12,7 @@
 		                <a href="{% url "cosinnus:etherpad:pad-edit" group=row.group.slug slug=row.slug %}">{{ row.title }}</a>
 		                <div class="group-annotation">
 		                <i class="fa fa-users"></i>
-		                    {{ group.name }}
+		                    {{ row.group.name }}
 		                </div>
 		            </div>
 		        </li>
