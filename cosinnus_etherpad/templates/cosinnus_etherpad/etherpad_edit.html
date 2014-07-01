@@ -63,7 +63,7 @@
     
     </div><!-- content-box -->
     
-    {% if user.is_superuser or user|is_group_member:object %}   
+    {% if user.is_superuser or user|is_group_member:group %}   
 	    <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#deleteModal">
 	        <ul class="media-list">
 	            <li class="media">
