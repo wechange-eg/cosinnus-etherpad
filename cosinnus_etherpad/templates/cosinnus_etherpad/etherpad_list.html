@@ -52,7 +52,7 @@
 	    {% endwith %}
 	    
 	    {% for object in objects %}
-		    <div class="fadedown regular-space">
+		    <div class="fadedown {% if not forloop.last %}regular-space{% endif %}">
 		        <div class="btn btn-emphasized w100">
 		            <ul class="media-list">
 		                <li class="media">
