@@ -47,7 +47,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     def get_absolute_url(self):
         kwargs = {'group': self.group.slug, 'slug': self.slug}
-        return reverse('cosinnus:etherpad:pad-edit', kwargs=kwargs)
+        return reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
 
     def get_pad_url(self):
         if self.pk:

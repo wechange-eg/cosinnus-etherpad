@@ -89,6 +89,7 @@ list_view = EtherpadListView.as_view()
 
 class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
     model = Etherpad
+    template_name = 'cosinnus_etherpad/etherpad_detail.html'
 
     def render_to_response(self, context, **response_kwargs):
         if 'cosinnus_document' in settings.INSTALLED_APPS:

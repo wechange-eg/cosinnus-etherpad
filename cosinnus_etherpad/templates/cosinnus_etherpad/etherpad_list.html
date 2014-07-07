@@ -66,7 +66,7 @@
 		                        <i class="fa fa-chain"></i>
 		                    </a>
 		                    <div class="media-body">
-		                        <a href="{% url 'cosinnus:etherpad:pad-edit' group=group.slug slug=object.slug %}">
+		                        <a href="{{ object.get_absolute_url }}">
 		                            {{ object.title }}
 		                        </a>
 		                    </div>
@@ -90,7 +90,7 @@
 			                </li>
 			            </ul>
 			        </button>
-			        <button type="button" class="btn btn-emphasized" href="{{ object.get_absolute_url }}">
+			        <button type="button" class="btn btn-emphasized" href="{% url 'cosinnus:etherpad:pad-edit' group=group.slug slug=object.slug %}">
 			            <ul class="media-list">
 			                <li class="media">
 			                    <a class="pull-left" href="#">
