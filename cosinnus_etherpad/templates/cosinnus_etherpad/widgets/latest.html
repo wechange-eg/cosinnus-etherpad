@@ -9,7 +9,7 @@
 		                <i class="fa fa-file-text-o"></i>
 		            </a>
 		            <div class="media-body">
-		                <a href="{% url "cosinnus:etherpad:pad-edit" group=row.group.slug slug=row.slug %}">{{ row.title }}</a>
+		                <a href="{{ row.get_absolute_url }}">{{ row.title }}</a>
 		                <div class="group-annotation">
 		                <i class="fa fa-users"></i>
 		                    {{ row.group.name }}
