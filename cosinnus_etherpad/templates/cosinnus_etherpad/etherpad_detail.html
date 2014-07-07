@@ -45,7 +45,7 @@
     
     </div><!-- content-box -->
     
-    {% if user.is_superuser or user|is_group_member:group %}   
+    {% if user|has_write_access:object %}   
 	    <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#deleteModal">
             <ul class="media-list">
                 <li class="media">

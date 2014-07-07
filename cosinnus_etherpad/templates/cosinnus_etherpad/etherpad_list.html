@@ -76,7 +76,7 @@
 		        
 		        {% include 'cosinnus/media_tags_readonly.html' %}
 		        
-		        {% if user.is_superuser or user|is_group_member:group %}
+		        {% if user|has_write_access:object %}
 			        {% captureas modal_id %}deleteModal_{{object.slug}}{% endcaptureas %}
 			        <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#{{modal_id}}">
 			            <ul class="media-list">
@@ -105,7 +105,7 @@
 			    {% endif %}
 			    
 			</div><!-- fadedown -->
-			{% if user.is_superuser or user|is_group_member:group %}    
+			{% if user|has_write_access:object %}    
 			    {% captureas label %}{% blocktrans with title=object.title %}Do you really want to delete etherpad „{{ title }}“?{% endblocktrans %}{% endcaptureas %}
 	            {% captureas title %}{% trans "Etherpad löschen" %}{% endcaptureas %}
 	            {% captureas action %}{% url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug%}{% endcaptureas %}
