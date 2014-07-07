@@ -47,17 +47,29 @@
     
     {% if user.is_superuser or user|is_group_member:group %}   
 	    <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#deleteModal">
-	        <ul class="media-list">
-	            <li class="media">
-	                <a class="pull-left" href="#">
-	                    <i class="fa fa-eraser"></i>
-	                </a>
-	                <div class="media-body">
-	                    {% trans "Löschen" %}
-	                </div>
-	            </li>
-	        </ul>
-	    </button>
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-eraser"></i>
+                    </a>
+                    <div class="media-body">
+                        {% trans "Delete" %}
+                    </div>
+                </li>
+            </ul>
+        </button>
+        <button type="button" class="btn btn-emphasized" href="{% url "cosinnus:etherpad:pad-edit" group=group.slug slug=etherpad.slug %}">
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-pencil"></i>
+                    </a>
+                    <div class="media-body">
+                        {% trans "Bearbeiten" %}
+                    </div>
+                </li>
+            </ul>
+        </button> 
 	    
 	    {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
 	    {% captureas title %}{% trans "Etherpad löschen" %}{% endcaptureas %}
