@@ -18,7 +18,7 @@ class _EtherpadForm(GroupKwargModelFormMixin, UserKwargModelFormMixin,
 
     class Meta:
         model = Etherpad
-        fields = ('title', 'description', 'tags', 'media_tag')
+        fields = ('title', 'description', 'media_tag')
      
     # TODO: Uncomment this to re-enable protecting the title of a pad
     #def __init__(self, *args, **kwargs):

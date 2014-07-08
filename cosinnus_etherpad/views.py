@@ -28,7 +28,7 @@ from cosinnus.views.export import CSVExportView
 from cosinnus.views.hierarchy import AddContainerView
 from cosinnus.views.mixins.group import (
     RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin)
-from cosinnus.views.mixins.tagged import (TaggedListMixin, HierarchyTreeMixin,
+from cosinnus.views.mixins.tagged import (HierarchyTreeMixin,
     HierarchyPathMixin, HierarchyDeleteMixin)
 from cosinnus.views.mixins.user import UserFormKwargsMixin
 
@@ -70,7 +70,7 @@ class EtherpadIndexView(RequireReadMixin, RedirectView):
 index_view = EtherpadIndexView.as_view()
 
 
-class EtherpadListView(RequireReadMixin, FilterGroupMixin, TaggedListMixin,
+class EtherpadListView(RequireReadMixin, FilterGroupMixin,
                        SortableListMixin, HierarchyTreeMixin, ListView):
     model = Etherpad
 
