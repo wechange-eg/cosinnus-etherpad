@@ -1,0 +1,6 @@
+{% for etherpad in etherpads %}
+<a class="app-documents-attachment" href="{{ etherpad.get_absolute_url }}">
+    <i class="fa fa-file-text-o"></i> 
+    {{ etherpad.title|truncatechars:25 }}
+</a>&nbsp;
+{% endfor %}

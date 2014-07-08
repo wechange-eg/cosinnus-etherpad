@@ -235,3 +235,6 @@ msgstr "Es gibt noch keine Etherpads."
 
 #~ msgid "Etherpad \"%(title)s\" could not be deleted."
 #~ msgstr "Etherpad „%(title)s“ konnte nicht gelöscht werden."
+
+msgid "attached:cosinnus_etherpad.Etherpad"
+msgstr "Angehängte Pads"
