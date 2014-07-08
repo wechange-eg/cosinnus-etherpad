@@ -196,7 +196,9 @@ class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalL
                     'group': self.group.slug,
                     'slug': self.object.slug})
         else:
-            return self.object.get_absolute_url();
+            return reverse('cosinnus:etherpad:pad-edit', kwargs={
+                    'group': self.group.slug,
+                    'slug': self.object.slug})
 
 pad_hybrid_list_view = EtherpadHybridListView.as_view()
 
