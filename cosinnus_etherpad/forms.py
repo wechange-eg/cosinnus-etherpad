@@ -27,9 +27,13 @@ class _EtherpadForm(GroupKwargModelFormMixin, UserKwargModelFormMixin,
         if self.instance.pk:
             # TODO: Uncomment this to re-enable protecting the title of a pad
             #    self.fields['title'].widget.attrs['readonly'] = True
-            self.fields['tags'].choices = self.instance.tags.values_list('name', 'name').all()
-            self.fields['tags'].initial = self.instance.tags.values_list('name', 'name').all()
-
+            preresults = self.instance.tags.values_list('name', 'name').all()
+            self.fields['tags'].choices = preresults
+            self.fields['tags'].initial = [key for key,val in preresults]#[tag.name for tag in self.instance.tags.all()]
+            
+            # we need to remove this from the initials, or it overwrites the select2 fields initials
+            del self.initial['tags']
+            
     # TODO: Uncomment this to re-enable protecting the title of a pad
     # def clean_title(self):
     #    if self.instance.pk:
