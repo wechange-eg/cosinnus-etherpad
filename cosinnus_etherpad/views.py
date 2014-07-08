@@ -124,10 +124,8 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
 
     def get_context_data(self, **kwargs):
         context = super(EtherpadFormMixin, self).get_context_data(**kwargs)
-        tags = Etherpad.objects.tags()
         context.update({
             'form_view': self.form_view,
-            'tags': tags
         })
         if 'cosinnus_document' in settings.INSTALLED_APPS:
             context['has_document'] = True
