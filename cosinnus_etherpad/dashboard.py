@@ -25,13 +25,11 @@ class Latest(DashboardWidget):
     widget_name = 'latest'
 
     def get_data(self):
-        if self.request.user.is_authenticated():
-            count = int(self.config['amount'])
-            qs = self.get_queryset().select_related('group').order_by('-created').filter(is_container=False)
-            if count != 0:
-                qs = qs[:count]
-        else:
-            qs = []
+        count = int(self.config['amount'])
+        qs = self.get_queryset().select_related('group').order_by('-created').filter(is_container=False)
+        if count != 0:
+            qs = qs[:count]
+            
         data = {
             'rows': qs,
             'no_data': _('No etherpads'),
