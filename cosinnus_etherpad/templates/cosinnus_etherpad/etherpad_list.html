@@ -111,6 +111,8 @@
 	            {% captureas action %}{% url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug%}{% endcaptureas %}
 	            {% include "cosinnus/modal_box.html" with id=modal_id label=label title=title form_action=action %}
             {% endif %}
+        {% empty %}
+            <p>{% trans "No etherpads have been created yet." %}</p>
 	    {% endfor %}
 	
 	</div><!-- content-box -->
