@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-09 13:17+0200\n"
+"POT-Creation-Date: 2014-07-16 17:26+0200\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -15,23 +15,24 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cosinnus_app.py:12 .\models.py:42
-msgid "Etherpads"
+# The Cosinnus App Name
+msgctxt "the_app"
+msgid "etherpad"
 msgstr "Etherpads"
 
 #: .\dashboard.py:23
 msgid "Latest Etherpads"
 msgstr "Neueste Etherpads"
 
-#: .\dashboard.py:37
+#: .\dashboard.py:38
 msgid "No etherpads"
 msgstr "Keine Etherpads"
 
-#: .\models.py:36
+#: .\models.py:37
 msgid "Description"
 msgstr "Beschreibung"
 
-#: .\models.py:41 .\templates\__old__cosinnus_etherpad\base.html.py:5
+#: .\models.py:42 .\templates\__old__cosinnus_etherpad\base.html.py:5
 #: .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
