@@ -6,6 +6,9 @@ import sys
 import six
 from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
 from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
+from django_filters.views import FilterMixin
+from django_filters.filterset import FilterSet
+from cosinnus.views.mixins.filters import CosinnusFilterMixin
 
 try:
     from urllib.parse import urlparse
@@ -179,12 +182,30 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
 pad_add_view = EtherpadAddView.as_view()
 
 
-class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, EtherpadAddView):
+class EtherpadFilter(FilterSet):
+    class Meta:
+        model = Etherpad
+        fields = ['title']
+        order_by = ['-created', 'creator__username', 'title']
+    
+    def get_order_by(self, order_value):
+        print ">>> order value", order_value
+        if order_value == 'creator__username':
+            return ['creator__username', 'title']
+        return super(EtherpadFilter, self).get_order_by(order_value)
+    
+class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, CosinnusFilterMixin, EtherpadAddView):
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
     allow_deep_hierarchy = False
     
+    filterset_class = EtherpadFilter
+    
     message_success_folder = _('Folder "%(title)s" was created successfully.')
+    
+    def get(self, request, *args, **kwargs):
+        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
+        return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
     
     def get_success_url(self):
         if self.object.is_container:
