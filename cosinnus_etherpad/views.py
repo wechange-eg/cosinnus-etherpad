@@ -6,9 +6,9 @@ import sys
 import six
 from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
 from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
-from django_filters.views import FilterMixin
+from cosinnus.views.mixins.filters import CosinnusFilterMixin, CosinnusFilterSet
+import django_filters
 from django_filters.filterset import FilterSet
-from cosinnus.views.mixins.filters import CosinnusFilterMixin
 
 try:
     from urllib.parse import urlparse
@@ -183,15 +183,16 @@ pad_add_view = EtherpadAddView.as_view()
 
 
 class EtherpadFilter(FilterSet):
+    title = django_filters.CharFilter(label=_('Description'))
+    creator = django_filters.AllValuesFilter(label=_('Creator'))
+    created = django_filters.DateRangeFilter(label=_('Date created'))
+    
     class Meta:
         model = Etherpad
-        fields = ['title']
-        order_by = ['-created', 'creator__username', 'title']
+        fields = ['title', 'creator', 'created'] #creator__username
+        order_by = ['-created', 'title']
     
     def get_order_by(self, order_value):
-        print ">>> order value", order_value
-        if order_value == 'creator__username':
-            return ['creator__username', 'title']
         return super(EtherpadFilter, self).get_order_by(order_value)
     
 class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, CosinnusFilterMixin, EtherpadAddView):
