@@ -8,7 +8,7 @@ from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
 from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
 from cosinnus.views.mixins.filters import CosinnusFilterMixin, CosinnusFilterSet
 import django_filters
-from django_filters.filterset import FilterSet
+from cosinnus.forms.filters import DropdownChoiceWidget
 
 try:
     from urllib.parse import urlparse
@@ -182,10 +182,10 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
 pad_add_view = EtherpadAddView.as_view()
 
 
-class EtherpadFilter(FilterSet):
+class EtherpadFilter(CosinnusFilterSet):
     title = django_filters.CharFilter(label=_('Description'))
-    creator = django_filters.AllValuesFilter(label=_('Creator'))
-    created = django_filters.DateRangeFilter(label=_('Date created'))
+    creator = django_filters.AllValuesFilter(label=_('Creator'), widget=DropdownChoiceWidget)
+    created = django_filters.DateRangeFilter(label=_('Date created'), widget=DropdownChoiceWidget)
     
     class Meta:
         model = Etherpad

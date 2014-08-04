@@ -19,10 +19,27 @@
 {% block content %}
 	<!-- a box with semi transparent background -->
 	<div class="content-box">
+	    {% for param, chosen_value in active_filters %}
+            <p><span> {{ param }}: {{ chosen_value }} </span></p> <br/>
+	    {% endfor %}
+	</div>
+	<div class="content-box">
 	    <form action="" method="get">
-	        {{ filter.form.as_p }}
+	        {% for field in filter.form %}
+	            {{ field.label }}{{ field }}<br/>
+	        {% endfor %}
 	        <input type="submit" />
 	    </form>
+	    
+	    {% for filter_param, chosen_value in active_filters %}
+            <span class="inline-list nowrap">
+                <a href="?{% strip_params request filter_param %}" class="app-background small-padding"><i class="fa fa-times"></i></a>
+                <span class="app-background-light dark-color small-padding">
+                    {{ chosen_value }}
+                </span>
+            </span>
+        {% endfor %}
+        
 	</div>
 	
 	<div class="content-box">
