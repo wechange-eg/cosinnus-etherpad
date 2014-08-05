@@ -22,7 +22,6 @@ from django.views.generic import DetailView, RedirectView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from extra_views.contrib.mixins import SortableListMixin
 from etherpad_lite import EtherpadException
 
 from cosinnus.views.export import CSVExportView
@@ -72,7 +71,7 @@ index_view = EtherpadIndexView.as_view()
 
 
 class EtherpadListView(RequireReadMixin, FilterGroupMixin,
-                       SortableListMixin, HierarchyTreeMixin, ListView):
+                     HierarchyTreeMixin, ListView):
     model = Etherpad
 
     def get(self, request, *args, **kwargs):
