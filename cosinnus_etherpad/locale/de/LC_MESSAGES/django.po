@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-16 17:26+0200\n"
+"POT-Creation-Date: 2014-08-05 17:06+0200\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -15,7 +15,12 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: .\cosinnus_app.py:13 .\models.py:43
+msgid "Etherpads"
+msgstr "Etherpads"
+
 # The Cosinnus App Name
+#: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "etherpad"
 msgstr "Etherpads"
@@ -28,37 +33,48 @@ msgstr "Neueste Etherpads"
 msgid "No etherpads"
 msgstr "Keine Etherpads"
 
+#: .\filters.py:14
+msgid "Created By"
+msgstr "Erstellt von"
+
+#: .\filters.py:20
+msgid "Newest Pads"
+msgstr "Neueste Pads"
+
+#: .\filters.py:21
+msgid "Title"
+msgstr "Titel"
+
 #: .\models.py:37
 msgid "Description"
 msgstr "Beschreibung"
 
-#: .\models.py:42 .\templates\__old__cosinnus_etherpad\base.html.py:5
-#: .\templates\cosinnus_etherpad\base.html.py:6
+#: .\models.py:42 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
 msgstr "Etherpad"
 
-#: .\views.py:122
+#: .\views.py:123
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich bearbeitet."
 
-#: .\views.py:123
+#: .\views.py:124
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
 msgstr "Etherpad „%(title)s“ konnte nicht bearbeitet werden."
 
-#: .\views.py:160
+#: .\views.py:161
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich hinzugefügt."
 
-#: .\views.py:161
+#: .\views.py:162
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
 msgstr "Etherpad „%(title)s“ konnte nicht hinzugefügt werden."
 
-#: .\views.py:173
+#: .\views.py:174
 #, python-format
 msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
@@ -67,12 +83,12 @@ msgstr ""
 "Etherpad mit dem Namen „%(name)s“ existiert bereits auf dem Pad-Server. "
 "Bitte einen anderen Namen benutzen."
 
-#: .\views.py:187
+#: .\views.py:190
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
 msgstr "Ordner „%(title)s“ wurde erfolgreich erstellt."
 
-#: .\views.py:286
+#: .\views.py:293
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
@@ -81,7 +97,7 @@ msgstr ""
 "Pad wurde als Dokument archiviert: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 
-#: .\views.py:338
+#: .\views.py:345
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
@@ -90,110 +106,18 @@ msgstr ""
 "Pad wurde als Dateieintrag archiviert: <a class=\"alert-link\" href=\"%(href)"
 "s\">%(title)s</a>"
 
-#: .\templates\__old__cosinnus_etherpad\etherpad_confirm_delete.html.py:6
-#: .\templates\__old__cosinnus_etherpad\etherpad_confirm_delete.html.py:10
-#: .\templates\__old__cosinnus_etherpad\etherpad_confirm_delete.html.py:43
-#: .\templates\__old__cosinnus_etherpad\etherpad_detail.html.py:23
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:18
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:62
-#: .\templates\cosinnus_etherpad\etherpad_detail.html.py:56
-msgid "Delete"
-msgstr "Löschen"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_confirm_delete.html.py:19
-msgid "Are you sure you want to delete this container and all etherpads in it?"
-msgstr ""
-"Sind Sie sicher, dass Sie diese Zusammenstellung und alle Etherpads darin "
-"löschen wollen?"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_confirm_delete.html.py:21
-msgid "Are you sure you want to delete this etherpad?"
-msgstr "Sind Sie sicher, dass Sie dieses Etherpad löschen wollen?"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_confirm_delete.html.py:46
-#: .\templates\__old__cosinnus_etherpad\etherpad_form.html.py:46
-msgid "Cancel"
-msgstr "Abbrechen"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_detail.html.py:20
-msgid "Actions"
-msgstr "Aktionen"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_detail.html.py:22
-#: .\templates\__old__cosinnus_etherpad\etherpad_form.html.py:9
-#: .\templates\__old__cosinnus_etherpad\etherpad_form.html.py:25
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:17
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:61
-msgid "Edit"
-msgstr "Bearbeiten"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_detail.html.py:31
-msgid "Archiving will create a new document"
-msgstr "Archivieren erzeugt ein neues Dokument"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_detail.html.py:31
-msgid "Archive as Document"
-msgstr "Archiviere als Dokument"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_detail.html.py:40
-msgid "Archiving will create a new file"
-msgstr "Archivieren erzeugt eine neue Datei"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_detail.html.py:40
-msgid "Archive as File entry"
-msgstr "Archiviere als Dateieintrag"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_form.html.py:7
-#: .\templates\__old__cosinnus_etherpad\etherpad_form.html.py:23
-msgid "Add pad"
-msgstr "Pad hinzufügen"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_form.html.py:40
-msgctxt "sinn"
-msgid "Save"
-msgstr "Speichern"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_form.html.py:42
-msgid "Add"
-msgstr "Hinzufügen"
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_list.html.py:5
-#: .\templates\__old__cosinnus_etherpad\etherpad_list.html.py:10
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:5
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:5
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:5
 msgid "Pads"
 msgstr "Pads"
 
-#: .\templates\__old__cosinnus_etherpad\etherpad_list.html.py:26
-msgid "No tags available."
-msgstr "Keine Schlagwörter vorhanden."
-
-#: .\templates\__old__cosinnus_etherpad\etherpad_list.html.py:31
-msgctxt "the verb"
-msgid "Export"
-msgstr "Exportieren"
-
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:13
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:29
-msgid "Add etherpad"
-msgstr "Pad hinzufügen"
-
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:14
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:30
-msgid "Create container"
-msgstr "Erzeuge Zusammenstellung"
-
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:34
-msgid "ROOT"
-msgstr "WURZEL"
-
-#: .\templates\__old__cosinnus_etherpad\tree.html.py:57
-msgid "Show"
-msgstr "Anzeigen"
+#: .\templates\cosinnus_etherpad\etherpad_detail.html.py:56
+msgid "Delete"
+msgstr "Löschen"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:68
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:100
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:103
 msgid "Bearbeiten"
 msgstr ""
 
@@ -205,7 +129,7 @@ msgstr "Sind Sie sicher, dass Sie Etherpad „%(pad)s“ löschen wollen?"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:75
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:81
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:110
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:113
 msgid "Etherpad löschen"
 msgstr "Etherpad löschen"
 
@@ -218,30 +142,89 @@ msgid "Speichern"
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:74
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:88
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:91
 msgid "Löschen"
 msgstr ""
 
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:33
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:36
 msgid "Gib den Titel für ein neues Dokument ein."
 msgstr ""
 
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:46
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:49
 msgid "Create"
 msgstr ""
 
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:109
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:112
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
 msgstr "Sind Sie sicher, dass Sie Etherpad „%(title)s“ löschen wollen?"
 
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:115
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:118
 msgid "No etherpads have been created yet."
 msgstr "Es wurden noch keine Etherpads erstellt."
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:30
 msgid "There are no etherpads yet"
 msgstr "Es wurden noch keine Etherpads erstellt."
+
+#~ msgid ""
+#~ "Are you sure you want to delete this container and all etherpads in it?"
+#~ msgstr ""
+#~ "Sind Sie sicher, dass Sie diese Zusammenstellung und alle Etherpads darin "
+#~ "löschen wollen?"
+
+#~ msgid "Are you sure you want to delete this etherpad?"
+#~ msgstr "Sind Sie sicher, dass Sie dieses Etherpad löschen wollen?"
+
+#~ msgid "Cancel"
+#~ msgstr "Abbrechen"
+
+#~ msgid "Actions"
+#~ msgstr "Aktionen"
+
+#~ msgid "Edit"
+#~ msgstr "Bearbeiten"
+
+#~ msgid "Archiving will create a new document"
+#~ msgstr "Archivieren erzeugt ein neues Dokument"
+
+#~ msgid "Archive as Document"
+#~ msgstr "Archiviere als Dokument"
+
+#~ msgid "Archiving will create a new file"
+#~ msgstr "Archivieren erzeugt eine neue Datei"
+
+#~ msgid "Archive as File entry"
+#~ msgstr "Archiviere als Dateieintrag"
+
+#~ msgid "Add pad"
+#~ msgstr "Pad hinzufügen"
+
+#~ msgctxt "sinn"
+#~ msgid "Save"
+#~ msgstr "Speichern"
+
+#~ msgid "Add"
+#~ msgstr "Hinzufügen"
+
+#~ msgid "No tags available."
+#~ msgstr "Keine Schlagwörter vorhanden."
+
+#~ msgctxt "the verb"
+#~ msgid "Export"
+#~ msgstr "Exportieren"
+
+#~ msgid "Add etherpad"
+#~ msgstr "Pad hinzufügen"
+
+#~ msgid "Create container"
+#~ msgstr "Erzeuge Zusammenstellung"
+
+#~ msgid "ROOT"
+#~ msgstr "WURZEL"
+
+#~ msgid "Show"
+#~ msgstr "Anzeigen"
 
 #~ msgid "Etherpad \"%(title)s\" was deleted successfully."
 #~ msgstr "Etherpad „%(title)s“ wurde erfolgreich gelöscht."

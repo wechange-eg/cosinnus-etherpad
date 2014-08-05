@@ -4,8 +4,9 @@ from __future__ import unicode_literals
 import sys
 
 import six
-from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
 from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
+from cosinnus.views.mixins.filters import CosinnusFilterMixin
+from cosinnus_etherpad.filters import EtherpadFilter
 
 try:
     from urllib.parse import urlparse
@@ -178,13 +179,19 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
 
 pad_add_view = EtherpadAddView.as_view()
 
-
-class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, EtherpadAddView):
+    
+class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, CosinnusFilterMixin, EtherpadAddView):
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
     allow_deep_hierarchy = False
     
+    filterset_class = EtherpadFilter
+    
     message_success_folder = _('Folder "%(title)s" was created successfully.')
+    
+    def get(self, request, *args, **kwargs):
+        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
+        return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
     
     def get_success_url(self):
         if self.object.is_container:

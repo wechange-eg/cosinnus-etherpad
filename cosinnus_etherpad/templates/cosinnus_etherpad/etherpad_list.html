@@ -19,6 +19,9 @@
 {% block content %}
 	<!-- a box with semi transparent background -->
 	<div class="content-box">
+	
+        {% include 'cosinnus/common/filter_controls.html' %}        
+        
 	    {% with obj_form=form.forms.obj %}
 	    <form action="" method="post" class="form-horizontal">{% csrf_token %}
 		    {{ obj_form.non_field_errors }}
