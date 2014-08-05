@@ -4,13 +4,9 @@ from __future__ import unicode_literals
 import sys
 
 import six
-from cosinnus.models.tagged import BaseHierarchicalTaggableObjectModel
 from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
-from cosinnus.views.mixins.filters import CosinnusFilterMixin, CosinnusFilterSet
-import django_filters
-from cosinnus.forms.filters import DropdownChoiceWidget, AllObjectsFilter,\
-    SelectUserWidget
-from django_filters.filters import AllValuesFilter
+from cosinnus.views.mixins.filters import CosinnusFilterMixin
+from cosinnus_etherpad.filters import EtherpadFilter
 
 try:
     from urllib.parse import urlparse
@@ -183,19 +179,6 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
 
 pad_add_view = EtherpadAddView.as_view()
 
-
-class EtherpadFilter(CosinnusFilterSet):
-    #title = django_filters.CharFilter(label=_('Description'))
-    creator = AllObjectsFilter(label=_('Creator'), widget=SelectUserWidget)
-    created = django_filters.DateRangeFilter(label=_('Date created'), widget=DropdownChoiceWidget)
-    
-    class Meta:
-        model = Etherpad
-        fields = ['creator', 'created'] #creator__username #'title', 
-        order_by = ['-created', 'title']
-    
-    def get_order_by(self, order_value):
-        return super(EtherpadFilter, self).get_order_by(order_value)
     
 class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, CosinnusFilterMixin, EtherpadAddView):
     
