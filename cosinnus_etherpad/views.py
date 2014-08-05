@@ -183,13 +183,13 @@ pad_add_view = EtherpadAddView.as_view()
 
 
 class EtherpadFilter(CosinnusFilterSet):
-    title = django_filters.CharFilter(label=_('Description'))
+    #title = django_filters.CharFilter(label=_('Description'))
     creator = django_filters.AllValuesFilter(label=_('Creator'), widget=DropdownChoiceWidget)
     created = django_filters.DateRangeFilter(label=_('Date created'), widget=DropdownChoiceWidget)
     
     class Meta:
         model = Etherpad
-        fields = ['title', 'creator', 'created'] #creator__username
+        fields = ['creator', 'created'] #creator__username #'title', 
         order_by = ['-created', 'title']
     
     def get_order_by(self, order_value):

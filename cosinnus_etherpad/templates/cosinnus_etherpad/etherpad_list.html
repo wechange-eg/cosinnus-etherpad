@@ -19,17 +19,9 @@
 {% block content %}
 	<!-- a box with semi transparent background -->
 	<div class="content-box">
-	    {% for param, chosen_value in active_filters %}
-            <p><span> {{ param }}: {{ chosen_value }} </span></p> <br/>
-	    {% endfor %}
-	</div>
-	<div class="content-box">
-	    <form action="" method="get">
-	        {% for field in filter.form %}
-	            {{ field.label }}{{ field }}<br/>
-	        {% endfor %}
-	        <input type="submit" />
-	    </form>
+        {% for field in filter.form %}
+            {{ field }}
+        {% endfor %}
 	    
 	    {% for filter_param, chosen_value, type in active_filters %}
             <span class="inline-list nowrap">
@@ -40,9 +32,8 @@
             </span>
         {% endfor %}
         
-	</div>
-	
-	<div class="content-box">
+        
+        
 	    {% with obj_form=form.forms.obj %}
 	    <form action="" method="post" class="form-horizontal">{% csrf_token %}
 		    {{ obj_form.non_field_errors }}
