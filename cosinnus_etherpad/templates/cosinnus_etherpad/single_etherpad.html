@@ -1,0 +1,20 @@
+{% with etherpad=object %}
+	<div class="app-etherpad">
+	    <button type="button" class="btn btn-emphasized dashboard-appwidget-contentline-extra-indented" href="{{ etherpad.get_absolute_url }}">
+	        <ul class="media-list fine-space">
+	            <li class="media">
+	                <a class="pull-left" href="#">
+	                    <i class="fa fa-pencil"></i>
+	                </a>
+	                <div class="media-body">
+                        <strong><a>{{ etherpad.title|truncatechars:25 }}</a></strong>
+	                    <div class="group-annotation">
+	                        <i class="fa fa-users"></i>
+	                        {{ etherpad.group.name }}
+	                    </div>
+	                </div>
+	            </li>
+	        </ul>
+	    </button><!-- btn -->
+	</div>
+{% endwith %}

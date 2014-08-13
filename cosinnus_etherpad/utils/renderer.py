@@ -12,6 +12,7 @@ from cosinnus.utils.renderer import BaseRenderer
 class EtherpadRenderer(BaseRenderer):
 
     template = 'cosinnus_etherpad/attached_etherpads.html'
+    template_single = 'cosinnus_etherpad/single_etherpad.html'
 
     @classmethod
     def render(cls, context, myobjs):
