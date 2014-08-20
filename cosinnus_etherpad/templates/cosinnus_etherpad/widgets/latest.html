@@ -11,8 +11,10 @@
 		            <div class="media-body">
 		                <a href="{{ row.get_absolute_url }}">{{ row.title }}</a>
 		                <div class="group-annotation">
-		                <i class="fa fa-users"></i>
-		                    {{ row.group.name }}
+		                    <a href="{{ row.group.get_absolute_url }}">
+			                    <i class="fa fa-users"></i>
+			                    {{ row.group.name }}
+			                </a>
 		                </div>
 		            </div>
 		        </li>
