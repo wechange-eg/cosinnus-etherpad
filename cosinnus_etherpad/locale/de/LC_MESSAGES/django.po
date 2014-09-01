@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-05 17:06+0200\n"
+"POT-Creation-Date: 2014-09-01 18:17+0200\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -54,27 +54,27 @@ msgstr "Beschreibung"
 msgid "Etherpad"
 msgstr "Etherpad"
 
-#: .\views.py:123
+#: .\views.py:122
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich bearbeitet."
 
-#: .\views.py:124
+#: .\views.py:123
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
 msgstr "Etherpad „%(title)s“ konnte nicht bearbeitet werden."
 
-#: .\views.py:161
+#: .\views.py:160
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich hinzugefügt."
 
-#: .\views.py:162
+#: .\views.py:161
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
 msgstr "Etherpad „%(title)s“ konnte nicht hinzugefügt werden."
 
-#: .\views.py:174
+#: .\views.py:173
 #, python-format
 msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
@@ -83,12 +83,12 @@ msgstr ""
 "Etherpad mit dem Namen „%(name)s“ existiert bereits auf dem Pad-Server. "
 "Bitte einen anderen Namen benutzen."
 
-#: .\views.py:190
+#: .\views.py:189
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
 msgstr "Ordner „%(title)s“ wurde erfolgreich erstellt."
 
-#: .\views.py:293
+#: .\views.py:292
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
@@ -97,7 +97,7 @@ msgstr ""
 "Pad wurde als Dokument archiviert: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 
-#: .\views.py:345
+#: .\views.py:344
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
@@ -117,7 +117,7 @@ msgid "Delete"
 msgstr "Löschen"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:68
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:103
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:106
 msgid "Bearbeiten"
 msgstr ""
 
@@ -129,7 +129,7 @@ msgstr "Sind Sie sicher, dass Sie Etherpad „%(pad)s“ löschen wollen?"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:75
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:81
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:113
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:116
 msgid "Etherpad löschen"
 msgstr "Etherpad löschen"
 
@@ -142,7 +142,7 @@ msgid "Speichern"
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:74
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:91
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:94
 msgid "Löschen"
 msgstr ""
 
@@ -152,20 +152,19 @@ msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:49
 msgid "Create"
-msgstr ""
+msgstr "Erstellen"
 
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:112
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:115
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
 msgstr "Sind Sie sicher, dass Sie Etherpad „%(title)s“ löschen wollen?"
 
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:118
-msgid "No etherpads have been created yet."
-msgstr "Es wurden noch keine Etherpads erstellt."
-
-#: .\templates\cosinnus_etherpad\widgets\latest.html.py:30
+#: .\templates\cosinnus_etherpad\widgets\latest.html.py:32
 msgid "There are no etherpads yet"
 msgstr "Es wurden noch keine Etherpads erstellt."
+
+#~ msgid "No etherpads have been created yet."
+#~ msgstr "Es wurden noch keine Etherpads erstellt."
 
 #~ msgid ""
 #~ "Are you sure you want to delete this container and all etherpads in it?"
