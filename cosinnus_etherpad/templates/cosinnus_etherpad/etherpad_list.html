@@ -70,7 +70,7 @@
 		                    </a>
 		                    <div class="media-body">
 		                        {% with creator=object.creator %}
-    	                            <span class="annotation">von <a href="{{ creator.cosinnus_profile.get_absolute_url }}" >{{ creator|full_name }}</a></span>
+    	                            <span class="annotation">von <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
 		                        {% endwith %}
 		                        <a href="{{ object.get_absolute_url }}">
 		                            {{ object.title }}
