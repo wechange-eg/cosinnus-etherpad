@@ -18,7 +18,7 @@ from etherpad_lite import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
 from django.utils.encoding import smart_text
-from cosinnus.utils.permissions import get_tagged_object_filter_for_user
+from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 
 
 def _init_client():
@@ -81,8 +81,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         """ Returns a queryset of the current upcoming events """
         qs = Etherpad.objects.filter(group=group)
         if user:
-            q = get_tagged_object_filter_for_user(user)
-            qs = qs.filter(q)
+            qs = filter_tagged_object_queryset_for_user(qs, user)
         return qs.filter(is_container=False)
         
 
