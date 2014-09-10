@@ -1,16 +1,1 @@
-<div class="app-etherpad">
-  <div class="btn btn-emphasized w100 regular-space">
-    <ul class="media-list">
-      <li class="media">
-        <a class="pull-left" href="{{ object.get_absolute_url }}">
-          <i class="fa fa-file-text-o"></i>
-        </a>
-        <div class="media-body">
-          <a href="{{ object.get_absolute_url }}">
-            {{ object.title }}
-          </a>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
+{% include 'cosinnus_etherpad/single_etherpad.html' with object=object %}
