@@ -19,6 +19,7 @@ from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
 from django.utils.encoding import smart_text
 from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
+from cosinnus.utils.urls import group_aware_reverse
 
 
 def _init_client():
@@ -48,7 +49,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     def get_absolute_url(self):
         kwargs = {'group': self.group.slug, 'slug': self.slug}
-        return reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
+        return group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
 
     def get_pad_url(self):
         if self.pk:
