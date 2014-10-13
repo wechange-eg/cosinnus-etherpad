@@ -8,7 +8,7 @@
 {% block breadcrumb %}
         {{ block.super }}
         {% if object.path != '/' %}
-            <li><a href="{% url 'cosinnus:etherpad:list' group=group.slug slug=object.container.slug %}">{{ object.container.title }}</a></li>
+            <li><a href="{% group_url 'cosinnus:etherpad:list' group=group.slug slug=object.container.slug %}">{{ object.container.title }}</a></li>
         {% endif %}
         <li class="active">{{ object.title }}</li>
 {% endblock %}

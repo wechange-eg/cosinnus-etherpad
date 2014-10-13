@@ -96,7 +96,7 @@
 			                </li>
 			            </ul>
 			        </button>
-			        <button type="button" class="btn btn-emphasized" href="{% url 'cosinnus:etherpad:pad-edit' group=group.slug slug=object.slug %}">
+			        <button type="button" class="btn btn-emphasized" href="{% group_url 'cosinnus:etherpad:pad-edit' group=group.slug slug=object.slug %}">
 			            <ul class="media-list">
 			                <li class="media">
 			                    <a class="pull-left" href="#">
@@ -114,7 +114,7 @@
 			{% if user|has_write_access:object %}    
 			    {% captureas label %}{% blocktrans with title=object.title %}Do you really want to delete etherpad „{{ title }}“?{% endblocktrans %}{% endcaptureas %}
 	            {% captureas title %}{% trans "Etherpad löschen" %}{% endcaptureas %}
-	            {% captureas action %}{% url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug%}{% endcaptureas %}
+	            {% captureas action %}{% group_url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug%}{% endcaptureas %}
 	            {% include "cosinnus/modal_box.html" with id=modal_id label=label title=title form_action=action %}
             {% endif %}
         {% empty %}

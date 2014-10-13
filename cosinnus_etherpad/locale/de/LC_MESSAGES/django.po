@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-01 18:17+0200\n"
+"POT-Creation-Date: 2014-10-13 13:29+0200\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cosinnus_app.py:13 .\models.py:43
+#: .\cosinnus_app.py:13 .\models.py:44
 msgid "Etherpads"
 msgstr "Etherpads"
 
@@ -45,36 +45,36 @@ msgstr "Neueste Pads"
 msgid "Title"
 msgstr "Titel"
 
-#: .\models.py:37
+#: .\models.py:38
 msgid "Description"
 msgstr "Beschreibung"
 
-#: .\models.py:42 .\templates\cosinnus_etherpad\base.html.py:6
+#: .\models.py:43 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
 msgstr "Etherpad"
 
-#: .\views.py:122
+#: .\views.py:123
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich bearbeitet."
 
-#: .\views.py:123
+#: .\views.py:124
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
 msgstr "Etherpad „%(title)s“ konnte nicht bearbeitet werden."
 
-#: .\views.py:160
+#: .\views.py:161
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
 msgstr "Etherpad „%(title)s“ wurde erfolgreich hinzugefügt."
 
-#: .\views.py:161
+#: .\views.py:162
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
 msgstr "Etherpad „%(title)s“ konnte nicht hinzugefügt werden."
 
-#: .\views.py:173
+#: .\views.py:174
 #, python-format
 msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
@@ -83,12 +83,12 @@ msgstr ""
 "Etherpad mit dem Namen „%(name)s“ existiert bereits auf dem Pad-Server. "
 "Bitte einen anderen Namen benutzen."
 
-#: .\views.py:189
+#: .\views.py:190
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
 msgstr "Ordner „%(title)s“ wurde erfolgreich erstellt."
 
-#: .\views.py:292
+#: .\views.py:293
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
@@ -97,7 +97,7 @@ msgstr ""
 "Pad wurde als Dokument archiviert: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 
-#: .\views.py:344
+#: .\views.py:345
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"

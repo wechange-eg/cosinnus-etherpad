@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-01 18:17+0200\n"
+"POT-Creation-Date: 2014-10-13 13:29+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\cosinnus_app.py:13 .\models.py:43
+#: .\cosinnus_app.py:13 .\models.py:44
 msgid "Etherpads"
 msgstr ""
 
@@ -45,55 +45,55 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: .\models.py:37
+#: .\models.py:38
 msgid "Description"
 msgstr ""
 
-#: .\models.py:42 .\templates\cosinnus_etherpad\base.html.py:6
+#: .\models.py:43 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
 msgstr ""
 
-#: .\views.py:122
+#: .\views.py:123
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
 msgstr ""
 
-#: .\views.py:123
+#: .\views.py:124
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
 msgstr ""
 
-#: .\views.py:160
+#: .\views.py:161
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
 msgstr ""
 
-#: .\views.py:161
+#: .\views.py:162
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
 msgstr ""
 
-#: .\views.py:173
+#: .\views.py:174
 #, python-format
 msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
 "another name."
 msgstr ""
 
-#: .\views.py:189
+#: .\views.py:190
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
 msgstr ""
 
-#: .\views.py:292
+#: .\views.py:293
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 msgstr ""
 
-#: .\views.py:344
+#: .\views.py:345
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"

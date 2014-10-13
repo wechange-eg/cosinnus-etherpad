@@ -7,6 +7,7 @@ import six
 from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
 from cosinnus.views.mixins.filters import CosinnusFilterMixin
 from cosinnus_etherpad.filters import EtherpadFilter
+from cosinnus.utils.urls import group_aware_reverse
 
 try:
     from urllib.parse import urlparse
@@ -64,7 +65,7 @@ def _get_cookie_domain():
 class EtherpadIndexView(RequireReadMixin, RedirectView):
 
     def get_redirect_url(self, **kwargs):
-        return reverse('cosinnus:etherpad:list',
+        return group_aware_reverse('cosinnus:etherpad:list',
                        kwargs={'group': self.group.slug})
 
 index_view = EtherpadIndexView.as_view()
@@ -134,7 +135,7 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
         return context
 
     def get_success_url(self):
-        return reverse('cosinnus:etherpad:list', kwargs={
+        return group_aware_reverse('cosinnus:etherpad:list', kwargs={
             'group': self.group.slug,
         })
 
@@ -196,11 +197,11 @@ class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalL
         if self.object.is_container:
             messages.success(self.request,
                 self.message_success_folder % {'title': self.object.title})
-            return reverse('cosinnus:etherpad:list', kwargs={
+            return group_aware_reverse('cosinnus:etherpad:list', kwargs={
                     'group': self.group.slug,
                     'slug': self.object.slug})
         else:
-            return reverse('cosinnus:etherpad:pad-edit', kwargs={
+            return group_aware_reverse('cosinnus:etherpad:pad-edit', kwargs={
                     'group': self.group.slug,
                     'slug': self.object.slug})
 
@@ -244,7 +245,7 @@ class EtherpadDeleteView(EtherpadFormMixin, HierarchyDeleteMixin, DeleteView):
 
     def get_success_url(self):
         kwargs = {'group': self.group.slug}
-        return reverse('cosinnus:etherpad:list', kwargs=kwargs)
+        return group_aware_reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
 pad_delete_view = EtherpadDeleteView.as_view()
 
@@ -267,7 +268,7 @@ class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
         return settings.COSINNUS_ETHERPAD_PREFIX_TITLE + pad_title + suffix
 
     def get_redirect_url(self, **kwargs):
-        return reverse('cosinnus:etherpad:pad-detail', kwargs={
+        return group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs={
             'group': self.group.slug,
             'slug': self.kwargs['slug'],
         })
@@ -290,7 +291,7 @@ class EtherpadArchiveDocumentView(EtherpadArchiveMixin):
             doc.save()
 
             msg = _('Pad has been archived as Document: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
-                'href': reverse('cosinnus:document:document-detail', kwargs={
+                'href': group_aware_reverse('cosinnus:document:document-detail', kwargs={
                     'group': self.group.slug,
                     'slug': doc.slug,
                 }),
@@ -342,7 +343,7 @@ class EtherpadArchiveFileView(EtherpadArchiveMixin):
             entry.file.save(filename, content, save=True)
 
             msg = _('Pad has been archived as File entry: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
-                'href': reverse('cosinnus:file:file', kwargs={
+                'href': group_aware_reverse('cosinnus:file:file', kwargs={
                     'group': self.group.slug,
                     'slug': entry.slug,
                 }),
