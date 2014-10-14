@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 13:29+0200\n"
+"POT-Creation-Date: 2014-10-14 12:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,6 +151,10 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:115
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
+msgid "No etherpads have been created yet."
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:32

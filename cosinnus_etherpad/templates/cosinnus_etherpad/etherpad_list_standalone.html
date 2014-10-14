@@ -12,6 +12,7 @@
 	    {% for object in object_list %}
 		    {% include 'cosinnus_etherpad/single_etherpad.html' with object=object %}
         {% empty %}
+            <!-- {% trans "No etherpads have been created yet." %} -->
             {% include 'cosinnus/common/empty_button.html' with message="No etherpads have been created yet." %}
 	    {% endfor %}
         </div>

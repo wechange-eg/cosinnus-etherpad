@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 13:29+0200\n"
+"POT-Creation-Date: 2014-10-14 12:30+0200\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -159,12 +159,13 @@ msgstr "Erstellen"
 msgid "Do you really want to delete etherpad „%(title)s“?"
 msgstr "Sind Sie sicher, dass Sie Etherpad „%(title)s“ löschen wollen?"
 
+#: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
+msgid "No etherpads have been created yet."
+msgstr "Es wurden noch keine Etherpads erstellt."
+
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:32
 msgid "There are no etherpads yet"
 msgstr "Es wurden noch keine Etherpads erstellt."
-
-#~ msgid "No etherpads have been created yet."
-#~ msgstr "Es wurden noch keine Etherpads erstellt."
 
 #~ msgid ""
 #~ "Are you sure you want to delete this container and all etherpads in it?"
