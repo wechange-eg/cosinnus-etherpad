@@ -50,7 +50,11 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     def get_absolute_url(self):
         kwargs = {'group': self.group.slug, 'slug': self.slug}
         return group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
-
+    
+    def get_delete_url(self):
+        kwargs = {'group': self.group.slug, 'slug': self.slug}
+        return group_aware_reverse('cosinnus:etherpad:pad-delete', kwargs=kwargs)
+    
     def get_pad_url(self):
         if self.pk:
             pad_id = quote_plus(self.pad_id.encode('utf8'))
@@ -126,12 +130,13 @@ def delete_etherpad(sender, instance, **kwargs):
     """
     Receiver to delete a pad on etherpad server
     """
-    try:
-        instance.client.deletePad(padID=instance.pad_id)
-    except EtherpadException as exc:
-        # failed deletion of missing padIDs is ok
-        if 'padID does not exist' not in str(exc):
-            raise
+    if not instance.is_container:
+        try:
+            instance.client.deletePad(padID=instance.pad_id)
+        except EtherpadException as exc:
+            # failed deletion of missing padIDs is ok
+            if 'padID does not exist' not in str(exc):
+                raise
 
 def _get_group_mapping(group):
     return smart_text(group.slug).encode('utf-8')
