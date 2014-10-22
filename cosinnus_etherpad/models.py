@@ -20,10 +20,13 @@ from cosinnus_etherpad.managers import EtherpadManager
 from django.utils.encoding import smart_text
 from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 from cosinnus.utils.urls import group_aware_reverse
+from django.core.exceptions import ImproperlyConfigured
 
 
 def _init_client():
     """Initialises the etherpad lite client"""
+    if not hasattr(settings, 'COSINNUS_ETHERPAD_BASE_URL'):
+        raise ImproperlyConfigured("You have not configured ``settings.COSINNUS_ETHERPAD_BASE_URL!``")
     return EtherpadLiteClient(
         base_url=settings.COSINNUS_ETHERPAD_BASE_URL,
         api_version='1.2.7',
