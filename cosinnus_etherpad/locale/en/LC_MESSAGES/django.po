@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-14 12:30+0200\n"
+"POT-Creation-Date: 2014-10-27 14:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\cosinnus_app.py:13 .\models.py:44
+#: .\cosinnus_app.py:13 .\models.py:47
 msgid "Etherpads"
 msgstr ""
 
@@ -45,11 +45,11 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: .\models.py:38
+#: .\models.py:41
 msgid "Description"
 msgstr ""
 
-#: .\models.py:43 .\templates\cosinnus_etherpad\base.html.py:6
+#: .\models.py:46 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
 msgstr ""
@@ -107,12 +107,14 @@ msgid "Pads"
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:56
+#: .\templates\cosinnus_etherpad\etherpad_edit.html.py:74
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:94
 msgid "Delete"
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:68
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:106
-msgid "Bearbeiten"
+msgid "Edit"
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:74
@@ -124,24 +126,19 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:75
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:81
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:116
-msgid "Etherpad löschen"
+msgid "Delete Etherpad"
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:37
-msgid "Gib den Titel für das Pad ein."
+msgid "Enter a title for the Pad."
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:53
-msgid "Speichern"
-msgstr ""
-
-#: .\templates\cosinnus_etherpad\etherpad_edit.html.py:74
-#: .\templates\cosinnus_etherpad\etherpad_list.html.py:94
-msgid "Löschen"
+msgid "Save"
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:36
-msgid "Gib den Titel für ein neues Dokument ein."
+msgid "Enter the title for a new Document."
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:49
@@ -153,6 +150,7 @@ msgstr ""
 msgid "Do you really want to delete etherpad „%(title)s“?"
 msgstr ""
 
+#: .\templates\cosinnus_etherpad\etherpad_list.html.py:121
 #: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
 msgid "No etherpads have been created yet."
 msgstr ""

@@ -33,7 +33,7 @@
 			            </a>
 			            <div class="media-body media-body-form-control">
 			                {{ obj_form.title.errors }}
-			                {% captureas placeholder %}{% trans "Gib den Titel für ein neues Dokument ein." %}{% endcaptureas %}
+			                {% captureas placeholder %}{% trans "Enter the title for a new Document." %}{% endcaptureas %}
 			                {% render_field obj_form.title class+="form-control next-button-is-for-sending" placeholder=placeholder id="etherpadCreateInput" %}
 			            </div>
 			        </li>
@@ -91,7 +91,7 @@
 			                        <i class="fa fa-eraser"></i>
 			                    </a>
 			                    <div class="media-body">
-			                        {% trans "Löschen" %}
+			                        {% trans "Delete" %}
 			                    </div>
 			                </li>
 			            </ul>
@@ -103,7 +103,7 @@
 			                        <i class="fa fa-pencil"></i>
 			                    </a>
 			                    <div class="media-body">
-			                        {% trans "Bearbeiten" %}
+			                        {% trans "Edit" %}
 			                    </div>
 			                </li>
 			            </ul>
@@ -113,11 +113,12 @@
 			</div><!-- fadedown -->
 			{% if user|has_write_access:object %}    
 			    {% captureas label %}{% blocktrans with title=object.title %}Do you really want to delete etherpad „{{ title }}“?{% endblocktrans %}{% endcaptureas %}
-	            {% captureas title %}{% trans "Etherpad löschen" %}{% endcaptureas %}
+	            {% captureas title %}{% trans "Delete Etherpad" %}{% endcaptureas %}
 	            {% captureas action %}{% group_url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug%}{% endcaptureas %}
 	            {% include "cosinnus/modal_box.html" with id=modal_id label=label title=title form_action=action %}
             {% endif %}
         {% empty %}
+            <!-- {% trans "No etherpads have been created yet." %} -->
             {% include 'cosinnus/common/empty_button.html' with message="No etherpads have been created yet." %}
 	    {% endfor %}
 	

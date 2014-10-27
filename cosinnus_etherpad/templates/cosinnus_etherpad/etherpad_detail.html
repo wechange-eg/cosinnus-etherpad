@@ -65,14 +65,14 @@
                         <i class="fa fa-pencil"></i>
                     </a>
                     <div class="media-body">
-                        {% trans "Bearbeiten" %}
+                        {% trans "Edit" %}
                     </div>
                 </li>
             </ul>
         </button> 
 	    
 	    {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
-	    {% captureas title %}{% trans "Etherpad löschen" %}{% endcaptureas %}
+	    {% captureas title %}{% trans "Delete Etherpad" %}{% endcaptureas %}
 	    {% include "cosinnus/modal_box.html" with id="deleteModal" label=label title=title form_action="./delete/" %}
     {% endif %}
     
