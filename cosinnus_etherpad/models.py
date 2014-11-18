@@ -21,6 +21,8 @@ from django.utils.encoding import smart_text
 from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
 from cosinnus.utils.urls import group_aware_reverse
 from django.core.exceptions import ImproperlyConfigured
+from cosinnus_etherpad import cosinnus_notifications
+from django.contrib.auth import get_user_model
 
 
 def _init_client():
@@ -65,6 +67,14 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
             base_url = base_url[:base_url.rfind('/api')]
             return '/'.join([base_url, 'p', pad_id])
         return None
+    
+    def save(self, *args, **kwargs):
+        created = bool(self.pk) == False
+        super(Etherpad, self).save(*args, **kwargs)
+        if created:
+            # todo was created
+            cosinnus_notifications.etherpad_created.send(sender=self, user=self.creator, obj=self, audience=get_user_model().objects.filter(id__in=self.group.members).exclude(id=self.creator.pk))
+        
 
     def get_user_session_id(self, user):
         author_id = self.client.createAuthorIfNotExistsFor(
