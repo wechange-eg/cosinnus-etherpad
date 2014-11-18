@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-27 14:56+0100\n"
+"POT-Creation-Date: 2014-11-18 16:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,13 +16,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .\cosinnus_app.py:13 .\models.py:47
+#: .\cosinnus_app.py:13 .\models.py:49
 msgid "Etherpads"
 msgstr ""
 
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "etherpad"
+msgstr ""
+
+#: .\cosinnus_notifications.py:39
+msgid "A user created a new etherpad"
 msgstr ""
 
 #: .\dashboard.py:23
@@ -45,11 +49,11 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: .\models.py:41
+#: .\models.py:43
 msgid "Description"
 msgstr ""
 
-#: .\models.py:46 .\templates\cosinnus_etherpad\base.html.py:6
+#: .\models.py:48 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
 msgstr ""
@@ -153,6 +157,29 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:121
 #: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
 msgid "No etherpads have been created yet."
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\notifications\etherpad_created.txt.py:1
+#, python-format
+msgid ""
+"Hi %(receiver_name)s,\n"
+"\n"
+"a new etherpad \"%(object_name)s\" in %(group_name)s was created by %"
+"(sender_name)s. \n"
+"\n"
+"You can find it by following this link: %(object_url)s\n"
+"\n"
+"\n"
+"\n"
+"(Follow this link to edit your notification preferences: %"
+"(notification_settings_url)s )\n"
+"\n"
+"Your %(site_name)s Team."
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\notifications\etherpad_created_subject.txt.py:1
+#, python-format
+msgid "A new etherpad: \"%(object_name)s\" was uploaded in %(group_name)s."
 msgstr ""
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:32

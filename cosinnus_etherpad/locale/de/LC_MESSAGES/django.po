@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-27 14:56+0100\n"
+"POT-Creation-Date: 2014-11-18 16:12+0100\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: .\cosinnus_app.py:13 .\models.py:47
+#: .\cosinnus_app.py:13 .\models.py:49
 msgid "Etherpads"
 msgstr "Etherpads"
 
@@ -24,6 +24,10 @@ msgstr "Etherpads"
 msgctxt "the_app"
 msgid "etherpad"
 msgstr "Etherpads"
+
+#: .\cosinnus_notifications.py:39
+msgid "A user created a new etherpad"
+msgstr "Ein(e) Mitarbeiter_in hat ein neues Etherpad erstellt"
 
 #: .\dashboard.py:23
 msgid "Latest Etherpads"
@@ -45,11 +49,11 @@ msgstr "Neueste Pads"
 msgid "Title"
 msgstr "Titel"
 
-#: .\models.py:41
+#: .\models.py:43
 msgid "Description"
 msgstr "Beschreibung"
 
-#: .\models.py:46 .\templates\cosinnus_etherpad\base.html.py:6
+#: .\models.py:48 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
 msgstr "Etherpad"
@@ -160,6 +164,42 @@ msgstr "Sind Sie sicher, dass Sie Etherpad „%(title)s“ löschen wollen?"
 #: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
 msgid "No etherpads have been created yet."
 msgstr "Es wurden noch keine Etherpads erstellt."
+
+#: .\templates\cosinnus_etherpad\notifications\etherpad_created.txt.py:1
+#, python-format
+msgid ""
+"Hi %(receiver_name)s,\n"
+"\n"
+"a new etherpad \"%(object_name)s\" in %(group_name)s was created by %"
+"(sender_name)s. \n"
+"\n"
+"You can find it by following this link: %(object_url)s\n"
+"\n"
+"\n"
+"\n"
+"(Follow this link to edit your notification preferences: %"
+"(notification_settings_url)s )\n"
+"\n"
+"Your %(site_name)s Team."
+msgstr ""
+"Hi %(receiver_name)s,\n"
+"\n"
+"ein neues Etherpad \"%(object_name)s\" in %(group_name)s wurde von %"
+"(sender_name)s erstellt. \n"
+"\n"
+"Du kannst es finden indem du folgenden Link aufrufst: %(object_url)s\n"
+"\n"
+"\n"
+"\n"
+"(Folge diesem Link um deine Benachrichtigungseinstellungen zu ändern: %"
+"(notification_settings_url)s )\n"
+"\n"
+"Dein %(site_name)s Team."
+
+#: .\templates\cosinnus_etherpad\notifications\etherpad_created_subject.txt.py:1
+#, python-format
+msgid "A new etherpad: \"%(object_name)s\" was created in %(group_name)s."
+msgstr "Neues Etherpad: \"%(object_name)s\" wurde in %(group_name)s erstellt."
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:32
 msgid "There are no etherpads yet"
