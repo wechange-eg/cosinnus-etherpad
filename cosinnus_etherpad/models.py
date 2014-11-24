@@ -71,7 +71,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     def save(self, *args, **kwargs):
         created = bool(self.pk) == False
         super(Etherpad, self).save(*args, **kwargs)
-        if created:
+        if created and not self.is_container:
             # todo was created
             cosinnus_notifications.etherpad_created.send(sender=self, user=self.creator, obj=self, audience=get_user_model().objects.filter(id__in=self.group.members).exclude(id=self.creator.pk))
         
