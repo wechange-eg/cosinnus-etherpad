@@ -58,7 +58,7 @@
                 </li>
             </ul>
         </button>
-        <button type="button" class="btn btn-emphasized" href="{% url "cosinnus:etherpad:pad-edit" group=group.slug slug=etherpad.slug %}">
+        <button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:pad-edit" group=group.slug slug=etherpad.slug %}">
             <ul class="media-list">
                 <li class="media">
                     <a class="pull-left" href="#">
