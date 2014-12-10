@@ -18,24 +18,24 @@ msgstr ""
 
 #: .\cosinnus_app.py:13 .\models.py:49
 msgid "Etherpads"
-msgstr ""
+msgstr "Documents"
 
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "etherpad"
-msgstr ""
+msgstr "Document"
 
 #: .\cosinnus_notifications.py:39
 msgid "A user created a new etherpad"
-msgstr ""
+msgstr "A user created a new document"
 
 #: .\dashboard.py:23
 msgid "Latest Etherpads"
-msgstr ""
+msgstr "Latest Documents"
 
 #: .\dashboard.py:38
 msgid "No etherpads"
-msgstr ""
+msgstr "No Documents"
 
 #: .\filters.py:14
 msgid "Created By"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: .\filters.py:20
 msgid "Newest Pads"
-msgstr ""
+msgstr "Newest Documents"
 
 #: .\filters.py:21
 msgid "Title"
@@ -56,27 +56,27 @@ msgstr ""
 #: .\models.py:48 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
-msgstr ""
+msgstr "Document"
 
 #: .\views.py:123
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr ""
+msgstr "Document \"%(title)s\" was edited successfully."
 
 #: .\views.py:124
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
-msgstr ""
+msgstr "Document \"%(title)s\" could not be edited."
 
 #: .\views.py:161
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr ""
+msgstr "Document \"%(title)s\" was added successfully."
 
 #: .\views.py:162
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
-msgstr ""
+msgstr "Document \"%(title)s\" could not be added."
 
 #: .\views.py:174
 #, python-format
@@ -84,6 +84,8 @@ msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
 "another name."
 msgstr ""
+"Document with name \"%(name)s\" already exists on pad server. Please use "
+"another name."
 
 #: .\views.py:190
 #, python-format
@@ -108,7 +110,7 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:5
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:5
 msgid "Pads"
-msgstr ""
+msgstr "Documents"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:56
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:74
@@ -125,13 +127,13 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:80
 #, python-format
 msgid "Do you really want to delete etherpad „%(pad)s“?"
-msgstr ""
+msgstr "Do you really want to delete Document „%(pad)s“?"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:75
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:81
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:116
 msgid "Delete Etherpad"
-msgstr ""
+msgstr "Delete Document"
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:37
 msgid "Enter a title for the Pad."
@@ -152,12 +154,12 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:115
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr ""
+msgstr "Do you really want to delete Document „%(title)s“?"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:121
 #: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
 msgid "No etherpads have been created yet."
-msgstr ""
+msgstr "No Documents have been created yet."
 
 #: .\templates\cosinnus_etherpad\notifications\etherpad_created.txt.py:1
 #, python-format
@@ -176,12 +178,25 @@ msgid ""
 "\n"
 "Your %(site_name)s Team."
 msgstr ""
+"Hi %(receiver_name)s,\n"
+"\n"
+"a new Document \"%(object_name)s\" in %(group_name)s was created by %"
+"(sender_name)s. \n"
+"\n"
+"You can find it by following this link: %(object_url)s\n"
+"\n"
+"\n"
+"\n"
+"(Follow this link to edit your notification preferences: %"
+"(notification_settings_url)s )\n"
+"\n"
+"Your %(site_name)s Team."
 
 #: .\templates\cosinnus_etherpad\notifications\etherpad_created_subject.txt.py:1
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was uploaded in %(group_name)s."
-msgstr ""
+msgstr "A new Document: \"%(object_name)s\" was uploaded in %(group_name)s."
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:32
 msgid "There are no etherpads yet"
-msgstr ""
+msgstr "There are no Documents yet"

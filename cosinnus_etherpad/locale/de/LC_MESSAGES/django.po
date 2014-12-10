@@ -17,25 +17,25 @@ msgstr ""
 
 #: .\cosinnus_app.py:13 .\models.py:49
 msgid "Etherpads"
-msgstr "Etherpads"
+msgstr "Dokumente"
 
 # The Cosinnus App Name
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "etherpad"
-msgstr "Etherpads"
+msgstr "Dokumente"
 
 #: .\cosinnus_notifications.py:39
 msgid "A user created a new etherpad"
-msgstr "Ein(e) Mitarbeiter_in hat ein neues Etherpad erstellt"
+msgstr "Ein(e) Mitarbeiter_in hat ein neues Dokument erstellt"
 
 #: .\dashboard.py:23
 msgid "Latest Etherpads"
-msgstr "Neueste Etherpads"
+msgstr "Neueste Dokumente"
 
 #: .\dashboard.py:38
 msgid "No etherpads"
-msgstr "Keine Etherpads"
+msgstr "Keine Dokumente"
 
 #: .\filters.py:14
 msgid "Created By"
@@ -56,27 +56,27 @@ msgstr "Beschreibung"
 #: .\models.py:48 .\templates\cosinnus_etherpad\base.html.py:6
 #: .\templates\cosinnus_etherpad\base.html.py:13
 msgid "Etherpad"
-msgstr "Etherpad"
+msgstr "Dokument"
 
 #: .\views.py:123
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr "Etherpad „%(title)s“ wurde erfolgreich bearbeitet."
+msgstr "Dokument „%(title)s“ wurde erfolgreich bearbeitet."
 
 #: .\views.py:124
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
-msgstr "Etherpad „%(title)s“ konnte nicht bearbeitet werden."
+msgstr "Dokument „%(title)s“ konnte nicht bearbeitet werden."
 
 #: .\views.py:161
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr "Etherpad „%(title)s“ wurde erfolgreich hinzugefügt."
+msgstr "Dokument „%(title)s“ wurde erfolgreich hinzugefügt."
 
 #: .\views.py:162
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
-msgstr "Etherpad „%(title)s“ konnte nicht hinzugefügt werden."
+msgstr "Dokument „%(title)s“ konnte nicht hinzugefügt werden."
 
 #: .\views.py:174
 #, python-format
@@ -84,7 +84,7 @@ msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
 "another name."
 msgstr ""
-"Etherpad mit dem Namen „%(name)s“ existiert bereits auf dem Pad-Server. "
+"Ein Dokument mit dem Namen „%(name)s“ existiert bereits auf dem Pad-Server. "
 "Bitte einen anderen Namen benutzen."
 
 #: .\views.py:190
@@ -114,7 +114,7 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:5
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:5
 msgid "Pads"
-msgstr "Pads"
+msgstr "Dokumente"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:56
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:74
@@ -131,13 +131,13 @@ msgstr "Bearbeiten"
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:80
 #, python-format
 msgid "Do you really want to delete etherpad „%(pad)s“?"
-msgstr "Sind Sie sicher, dass Sie Etherpad „%(pad)s“ löschen wollen?"
+msgstr "Sind Sie sicher, dass Sie das Dokument „%(pad)s“ löschen wollen?"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:75
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:81
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:116
 msgid "Delete Etherpad"
-msgstr "Etherpad löschen"
+msgstr "Dokument löschen"
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:37
 msgid "Enter a title for the Pad."
@@ -158,12 +158,12 @@ msgstr "Erstellen"
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:115
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr "Sind Sie sicher, dass Sie Etherpad „%(title)s“ löschen wollen?"
+msgstr "Sind Sie sicher, dass Sie das Dokument „%(title)s“ löschen wollen?"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:121
 #: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
 msgid "No etherpads have been created yet."
-msgstr "Es wurden noch keine Etherpads erstellt."
+msgstr "Es wurden noch keine Dokumente erstellt."
 
 #: .\templates\cosinnus_etherpad\notifications\etherpad_created.txt.py:1
 #, python-format
@@ -184,7 +184,7 @@ msgid ""
 msgstr ""
 "Hi %(receiver_name)s,\n"
 "\n"
-"ein neues Etherpad \"%(object_name)s\" in %(group_name)s wurde von %"
+"ein neues Dokument \"%(object_name)s\" in %(group_name)s wurde von %"
 "(sender_name)s erstellt. \n"
 "\n"
 "Du kannst es finden indem du folgenden Link aufrufst: %(object_url)s\n"
@@ -199,23 +199,20 @@ msgstr ""
 #: .\templates\cosinnus_etherpad\notifications\etherpad_created_subject.txt.py:1
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(group_name)s."
-msgstr "Neues Etherpad: \"%(object_name)s\" wurde in %(group_name)s erstellt."
+msgstr "Neues Dokument: \"%(object_name)s\" wurde in %(group_name)s erstellt."
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:32
 msgid "There are no etherpads yet"
-msgstr "Es wurden noch keine Etherpads erstellt."
-
-#~ msgid "Etherpad löschen"
-#~ msgstr "Etherpad löschen"
+msgstr "Es wurden noch keine Dokumente erstellt."
 
 #~ msgid ""
 #~ "Are you sure you want to delete this container and all etherpads in it?"
 #~ msgstr ""
-#~ "Sind Sie sicher, dass Sie diese Zusammenstellung und alle Etherpads darin "
+#~ "Sind Sie sicher, dass Sie diese Zusammenstellung und alle Dokumente darin "
 #~ "löschen wollen?"
 
 #~ msgid "Are you sure you want to delete this etherpad?"
-#~ msgstr "Sind Sie sicher, dass Sie dieses Etherpad löschen wollen?"
+#~ msgstr "Sind Sie sicher, dass Sie dieses Dokument löschen wollen?"
 
 #~ msgid "Cancel"
 #~ msgstr "Abbrechen"
@@ -249,7 +246,7 @@ msgstr "Es wurden noch keine Etherpads erstellt."
 #~ msgstr "Exportieren"
 
 #~ msgid "Add etherpad"
-#~ msgstr "Pad hinzufügen"
+#~ msgstr "Dokument hinzufügen"
 
 #~ msgid "Create container"
 #~ msgstr "Erzeuge Zusammenstellung"
@@ -261,10 +258,10 @@ msgstr "Es wurden noch keine Etherpads erstellt."
 #~ msgstr "Anzeigen"
 
 #~ msgid "Etherpad \"%(title)s\" was deleted successfully."
-#~ msgstr "Etherpad „%(title)s“ wurde erfolgreich gelöscht."
+#~ msgstr "Dokument „%(title)s“ wurde erfolgreich gelöscht."
 
 #~ msgid "Etherpad \"%(title)s\" could not be deleted."
-#~ msgstr "Etherpad „%(title)s“ konnte nicht gelöscht werden."
+#~ msgstr "Dokument „%(title)s“ konnte nicht gelöscht werden."
 
 #~ msgid "attached:cosinnus_etherpad.Etherpad"
-#~ msgstr "Angehängte Pads"
+#~ msgstr "Angehängte Dokumente"
