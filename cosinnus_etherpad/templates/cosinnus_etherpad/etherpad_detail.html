@@ -38,10 +38,13 @@
         </div>
         
         {% include 'cosinnus/media_tags_readonly.html' with object=object %}
-
+        
         <div style="clear: both; margin-top: 10px;">
-            <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
+            <div class="well well-document">
+                {{ etherpad.content|safe|url_target_blank }}
+            </div>
         </div>
+        
     
     </div><!-- content-box -->
     
