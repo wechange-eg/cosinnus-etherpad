@@ -18,11 +18,13 @@ from etherpad_lite import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
 from django.utils.encoding import smart_text
-from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user
+from cosinnus.utils.permissions import filter_tagged_object_queryset_for_user,\
+    check_ug_membership
 from cosinnus.utils.urls import group_aware_reverse
 from django.core.exceptions import ImproperlyConfigured
 from cosinnus_etherpad import cosinnus_notifications
 from django.contrib.auth import get_user_model
+from cosinnus.models.tagged import BaseTagObject
 
 
 def _init_client():
@@ -101,7 +103,16 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         if user:
             qs = filter_tagged_object_queryset_for_user(qs, user)
         return qs.filter(is_container=False)
-        
+    
+    def grant_extra_read_permissions(self, user):
+        """ Group members may read etherpads if they are not private """
+        return check_ug_membership(user, self.group) and \
+            not self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
+    
+    def grant_extra_write_permissions(self, user):
+        """ Group members may write/delete etherpads if they are not private """
+        return check_ug_membership(user, self.group) and \
+            not self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
 
 
 @receiver(post_save, sender=CosinnusGroup)
