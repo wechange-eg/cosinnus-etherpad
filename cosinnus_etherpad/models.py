@@ -106,13 +106,17 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     
     def grant_extra_read_permissions(self, user):
         """ Group members may read etherpads if they are not private """
-        return check_ug_membership(user, self.group) and \
-            not self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
+        is_private = False
+        if self.media_tag:
+            is_private = self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
+        return check_ug_membership(user, self.group) and not is_private
     
     def grant_extra_write_permissions(self, user):
         """ Group members may write/delete etherpads if they are not private """
-        return check_ug_membership(user, self.group) and \
-            not self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
+        is_private = False
+        if self.media_tag:
+            is_private = self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
+        return check_ug_membership(user, self.group) and not is_private
 
 
 @receiver(post_save, sender=CosinnusGroup)
