@@ -17,10 +17,7 @@
                         </span>
                         <strong><a href="{{ etherpad.get_absolute_url }}">{{ etherpad.title }}</a></strong>
 	                    <div class="group-annotation">
-	                        <a href="{{ etherpad.group.get_absolute_url }}">
-		                        <i class="fa fa-users"></i>
-		                        {{ etherpad.group.name }}
-		                    </a>
+	                        {% include 'cosinnus/group/group_label.html' with group=etherpad.group %}
 	                    </div>
 	                </div>
 	            </li>
