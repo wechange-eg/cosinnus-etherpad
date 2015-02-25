@@ -12,6 +12,6 @@ NOTIFY_POST_SUBSCRIBE_URLS = {
     'etherpad.Etherpad': {
         'show': lambda obj, group: obj.get_absolute_url(),
         'list': lambda obj, group: group_aware_reverse('cosinnus:etherpad:list',
-            kwargs={'group': group.slug}),
+            kwargs={'group': group}),
     },
 }

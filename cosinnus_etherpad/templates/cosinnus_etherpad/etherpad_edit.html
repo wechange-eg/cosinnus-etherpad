@@ -8,7 +8,7 @@
 {% block breadcrumb %}
         {{ block.super }}
         {% if object.path != '/' %}
-            <li><a href="{% group_url 'cosinnus:etherpad:list' group=group.slug slug=object.container.slug %}">{{ object.container.title }}</a></li>
+            <li><a href="{% group_url 'cosinnus:etherpad:list' group=group slug=object.container.slug %}">{{ object.container.title }}</a></li>
         {% endif %}
         <li class="active">{{ object.title }}</li>
 {% endblock %}
@@ -87,7 +87,7 @@
         
         {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
         {% captureas title %}{% trans "Delete Etherpad" %}{% endcaptureas %}
-        {% captureas action %}{% group_url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug %}{% endcaptureas %}
+        {% captureas action %}{% group_url 'cosinnus:etherpad:pad-delete' group=group slug=object.slug %}{% endcaptureas %}
         {% include "cosinnus/modal_box.html" with id="deleteModal" label=label title=title form_action=action %}
 {% endif %}
     

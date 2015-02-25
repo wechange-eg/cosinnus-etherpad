@@ -66,7 +66,7 @@ class EtherpadIndexView(RequireReadMixin, RedirectView):
 
     def get_redirect_url(self, **kwargs):
         return group_aware_reverse('cosinnus:etherpad:list',
-                       kwargs={'group': self.group.slug})
+                       kwargs={'group': self.group})
 
 index_view = EtherpadIndexView.as_view()
 
@@ -136,7 +136,7 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
 
     def get_success_url(self):
         return group_aware_reverse('cosinnus:etherpad:list', kwargs={
-            'group': self.group.slug,
+            'group': self.group,
         })
 
     def form_valid(self, form):
@@ -198,11 +198,11 @@ class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalL
             messages.success(self.request,
                 self.message_success_folder % {'title': self.object.title})
             return group_aware_reverse('cosinnus:etherpad:list', kwargs={
-                    'group': self.group.slug,
+                    'group': self.group,
                     'slug': self.object.slug})
         else:
             return group_aware_reverse('cosinnus:etherpad:pad-edit', kwargs={
-                    'group': self.group.slug,
+                    'group': self.group,
                     'slug': self.object.slug})
 
 pad_hybrid_list_view = EtherpadHybridListView.as_view()
@@ -244,7 +244,7 @@ class EtherpadDeleteView(EtherpadFormMixin, HierarchyDeleteMixin, DeleteView):
     message_error = None
 
     def get_success_url(self):
-        kwargs = {'group': self.group.slug}
+        kwargs = {'group': self.group}
         return group_aware_reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
 pad_delete_view = EtherpadDeleteView.as_view()
@@ -269,7 +269,7 @@ class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
 
     def get_redirect_url(self, **kwargs):
         return group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs={
-            'group': self.group.slug,
+            'group': self.group,
             'slug': self.kwargs['slug'],
         })
 
@@ -292,7 +292,7 @@ class EtherpadArchiveDocumentView(EtherpadArchiveMixin):
 
             msg = _('Pad has been archived as Document: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
                 'href': group_aware_reverse('cosinnus:document:document-detail', kwargs={
-                    'group': self.group.slug,
+                    'group': self.group,
                     'slug': doc.slug,
                 }),
                 'title': title,
@@ -344,7 +344,7 @@ class EtherpadArchiveFileView(EtherpadArchiveMixin):
 
             msg = _('Pad has been archived as File entry: <a class="alert-link" href="%(href)s">%(title)s</a>') % {
                 'href': group_aware_reverse('cosinnus:file:file', kwargs={
-                    'group': self.group.slug,
+                    'group': self.group,
                     'slug': entry.slug,
                 }),
                 'title': title,

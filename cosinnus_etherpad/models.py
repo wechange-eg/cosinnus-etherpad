@@ -55,11 +55,11 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         self.client = _init_client()
 
     def get_absolute_url(self):
-        kwargs = {'group': self.group.slug, 'slug': self.slug}
+        kwargs = {'group': self.group, 'slug': self.slug}
         return group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs)
     
     def get_delete_url(self):
-        kwargs = {'group': self.group.slug, 'slug': self.slug}
+        kwargs = {'group': self.group, 'slug': self.slug}
         return group_aware_reverse('cosinnus:etherpad:pad-delete', kwargs=kwargs)
     
     def get_pad_url(self):
