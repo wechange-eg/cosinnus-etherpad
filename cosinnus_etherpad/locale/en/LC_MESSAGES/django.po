@@ -23,7 +23,7 @@ msgstr "Documents"
 #: .\cosinnus_app.py:20
 msgctxt "the_app"
 msgid "etherpad"
-msgstr "Document"
+msgstr "Documents"
 
 #: .\cosinnus_notifications.py:39
 msgid "A user created a new etherpad"
