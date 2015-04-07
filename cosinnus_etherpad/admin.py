@@ -7,7 +7,7 @@ from cosinnus_etherpad.models import Etherpad
 
 
 class EtherpadAdmin(admin.ModelAdmin):
-    list_display = ('title', 'group', 'creator', 'path',)
+    list_display = ('title', 'group', 'creator', 'path', 'created')
     list_filter = ('group', 'group__portal', 'title')
 
 admin.site.register(Etherpad, EtherpadAdmin)
