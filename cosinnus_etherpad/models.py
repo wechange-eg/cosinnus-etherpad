@@ -82,7 +82,9 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         
 
     def get_user_session_id(self, user):
-        group_mapper = getattr(self, 'group_mapper', _get_group_mapping(self.group))
+        group_mapper = getattr(self, 'group_mapper', None)
+        if not group_mapper:
+            group_mapper = _get_group_mapping(self.group)
         author_id = self.client.createAuthorIfNotExistsFor(
             authorMapper=user.username)
         group_id = self.client.createGroupIfNotExistsFor(
