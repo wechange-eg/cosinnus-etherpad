@@ -137,7 +137,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         self.pad_id = pad_id['padID']
         
         text = self.client.getText(padID=old_pad_id)
-        self.client.setText(padID=self.pad_id, text=text)
+        self.client.setText(padID=self.pad_id, text=text['text'])
         
         self.save()
 
