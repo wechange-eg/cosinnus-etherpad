@@ -183,8 +183,6 @@ pad_add_view = EtherpadAddView.as_view()
 class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, CosinnusFilterMixin, EtherpadAddView):
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
-    allow_deep_hierarchy = False
-    
     filterset_class = EtherpadFilter
     
     message_success_folder = _('Folder "%(title)s" was created successfully.')
