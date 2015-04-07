@@ -11,7 +11,8 @@ class EtherpadAdmin(admin.ModelAdmin):
     list_display = ('title', 'group', 'creator', 'path', 'created')
     list_filter = ('group', 'group__portal', 'title')
     
-    actions = ['reinit_pads',]
+    # disabled, because dangerous
+    #actions = ['reinit_pads',]
     
     def reinit_pads(self, request, queryset):
         """ Converts this CosinnusGroup's type """
