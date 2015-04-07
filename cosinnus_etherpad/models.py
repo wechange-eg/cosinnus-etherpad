@@ -43,6 +43,9 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     pad_id = models.CharField(max_length=255, editable=True)
     description = models.TextField(_('Description'), blank=True)
+    # a group mapping that corresponds to the etherpads group slug at its creation time
+    # used for session creation, and works even after the etherpad group's slug has changed
+    group_mapper = models.CharField(max_length=255, editable=True, null=True, blank=True)
 
     objects = EtherpadManager()
 
@@ -79,10 +82,11 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         
 
     def get_user_session_id(self, user):
+        group_mapper = getattr(self, 'group_mapper', _get_group_mapping(self.group))
         author_id = self.client.createAuthorIfNotExistsFor(
             authorMapper=user.username)
         group_id = self.client.createGroupIfNotExistsFor(
-            groupMapper=_get_group_mapping(self.group))
+            groupMapper=group_mapper)
         one_year_from_now = now() + timedelta(days=365)
         valid_until = time.mktime(one_year_from_now.timetuple())
 
@@ -168,12 +172,17 @@ def create_etherpad(sender, instance, **kwargs):
     Receiver to create a pad on etherpad server
     """
     if not instance.pk and not instance.is_container:
+        groupMapper = _get_group_mapping(instance.group)
+        instance.group_mapper = groupMapper
+        
+        instance.pad_group_slug = instance
         group_id = instance.client.createGroupIfNotExistsFor(
-            groupMapper=_get_group_mapping(instance.group))
+            groupMapper=groupMapper)
         pad_id = instance.client.createGroupPad(
             groupID=group_id['groupID'],
             padName=instance.slug)
         instance.pad_id = pad_id['padID']
+        
 
 @receiver(post_delete, sender=Etherpad)
 def delete_etherpad(sender, instance, **kwargs):
