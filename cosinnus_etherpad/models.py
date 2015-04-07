@@ -85,6 +85,8 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         group_mapper = getattr(self, 'group_mapper', None)
         if not group_mapper:
             group_mapper = _get_group_mapping(self.group)
+            self.group_mapper = group_mapper
+            self.save()
         author_id = self.client.createAuthorIfNotExistsFor(
             authorMapper=user.username)
         group_id = self.client.createGroupIfNotExistsFor(
