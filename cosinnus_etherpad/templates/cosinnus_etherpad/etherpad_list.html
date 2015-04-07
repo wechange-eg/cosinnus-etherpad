@@ -1,6 +1,12 @@
 {% extends "cosinnus_etherpad/base.html" %}
 {% load i18n static cosinnus_tags widget_tweaks %}
 
+{% block extrahead %}
+    {{ block.super }}
+    <script src="{% static 'js/vendor/jstree.min.js' %}"></script>
+    <link href="{% static 'css/vendor/jstree/themes/default/style.min.css' %}" rel="stylesheet">
+{% endblock extrahead %}
+
 {% block page_title %}
 {% trans "Pads" %} {{ block.super }}
 {% endblock page_title %}
@@ -66,11 +72,17 @@
 		                        <i class="fa fa-chevron-down"></i>
 		                    </a>
 		                    <a class="pull-right" href="{{ object.get_absolute_url }}">
-		                        <i class="fa fa-chain"></i>
-		                    </a>
+                                <i class="fa fa-chain"></i>
+                            </a>
+                            <a class="pull-right" href="#" data-toggle="modal" data-target="#cosinnus_move_element_modal">
+                                <i class="fa fa-crosshairs"></i>
+                            </a>
 		                    <div class="media-body">
 		                        {% with creator=object.creator %}
-    	                            <span class="annotation">von <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
+    	                            <span class="annotation">
+    	                                {% trans "by" %} 
+    	                                <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a>
+	                                </span>
 		                        {% endwith %}
 		                        <a href="{{ object.get_absolute_url }}">
 		                            {{ object.title }}
@@ -125,4 +137,28 @@
 	    {% endfor %}
 	
 	</div><!-- content-box -->
+	
+	{% include 'cosinnus/hierarchy/move_element_modal.html' %}
+	
+	<script type="text/javascript">
+        $('#cosinnus_move_element_modal').on('shown.bs.modal', function () {
+            if ($('#jstree_move_div').is(':empty')){
+			    console.log('showing jstree');
+			    $('#jstree_move_div').on('loaded.jstree', function () {
+			        console.log('haha');
+			        $('#jstree_move_div').jstree(true).open_all();
+                    $('#jstree_move_div').jstree(true).select_node("{{ current_folder.slug }}");
+			    });
+	            $('#jstree_move_div').jstree({
+	              "core" : {
+	                "multiple" : false,
+	                'data' : {{ all_folder_json|safe }},
+	              },
+	            });
+			}
+           
+            
+        });
+    </script>
+	
 {% endblock content %}
