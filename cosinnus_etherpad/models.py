@@ -117,7 +117,29 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         if self.media_tag:
             is_private = self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
         return check_ug_membership(user, self.group) and not is_private
-
+    
+    def reinit_pad(self):
+        old_pad_id = self.pad_id
+        group_id = self.client.createGroupIfNotExistsFor(
+            groupMapper=_get_group_mapping(self.group))
+        
+        counter = 0
+        while counter < 10:
+            counter += 1
+            try:
+                pad_id = self.client.createGroupPad(
+                    groupID=group_id['groupID'],
+                    padName=self.slug+'_reinit%d' % counter)
+                break
+            except EtherpadException:
+                pass
+            
+        self.pad_id = pad_id['padID']
+        
+        text = self.client.getText(padID=old_pad_id)
+        self.client.setText(padID=self.pad_id, text=text)
+        
+        self.save()
 
 @receiver(post_save, sender=CosinnusGroup)
 def create_etherpad_group(sender, instance, created, **kwargs):
