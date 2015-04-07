@@ -41,7 +41,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
 
-    pad_id = models.CharField(max_length=255, editable=False)
+    pad_id = models.CharField(max_length=255, editable=True)
     description = models.TextField(_('Description'), blank=True)
 
     objects = EtherpadManager()
