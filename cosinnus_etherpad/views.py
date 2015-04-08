@@ -26,7 +26,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from etherpad_lite import EtherpadException
 
 from cosinnus.views.export import CSVExportView
-from cosinnus.views.hierarchy import AddContainerView
+from cosinnus.views.hierarchy import AddContainerView, MoveElementView
 from cosinnus.views.mixins.group import (
     RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin)
 from cosinnus.views.mixins.tagged import (HierarchyTreeMixin,
@@ -363,3 +363,9 @@ class EtherpadExportView(CSVExportView):
     file_prefix = 'cosinnus_etherpad'
 
 export_view = EtherpadExportView.as_view()
+
+
+class EtherpadMoveElementView(MoveElementView):
+    model = Etherpad
+
+move_element_view = EtherpadMoveElementView.as_view()
