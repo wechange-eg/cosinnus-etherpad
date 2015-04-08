@@ -76,7 +76,7 @@
                             </a>
                             {% if folders and request.user.is_authenticated %}
 	                            <a class="pull-right" href="#" title="{% trans "Move to another Folder" %}" onclick="$.cosinnus.Feedback.cosinnus_move_element({{ object.id }}, {{ current_folder.id }});">
-	                                <i class="fa fa-crosshairs"></i>
+	                                <i class="fa fa-arrows"></i>
 	                            </a>
                             {% endif %}
 		                    <div class="media-body">
@@ -140,6 +140,9 @@
 	
 	</div><!-- content-box -->
 	
+	<script type="text/javascript">
+        var cosinnus_move_element_object_url = "{% group_url 'cosinnus:etherpad:move-element' group=group %}";
+    </script>
 	{% include 'cosinnus/hierarchy/move_element_modal.html' %}
 	
 	
