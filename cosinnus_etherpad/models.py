@@ -41,8 +41,11 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
 
-    pad_id = models.CharField(max_length=255, editable=False)
+    pad_id = models.CharField(max_length=255, editable=True)
     description = models.TextField(_('Description'), blank=True)
+    # a group mapping that corresponds to the etherpads group slug at its creation time
+    # used for session creation, and works even after the etherpad group's slug has changed
+    group_mapper = models.CharField(max_length=255, editable=True, null=True, blank=True)
 
     objects = EtherpadManager()
 
@@ -79,10 +82,15 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         
 
     def get_user_session_id(self, user):
+        group_mapper = getattr(self, 'group_mapper', None)
+        if not group_mapper:
+            group_mapper = _get_group_mapping(self.group)
+            self.group_mapper = group_mapper
+            self.save()
         author_id = self.client.createAuthorIfNotExistsFor(
             authorMapper=user.username)
         group_id = self.client.createGroupIfNotExistsFor(
-            groupMapper=_get_group_mapping(self.group))
+            groupMapper=group_mapper)
         one_year_from_now = now() + timedelta(days=365)
         valid_until = time.mktime(one_year_from_now.timetuple())
 
@@ -117,7 +125,29 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         if self.media_tag:
             is_private = self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
         return check_ug_membership(user, self.group) and not is_private
-
+    
+    def reinit_pad(self):
+        old_pad_id = self.pad_id
+        group_id = self.client.createGroupIfNotExistsFor(
+            groupMapper=_get_group_mapping(self.group))
+        
+        counter = 0
+        while counter < 10:
+            counter += 1
+            try:
+                pad_id = self.client.createGroupPad(
+                    groupID=group_id['groupID'],
+                    padName=self.slug+'_reinit%d' % counter)
+                break
+            except EtherpadException:
+                pass
+            
+        self.pad_id = pad_id['padID']
+        
+        text = self.client.getText(padID=old_pad_id)
+        self.client.setText(padID=self.pad_id, text=text['text'])
+        
+        self.save()
 
 @receiver(post_save, sender=CosinnusGroup)
 def create_etherpad_group(sender, instance, created, **kwargs):
@@ -146,12 +176,17 @@ def create_etherpad(sender, instance, **kwargs):
     Receiver to create a pad on etherpad server
     """
     if not instance.pk and not instance.is_container:
+        groupMapper = _get_group_mapping(instance.group)
+        instance.group_mapper = groupMapper
+        
+        instance.pad_group_slug = instance
         group_id = instance.client.createGroupIfNotExistsFor(
-            groupMapper=_get_group_mapping(instance.group))
+            groupMapper=groupMapper)
         pad_id = instance.client.createGroupPad(
             groupID=group_id['groupID'],
             padName=instance.slug)
         instance.pad_id = pad_id['padID']
+        
 
 @receiver(post_delete, sender=Etherpad)
 def delete_etherpad(sender, instance, **kwargs):
