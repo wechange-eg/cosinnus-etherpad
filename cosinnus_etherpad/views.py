@@ -107,7 +107,7 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
         domain = _get_cookie_domain()
         if domain:
             server_name = self.request.META['SERVER_NAME']
-            if domain not in server_name:
+            if domain not in server_name and server_name not in domain:
                 logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
         response.set_cookie('sessionID', user_session_id, domain=domain)
 
@@ -227,7 +227,7 @@ class EtherpadEditView(EtherpadFormMixin, UpdateView):
         domain = _get_cookie_domain()
         if domain:
             server_name = self.request.META['SERVER_NAME']
-            if domain not in server_name:
+            if domain not in server_name and server_name not in domain:
                 logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
         response.set_cookie('sessionID', user_session_id, domain=domain)
 
