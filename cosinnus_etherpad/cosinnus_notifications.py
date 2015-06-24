@@ -40,7 +40,7 @@ notifications = {
         'mail_template': 'cosinnus_etherpad/notifications/etherpad_created.txt',
         'subject_template': 'cosinnus_etherpad/notifications/etherpad_created_subject.txt',
         'signals': [etherpad_created],
-        'default': False,
+        'default': True,
     },  
                     
 }
