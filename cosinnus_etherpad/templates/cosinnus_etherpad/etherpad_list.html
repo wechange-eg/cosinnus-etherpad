@@ -28,37 +28,39 @@
 	
         {% include 'cosinnus/common/filter_controls.html' %}        
         
-	    {% with obj_form=form.forms.obj %}
-	    <form action="" method="post" class="form-horizontal">{% csrf_token %}
-		    {{ obj_form.non_field_errors }}
-			<div type="button" class="btn btn-default w100 large-space">
-			    <ul class="media-list">
-			        <li class="media">
-			            <a class="pull-left" href="#">
-			                <i class="fa fa-plus"></i>
-			            </a>
-			            <div class="media-body media-body-form-control">
-			                {{ obj_form.title.errors }}
-			                {% captureas placeholder %}{% trans "Enter the title for a new Document." %}{% endcaptureas %}
-			                {% render_field obj_form.title class+="form-control next-button-is-for-sending" placeholder=placeholder id="etherpadCreateInput" %}
-			            </div>
-			        </li>
-			    </ul>
-			</div>
-            <button type="submit" class="btn btn-emphasized large-space" style="display: none;">
-                <ul class="media-list">
-                    <li class="media">
-                        <a class="pull-left" href="#">
-                            <i class="fa fa-floppy-o"></i>
-                        </a>
-                        <div class="media-body">
-                            {% trans "Create" %}
-                        </div>
-                    </li>
-                </ul>
-            </button>
-	    </form>
-	    {% endwith %}
+        {% if user|can_create_objects_in:group %}
+		    {% with obj_form=form.forms.obj %}
+		    <form action="" method="post" class="form-horizontal">{% csrf_token %}
+			    {{ obj_form.non_field_errors }}
+				<div type="button" class="btn btn-default w100 large-space">
+				    <ul class="media-list">
+				        <li class="media">
+				            <a class="pull-left" href="#">
+				                <i class="fa fa-plus"></i>
+				            </a>
+				            <div class="media-body media-body-form-control">
+				                {{ obj_form.title.errors }}
+				                {% captureas placeholder %}{% trans "Enter the title for a new Document." %}{% endcaptureas %}
+				                {% render_field obj_form.title class+="form-control next-button-is-for-sending" placeholder=placeholder id="etherpadCreateInput" %}
+				            </div>
+				        </li>
+				    </ul>
+				</div>
+	            <button type="submit" class="btn btn-emphasized large-space" style="display: none;">
+	                <ul class="media-list">
+	                    <li class="media">
+	                        <a class="pull-left" href="#">
+	                            <i class="fa fa-floppy-o"></i>
+	                        </a>
+	                        <div class="media-body">
+	                            {% trans "Create" %}
+	                        </div>
+	                    </li>
+	                </ul>
+	            </button>
+		    </form>
+		    {% endwith %}
+	    {% endif %}
 	    
 	    {% for object in objects %}
 		    <div id="cosinnus_list_element_{{ object.id }}" class="fadedown {% if not forloop.last %}regular-space{% endif %}">
@@ -110,6 +112,8 @@
 			                </li>
 			            </ul>
 			        </button>
+			    {% endif %}
+			    {% if user|has_write_access:object or object.media_tag.visibility == 2 %} 
 			        <button type="button" class="btn btn-emphasized" href="{% group_url 'cosinnus:etherpad:pad-edit' group=group slug=object.slug %}">
 			            <ul class="media-list">
 			                <li class="media">

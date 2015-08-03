@@ -28,7 +28,8 @@ from etherpad_lite import EtherpadException
 from cosinnus.views.export import CSVExportView
 from cosinnus.views.hierarchy import AddContainerView, MoveElementView
 from cosinnus.views.mixins.group import (
-    RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin)
+    RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin,
+    RequireReadWriteHybridMixin)
 from cosinnus.views.mixins.tagged import (HierarchyTreeMixin,
     HierarchyPathMixin, HierarchyDeleteMixin)
 from cosinnus.views.mixins.user import UserFormKwargsMixin
@@ -116,7 +117,7 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 pad_detail_view = EtherpadDetailView.as_view()
 
 
-class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
+class EtherpadFormMixin(FilterGroupMixin,
                         GroupFormKwargsMixin, UserFormKwargsMixin):
     form_class = EtherpadForm
     model = Etherpad
@@ -155,17 +156,27 @@ class EtherpadFormMixin(RequireWriteMixin, FilterGroupMixin,
         return ret
 
 
-
-class EtherpadAddView(EtherpadFormMixin, CreateView):
+class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, 
+                                CosinnusFilterMixin, EtherpadFormMixin, CreateView):
+    
+    template_name = 'cosinnus_etherpad/etherpad_list.html'
+    filterset_class = EtherpadFilter
+    
     form_view = 'add'
     message_success = _('Etherpad "%(title)s" was added successfully.')
     message_error = _('Etherpad "%(title)s" could not be added.')
 
+    message_success_folder = _('Folder "%(title)s" was created successfully.')
+    
+    def get(self, request, *args, **kwargs):
+        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
+        return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
+    
     def form_valid(self, form):
         try:
             # only commit changes to the database iff the etherpad has been created
             sid = transaction.savepoint()
-            ret = super(EtherpadAddView, self).form_valid(form)
+            ret = super(EtherpadHybridListView, self).form_valid(form)
             transaction.savepoint_commit(sid)
             return ret
         except EtherpadException as exc:
@@ -176,21 +187,6 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
                 return self.form_invalid(form)
             else:
                 six.reraise(*sys.exc_info())
-
-pad_add_view = EtherpadAddView.as_view()
-
-    
-class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, 
-                                CosinnusFilterMixin, EtherpadAddView):
-    
-    template_name = 'cosinnus_etherpad/etherpad_list.html'
-    filterset_class = EtherpadFilter
-    
-    message_success_folder = _('Folder "%(title)s" was created successfully.')
-    
-    def get(self, request, *args, **kwargs):
-        self.sort_fields_aliases = self.model.SORT_FIELDS_ALIASES
-        return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
     
     def get_success_url(self):
         if self.object.is_container:
@@ -214,7 +210,7 @@ class EtherpadAddContainerView(AddContainerView):
 container_add_view = EtherpadAddContainerView.as_view()
 
 
-class EtherpadEditView(EtherpadFormMixin, UpdateView):
+class EtherpadEditView(RequireReadWriteHybridMixin, EtherpadFormMixin, UpdateView):
     form_view = 'edit'
     template_name = 'cosinnus_etherpad/etherpad_edit.html'
 
@@ -237,7 +233,7 @@ class EtherpadEditView(EtherpadFormMixin, UpdateView):
 pad_edit_view = EtherpadEditView.as_view()
 
 
-class EtherpadDeleteView(EtherpadFormMixin, HierarchyDeleteMixin, DeleteView):
+class EtherpadDeleteView(RequireWriteMixin, EtherpadFormMixin, HierarchyDeleteMixin, DeleteView):
     form_view = 'delete'
     message_success = None
     message_error = None
