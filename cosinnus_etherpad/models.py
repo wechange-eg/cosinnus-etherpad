@@ -148,6 +148,11 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         self.client.setText(padID=self.pad_id, text=text['text'])
         
         self.save()
+        
+        
+    def __str__(self):
+        return '<Etherpad%s id: %d>' % (' Folder' if self.is_container else '', self.id)
+    
 
 @receiver(post_save, sender=CosinnusGroup)
 def create_etherpad_group(sender, instance, created, **kwargs):

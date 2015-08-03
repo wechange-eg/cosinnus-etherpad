@@ -180,7 +180,8 @@ class EtherpadAddView(EtherpadFormMixin, CreateView):
 pad_add_view = EtherpadAddView.as_view()
 
     
-class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, CosinnusFilterMixin, EtherpadAddView):
+class EtherpadHybridListView(RequireReadMixin, HierarchyPathMixin, HierarchicalListCreateViewMixin, 
+                                CosinnusFilterMixin, EtherpadAddView):
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
     filterset_class = EtherpadFilter
