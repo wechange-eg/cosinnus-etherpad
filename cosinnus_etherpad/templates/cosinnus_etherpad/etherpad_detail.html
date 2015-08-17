@@ -31,7 +31,10 @@
                         <i class="fa fa-chain"></i>
                     </a>
                     <div class="media-body">
-                       {{ object.title }}
+                    	{% with creator=object.creator %}
+	                        <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
+	                    {% endwith %}
+                        {{ object.title }}
                     </div>
                 </li>
             </ul>

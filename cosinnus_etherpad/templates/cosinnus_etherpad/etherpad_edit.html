@@ -36,6 +36,12 @@
                             <a class="pull-right" href="{{ object.get_absolute_url }}">
                                 <i class="fa fa-chain"></i>
                             </a>
+                            {% comment %} Monkey-patch a media-body in this, because we can't have two media bodies for the annotation {% endcomment %}
+                            <span class=" annotation" style="float:right; padding: 9px 10px 5px 10px">
+                                {% with creator=object.creator %}
+			                        {% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a>
+			                    {% endwith %}
+                            </span>
                             <div class="media-body media-body-form-control">
                                 {{ form.forms.obj.title.errors }}
                                 {% captureas placeholder %}{% trans "Enter a title for the Pad." %}{% endcaptureas %}
@@ -77,6 +83,9 @@
                                 <i class="fa fa-chain"></i>
                             </a>
                             <div class="media-body">
+                            	{% with creator=object.creator %}
+			                        <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
+			                    {% endwith %}
                                 <span>{{ object.title }}</span>
                             </div>
                         </li>
