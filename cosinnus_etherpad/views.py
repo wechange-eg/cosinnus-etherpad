@@ -8,6 +8,7 @@ from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
 from cosinnus.views.mixins.filters import CosinnusFilterMixin
 from cosinnus_etherpad.filters import EtherpadFilter
 from cosinnus.utils.urls import group_aware_reverse
+from urllib2 import HTTPError
 
 try:
     from urllib.parse import urlparse
@@ -44,7 +45,10 @@ if 'cosinnus_document' in settings.INSTALLED_APPS:
 if 'cosinnus_file' in settings.INSTALLED_APPS:
     from django.core.files.base import ContentFile
     from cosinnus_file.models import FileEntry
-    
+
+logger = logging.getLogger('cosinnus')
+
+
 
 def _get_cookie_domain():
     domain = urlparse(settings.COSINNUS_ETHERPAD_BASE_URL).netloc
@@ -186,7 +190,13 @@ class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, Hi
                 messages.error(self.request, msg % {'name': form.data.get('title', '')})
                 return self.form_invalid(form)
             else:
-                six.reraise(*sys.exc_info())
+                logger.error('Cosinnus Etherpad configuration error: Etherpad Misconfigured', extra={'exception': exc})
+                messages.error(self.request, _('The document could not be created because the etherpad service is misconfigured. Please contact an administrator!'))
+                return self.form_invalid(form)
+        except HTTPError as exc:
+            logger.error('Cosinnus Etherpad configuration error: Etherpad URL invalid', extra={'exception': exc})
+            messages.error(self.request, _('The document could not be created because the etherpad server could not be reached. Please contact an administrator!'))
+            return self.form_invalid(form)
     
     def get_success_url(self):
         if self.object.is_container:
