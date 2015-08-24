@@ -25,6 +25,7 @@ from django.core.exceptions import ImproperlyConfigured
 from cosinnus_etherpad import cosinnus_notifications
 from django.contrib.auth import get_user_model
 from cosinnus.models.tagged import BaseTagObject
+from cosinnus.models.group import CosinnusPortal
 
 
 def _init_client():
@@ -207,7 +208,7 @@ def delete_etherpad(sender, instance, **kwargs):
                 raise
 
 def _get_group_mapping(group):
-    return smart_text(group.slug).encode('utf-8')
+    return smart_text('p_%d_g_%s' % (CosinnusPortal.get_current().id, group.slug)).encode('utf-8')
 
 
 import django
