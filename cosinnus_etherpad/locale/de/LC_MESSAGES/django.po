@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-24 15:10+0200\n"
+"POT-Creation-Date: 2015-08-24 15:23+0200\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -66,32 +66,40 @@ msgstr "Beschreibung"
 msgid "Etherpad"
 msgstr "Dokument"
 
-#: .\views.py:128
+#: .\views.py:116
+msgid ""
+"The document can not be accessed because the etherpad server could not be "
+"reached. Please contact an administrator!"
+msgstr ""
+"Das Dokument kann nicht angezeigt werden weil der Etherpad-Service nicht "
+"erreichbar ist. Bitte kontaktiere einen Administrator!"
+
+#: .\views.py:134
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
 msgstr "Dokument „%(title)s“ wurde erfolgreich bearbeitet."
 
-#: .\views.py:129
+#: .\views.py:135
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
 msgstr "Dokument „%(title)s“ konnte nicht bearbeitet werden."
 
-#: .\views.py:170
+#: .\views.py:176
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
 msgstr "Dokument „%(title)s“ wurde erfolgreich hinzugefügt."
 
-#: .\views.py:171
+#: .\views.py:177
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
 msgstr "Dokument „%(title)s“ konnte nicht hinzugefügt werden."
 
-#: .\views.py:173
+#: .\views.py:179
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
 msgstr "Ordner „%(title)s“ wurde erfolgreich erstellt."
 
-#: .\views.py:189
+#: .\views.py:195
 #, python-format
 msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
@@ -100,15 +108,15 @@ msgstr ""
 "Ein Dokument mit dem Namen „%(name)s“ existiert bereits auf dem Pad-Server. "
 "Bitte einen anderen Namen benutzen."
 
-#: .\views.py:194
+#: .\views.py:200
 msgid ""
 "The document could not be created because the etherpad service is "
 "misconfigured. Please contact an administrator!"
 msgstr ""
-"Das Dokument konnte nicht erstellt werden weil der Etherpad-Service "
-"falsch konfiguriert ist. Bitte kontaktiere einen Administrator!"
+"Das Dokument konnte nicht erstellt werden weil der Etherpad-Service falsch "
+"konfiguriert ist. Bitte kontaktiere einen Administrator!"
 
-#: .\views.py:198
+#: .\views.py:204
 msgid ""
 "The document could not be created because the etherpad server could not be "
 "reached. Please contact an administrator!"
@@ -116,7 +124,7 @@ msgstr ""
 "Das Dokument konnte nicht erstellt werden weil der Etherpad-Service nicht "
 "erreichbar ist. Bitte kontaktiere einen Administrator!"
 
-#: .\views.py:298
+#: .\views.py:304
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
@@ -125,7 +133,7 @@ msgstr ""
 "Pad wurde als Dokument archiviert: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 
-#: .\views.py:350
+#: .\views.py:356
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"

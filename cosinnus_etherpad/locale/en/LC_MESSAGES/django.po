@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-24 15:10+0200\n"
+"POT-Creation-Date: 2015-08-24 15:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,32 +66,38 @@ msgstr ""
 msgid "Etherpad"
 msgstr "Document"
 
-#: .\views.py:128
+#: .\views.py:116
+msgid ""
+"The document can not be accessed because the etherpad server could not be "
+"reached. Please contact an administrator!"
+msgstr ""
+
+#: .\views.py:134
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
 msgstr "Document \"%(title)s\" was edited successfully."
 
-#: .\views.py:129
+#: .\views.py:135
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
 msgstr "Document \"%(title)s\" could not be edited."
 
-#: .\views.py:170
+#: .\views.py:176
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
 msgstr "Document \"%(title)s\" was added successfully."
 
-#: .\views.py:171
+#: .\views.py:177
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
 msgstr "Document \"%(title)s\" could not be added."
 
-#: .\views.py:173
+#: .\views.py:179
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
 msgstr ""
 
-#: .\views.py:189
+#: .\views.py:195
 #, python-format
 msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
@@ -100,26 +106,26 @@ msgstr ""
 "Document with name \"%(name)s\" already exists on pad server. Please use "
 "another name."
 
-#: .\views.py:194
+#: .\views.py:200
 msgid ""
 "The document could not be created because the etherpad service is "
 "misconfigured. Please contact an administrator!"
 msgstr ""
 
-#: .\views.py:198
+#: .\views.py:204
 msgid ""
 "The document could not be created because the etherpad server could not be "
 "reached. Please contact an administrator!"
 msgstr ""
 
-#: .\views.py:298
+#: .\views.py:304
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 msgstr ""
 
-#: .\views.py:350
+#: .\views.py:356
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"

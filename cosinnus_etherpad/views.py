@@ -9,6 +9,7 @@ from cosinnus.views.mixins.filters import CosinnusFilterMixin
 from cosinnus_etherpad.filters import EtherpadFilter
 from cosinnus.utils.urls import group_aware_reverse
 from urllib2 import HTTPError
+from django.shortcuts import redirect
 
 try:
     from urllib.parse import urlparse
@@ -108,7 +109,12 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 
         # set cross-domain session cookie for etherpad app
         etherpad = context['etherpad']
-        user_session_id = etherpad.get_user_session_id(self.request.user)
+        try:
+            user_session_id = etherpad.get_user_session_id(self.request.user)
+        except (HTTPError, EtherpadException) as exc:
+            logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
+            messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
+            return redirect(reverse('cosinnus:etherpad:list'))
         domain = _get_cookie_domain()
         if domain:
             server_name = self.request.META['SERVER_NAME']
@@ -230,7 +236,12 @@ class EtherpadEditView(RequireReadWriteHybridMixin, EtherpadFormMixin, UpdateVie
         
         # set cross-domain session cookie for etherpad app
         etherpad = context['etherpad']
-        user_session_id = etherpad.get_user_session_id(self.request.user)
+        try:
+            user_session_id = etherpad.get_user_session_id(self.request.user)
+        except (HTTPError, EtherpadException) as exc:
+            logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
+            messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
+            return redirect(reverse('cosinnus:etherpad:list'))
         domain = _get_cookie_domain()
         if domain:
             server_name = self.request.META['SERVER_NAME']
