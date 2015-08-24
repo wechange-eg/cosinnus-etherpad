@@ -114,7 +114,7 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
         except (HTTPError, EtherpadException) as exc:
             logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
-            return redirect(reverse('cosinnus:etherpad:list'))
+            redirect(group_aware_reverse('cosinnus:etherpad:list', kwargs={'group': etherpad.group}))
         domain = _get_cookie_domain()
         if domain:
             server_name = self.request.META['SERVER_NAME']
@@ -241,7 +241,7 @@ class EtherpadEditView(RequireReadWriteHybridMixin, EtherpadFormMixin, UpdateVie
         except (HTTPError, EtherpadException) as exc:
             logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
-            return redirect(reverse('cosinnus:etherpad:list'))
+            return redirect(group_aware_reverse('cosinnus:etherpad:list', kwargs={'group': etherpad.group}))
         domain = _get_cookie_domain()
         if domain:
             server_name = self.request.META['SERVER_NAME']
