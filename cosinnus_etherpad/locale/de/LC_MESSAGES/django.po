@@ -36,7 +36,7 @@ msgstr "Dokumente"
 
 #: .\cosinnus_notifications.py:39
 msgid "A user created a new etherpad"
-msgstr "Ein(e) Mitarbeiter_in hat ein neues Dokument erstellt"
+msgstr "Ein Mitglied hat ein neues Dokument erstellt"
 
 #: .\dashboard.py:25
 msgid "Latest Etherpads"
