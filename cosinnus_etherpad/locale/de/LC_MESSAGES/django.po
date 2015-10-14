@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-24 15:23+0200\n"
+"POT-Creation-Date: 2015-10-03 13:39+0200\n"
 "PO-Revision-Date: 2013-06-01 20:18+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -66,7 +66,7 @@ msgstr "Beschreibung"
 msgid "Etherpad"
 msgstr "Dokument"
 
-#: .\views.py:116
+#: .\views.py:116 .\views.py:243
 msgid ""
 "The document can not be accessed because the etherpad server could not be "
 "reached. Please contact an administrator!"
@@ -124,7 +124,7 @@ msgstr ""
 "Das Dokument konnte nicht erstellt werden weil der Etherpad-Service nicht "
 "erreichbar ist. Bitte kontaktiere einen Administrator!"
 
-#: .\views.py:304
+#: .\views.py:309
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
@@ -133,7 +133,7 @@ msgstr ""
 "Pad wurde als Dokument archiviert: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 
-#: .\views.py:356
+#: .\views.py:361
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"

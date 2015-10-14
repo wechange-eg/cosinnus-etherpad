@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-24 15:23+0200\n"
+"POT-Creation-Date: 2015-10-03 13:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -66,7 +66,7 @@ msgstr ""
 msgid "Etherpad"
 msgstr "Document"
 
-#: .\views.py:116
+#: .\views.py:116 .\views.py:243
 msgid ""
 "The document can not be accessed because the etherpad server could not be "
 "reached. Please contact an administrator!"
@@ -118,14 +118,14 @@ msgid ""
 "reached. Please contact an administrator!"
 msgstr ""
 
-#: .\views.py:304
+#: .\views.py:309
 #, python-format
 msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 msgstr ""
 
-#: .\views.py:356
+#: .\views.py:361
 #, python-format
 msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
