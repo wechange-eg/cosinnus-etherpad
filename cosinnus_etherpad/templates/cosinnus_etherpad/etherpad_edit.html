@@ -21,27 +21,32 @@
 {% block content %}
     <!-- a box with semi transparent background -->
     <div class="content-box">
-    	{% if user|has_write_access:object %}
         <form action="" method="post" class="form-horizontal">{% csrf_token %}
-            <div class="fadedown regular-space">
+            <div class="regular-space">
+
                 <div class="btn btn-extra-emphasized w100">
                     <ul class="media-list">
                         <li class="media">
                             <a class="pull-left" href="#">
                                 <i class="fa fa-book"></i>
                             </a>
-                            <a class="pull-right fadedown-clickarea" href="#">
-                                <i class="fa fa-chevron-down"></i>
-                            </a>
                             <a class="pull-right" href="{{ object.get_absolute_url }}">
                                 <i class="fa fa-chain"></i>
                             </a>
-                            {% comment %} Monkey-patch a media-body in this, because we can't have two media bodies for the annotation {% endcomment %}
-                            <span class=" annotation" style="float:right; padding: 9px 10px 5px 10px">
-                                {% with creator=object.creator %}
-			                        {% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a>
-			                    {% endwith %}
-                            </span>
+                            <div class="media-body">
+                                Dokument bearbeiten<!-- INTERNATIONALISIEREN !!!!! -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div type="submit" class="btn btn-default w100 large-space">
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-pencil"></i>
+                            </a>
                             <div class="media-body media-body-form-control">
                                 {{ form.forms.obj.title.errors }}
                                 {% captureas placeholder %}{% trans "Enter a title for the Pad." %}{% endcaptureas %}
@@ -50,11 +55,15 @@
                         </li>
                     </ul>
                 </div>
+
+
+
                 
-                <div> <!-- fadedown wrapper -->
+                <div class="regular-space">
                     {{ form.forms.obj.non_field_errors }}
                     {% include 'cosinnus/media_tags.html' %}
-            
+
+
                     <button type="submit" class="btn btn-emphasized" id="etherpadSaveMetaButton">
                         <ul class="media-list">
                             <li class="media">
@@ -67,12 +76,29 @@
                             </li>
                         </ul>
                     </button>
+
+                    <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#deleteModal">
+                        <ul class="media-list">
+                            <li class="media">
+                                <a class="pull-left" href="#">
+                                    <i class="fa fa-eraser"></i>
+                                </a>
+                                <div class="media-body">
+                                    {% trans "Delete" %}
+                                </div>
+                            </li>
+                        </ul>
+                    </button>
+
                 </div>
             
             </div> <!-- fadedown -->
         </form>   
-        {% else %}
-        	<div class="regular-space">
+
+
+<div class="clearfix"></div><hr>
+
+            <div class="regular-space">
                 <div class="btn btn-extra-emphasized w100">
                     <ul class="media-list">
                         <li class="media">
@@ -83,9 +109,9 @@
                                 <i class="fa fa-chain"></i>
                             </a>
                             <div class="media-body">
-                            	{% with creator=object.creator %}
-			                        <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
-			                    {% endwith %}
+                                {% with creator=object.creator %}
+                                    <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
+                                {% endwith %}
                                 <span>{{ object.title }}</span>
                             </div>
                         </li>
@@ -94,32 +120,15 @@
                 
                 {% include 'cosinnus/media_tags_readonly.html' %}
             </div> 
-        {% endif %}
+
 
         <div style="clear: both; margin-top: 10px;">
             <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
         </div>
+
     
     </div><!-- content-box -->
     
-    {% if user|has_write_access:object %}   
-        <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#deleteModal">
-            <ul class="media-list">
-                <li class="media">
-                    <a class="pull-left" href="#">
-                        <i class="fa fa-eraser"></i>
-                    </a>
-                    <div class="media-body">
-                        {% trans "Delete" %}
-                    </div>
-                </li>
-            </ul>
-        </button>
-        
-        {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
-        {% captureas title %}{% trans "Delete Etherpad" %}{% endcaptureas %}
-        {% captureas action %}{% group_url 'cosinnus:etherpad:pad-delete' group=group slug=object.slug %}{% endcaptureas %}
-        {% include "cosinnus/modal_box.html" with id="deleteModal" label=label title=title form_action=action %}
-{% endif %}
+
     
 {% endblock content %}
