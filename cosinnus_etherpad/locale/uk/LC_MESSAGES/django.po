@@ -156,7 +156,7 @@ msgstr "Документи"
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:88
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:87
 msgid "by"
-msgstr ""
+msgstr "Автор"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:62
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:114
