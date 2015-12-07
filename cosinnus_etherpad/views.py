@@ -127,6 +127,12 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 pad_detail_view = EtherpadDetailView.as_view()
 
 
+class EtherpadWriteView(EtherpadDetailView):
+    template_name = 'cosinnus_etherpad/etherpad_write.html'
+
+pad_write_view = EtherpadWriteView.as_view()
+
+
 class EtherpadFormMixin(FilterGroupMixin,
                         GroupFormKwargsMixin, UserFormKwargsMixin):
     form_class = EtherpadForm
@@ -146,8 +152,9 @@ class EtherpadFormMixin(FilterGroupMixin,
         return context
 
     def get_success_url(self):
-        return group_aware_reverse('cosinnus:etherpad:list', kwargs={
+        return group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs={
             'group': self.group,
+            'slug': self.object.slug,
         })
 
     def form_valid(self, form):
