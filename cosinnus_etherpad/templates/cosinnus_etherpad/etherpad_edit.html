@@ -11,7 +11,7 @@
             <li><a href="{% group_url 'cosinnus:etherpad:list' group=group slug=object.container.slug %}">{{ object.container.title }}</a></li>
         {% endif %}
         <li><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></li>
-        <li class="active">{% trans "Pad-Settings" %}</li>
+        <li class="active">{% trans "Settings" %}</li>
 {% endblock %}
 
 {% block leftnav %}
@@ -34,7 +34,7 @@
                                 <i class="fa fa-book"></i>
                             </a>
                             <div class="media-body">
-                               {% trans "Pad-Settings" %}
+                               {% trans "Settings" %}
                             </div>
                         </li>
                     </ul>
