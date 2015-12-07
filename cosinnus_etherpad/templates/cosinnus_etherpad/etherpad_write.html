@@ -10,7 +10,8 @@
         {% if object.path != '/' %}
             <li><a href="{% group_url 'cosinnus:etherpad:list' group=group slug=object.container.slug %}">{{ object.container.title }}</a></li>
         {% endif %}
-        <li class="active">{{ object.title }}</li>
+        <li><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></li>
+        <li class="active">{% trans "Edit" %}</li>
 {% endblock %}
 
 {% block leftnav %}
