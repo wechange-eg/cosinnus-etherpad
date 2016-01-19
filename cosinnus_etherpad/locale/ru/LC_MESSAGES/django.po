@@ -8,25 +8,26 @@ msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-10-03 13:39+0200\n"
-"PO-Revision-Date: 2015-08-17 11:27+0200\n"
+"PO-Revision-Date: 2015-11-14 17:15+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: ru\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #: .\admin.py:25
 msgid "The following Pads were re-initialized:"
-msgstr "Следующие документы перезагрузили:"
+msgstr "Проведена реинициализация следующих документов:"
 
 #: .\admin.py:27
 msgid "Reinit Pads (do not use if you don't know what this is!)"
 msgstr ""
-"Перезагрузить Документ (не используйте, если вы не знаете, что это такое!)"
+"Провести реинициализацию документов (не применяйте эту команду, если вы не "
+"знаете, что это такое!)"
 
 #: .\cosinnus_app.py:13 .\models.py:55
 #: .\templates\cosinnus_etherpad\base.html.py:6
@@ -36,7 +37,7 @@ msgstr "Документы"
 #: .\cosinnus_app.py:21
 msgctxt "the_app"
 msgid "etherpad"
-msgstr "документ"
+msgstr "Документ"
 
 #: .\cosinnus_notifications.py:39
 msgid "A user created a new etherpad"
@@ -44,7 +45,7 @@ msgstr "Пользователь создал новый документ"
 
 #: .\dashboard.py:25
 msgid "Latest Etherpads"
-msgstr "Последние Документы"
+msgstr "Последние документы"
 
 #: .\dashboard.py:40
 msgid "No etherpads"
@@ -56,7 +57,7 @@ msgstr "Создатель:"
 
 #: .\filters.py:20
 msgid "Newest Pads"
-msgstr "Недавные Документы"
+msgstr "Последние документы"
 
 #: .\filters.py:21
 msgid "Title"
@@ -75,21 +76,23 @@ msgid ""
 "The document can not be accessed because the etherpad server could not be "
 "reached. Please contact an administrator!"
 msgstr ""
+"Доступ к документу невозможен, так как сервер не отвечает. Пожалуйста, "
+"обратитесь к администратору!"
 
 #: .\views.py:134
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr "Документ \"%(title)s\" успешно отредактирован."
+msgstr "Документ \"%(title)s\" успешно отредактирован"
 
 #: .\views.py:135
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
-msgstr "Документ \"%(title)s\" не может быть отредактирован."
+msgstr "Документ \"%(title)s\" не может быть отредактирован"
 
 #: .\views.py:176
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr "Документ \"%(title)s\" успешно добавлен."
+msgstr "Документ \"%(title)s\" успешно добавлен"
 
 #: .\views.py:177
 #, python-format
@@ -99,7 +102,7 @@ msgstr "Документ \"%(title)s\" не может быть добавлен
 #: .\views.py:179
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
-msgstr "Папка \"%(title)s\" успешно создана."
+msgstr "Папка \"%(title)s\" создана"
 
 #: .\views.py:195
 #, python-format
@@ -107,20 +110,24 @@ msgid ""
 "Etherpad with name \"%(name)s\" already exists on pad server. Please use "
 "another name."
 msgstr ""
-"Etherpad с именем \"%(name)s\" уже существует на сервере площадки. "
-"Пожалуйста, используйте другое название."
+"Документ под именем \"%(name)s\" уже существует на сервере. Пожалуйста, "
+"используйте другое название"
 
 #: .\views.py:200
 msgid ""
 "The document could not be created because the etherpad service is "
 "misconfigured. Please contact an administrator!"
 msgstr ""
+"Невозможно создать документ из-за неверной конфигурации сервиса. Пожалуйста, "
+"обратитесь к администратору!"
 
 #: .\views.py:204
 msgid ""
 "The document could not be created because the etherpad server could not be "
 "reached. Please contact an administrator!"
 msgstr ""
+"Невозможно создать документ, так как сервер не отвечает. Пожалуйста, "
+"обратитесь к администратору!"
 
 #: .\views.py:309
 #, python-format
@@ -128,8 +135,8 @@ msgid ""
 "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
 "%(title)s</a>"
 msgstr ""
-"Документ заархиви́рован: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</"
-"a>"
+"Архивировано как документ: <a class=\"alert-link\" href=\"%(href)s\">"
+"%(title)s</a>"
 
 #: .\views.py:361
 #, python-format
@@ -137,8 +144,8 @@ msgid ""
 "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
 "\">%(title)s</a>"
 msgstr ""
-"Документ заархиви́рован как запись файла: <a class=\"alert-link\" href=\"%"
-"(href)s\">%(title)s</a>"
+"Архивировано как запись файла: <a class=\"alert-link\" href=\"%(href)s\">"
+"%(title)s</a>"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:5
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:5
@@ -151,7 +158,7 @@ msgstr "Документы"
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:88
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:87
 msgid "by"
-msgstr "создатель:"
+msgstr "Cоздатель:"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:62
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:114
@@ -169,7 +176,7 @@ msgstr "Вы действительно хотите удалить докуме
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:121
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:136
 msgid "Delete Etherpad"
-msgstr "Удалить Документ"
+msgstr "Удалить документ"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html.py:79
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:124
@@ -178,7 +185,7 @@ msgstr "Редактировать"
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:48
 msgid "Enter a title for the Pad."
-msgstr "Введите название для Документа."
+msgstr "Введите название"
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html.py:66
 msgid "Save"
@@ -186,7 +193,7 @@ msgstr "Сохранить"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:43
 msgid "Enter the title for a new Document."
-msgstr "Введите название для нового Документа."
+msgstr "Введите название нового документа"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:56
 msgid "Create"
@@ -194,48 +201,48 @@ msgstr "Создать"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:80
 msgid "Move to another Folder"
-msgstr "Переместить в другую Папку"
+msgstr "Переместить в другую папку"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:135
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr "Вы действительно хотите удалить документ „%(title)s“?"
+msgstr "Вы действительно хотите удалить „%(title)s“?"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html.py:141
 #: .\templates\cosinnus_etherpad\etherpad_list_standalone.html.py:15
 msgid "No etherpads have been created yet."
-msgstr "Документов ещё не создано."
+msgstr "Документы пока не созданы"
 
 #: .\templates\cosinnus_etherpad\notifications\etherpad_created.txt.py:1
 #, python-format
 msgid ""
 "Hi %(receiver_name)s,\n"
 "\n"
-"a new etherpad \"%(object_name)s\" in %(group_name)s was created by %"
-"(sender_name)s. \n"
+"a new etherpad \"%(object_name)s\" in %(group_name)s was created by "
+"%(sender_name)s. \n"
 "\n"
 "You can find it by following this link: %(object_url)s\n"
 "\n"
 "\n"
 "\n"
-"(Follow this link to edit your notification preferences: %"
-"(notification_settings_url)s )\n"
+"(Follow this link to edit your notification preferences: "
+"%(notification_settings_url)s )\n"
 "\n"
 "Your %(site_name)s Team."
 msgstr ""
-"Привет %(receiver_name)s,\n"
+"Здравствуйте, %(receiver_name)s,\n"
 "\n"
-"%(sender_name)s создал(а) новый документ \"%(object_name)s\" в %(group_name)"
-"s. \n"
+"пользователь %(sender_name)s создал новый документ \"%(object_name)s\" в "
+"группе %(group_name)s. \n"
 "\n"
-"Вы можете найти его по этой ссылке: %(object_url)s\n"
+"Его можно найти его по этой ссылке: %(object_url)s\n"
 "\n"
 "\n"
 "\n"
-"(Перейдите по этой ссылке, чтобы изменить Ваши настройки уведомлений: %"
-"(notification_settings_url)s )\n"
+"(Перейдите по этой ссылке, чтобы изменить ваши настройки уведомлений: "
+"%(notification_settings_url)s )\n"
 "\n"
-"Ваша команда %(site_name)s."
+"Ваша команда %(site_name)s"
 
 #: .\templates\cosinnus_etherpad\notifications\etherpad_created_subject.txt.py:1
 #, python-format
@@ -244,4 +251,4 @@ msgstr "Новый документ: \"%(object_name)s\" был создан в 
 
 #: .\templates\cosinnus_etherpad\widgets\latest.html.py:29
 msgid "There are no etherpads yet"
-msgstr "Документов ещё нет."
+msgstr "Документов ещё нет"
