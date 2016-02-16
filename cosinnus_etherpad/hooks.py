@@ -7,6 +7,7 @@ from django.dispatch import receiver
 
 from cosinnus_etherpad.models import _get_group_mapping, _init_client, Etherpad, EtherpadException
 from cosinnus.models.group import CosinnusGroup
+from cosinnus.conf import settings
 
 
 @receiver(post_save, sender=CosinnusGroup)
@@ -25,10 +26,11 @@ def delete_etherpad_group(sender, instance, **kwargs):
     """
     Receiver to delete a group on etherpad server
     """
-    client = _init_client()
-    group_id = client.createGroupIfNotExistsFor(
-        groupMapper=_get_group_mapping(instance))
-    client.deleteGroup(groupID=group_id['groupID'])
+    if getattr(settings, 'COSINNUS_DELETE_ETHERPADS_ON_SERVER_ON_DELETE', False):
+        client = _init_client()
+        group_id = client.createGroupIfNotExistsFor(
+            groupMapper=_get_group_mapping(instance))
+        client.deleteGroup(groupID=group_id['groupID'])
 
 
 @receiver(pre_save, sender=Etherpad)
@@ -54,10 +56,11 @@ def delete_etherpad(sender, instance, **kwargs):
     """
     Receiver to delete a pad on etherpad server
     """
-    if not instance.is_container:
-        try:
-            instance.client.deletePad(padID=instance.pad_id)
-        except EtherpadException as exc:
-            # failed deletion of missing padIDs is ok
-            if 'padID does not exist' not in str(exc):
-                raise
+    if getattr(settings, 'COSINNUS_DELETE_ETHERPADS_ON_SERVER_ON_DELETE', False):
+        if not instance.is_container:
+            try:
+                instance.client.deletePad(padID=instance.pad_id)
+            except EtherpadException as exc:
+                # failed deletion of missing padIDs is ok
+                if 'padID does not exist' not in str(exc):
+                    raise
