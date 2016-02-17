@@ -21,7 +21,8 @@ def create_etherpad_group(sender, instance, created, **kwargs):
         client.createGroupIfNotExistsFor(groupMapper=_get_group_mapping(instance))
 
 
-@receiver(post_delete, sender=CosinnusGroup)
+""" @receiver(post_delete, sender=CosinnusGroup) """
+""" Disabled the etherpad delete hook, as we now always retain pads on the server for retrieval purposes. """
 def delete_etherpad_group(sender, instance, **kwargs):
     """
     Receiver to delete a group on etherpad server
@@ -51,7 +52,8 @@ def create_etherpad(sender, instance, **kwargs):
         instance.pad_id = pad_id['padID']
         
 
-@receiver(post_delete, sender=Etherpad)
+"""@receiver(post_delete, sender=Etherpad)"""
+""" Disabled the etherpad delete hook, as we now always retain pads on the server for retrieval purposes. """
 def delete_etherpad(sender, instance, **kwargs):
     """
     Receiver to delete a pad on etherpad server
