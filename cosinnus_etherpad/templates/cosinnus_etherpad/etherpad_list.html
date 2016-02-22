@@ -97,7 +97,35 @@
 		        </div>
 		        
 		        {% include 'cosinnus/media_tags_readonly.html' %}
-		        
+			    
+			    {% if user|has_write_access:object or object.media_tag.visibility == 2 %} 
+			        <button type="button" class="btn btn-emphasized" href="{% group_url 'cosinnus:etherpad:pad-write' group=group slug=object.slug %}">
+			            <ul class="media-list">
+			                <li class="media">
+			                    <a class="pull-left" href="#">
+			                        <i class="fa fa-pencil"></i>
+			                    </a>
+			                    <div class="media-body">
+			                        {% trans "Edit" %}
+			                    </div>
+			                </li>
+			            </ul>
+			        </button> 
+			    {% endif %}
+			    {% if user|has_write_access:object %}
+				    <button type="button" class="btn btn-emphasized pull" href="{% group_url "cosinnus:etherpad:pad-edit" group=group slug=object.slug %}">
+			            <ul class="media-list">
+			                <li class="media">
+			                    <a class="pull-left" href="#">
+			                        <i class="fa fa-cog"></i>
+			                    </a>
+			                    <div class="media-body">
+			                        {% trans "Settings" %}
+			                    </div>
+			                </li>
+			            </ul>
+			        </button> 
+			    {% endif %}
 		        {% if user|has_write_access:object %}
 			        {% captureas modal_id %}deleteModal_{{object.slug}}{% endcaptureas %}
 			        <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#{{modal_id}}">
@@ -112,20 +140,6 @@
 			                </li>
 			            </ul>
 			        </button>
-			    {% endif %}
-			    {% if user|has_write_access:object or object.media_tag.visibility == 2 %} 
-			        <button type="button" class="btn btn-emphasized" href="{% group_url 'cosinnus:etherpad:pad-edit' group=group slug=object.slug %}">
-			            <ul class="media-list">
-			                <li class="media">
-			                    <a class="pull-left" href="#">
-			                        <i class="fa fa-pencil"></i>
-			                    </a>
-			                    <div class="media-body">
-			                        {% trans "Edit" %}
-			                    </div>
-			                </li>
-			            </ul>
-			        </button> 
 			    {% endif %}
 			    
 			    {% include 'cosinnus/feedback/report_button_btn.html' with object=object %}

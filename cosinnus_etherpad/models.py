@@ -12,7 +12,7 @@ from django.dispatch import receiver
 from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 
-from cosinnus.models import BaseHierarchicalTaggableObjectModel, CosinnusGroup
+from cosinnus.models import BaseHierarchicalTaggableObjectModel
 
 from etherpad_lite import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.conf import settings
@@ -26,6 +26,7 @@ from cosinnus_etherpad import cosinnus_notifications
 from django.contrib.auth import get_user_model
 from cosinnus.models.tagged import BaseTagObject
 from cosinnus.models.group import CosinnusPortal
+from cosinnus.utils.group import get_cosinnus_group_model
 
 
 def _init_client():
@@ -154,58 +155,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     def __str__(self):
         return '<Etherpad%s id: %d>' % (' Folder' if self.is_container else '', self.id)
     
-
-@receiver(post_save, sender=CosinnusGroup)
-def create_etherpad_group(sender, instance, created, **kwargs):
-    """
-    Receiver to create a group on etherpad server
-    """
-    if created:
-        client = _init_client()
-        client.createGroupIfNotExistsFor(groupMapper=_get_group_mapping(instance))
-
-
-@receiver(post_delete, sender=CosinnusGroup)
-def delete_etherpad_group(sender, instance, **kwargs):
-    """
-    Receiver to delete a group on etherpad server
-    """
-    client = _init_client()
-    group_id = client.createGroupIfNotExistsFor(
-        groupMapper=_get_group_mapping(instance))
-    client.deleteGroup(groupID=group_id['groupID'])
-
-
-@receiver(pre_save, sender=Etherpad)
-def create_etherpad(sender, instance, **kwargs):
-    """
-    Receiver to create a pad on etherpad server
-    """
-    if not instance.pk and not instance.is_container:
-        groupMapper = _get_group_mapping(instance.group)
-        instance.group_mapper = groupMapper
-        
-        instance.pad_group_slug = instance
-        group_id = instance.client.createGroupIfNotExistsFor(
-            groupMapper=groupMapper)
-        pad_id = instance.client.createGroupPad(
-            groupID=group_id['groupID'],
-            padName=instance.slug)
-        instance.pad_id = pad_id['padID']
-        
-
-@receiver(post_delete, sender=Etherpad)
-def delete_etherpad(sender, instance, **kwargs):
-    """
-    Receiver to delete a pad on etherpad server
-    """
-    if not instance.is_container:
-        try:
-            instance.client.deletePad(padID=instance.pad_id)
-        except EtherpadException as exc:
-            # failed deletion of missing padIDs is ok
-            if 'padID does not exist' not in str(exc):
-                raise
+    
 
 def _get_group_mapping(group):
     return smart_text('p_%d_g_%s' % (CosinnusPortal.get_current().id, group.slug)).encode('utf-8')

@@ -5,11 +5,10 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 from cosinnus_etherpad.models import Etherpad
+from cosinnus.admin import BaseHierarchicalTaggableAdminMixin
 
 
-class EtherpadAdmin(admin.ModelAdmin):
-    list_display = ('title', 'group', 'creator', 'path', 'created')
-    list_filter = ('group', 'group__portal', 'title')
+class EtherpadAdmin(BaseHierarchicalTaggableAdminMixin, admin.ModelAdmin):
     
     # disabled, because dangerous
     #actions = ['reinit_pads',]

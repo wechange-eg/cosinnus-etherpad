@@ -10,7 +10,8 @@
         {% if object.path != '/' %}
             <li><a href="{% group_url 'cosinnus:etherpad:list' group=group slug=object.container.slug %}">{{ object.container.title }}</a></li>
         {% endif %}
-        <li class="active">{{ object.title }}</li>
+        <li><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></li>
+        <li class="active">{% trans "Settings" %}</li>
 {% endblock %}
 
 {% block leftnav %}
@@ -19,9 +20,11 @@
 
 
 {% block content %}
-    <!-- a box with semi transparent background -->
-    <div class="content-box">
-        <form action="" method="post" class="form-horizontal">{% csrf_token %}
+
+    <form action="" method="post" class="form-horizontal">{% csrf_token %}
+
+    	<!-- a box with semi transparent background -->
+    	<div class="content-box">
             <div class="regular-space">
 
                 <div class="btn btn-extra-emphasized w100">
@@ -30,11 +33,8 @@
                             <a class="pull-left" href="#">
                                 <i class="fa fa-book"></i>
                             </a>
-                            <a class="pull-right" href="{{ object.get_absolute_url }}">
-                                <i class="fa fa-chain"></i>
-                            </a>
                             <div class="media-body">
-                                Dokument bearbeiten<!-- INTERNATIONALISIEREN !!!!! -->
+                               {% trans "Settings" %}
                             </div>
                         </li>
                     </ul>
@@ -56,79 +56,48 @@
                     </ul>
                 </div>
 
-
-
-                
                 <div class="regular-space">
                     {{ form.forms.obj.non_field_errors }}
-                    {% include 'cosinnus/media_tags.html' %}
-
-
-                    <button type="submit" class="btn btn-emphasized" id="etherpadSaveMetaButton">
-                        <ul class="media-list">
-                            <li class="media">
-                                <a class="pull-left" href="#">
-                                    <i class="fa fa-floppy-o "></i>
-                                </a>
-                                <div class="media-body">
-                                    {% trans "Save" %}
-                                </div>
-                            </li>
-                        </ul>
-                    </button>
-
-                    <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#deleteModal">
-                        <ul class="media-list">
-                            <li class="media">
-                                <a class="pull-left" href="#">
-                                    <i class="fa fa-eraser"></i>
-                                </a>
-                                <div class="media-body">
-                                    {% trans "Delete" %}
-                                </div>
-                            </li>
-                        </ul>
-                    </button>
+                    {% include 'cosinnus/media_tags.html' with show_all=True %}
 
                 </div>
             
             </div> <!-- fadedown -->
-        </form>   
-
-
-<div class="clearfix"></div><hr>
-
-            <div class="regular-space">
-                <div class="btn btn-extra-emphasized w100">
-                    <ul class="media-list">
-                        <li class="media">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-book"></i>
-                            </a>
-                            <a class="pull-right" href="{{ object.get_absolute_url }}">
-                                <i class="fa fa-chain"></i>
-                            </a>
-                            <div class="media-body">
-                                {% with creator=object.creator %}
-                                    <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
-                                {% endwith %}
-                                <span>{{ object.title }}</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                
-                {% include 'cosinnus/media_tags_readonly.html' %}
-            </div> 
-
-
-        <div style="clear: both; margin-top: 10px;">
-            <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
-        </div>
+    
+    	</div><!-- content-box -->
+    
+    
+		<button type="button" class="btn btn-emphasized pull-left" style="margin: 0px;" data-toggle="modal" data-target="#deleteModal">
+	        <ul class="media-list">
+	            <li class="media">
+	                <a class="pull-left" href="#">
+	                    <i class="fa fa-eraser"></i>
+	                </a>
+	                <div class="media-body">
+	                    {% trans "Delete" %}
+	                </div>
+	            </li>
+	        </ul>
+	    </button>
+	    
+	    <button type="submit" class="btn btn-emphasized" id="etherpadSaveMetaButton">
+	        <ul class="media-list">
+	            <li class="media">
+	                <a class="pull-left" href="#">
+	                    <i class="fa fa-floppy-o "></i>
+	                </a>
+	                <div class="media-body">
+	                    {% trans "Save" %}
+	                </div>
+	            </li>
+	        </ul>
+	    </button>
+	    {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
+	    {% captureas title %}{% trans "Delete Etherpad" %}{% endcaptureas %}
+	    {% include "cosinnus/modal_box.html" with id="deleteModal" label=label title=title form_action="./delete/" %}
 
     
-    </div><!-- content-box -->
-    
+    </form>
 
     
 {% endblock content %}
