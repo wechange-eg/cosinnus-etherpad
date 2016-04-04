@@ -98,7 +98,7 @@
 		        
 		        {% include 'cosinnus/media_tags_readonly.html' %}
 			    
-			    {% if user|has_write_access:object or object.media_tag.visibility == 2 %} 
+			    {% if user|has_read_access:object or object.media_tag.visibility == 2 %} 
 			        <button type="button" class="btn btn-emphasized" href="{% group_url 'cosinnus:etherpad:pad-write' group=group slug=object.slug %}">
 			            <ul class="media-list">
 			                <li class="media">

@@ -233,7 +233,7 @@ class EtherpadAddContainerView(AddContainerView):
 container_add_view = EtherpadAddContainerView.as_view()
 
 
-class EtherpadEditView(RequireReadWriteHybridMixin, EtherpadFormMixin, UpdateView):
+class EtherpadEditView(RequireWriteMixin, EtherpadFormMixin, UpdateView):
     form_view = 'edit'
     template_name = 'cosinnus_etherpad/etherpad_edit.html'
 

@@ -121,13 +121,6 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
             is_private = self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
         return check_ug_membership(user, self.group) and not is_private
     
-    def grant_extra_write_permissions(self, user, **kwargs):
-        """ Group members may write/delete etherpads if they are not private """
-        is_private = False
-        if self.media_tag:
-            is_private = self.media_tag.visibility == BaseTagObject.VISIBILITY_USER
-        return check_ug_membership(user, self.group) and not is_private
-    
     def reinit_pad(self):
         old_pad_id = self.pad_id
         group_id = self.client.createGroupIfNotExistsFor(
