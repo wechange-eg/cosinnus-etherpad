@@ -1,0 +1,237 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-04-04 12:17+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\admin.py:24
+msgid "The following Pads were re-initialized:"
+msgstr ""
+
+#: .\admin.py:26
+msgid "Reinit Pads (do not use if you don't know what this is!)"
+msgstr ""
+
+#: .\cosinnus_app.py:13 .\models.py:56
+#: .\templates\cosinnus_etherpad\base.html:6
+msgid "Etherpads"
+msgstr ""
+
+#: .\cosinnus_app.py:21
+msgctxt "the_app"
+msgid "etherpad"
+msgstr ""
+
+#: .\cosinnus_notifications.py:39
+msgid "A user created a new etherpad"
+msgstr ""
+
+#: .\dashboard.py:25
+msgid "Latest Etherpads"
+msgstr ""
+
+#: .\dashboard.py:40
+msgid "No etherpads"
+msgstr ""
+
+#: .\filters.py:14
+msgid "Created By"
+msgstr ""
+
+#: .\filters.py:20
+msgid "Newest Pads"
+msgstr ""
+
+#: .\filters.py:21
+msgid "Title"
+msgstr ""
+
+#: .\models.py:47
+msgid "Description"
+msgstr ""
+
+#: .\models.py:55 .\templates\cosinnus_etherpad\base.html:13
+msgid "Etherpad"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_detail.html:5
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:5
+#: .\templates\cosinnus_etherpad\etherpad_list.html:11
+#: .\templates\cosinnus_etherpad\etherpad_write.html:5
+msgid "Pads"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_detail.html:35
+#: .\templates\cosinnus_etherpad\etherpad_list.html:87
+#: .\templates\cosinnus_etherpad\etherpad_write.html:40
+msgid "by"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_detail.html:60
+#: .\templates\cosinnus_etherpad\etherpad_list.html:109
+#: .\templates\cosinnus_etherpad\etherpad_write.html:14
+msgid "Edit"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_detail.html:75
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:14
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:37
+#: .\templates\cosinnus_etherpad\etherpad_list.html:123
+#: .\templates\cosinnus_etherpad\etherpad_write.html:88
+msgid "Settings"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_detail.html:90
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:77
+#: .\templates\cosinnus_etherpad\etherpad_list.html:138
+#: .\templates\cosinnus_etherpad\etherpad_write.html:69
+msgid "Delete"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_detail.html:95
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:95
+#: .\templates\cosinnus_etherpad\etherpad_write.html:74
+#, python-format
+msgid "Do you really want to delete etherpad „%(pad)s“?"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_detail.html:96
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:96
+#: .\templates\cosinnus_etherpad\etherpad_list.html:150
+#: .\templates\cosinnus_etherpad\etherpad_write.html:75
+msgid "Delete Etherpad"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:52
+msgid "Enter a title for the Pad."
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_edit.html:90
+msgid "Save"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_list.html:43
+msgid "Enter the title for a new Document."
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_list.html:56
+msgid "Create"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_list.html:80
+msgid "Move to another Folder"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_list.html:149
+#, python-format
+msgid "Do you really want to delete etherpad „%(title)s“?"
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\etherpad_list.html:155
+#: .\templates\cosinnus_etherpad\etherpad_list_standalone.html:15
+msgid "No etherpads have been created yet."
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\notifications\etherpad_created.txt:1
+#, python-format
+msgid ""
+"Hi %(receiver_name)s,\n"
+"\n"
+"a new etherpad \"%(object_name)s\" in %(team_name)s was created by %"
+"(sender_name)s. \n"
+"\n"
+"You can find it by following this link: %(object_url)s\n"
+"\n"
+"\n"
+"\n"
+"(Follow this link to edit your notification preferences: %"
+"(notification_settings_url)s )\n"
+"\n"
+"Your %(site_name)s Team."
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\notifications\etherpad_created_subject.txt:1
+#, python-format
+msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+msgstr ""
+
+#: .\templates\cosinnus_etherpad\widgets\latest.html:29
+msgid "There are no etherpads yet"
+msgstr ""
+
+#: .\views.py:116 .\views.py:250
+msgid ""
+"The document can not be accessed because the etherpad server could not be "
+"reached. Please contact an administrator!"
+msgstr ""
+
+#: .\views.py:140
+#, python-format
+msgid "Etherpad \"%(title)s\" was edited successfully."
+msgstr ""
+
+#: .\views.py:141
+#, python-format
+msgid "Etherpad \"%(title)s\" could not be edited."
+msgstr ""
+
+#: .\views.py:183
+#, python-format
+msgid "Etherpad \"%(title)s\" was added successfully."
+msgstr ""
+
+#: .\views.py:184
+#, python-format
+msgid "Etherpad \"%(title)s\" could not be added."
+msgstr ""
+
+#: .\views.py:186
+#, python-format
+msgid "Folder \"%(title)s\" was created successfully."
+msgstr ""
+
+#: .\views.py:202
+#, python-format
+msgid ""
+"Etherpad with name \"%(name)s\" already exists on pad server. Please use "
+"another name."
+msgstr ""
+
+#: .\views.py:207
+msgid ""
+"The document could not be created because the etherpad service is "
+"misconfigured. Please contact an administrator!"
+msgstr ""
+
+#: .\views.py:211
+msgid ""
+"The document could not be created because the etherpad server could not be "
+"reached. Please contact an administrator!"
+msgstr ""
+
+#: .\views.py:316
+#, python-format
+msgid ""
+"Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
+"%(title)s</a>"
+msgstr ""
+
+#: .\views.py:368
+#, python-format
+msgid ""
+"Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
+"\">%(title)s</a>"
+msgstr ""
