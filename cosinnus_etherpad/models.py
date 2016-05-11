@@ -15,6 +15,7 @@ from django.utils.translation import ugettext_lazy as _
 from cosinnus.models import BaseHierarchicalTaggableObjectModel
 
 from etherpad_lite import EtherpadLiteClient, EtherpadException
+from ethercalc import EtherCalc
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
 from django.utils.encoding import smart_text
@@ -26,7 +27,6 @@ from cosinnus_etherpad import cosinnus_notifications
 from django.contrib.auth import get_user_model
 from cosinnus.models.tagged import BaseTagObject
 from cosinnus.models.group import CosinnusPortal
-from cosinnus.utils.group import get_cosinnus_group_model
 
 
 def _init_client():
@@ -37,18 +37,37 @@ def _init_client():
         base_url=settings.COSINNUS_ETHERPAD_BASE_URL,
         api_version='1.2.7',
         base_params={'apikey': settings.COSINNUS_ETHERPAD_API_KEY})
+    
+    
+def _init_ethercalc_client():
+    """Initialises the ethercalc lite client"""
+    return EtherCalc(settings.COSINNUS_ETHERCALC_BASE_URL)
 
 
 class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
+    
+    TYPE_ETHERPAD = 0
+    TYPE_ETHERCALC = 1
+    
+    #: Choices for :attr:`visibility`: ``(int, str)``
+    TYPE_CHOICES = (
+        (TYPE_ETHERPAD, _('Etherpad')),
+        (TYPE_ETHERCALC, _('Ethercalc')),
+    )
+    
+    PAD_MODEL_TYPE = TYPE_ETHERPAD
 
     pad_id = models.CharField(max_length=255, editable=True)
     description = models.TextField(_('Description'), blank=True)
     # a group mapping that corresponds to the etherpads group slug at its creation time
     # used for session creation, and works even after the etherpad group's slug has changed
     group_mapper = models.CharField(max_length=255, editable=True, null=True, blank=True)
-
+    
+    type = models.PositiveSmallIntegerField(_('Pad Type'), blank=False,
+        default=TYPE_ETHERPAD, choices=TYPE_CHOICES, editable=False)
+    
     objects = EtherpadManager()
 
     class Meta(BaseHierarchicalTaggableObjectModel.Meta):
@@ -58,6 +77,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     def __init__(self, *args, **kwargs):
         super(Etherpad, self).__init__(*args, **kwargs)
         self.client = _init_client()
+        self.PAD_MODEL_TYPE = self.type
 
     def get_absolute_url(self):
         kwargs = {'group': self.group, 'slug': self.slug}
@@ -146,7 +166,79 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         
         
     def __str__(self):
-        return '<Etherpad%s id: %d>' % (' Folder' if self.is_container else '', self.id)
+        return '<Etherpad%s id: %s>' % (' Folder' if self.is_container else '', self.id or '<>')
+
+
+class EtherpadSpecificManager(EtherpadManager):
+    def get_queryset(self):
+        return super(EtherpadSpecificManager, self).get_queryset().filter(type=Etherpad.TYPE_ETHERPAD)
+
+    get_query_set = get_queryset
+    
+
+class EtherpadSpecific(Etherpad):    
+    
+    PAD_MODEL_TYPE = Etherpad.TYPE_ETHERPAD
+    
+    objects = EtherpadSpecificManager()
+    
+    class Meta:
+        proxy = True
+
+
+class EthercalcManager(EtherpadManager):
+    def get_queryset(self):
+        return super(EthercalcManager, self).get_queryset().filter(type=Etherpad.TYPE_ETHERCALC)
+
+    get_query_set = get_queryset
+
+
+class Ethercalc(Etherpad):
+    
+    PAD_MODEL_TYPE = Etherpad.TYPE_ETHERCALC
+        
+    objects = EthercalcManager()
+
+    class Meta:
+        proxy = True
+        verbose_name = _('Ethercalc')
+        verbose_name_plural = _('Ethercalcs')
+
+    def __init__(self, *args, **kwargs):
+        super(Etherpad, self).__init__(*args, **kwargs)
+        self.client = _init_ethercalc_client()
+
+    def get_pad_url(self):
+        if self.pk:
+            pad_id = quote_plus(self.pad_id)
+            return '/'.join([settings.COSINNUS_ETHERCALC_BASE_URL, pad_id])
+        return None
+    
+    def get_user_session_id(self, user):
+        raise ImproperlyConfigured('Unlike Etherpad, Ethercalc does not support user sessions!')
+
+    @property
+    def content(self):
+        return self.client.export(self.pad_id, format='html')
+    
+    @classmethod
+    def get_current(self, group, user):
+        """ Returns a queryset of the current calcs """
+        qs = Ethercalc.objects.filter(group=group)
+        if user:
+            qs = filter_tagged_object_queryset_for_user(qs, user)
+        return qs.filter(is_container=False)
+    
+    def reinit_pad(self):
+        raise ImproperlyConfigured('This method does not work for Ethercalcs')
+    
+    def save(self, allow_type_change=False, *args, **kwargs):
+        if not allow_type_change:
+            self.type = Etherpad.TYPE_ETHERCALC
+        super(Ethercalc, self).save(*args, **kwargs)
+    
+    def __str__(self):
+        return '<Ethercalc%s id: %s>' % (' Folder' if self.is_container else '', self.id or '<>')
     
     
 

@@ -5,9 +5,11 @@ from __future__ import unicode_literals
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.dispatch import receiver
 
-from cosinnus_etherpad.models import _get_group_mapping, _init_client, Etherpad, EtherpadException
+from cosinnus_etherpad.models import _get_group_mapping, _init_client, Etherpad, EtherpadException,\
+    Ethercalc
 from cosinnus.models.group import CosinnusGroup
 from cosinnus.conf import settings
+from uuid import uuid4
 
 
 @receiver(post_save, sender=CosinnusGroup)
@@ -43,13 +45,27 @@ def create_etherpad(sender, instance, **kwargs):
         groupMapper = _get_group_mapping(instance.group)
         instance.group_mapper = groupMapper
         
-        instance.pad_group_slug = instance
         group_id = instance.client.createGroupIfNotExistsFor(
             groupMapper=groupMapper)
         pad_id = instance.client.createGroupPad(
             groupID=group_id['groupID'],
             padName=instance.slug)
         instance.pad_id = pad_id['padID']
+
+
+
+@receiver(pre_save, sender=Ethercalc)
+def create_ethercalc(sender, instance, **kwargs):
+    """
+    Receiver to create a new calc on ethercalc server
+    """
+    if not instance.pk and not instance.is_container:
+        groupMapper = _get_group_mapping(instance.group)
+        instance.group_mapper = groupMapper
+        # we don't actually talk to the server to create a calc; since unknown calcs are
+        # created automatically and we have no way of really checking for existing ones with the dumb API
+        # we trust uuid4 to create a new pad
+        instance.pad_id = groupMapper + '-' + str(uuid4()).replace('-', '')
         
 
 """@receiver(post_delete, sender=Etherpad)"""

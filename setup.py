@@ -55,6 +55,7 @@ setup(
         'cosinnus>=0.4.2.dev0',
         'django-extra-views>=0.6.3',
         'etherpad-lite>=0.2.1',
+        'ethercalc-python==0.0.4',
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
