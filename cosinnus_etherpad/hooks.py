@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.dispatch import receiver
 
-from cosinnus_etherpad.models import _get_group_mapping, _init_client, Etherpad, EtherpadException,\
+from cosinnus_etherpad.models import _get_group_mapping, _init_etherpad_client, Etherpad, EtherpadException,\
     Ethercalc
 from cosinnus.models.group import CosinnusGroup
 from cosinnus.conf import settings
@@ -19,7 +19,7 @@ def create_etherpad_group(sender, instance, created, **kwargs):
     FIXME: Appearently, this receiver is never called...?
     """
     if created:
-        client = _init_client()
+        client = _init_etherpad_client()
         client.createGroupIfNotExistsFor(groupMapper=_get_group_mapping(instance))
 
 
@@ -30,7 +30,7 @@ def delete_etherpad_group(sender, instance, **kwargs):
     Receiver to delete a group on etherpad server
     """
     if getattr(settings, 'COSINNUS_DELETE_ETHERPADS_ON_SERVER_ON_DELETE', False):
-        client = _init_client()
+        client = _init_etherpad_client()
         group_id = client.createGroupIfNotExistsFor(
             groupMapper=_get_group_mapping(instance))
         client.deleteGroup(groupID=group_id['groupID'])

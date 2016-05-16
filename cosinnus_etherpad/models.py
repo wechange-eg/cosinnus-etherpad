@@ -29,7 +29,7 @@ from cosinnus.models.tagged import BaseTagObject
 from cosinnus.models.group import CosinnusPortal
 
 
-def _init_client():
+def _init_etherpad_client():
     """Initialises the etherpad lite client"""
     if not hasattr(settings, 'COSINNUS_ETHERPAD_BASE_URL'):
         raise ImproperlyConfigured("You have not configured ``settings.COSINNUS_ETHERPAD_BASE_URL!``")
@@ -44,18 +44,19 @@ def _init_ethercalc_client():
     return EtherCalc(settings.COSINNUS_ETHERCALC_BASE_URL)
 
 
+TYPE_ETHERPAD = 0
+TYPE_ETHERCALC = 1
+
+#: Choices for :attr:`visibility`: ``(int, str)``
+TYPE_CHOICES = (
+    (TYPE_ETHERPAD, _('Etherpad')),
+    (TYPE_ETHERCALC, _('Ethercalc')),
+)
+
+
 class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
-    
-    TYPE_ETHERPAD = 0
-    TYPE_ETHERCALC = 1
-    
-    #: Choices for :attr:`visibility`: ``(int, str)``
-    TYPE_CHOICES = (
-        (TYPE_ETHERPAD, _('Etherpad')),
-        (TYPE_ETHERCALC, _('Ethercalc')),
-    )
     
     PAD_MODEL_TYPE = TYPE_ETHERPAD
 
@@ -76,8 +77,15 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     def __init__(self, *args, **kwargs):
         super(Etherpad, self).__init__(*args, **kwargs)
-        self.client = _init_client()
         self.PAD_MODEL_TYPE = self.type
+        # class swapping magic: if a Base-classed Etherpad really is an Ethercalc, 
+        # swap its class to the subclass so it gets the right methods
+        if self.__class__ != TYPE_CLASSES[self.type]:
+            self.__class__ = TYPE_CLASSES[self.type]
+        self.init_client()
+            
+    def init_client(self):
+        self.client = _init_etherpad_client()
 
     def get_absolute_url(self):
         kwargs = {'group': self.group, 'slug': self.slug}
@@ -171,14 +179,14 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
 class EtherpadSpecificManager(EtherpadManager):
     def get_queryset(self):
-        return super(EtherpadSpecificManager, self).get_queryset().filter(type=Etherpad.TYPE_ETHERPAD)
+        return super(EtherpadSpecificManager, self).get_queryset().filter(type=TYPE_ETHERPAD)
 
     get_query_set = get_queryset
     
 
 class EtherpadSpecific(Etherpad):    
     
-    PAD_MODEL_TYPE = Etherpad.TYPE_ETHERPAD
+    PAD_MODEL_TYPE = TYPE_ETHERPAD
     
     objects = EtherpadSpecificManager()
     
@@ -188,14 +196,14 @@ class EtherpadSpecific(Etherpad):
 
 class EthercalcManager(EtherpadManager):
     def get_queryset(self):
-        return super(EthercalcManager, self).get_queryset().filter(type=Etherpad.TYPE_ETHERCALC)
+        return super(EthercalcManager, self).get_queryset().filter(type=TYPE_ETHERCALC)
 
     get_query_set = get_queryset
 
 
 class Ethercalc(Etherpad):
     
-    PAD_MODEL_TYPE = Etherpad.TYPE_ETHERCALC
+    PAD_MODEL_TYPE = TYPE_ETHERCALC
         
     objects = EthercalcManager()
 
@@ -203,11 +211,10 @@ class Ethercalc(Etherpad):
         proxy = True
         verbose_name = _('Ethercalc')
         verbose_name_plural = _('Ethercalcs')
-
-    def __init__(self, *args, **kwargs):
-        super(Etherpad, self).__init__(*args, **kwargs)
+    
+    def init_client(self):
         self.client = _init_ethercalc_client()
-
+    
     def get_pad_url(self):
         if self.pk:
             pad_id = quote_plus(self.pad_id)
@@ -234,12 +241,17 @@ class Ethercalc(Etherpad):
     
     def save(self, allow_type_change=False, *args, **kwargs):
         if not allow_type_change:
-            self.type = Etherpad.TYPE_ETHERCALC
+            self.type = TYPE_ETHERCALC
         super(Ethercalc, self).save(*args, **kwargs)
     
     def __str__(self):
         return '<Ethercalc%s id: %s>' % (' Folder' if self.is_container else '', self.id or '<>')
     
+
+TYPE_CLASSES = {
+    TYPE_ETHERPAD: Etherpad,
+    TYPE_ETHERCALC: Ethercalc,
+}
     
 
 def _get_group_mapping(group):
