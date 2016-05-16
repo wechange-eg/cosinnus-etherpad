@@ -30,7 +30,7 @@
                     <ul class="media-list">
                         <li class="media">
                             <a class="pull-left" href="#">
-                                <i class="fa fa-book"></i>
+                                <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
                             </a>
                             <a class="pull-right" href="{{ object.get_absolute_url }}">
                                 <i class="fa fa-chain"></i>

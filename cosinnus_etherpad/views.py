@@ -37,7 +37,7 @@ from cosinnus.views.mixins.tagged import (HierarchyTreeMixin,
 from cosinnus.views.mixins.user import UserFormKwargsMixin
 
 from cosinnus_etherpad.conf import settings
-from cosinnus_etherpad.models import Etherpad
+from cosinnus_etherpad.models import Etherpad, EtherpadNotSupportedByType
 from cosinnus_etherpad.forms import EtherpadForm
 
 if 'cosinnus_document' in settings.INSTALLED_APPS:
@@ -97,7 +97,14 @@ list_view = EtherpadListView.as_view()
 class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
     model = Etherpad
     template_name = 'cosinnus_etherpad/etherpad_detail.html'
-
+    
+    def get_context_data(self, *args, **kwargs):
+        ctx = super(EtherpadDetailView, self).get_context_data(*args, **kwargs)
+        ctx.update({
+            'etherpad': ctx['object'],
+        })
+        return ctx
+    
     def render_to_response(self, context, **response_kwargs):
         if 'cosinnus_document' in settings.INSTALLED_APPS:
             context['has_document'] = True
@@ -108,20 +115,22 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
             context, **response_kwargs)
 
         # set cross-domain session cookie for etherpad app
-        etherpad = context['etherpad']
+        etherpad = context['object']
         try:
             user_session_id = etherpad.get_user_session_id(self.request.user)
+            domain = _get_cookie_domain()
+            if domain:
+                server_name = self.request.META['SERVER_NAME']
+                if domain not in server_name and server_name not in domain:
+                    logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
+            response.set_cookie('sessionID', user_session_id, domain=domain)
         except (HTTPError, EtherpadException) as exc:
             logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
             return redirect(group_aware_reverse('cosinnus:etherpad:list', kwargs={'group': etherpad.group}))
-        domain = _get_cookie_domain()
-        if domain:
-            server_name = self.request.META['SERVER_NAME']
-            if domain not in server_name and server_name not in domain:
-                logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
-        response.set_cookie('sessionID', user_session_id, domain=domain)
-
+        except EtherpadNotSupportedByType:
+            pass
+        
         return response
 
 pad_detail_view = EtherpadDetailView.as_view()
@@ -190,6 +199,9 @@ class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, Hi
         return super(EtherpadHybridListView, self).get(request, *args, **kwargs)
     
     def form_valid(self, form):
+        # manually set the type of Etherpad or Ethercalc
+        form.instance.type = int(self.request.POST.get('etherpad_type', 0))
+        
         try:
             # only commit changes to the database iff the etherpad has been created
             sid = transaction.savepoint()
@@ -236,26 +248,35 @@ container_add_view = EtherpadAddContainerView.as_view()
 class EtherpadEditView(RequireWriteMixin, EtherpadFormMixin, UpdateView):
     form_view = 'edit'
     template_name = 'cosinnus_etherpad/etherpad_edit.html'
-
+    
+    def get_context_data(self, *args, **kwargs):
+        ctx = super(EtherpadEditView, self).get_context_data(*args, **kwargs)
+        ctx.update({
+            'etherpad': ctx['object'],
+        })
+        return ctx
+    
     def render_to_response(self, context, **response_kwargs):
         response = super(EtherpadFormMixin, self).render_to_response(
             context, **response_kwargs)
         
         # set cross-domain session cookie for etherpad app
-        etherpad = context['etherpad']
+        etherpad = context['object']
         try:
             user_session_id = etherpad.get_user_session_id(self.request.user)
+            domain = _get_cookie_domain()
+            if domain:
+                server_name = self.request.META['SERVER_NAME']
+                if domain not in server_name and server_name not in domain:
+                    logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
+            response.set_cookie('sessionID', user_session_id, domain=domain)
         except (HTTPError, EtherpadException) as exc:
             logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
             return redirect(group_aware_reverse('cosinnus:etherpad:list', kwargs={'group': etherpad.group}))
-        domain = _get_cookie_domain()
-        if domain:
-            server_name = self.request.META['SERVER_NAME']
-            if domain not in server_name and server_name not in domain:
-                logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
-        response.set_cookie('sessionID', user_session_id, domain=domain)
-
+        except EtherpadNotSupportedByType:
+            pass
+        
         return response
 
 pad_edit_view = EtherpadEditView.as_view()

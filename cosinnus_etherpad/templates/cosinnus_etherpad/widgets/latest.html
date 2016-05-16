@@ -6,7 +6,7 @@
 		    <ul class="media-list fine-space">
 		        <li class="media">
 		            <a class="pull-left" href="#">
-		                <i class="fa fa-file-text-o"></i>
+		                <i class="fa {% if row.type == 1 %}fa-table{% else %}fa-file-text-o{% endif %}"></i>
 		            </a>
 		            <div class="media-body">
 		                <a href="{{ row.get_absolute_url }}">{{ row.title }}</a>

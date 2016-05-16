@@ -31,7 +31,7 @@
                     <ul class="media-list">
                         <li class="media">
                             <a class="pull-left" href="#">
-                                <i class="fa fa-book"></i>
+                                <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
                             </a>
                             <div class="media-body">
                                {% trans "Settings" %}

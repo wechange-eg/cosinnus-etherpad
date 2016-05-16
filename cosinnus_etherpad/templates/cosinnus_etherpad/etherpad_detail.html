@@ -25,7 +25,7 @@
             <ul class="media-list">
                 <li class="media">
                     <a class="pull-left" href="#">
-                        <i class="fa fa-book"></i>
+                        <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
                     </a>
                     <a class="pull-right" href="{{ object.get_absolute_url }}">
                         <i class="fa fa-chain"></i>
@@ -106,7 +106,13 @@
         
         <div style="clear: both; margin-top: 10px;">
             <div class="well well-document">
-                {{ etherpad.content|safe|url_target_blank }}
+                {% with content=etherpad.content %}
+                	{% if content %}
+	                	{{ etherpad.content|safe|url_target_blank }}
+	                {% else %}
+	                	<i>({% trans "This document is empty" %})</i>
+	                {% endif %}
+                {% endwith %}
             </div>
         </div>
         

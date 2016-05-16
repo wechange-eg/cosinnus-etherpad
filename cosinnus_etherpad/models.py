@@ -27,6 +27,7 @@ from cosinnus_etherpad import cosinnus_notifications
 from django.contrib.auth import get_user_model
 from cosinnus.models.tagged import BaseTagObject
 from cosinnus.models.group import CosinnusPortal
+from requests.exceptions import HTTPError
 
 
 def _init_etherpad_client():
@@ -194,6 +195,10 @@ class EtherpadSpecific(Etherpad):
         proxy = True
 
 
+class EtherpadNotSupportedByType(ImproperlyConfigured):
+    """ Thrown when a method is called on a subclass of Etherpad that is not supported by that subclass """
+    pass
+
 class EthercalcManager(EtherpadManager):
     def get_queryset(self):
         return super(EthercalcManager, self).get_queryset().filter(type=TYPE_ETHERCALC)
@@ -222,11 +227,20 @@ class Ethercalc(Etherpad):
         return None
     
     def get_user_session_id(self, user):
-        raise ImproperlyConfigured('Unlike Etherpad, Ethercalc does not support user sessions!')
+        raise EtherpadNotSupportedByType('Unlike Etherpad, Ethercalc does not support user sessions!')
 
     @property
     def content(self):
-        return self.client.export(self.pad_id, format='html')
+        try:
+            ret = self.client.export(self.pad_id, format='html')
+        except HTTPError, e:
+            # the calc may not have been created on the server yet 
+            # (empty calcs are created automatically at first data input)
+            if e.response.status_code == 404:
+                ret = ''
+            else:
+                raise
+        return ret
     
     @classmethod
     def get_current(self, group, user):
