@@ -200,7 +200,7 @@ class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, Hi
     
     def form_valid(self, form):
         # manually set the type of Etherpad or Ethercalc
-        form.instance.type = int(self.request.POST.get('etherpad_type', 0))
+        form.instance.set_pad_type(int(self.request.POST.get('etherpad_type', 0)))
         
         try:
             # only commit changes to the database iff the etherpad has been created

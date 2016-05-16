@@ -81,10 +81,15 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         self.PAD_MODEL_TYPE = self.type
         # class swapping magic: if a Base-classed Etherpad really is an Ethercalc, 
         # swap its class to the subclass so it gets the right methods
-        if self.__class__ != TYPE_CLASSES[self.type]:
-            self.__class__ = TYPE_CLASSES[self.type]
+        self.set_pad_type(self.type)
         self.init_client()
-            
+    
+    def set_pad_type(self, pad_type):
+        """ Sets this instance's pad type, and corrects its __class__ to the proper Etherpad or Ethercalc class """
+        self.type = pad_type
+        if self.__class__ != TYPE_CLASSES[pad_type]:
+            self.__class__ = TYPE_CLASSES[pad_type]
+    
     def init_client(self):
         self.client = _init_etherpad_client()
 
