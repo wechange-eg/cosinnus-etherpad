@@ -6,16 +6,19 @@ Created on 05.08.2014
 from django.utils.translation import ugettext_lazy as _
 
 from cosinnus.views.mixins.filters import CosinnusFilterSet
-from cosinnus.forms.filters import AllObjectsFilter, SelectCreatorWidget
+from cosinnus.forms.filters import AllObjectsFilter, SelectCreatorWidget,\
+    DropdownChoiceWidgetWithEmpty
 from cosinnus_etherpad.models import Etherpad
+from django_filters.filters import ChoiceFilter
 
 
 class EtherpadFilter(CosinnusFilterSet):
     creator = AllObjectsFilter(label=_('Created By'), widget=SelectCreatorWidget)
+    type = ChoiceFilter(label=_('Type'), choices=((0, _('Etherpad')), (1, _('Ethercalc'))), widget=DropdownChoiceWidgetWithEmpty)
     
     class Meta:
         model = Etherpad
-        fields = ['creator']
+        fields = ['creator', 'type']
         order_by = (
             ('-created', _('Newest Pads')),
             ('title', _('Title')),
