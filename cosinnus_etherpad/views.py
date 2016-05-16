@@ -8,7 +8,7 @@ from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
 from cosinnus.views.mixins.filters import CosinnusFilterMixin
 from cosinnus_etherpad.filters import EtherpadFilter
 from cosinnus.utils.urls import group_aware_reverse
-from urllib2 import HTTPError
+from urllib2 import HTTPError, URLError
 from django.shortcuts import redirect
 
 try:
@@ -124,10 +124,9 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
                 if domain not in server_name and server_name not in domain:
                     logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
             response.set_cookie('sessionID', user_session_id, domain=domain)
-        except (HTTPError, EtherpadException) as exc:
+        except (HTTPError, EtherpadException, URLError) as exc:
             logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
-            return redirect(group_aware_reverse('cosinnus:etherpad:list', kwargs={'group': etherpad.group}))
         except EtherpadNotSupportedByType:
             pass
         
@@ -208,7 +207,7 @@ class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, Hi
             ret = super(EtherpadHybridListView, self).form_valid(form)
             transaction.savepoint_commit(sid)
             return ret
-        except EtherpadException as exc:
+        except (EtherpadException, URLError) as exc:
             transaction.savepoint_rollback(sid)
             if 'padName does already exist' in str(exc):
                 msg = _('Etherpad with name "%(name)s" already exists on pad server. Please use another name.')
@@ -270,10 +269,9 @@ class EtherpadEditView(RequireWriteMixin, EtherpadFormMixin, UpdateView):
                 if domain not in server_name and server_name not in domain:
                     logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
             response.set_cookie('sessionID', user_session_id, domain=domain)
-        except (HTTPError, EtherpadException) as exc:
+        except (HTTPError, EtherpadException, URLError) as exc:
             logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
-            return redirect(group_aware_reverse('cosinnus:etherpad:list', kwargs={'group': etherpad.group}))
         except EtherpadNotSupportedByType:
             pass
         

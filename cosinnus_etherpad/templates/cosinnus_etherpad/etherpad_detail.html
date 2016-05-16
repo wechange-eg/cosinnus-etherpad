@@ -106,11 +106,13 @@
         
         <div style="clear: both; margin-top: 10px;">
             <div class="well well-document">
-                {% with content=etherpad.content %}
-                	{% if content %}
-	                	{{ etherpad.content|safe|url_target_blank }}
+                {% with content=etherpad.get_content %}
+                	{% if content == None %}
+	                	<i>({% trans "The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!" %})</i>
+                	{% elif not content %}
+                		<i>({% trans "This document is empty" %})</i>
 	                {% else %}
-	                	<i>({% trans "This document is empty" %})</i>
+	                	{{ content|safe|url_target_blank }}
 	                {% endif %}
                 {% endwith %}
             </div>

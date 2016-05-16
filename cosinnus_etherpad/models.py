@@ -138,7 +138,20 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
 
     @property
     def content(self):
+        """ Returns the content of the pad as HTML. 
+            @raise Exception: Thrown when the content could not be retrieved. The type of exception depends on the client used. """
         return self.client.getHTML(padID=self.pad_id)['html']
+    
+    def get_content(self):
+        """ Safe method to return the content of this pad. Will never throw an exception.
+            @return: None if an exception occured or the pad server could not be reached.
+                     ``<content>:str`` as content (at least '' for an empty pad).
+        """
+        return None
+        try:
+            return self.content or ''
+        except:
+            return None
     
     @classmethod
     def get_current(self, group, user):
