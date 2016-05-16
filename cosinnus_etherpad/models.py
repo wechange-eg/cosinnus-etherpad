@@ -147,7 +147,6 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
             @return: None if an exception occured or the pad server could not be reached.
                      ``<content>:str`` as content (at least '' for an empty pad).
         """
-        return None
         try:
             return self.content or ''
         except:
