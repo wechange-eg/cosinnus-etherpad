@@ -48,26 +48,26 @@
 				</div>
 				<div class="sendbutton" style="display: none;">
 					<input id="input-etherpad-type" type="hidden" name="etherpad_type" value="0" />
-			            <button type="submit" class="btn btn-emphasized large-space">
+			            <button type="submit" class="btn btn-emphasized large-space" title="{% trans "Create Etherpad" %}">
 			                <ul class="media-list">
 			                    <li class="media">
 			                        <a class="pull-left" href="#">
 			                            <i class="fa fa-file-text"></i>
 			                        </a>
 			                        <div class="media-body">
-			                            {% trans "New Etherpad" %}
+			                            {% trans "Create Etherpad" %}
 			                        </div>
 			                    </li>
 			                </ul>
 			            </button>
-			            <button type="submit" class="btn btn-emphasized large-space" onclick="$('#input-etherpad-type').val('1');">
+			            <button type="submit" class="btn btn-emphasized large-space" title="{% trans "Create Ethercalc" %}" onclick="$('#input-etherpad-type').val('1');">
 			                <ul class="media-list">
 			                    <li class="media">
 			                        <a class="pull-left" href="#">
 			                            <i class="fa fa-table"></i>
 			                        </a>
 			                        <div class="media-body">
-			                            {% trans "New Ethercalc" %}
+			                            {% trans "Create Ethercalc" %}
 			                        </div>
 			                    </li>
 			                </ul>
