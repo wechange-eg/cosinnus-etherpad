@@ -287,6 +287,12 @@ class EtherpadDeleteView(RequireWriteMixin, EtherpadFormMixin, HierarchyDeleteMi
 
     def get_success_url(self):
         kwargs = {'group': self.group}
+        try:
+            # if possible, redirect to the object's parent folder list view
+            parent_folder = self.object.__class__.objects.get(is_container=True, path=self.object.path)
+            kwargs.update({'slug': parent_folder.slug})
+        except:
+            pass
         return group_aware_reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
 pad_delete_view = EtherpadDeleteView.as_view()
