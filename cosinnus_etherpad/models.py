@@ -28,7 +28,6 @@ from django.contrib.auth import get_user_model
 from cosinnus.models.tagged import BaseTagObject
 from cosinnus.models.group import CosinnusPortal
 from requests.exceptions import HTTPError
-from cosinnus.templatetags.cosinnus_tags import full_name_force
 
 
 def _init_etherpad_client():
@@ -125,7 +124,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
             self.group_mapper = group_mapper
             self.save()
         author_id = self.client.createAuthorIfNotExistsFor(
-            authorMapper=user.username, name=full_name_force(user))
+            authorMapper=user.username, name=user.get_full_name())
         group_id = self.client.createGroupIfNotExistsFor(
             groupMapper=group_mapper)
         one_year_from_now = now() + timedelta(days=365)
