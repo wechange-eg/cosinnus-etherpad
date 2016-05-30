@@ -60,6 +60,7 @@
 			                    </li>
 			                </ul>
 			            </button>
+			            {% if SETTINGS.COSINNUS_ETHERPAD_ENABLE_ETHERCALC %}
 			            <button type="submit" class="btn btn-emphasized large-space" title="{% trans "Create Ethercalc" %}" onclick="$('#input-etherpad-type').val('1');">
 			                <ul class="media-list">
 			                    <li class="media">
@@ -72,6 +73,7 @@
 			                    </li>
 			                </ul>
 			            </button>
+			            {% endif %}
 	            </div>
 		    </form>
 		    {% endwith %}
