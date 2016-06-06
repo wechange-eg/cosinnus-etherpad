@@ -42,7 +42,7 @@ def _init_etherpad_client():
     
 def _init_ethercalc_client():
     """Initialises the ethercalc lite client"""
-    return EtherCalc(settings.COSINNUS_ETHERCALC_BASE_URL)
+    return EtherCalc(settings.COSINNUS_ETHERPAD_ETHERCALC_BASE_URL)
 
 
 TYPE_ETHERPAD = 0
@@ -242,7 +242,7 @@ class Ethercalc(Etherpad):
     def get_pad_url(self):
         if self.pk:
             pad_id = quote_plus(self.pad_id)
-            return '/'.join([settings.COSINNUS_ETHERCALC_BASE_URL, pad_id])
+            return '/'.join([settings.COSINNUS_ETHERPAD_ETHERCALC_BASE_URL, pad_id])
         return None
     
     def get_user_session_id(self, user):

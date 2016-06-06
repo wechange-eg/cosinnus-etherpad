@@ -11,3 +11,4 @@ class CosinnusEtherpadConf(AppConf):
     PREFIX_TITLE = 'Etherpad: '
     FILE_PATH = '/etherpad'
     ENABLE_ETHERCALC = False
+    ETHERCALC_BASE_URL = None
