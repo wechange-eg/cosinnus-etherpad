@@ -168,6 +168,8 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         return check_ug_membership(user, self.group) and not is_private
     
     def reinit_pad(self):
+        raise ImproperlyConfigured('This method is deprecated and dangerous. Pad content may be lost!')
+        
         old_pad_id = self.pad_id
         group_id = self.client.createGroupIfNotExistsFor(
             groupMapper=_get_group_mapping(self.group))
