@@ -28,6 +28,10 @@ from django.contrib.auth import get_user_model
 from cosinnus.models.tagged import BaseTagObject
 from cosinnus.models.group import CosinnusPortal
 from requests.exceptions import HTTPError
+from django.utils.encoding import force_text
+
+import logging
+logger = logging.getLogger('cosinnus')
 
 
 def _init_etherpad_client():
@@ -259,6 +263,9 @@ class Ethercalc(Etherpad):
                 ret = ''
             else:
                 raise
+        except Exception, e:
+            logger.error('Could not display an Ethercalc because of exception "%s"' % force_text(e))
+            raise
         return ret
     
     @classmethod
