@@ -40,7 +40,12 @@
 				            </a>
 				            <div class="media-body media-body-form-control">
 				                {{ obj_form.title.errors }}
-				                {% captureas placeholder %}{% trans "Enter the title for a new Document." %}{% endcaptureas %}
+				                {% if SETTINGS.COSINNUS_ETHERPAD_ENABLE_ETHERCALC %}
+				                	{% captureas placeholder %}{% trans "Enter the title for a new Document or Table." %}{% endcaptureas %}
+				                {% else %}
+				                	{% captureas placeholder %}{% trans "Enter the title for a new Document." %}{% endcaptureas %}
+				                {% endif %}
+				                
 				                {% render_field obj_form.title class+="form-control next-button-is-for-sending" placeholder=placeholder id="etherpadCreateInput" %}
 				            </div>
 				        </li>
