@@ -160,7 +160,7 @@ class EtherpadFormMixin(FilterGroupMixin,
         return context
 
     def get_success_url(self):
-        return group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs={
+        return group_aware_reverse('cosinnus:etherpad:pad-write', kwargs={
             'group': self.group,
             'slug': self.object.slug,
         })
