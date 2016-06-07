@@ -46,7 +46,7 @@ def _init_etherpad_client():
     
 def _init_ethercalc_client():
     """Initialises the ethercalc lite client"""
-    return EtherCalc(settings.COSINNUS_ETHERPAD_ETHERCALC_BASE_URL)
+    return EtherCalc(settings.COSINNUS_ETHERPAD_ETHERCALC_BASE_URL, verify=False)
 
 
 TYPE_ETHERPAD = 0
