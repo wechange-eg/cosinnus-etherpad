@@ -6,7 +6,7 @@
 	        <ul class="media-list large-space">
 	            <li class="media">
 	                <a class="pull-left" href="#">
-	                    <i class="fa fa-pencil"></i>
+	                    <i class="fa {% if etherpad.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
 	                </a>
 	                <div class="media-body no-vertical-padding">
 	                    <span class="annotation">

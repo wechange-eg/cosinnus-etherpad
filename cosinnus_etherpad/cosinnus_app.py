@@ -13,6 +13,8 @@ def register():
     app_registry.register('cosinnus_etherpad', 'etherpad', _('Etherpads'), deactivatable=True)   
     attached_object_registry.register('cosinnus_etherpad.Etherpad',
                              'cosinnus_etherpad.utils.renderer.EtherpadRenderer')
+    attached_object_registry.register('cosinnus_etherpad.Ethercalc',
+                             'cosinnus_etherpad.utils.renderer.EtherpadRenderer')
     url_registry.register_urlconf('cosinnus_etherpad', 'cosinnus_etherpad.urls', \
                                   url_app_name_override='document')
     widget_registry.register('etherpad', 'cosinnus_etherpad.dashboard.Latest')
