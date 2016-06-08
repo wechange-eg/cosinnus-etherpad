@@ -128,7 +128,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
             self.group_mapper = group_mapper
             self.save()
         author_id = self.client.createAuthorIfNotExistsFor(
-            authorMapper=user.username, name=user.get_full_name())
+            authorMapper=user.username)
         group_id = self.client.createGroupIfNotExistsFor(
             groupMapper=group_mapper)
         one_year_from_now = now() + timedelta(days=365)
