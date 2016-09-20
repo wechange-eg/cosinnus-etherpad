@@ -125,7 +125,7 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
                     logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
             response.set_cookie('sessionID', user_session_id, domain=domain)
         except (HTTPError, EtherpadException, URLError) as exc:
-            logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
+            logger.error('Cosinnus Etherpad DetailView configuration error: Etherpad error', extra={'exception': exc, 'url': self.request.META.get('HTTP_REFERER', 'N/A')})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
         except EtherpadNotSupportedByType:
             pass
@@ -214,11 +214,11 @@ class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, Hi
                 messages.error(self.request, msg % {'name': form.data.get('title', '')})
                 return self.form_invalid(form)
             else:
-                logger.error('Cosinnus Etherpad configuration error: Etherpad Misconfigured', extra={'exception': exc})
+                logger.error('Cosinnus Etherpad ListView configuration error: Etherpad Misconfigured', extra={'exception': exc, 'url': self.request.META.get('HTTP_REFERER', 'N/A')})
                 messages.error(self.request, _('The document could not be created because the etherpad service is misconfigured. Please contact an administrator!'))
                 return self.form_invalid(form)
         except HTTPError as exc:
-            logger.error('Cosinnus Etherpad configuration error: Etherpad URL invalid', extra={'exception': exc})
+            logger.error('Cosinnus Etherpad ListView configuration error: Etherpad URL invalid', extra={'exception': exc, 'url': self.request.META.get('HTTP_REFERER', 'N/A')})
             messages.error(self.request, _('The document could not be created because the etherpad server could not be reached. Please contact an administrator!'))
             return self.form_invalid(form)
     
@@ -270,7 +270,7 @@ class EtherpadEditView(RequireWriteMixin, EtherpadFormMixin, UpdateView):
                     logging.warning('SERVER_NAME %s and cookie domain %s don\'t match. Setting a third-party cookie might not work!' % (server_name, domain))
             response.set_cookie('sessionID', user_session_id, domain=domain)
         except (HTTPError, EtherpadException, URLError) as exc:
-            logger.error('Cosinnus Etherpad configuration error: Etherpad error', extra={'exception': exc})
+            logger.error('Cosinnus Etherpad EditView configuration error: Etherpad error', extra={'exception': exc, 'url': self.request.META.get('HTTP_REFERER', 'N/A')})
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
         except EtherpadNotSupportedByType:
             pass
