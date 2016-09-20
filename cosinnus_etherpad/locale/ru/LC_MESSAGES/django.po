@@ -1,4 +1,4 @@
-# SOME DESCRIPTIVE TITLE.
+﻿# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -57,7 +57,7 @@ msgstr "Создатель:"
 
 #: .\filters.py:17
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 #: .\filters.py:17 .\models.py:57 .\models.py:80
 #: .\templates\cosinnus_etherpad\base.html:13
@@ -68,7 +68,7 @@ msgstr "Документ"
 #, fuzzy
 #| msgid "Etherpad"
 msgid "Ethercalc"
-msgstr "Документ"
+msgstr "Таблица"
 
 #: .\filters.py:23
 msgid "Newest Pads"
@@ -84,13 +84,13 @@ msgstr "Описание"
 
 #: .\models.py:74
 msgid "Pad Type"
-msgstr ""
+msgstr "Тип документа"
 
 #: .\models.py:241
 #, fuzzy
 #| msgid "Etherpads"
 msgid "Ethercalcs"
-msgstr "Документы"
+msgstr "Таблицы"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html:5
 #: .\templates\cosinnus_etherpad\etherpad_edit.html:5
@@ -117,7 +117,7 @@ msgstr "Редактировать"
 #: .\templates\cosinnus_etherpad\etherpad_list.html:145
 #: .\templates\cosinnus_etherpad\etherpad_write.html:88
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html:90
 #: .\templates\cosinnus_etherpad\etherpad_edit.html:77
@@ -151,7 +151,7 @@ msgstr ""
 
 #: .\templates\cosinnus_etherpad\etherpad_detail.html:113
 msgid "This document is empty"
-msgstr ""
+msgstr "Этот документ пустой"
 
 #: .\templates\cosinnus_etherpad\etherpad_edit.html:52
 msgid "Enter a title for the Pad."
@@ -165,7 +165,7 @@ msgstr "Сохранить"
 #, fuzzy
 #| msgid "Enter the title for a new Document."
 msgid "Enter the title for a new Document or Table."
-msgstr "Введите название нового документа"
+msgstr "Введите название нового документа или таблицы"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html:46
 msgid "Enter the title for a new Document."
@@ -176,14 +176,14 @@ msgstr "Введите название нового документа"
 #, fuzzy
 #| msgid "Delete Etherpad"
 msgid "Create Etherpad"
-msgstr "Удалить документ"
+msgstr "Создать документ"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html:69
 #: .\templates\cosinnus_etherpad\etherpad_list.html:76
 #, fuzzy
 #| msgid "Delete Etherpad"
 msgid "Create Ethercalc"
-msgstr "Удалить документ"
+msgstr "Создать таблицу"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html:102
 msgid "Move to another Folder"
@@ -192,7 +192,7 @@ msgstr "Переместить в другую папку"
 #: .\templates\cosinnus_etherpad\etherpad_list.html:171
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr "Вы действительно хотите удалить „%(title)s“?"
+msgstr "Вы действительно хотите удалить документ „%(title)s“?"
 
 #: .\templates\cosinnus_etherpad\etherpad_list.html:177
 #: .\templates\cosinnus_etherpad\etherpad_list_standalone.html:15
