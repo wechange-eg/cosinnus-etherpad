@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 13:26+0200\n"
+"POT-Creation-Date: 2016-09-27 18:01+0200\n"
 "PO-Revision-Date: 2015-11-11 10:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -37,6 +37,11 @@ msgstr "Член створив/-ла новий документ"
 #, python-format
 msgid "New etherpad by %(sender_name)s"
 msgstr ""
+
+#, fuzzy, python-format
+#| msgid "A user created a new etherpad"
+msgid "%(sender_name)s created a new etherpad"
+msgstr "Член створив/-ла новий документ"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."

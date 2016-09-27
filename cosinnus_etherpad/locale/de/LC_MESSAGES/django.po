@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-20 13:26+0200\n"
-"PO-Revision-Date: 2016-09-20 14:47+0200\n"
+"POT-Creation-Date: 2016-09-27 18:01+0200\n"
+"PO-Revision-Date: 2016-09-27 18:02+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,10 @@ msgstr "Ein Mitglied hat ein neues Dokument erstellt"
 #, python-format
 msgid "New etherpad by %(sender_name)s"
 msgstr "Neues Etherpad von %(sender_name)s"
+
+#, python-format
+msgid "%(sender_name)s created a new etherpad"
+msgstr "%(sender_name)s hat ein neues Dokument erstellt"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
