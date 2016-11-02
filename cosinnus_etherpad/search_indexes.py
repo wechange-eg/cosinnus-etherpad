@@ -6,12 +6,16 @@ from haystack import indexes
 
 from cosinnus.utils.search import BaseHierarchicalTaggableObjectIndex
 
-from cosinnus_etherpad.models import Etherpad
+from cosinnus_etherpad.models import Etherpad, Ethercalc
 
 
 class EtherpadIndex(BaseHierarchicalTaggableObjectIndex, indexes.Indexable):
-    description = indexes.CharField(model_attr='description')
-    pad_id = indexes.CharField(model_attr='pad_id', indexed=False)
 
     def get_model(self):
         return Etherpad
+    
+    
+class EthercalcIndex(BaseHierarchicalTaggableObjectIndex, indexes.Indexable):
+
+    def get_model(self):
+        return Ethercalc
