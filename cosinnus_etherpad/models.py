@@ -41,7 +41,8 @@ def _init_etherpad_client():
     return EtherpadLiteClient(
         base_url=settings.COSINNUS_ETHERPAD_BASE_URL,
         api_version='1.2.7',
-        base_params={'apikey': settings.COSINNUS_ETHERPAD_API_KEY})
+        base_params={'apikey': settings.COSINNUS_ETHERPAD_API_KEY},
+        verify=False)
     
     
 def _init_ethercalc_client():
