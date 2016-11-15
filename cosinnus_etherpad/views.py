@@ -25,7 +25,7 @@ from django.views.generic import DetailView, RedirectView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 
-from etherpad_lite import EtherpadException
+from cosinnus_etherpad.utils.etherpad_client import EtherpadException
 
 from cosinnus.views.export import CSVExportView
 from cosinnus.views.hierarchy import AddContainerView, MoveElementView

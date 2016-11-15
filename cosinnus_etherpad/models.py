@@ -14,7 +14,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from cosinnus.models import BaseHierarchicalTaggableObjectModel
 
-from etherpad_lite import EtherpadLiteClient, EtherpadException
+from cosinnus_etherpad.utils.etherpad_client import EtherpadLiteClient, EtherpadException
 from ethercalc import EtherCalc
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
@@ -41,7 +41,8 @@ def _init_etherpad_client():
     return EtherpadLiteClient(
         base_url=settings.COSINNUS_ETHERPAD_BASE_URL,
         api_version='1.2.7',
-        base_params={'apikey': settings.COSINNUS_ETHERPAD_API_KEY})
+        base_params={'apikey': settings.COSINNUS_ETHERPAD_API_KEY},
+        verify=False)
     
     
 def _init_ethercalc_client():
@@ -137,7 +138,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         session_id = self.client.createSession(
             groupID=group_id['groupID'],
             authorID=author_id['authorID'],
-            validUntil=valid_until)
+            validUntil=str(valid_until))
         return session_id['sessionID']
 
     @property
