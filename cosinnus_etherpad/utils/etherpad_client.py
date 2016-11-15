@@ -31,8 +31,11 @@ class EtherpadLiteClient(object):
         params = utf8_encode_dict_values(params)
         data = urlencode(dict(self.base_params, **params)).encode('ascii')
         url = '%s/%s/%s?%s' % (self.base_url, self.api_version, path, data)
-        resp = requests.get(url, data=data, verify=self.verify)
-        r = resp.json()
+        try:
+            resp = requests.get(url, data=data, verify=self.verify)
+            r = resp.json()
+        except Exception, e:
+            raise EtherpadException('Error communicating with the Pad Server: %s' % str(e))
         
         if not r or not isinstance(r, dict):
             raise EtherpadException('API returned: %s' % r)
