@@ -1,0 +1,43 @@
+.etherpad-iframe {
+    clear: both; 
+    margin-top: 10px;
+    height: 600px;
+    background-color: #FFF;
+}
+.etherpad-iframe .fullscreen-leave-button {
+    display: none;
+}
+
+.etherpad-iframe.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10000000000; /* had to do that, thanks to the user-report button */
+    margin: 0;
+}
+.etherpad-iframe.fullscreen .fullscreen-leave-button {
+    display: inherit;
+}
+
+.fullscreen-button {
+    margin-left: 25px;
+}
+.fullscreen-button i {
+    font-size: 18px;
+    vertical-align: middle;
+    padding-left: 3px;
+}
+a.fullscreen-button:hover {
+    text-decoration: none;
+    color: #DDD;
+}
+
+.fullscreen-leave-button {
+    z-index: 10000000001; /* had to do that, thanks to the user-report button */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200px !important;
+}

@@ -1,5 +1,5 @@
 {% extends "cosinnus_etherpad/base.html" %}
-{% load i18n static cosinnus_tags widget_tweaks %}
+{% load i18n static cosinnus_tags widget_tweaks sekizai_tags %}
 
 {% block page_title %}
 {% trans "Pads" %} {{ block.super }}
@@ -18,6 +18,13 @@
     {% include "cosinnus/leftnav_hierarchic_itemview.html" %}
 {% endblock leftnav %}
 
+{% block extrahead %}
+    {{ block.super }}
+    {% addtoblock "js" %}
+        <script src="{% static 'js/cosinnus_etherpad/cosinnus_etherpad.js' %}"></script>
+    {% endaddtoblock %}
+{% endblock extrahead %}
+
 
 {% block content %}
 
@@ -32,11 +39,15 @@
                             <a class="pull-left" href="#">
                                 <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
                             </a>
-                            <a class="pull-right" href="{{ object.get_absolute_url }}">
-                                <i class="fa fa-chain"></i>
-                            </a>
+                            
                             <div class="media-body">
                                 {% with creator=object.creator %}
+                                    <span class="annotation">
+                                        <a class="fullscreen-button fullscreen-toggle" href="#" title="{% trans "Fullscreen" %}">
+                                            <span>{% trans "Fullscreen" %}</span>
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </span>
                                     <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
                                 {% endwith %}
                                 <span>{{ object.title }}</span>
@@ -49,8 +60,21 @@
             </div> 
 
 
-        <div style="clear: both; margin-top: 10px;">
-            <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="600px"></iframe>
+        <div class="etherpad-iframe">
+            <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="100%"></iframe>
+            
+            <button type="button" class="btn w100 btn-emphasized regular-space fullscreen-leave-button fullscreen-toggle">
+                <ul class="media-list">
+                    <li class="media">
+                        <a class="pull-left" href="#">
+                            <i class="fa fa-compress"></i>
+                        </a>
+                        <div class="media-body">
+                            {% trans "Leave Fullscreen" %}
+                        </div>
+                    </li>
+                </ul>
+            </button>
         </div>
 
     
@@ -86,6 +110,22 @@
                     </a>
                     <div class="media-body">
                         {% trans "Settings" %}
+                    </div>
+                </li>
+            </ul>
+        </button> 
+    {% endif %}
+    
+    {# Ethercalc needs external CSV export #}
+    {% if object.type == 1 %}
+    	<button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:calc-csv" group=group slug=etherpad.slug %}">
+            <ul class="media-list">
+                <li class="media">
+                    <a class="pull-left" href="#">
+                        <i class="fa fa-download"></i>
+                    </a>
+                    <div class="media-body">
+                        {% trans "Download CSV" %}
                     </div>
                 </li>
             </ul>
