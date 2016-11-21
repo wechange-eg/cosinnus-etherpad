@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-02 11:31+0100\n"
+"POT-Creation-Date: 2016-11-21 12:31+0100\n"
 "PO-Revision-Date: 2015-11-11 10:40+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -145,6 +145,15 @@ msgstr "Ви дійсно бажаєте видалити документ «%(t
 
 msgid "No etherpads have been created yet."
 msgstr "Ще не було створено жодного документу."
+
+msgid "Fullscreen"
+msgstr ""
+
+msgid "Leave Fullscreen"
+msgstr ""
+
+msgid "Download CSV"
+msgstr ""
 
 #, python-format
 msgid ""
