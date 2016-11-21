@@ -1,15 +1,17 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import requests
+import six
 import sys
 
-import six
 from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
 from cosinnus.views.mixins.filters import CosinnusFilterMixin
 from cosinnus_etherpad.filters import EtherpadFilter
 from cosinnus.utils.urls import group_aware_reverse
 from urllib2 import HTTPError, URLError
 from django.shortcuts import redirect
+from django.http.response import HttpResponse, Http404
 
 try:
     from urllib.parse import urlparse
@@ -18,7 +20,6 @@ except ImportError:
 import logging
 
 from django.contrib import messages
-from django.core.urlresolvers import reverse
 from django.db import transaction
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, RedirectView
@@ -37,7 +38,8 @@ from cosinnus.views.mixins.tagged import (HierarchyTreeMixin,
 from cosinnus.views.mixins.user import UserFormKwargsMixin
 
 from cosinnus_etherpad.conf import settings
-from cosinnus_etherpad.models import Etherpad, EtherpadNotSupportedByType
+from cosinnus_etherpad.models import Etherpad, EtherpadNotSupportedByType,\
+    Ethercalc, TYPE_ETHERCALC
 from cosinnus_etherpad.forms import EtherpadForm
 
 if 'cosinnus_document' in settings.INSTALLED_APPS:
@@ -296,6 +298,54 @@ class EtherpadDeleteView(RequireWriteMixin, EtherpadFormMixin, HierarchyDeleteMi
         return group_aware_reverse('cosinnus:etherpad:list', kwargs=kwargs)
 
 pad_delete_view = EtherpadDeleteView.as_view()
+
+
+class EthercalcCSVView(RequireReadMixin, FilterGroupMixin, DetailView):
+    """ Downloads a CSV file from the calc server and then serves it from this URL """
+    
+    model = Etherpad
+    
+    def render_to_response(self, context, **response_kwargs):
+        # download the CSV from the calc server
+        # (works by just appending '.csv' to the calc URL)
+        calc = self.object
+        if not calc.type == TYPE_ETHERCALC:
+            raise Http404
+        calc_url = '%s.csv' % self.object.get_pad_url()
+        resp = requests.get(calc_url, verify=False)
+        if not resp.status_code == 200:
+            messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
+            return redirect(group_aware_reverse('cosinnus:etherpad:pad-write', kwargs={'group': calc.group, 'slug': calc.slug}))
+        content = resp.text
+        
+        response = HttpResponse(content)
+        content_type = resp.headers['content-type']
+        if not content_type is None:
+            content_type = 'application/octet-stream'
+        encoding = resp.encoding
+        filename = '%s.csv' % calc.slug
+        response['Content-Type'] = content_type
+        response['Content-Length'] = len(content)
+        if encoding is not None:
+            response['Content-Encoding'] = encoding
+
+        # To inspect details for the below code, see http://greenbytes.de/tech/tc2231/
+        user_agent = self.request.META.get('HTTP_USER_AGENT', [])
+        if u'WebKit' in user_agent:
+            # Safari 3.0 and Chrome 2.0 accepts UTF-8 encoded string directly.
+            filename_header = 'filename=%s' % filename
+        elif u'MSIE' in user_agent:
+            # IE does not support internationalized filename at all.
+            # It can only recognize internationalized URL, so we do the trick via routing rules.
+            filename_header = ''
+        else:
+            # For others like Firefox, we follow RFC2231 (encoding extension in HTTP headers).
+            filename_header = 'filename*=UTF-8\'\'%s' % filename
+        response['Content-Disposition'] = 'attachment; ' + filename_header
+        
+        return response
+    
+calc_csv_view = EthercalcCSVView.as_view()
 
 
 class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
