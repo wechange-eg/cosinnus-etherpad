@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-27 18:01+0200\n"
-"PO-Revision-Date: 2016-09-27 18:02+0200\n"
+"POT-Creation-Date: 2016-11-21 12:26+0100\n"
+"PO-Revision-Date: 2016-11-21 12:27+0100\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
 "MIME-Version: 1.0\n"
@@ -133,6 +133,15 @@ msgstr "Sind Sie sicher, dass Sie das Dokument „%(title)s“ löschen wollen?"
 
 msgid "No etherpads have been created yet."
 msgstr "Es wurden noch keine Dokumente erstellt."
+
+msgid "Fullscreen"
+msgstr "Vollbild"
+
+msgid "Leave Fullscreen"
+msgstr "Vollbild verlassen"
+
+msgid "Download CSV"
+msgstr ""
 
 #, python-format
 msgid ""

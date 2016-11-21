@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-27 18:01+0200\n"
+"POT-Creation-Date: 2016-11-21 12:26+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -141,6 +141,15 @@ msgstr "Do you really want to delete Document „%(title)s“?"
 
 msgid "No etherpads have been created yet."
 msgstr "No Documents have been created yet."
+
+msgid "Fullscreen"
+msgstr ""
+
+msgid "Leave Fullscreen"
+msgstr ""
+
+msgid "Download CSV"
+msgstr ""
 
 #, python-format
 msgid ""
