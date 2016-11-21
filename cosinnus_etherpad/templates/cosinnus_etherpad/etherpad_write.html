@@ -39,12 +39,15 @@
                             <a class="pull-left" href="#">
                                 <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
                             </a>
-                            <a class="pull-right fullscreen-button fullscreen-toggle" href="#" title="{% trans "Fullscreen" %}">
-                                <span>{% trans "Fullscreen" %}</span>
-                                <i class="fa fa-expand"></i>
-                            </a>
+                            
                             <div class="media-body">
                                 {% with creator=object.creator %}
+                                    <span class="annotation">
+                                        <a class="fullscreen-button fullscreen-toggle" href="#" title="{% trans "Fullscreen" %}">
+                                            <span>{% trans "Fullscreen" %}</span>
+                                            <i class="fa fa-expand"></i>
+                                        </a>
+                                    </span>
                                     <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
                                 {% endwith %}
                                 <span>{{ object.title }}</span>
