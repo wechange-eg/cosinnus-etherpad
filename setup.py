@@ -56,6 +56,9 @@ setup(
         'django-extra-views>=0.6.3',
         'ethercalc-python==0.0.4',
     ],
+    dependency_links=[
+        'git+git://github.com/saschan/ethercalc-python.git@master#ethercalc-python-0.0.4',
+    ],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Environment :: Web Environment',
