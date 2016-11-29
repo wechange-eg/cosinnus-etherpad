@@ -8,7 +8,7 @@
 	                <a class="pull-left" href="#">
 	                    <i class="fa {% if etherpad.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
 	                </a>
-	                <div class="media-body no-vertical-padding">
+	                <div class="media-body {% if not hide_group_name %}no-vertical-padding{% endif %}">
 	                    <span class="annotation">
                             {% with creator=etherpad.creator %}
                                 {# {% trans "by" %} #} <strong><a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></strong> 
@@ -16,9 +16,11 @@
                             <span class="moment-data-date" data-date="{{ etherpad.created|date:'c' }}"></span>
                         </span>
                         <strong><a href="{{ etherpad.get_absolute_url }}">{{ etherpad.title }}</a></strong>
-	                    <div class="group-annotation">
-	                        {% include 'cosinnus/group/group_label.html' with group=etherpad.group %}
-	                    </div>
+	                    {% if not hide_group_name %}
+			                <div class="group-annotation">
+		                        {% include 'cosinnus/group/group_label.html' with group=etherpad.group %}
+		                    </div>
+		                {% endif %}
 	                </div>
 	            </li>
 	        </ul>
