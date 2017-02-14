@@ -15,7 +15,7 @@ from django.utils.translation import ugettext_lazy as _
 from cosinnus.models import BaseHierarchicalTaggableObjectModel
 
 from cosinnus_etherpad.utils.etherpad_client import EtherpadLiteClient, EtherpadException
-from ethercalc import EtherCalc
+from cosinnus_etherpad.utils.ethercalc_client import EtherCalc as EtherCalcClient
 from cosinnus_etherpad.conf import settings
 from cosinnus_etherpad.managers import EtherpadManager
 from django.utils.encoding import smart_text
@@ -47,7 +47,7 @@ def _init_etherpad_client():
     
 def _init_ethercalc_client():
     """Initialises the ethercalc lite client"""
-    return EtherCalc(settings.COSINNUS_ETHERPAD_ETHERCALC_BASE_URL, verify=False)
+    return EtherCalcClient(settings.COSINNUS_ETHERPAD_ETHERCALC_BASE_URL, verify=False)
 
 
 TYPE_ETHERPAD = 0
