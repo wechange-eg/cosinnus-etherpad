@@ -33,7 +33,7 @@ from cosinnus.views.export import CSVExportView
 from cosinnus.views.hierarchy import AddContainerView, MoveElementView
 from cosinnus.views.mixins.group import (
     RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin,
-    RequireReadWriteHybridMixin)
+    RequireReadWriteHybridMixin, RequireLoggedInMixin)
 from cosinnus.views.mixins.tagged import (HierarchyTreeMixin,
     HierarchyPathMixin, HierarchyDeleteMixin)
 from cosinnus.views.mixins.user import UserFormKwargsMixin
@@ -138,7 +138,7 @@ class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
 pad_detail_view = EtherpadDetailView.as_view()
 
 
-class EtherpadWriteView(EtherpadDetailView):
+class EtherpadWriteView(RequireLoggedInMixin, EtherpadDetailView):
     template_name = 'cosinnus_etherpad/etherpad_write.html'
 
 pad_write_view = EtherpadWriteView.as_view()
