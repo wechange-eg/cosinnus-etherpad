@@ -58,6 +58,19 @@
                 
                 {% include 'cosinnus/media_tags_readonly.html' %}
             </div> 
+            
+            
+	        {% if object.attached_images %}
+	            <div class="indented row">
+	                {% for image in object.attached_images|slice:":3" %}
+	                    <div class="col-sm-4">
+	                        <a href="{{ image.static_image_url }}" data-lightbox="image-object-detailed" data-title="{{ image.title }}" class="thumbnail">
+	                            <img src="{{ image.static_image_url_thumbnail }}" title='{{ image.title }}'/>
+	                        </a>
+	                    </div>
+	                {% endfor %}
+	            </div>
+	        {% endif %}
 
 
         <div class="etherpad-iframe">

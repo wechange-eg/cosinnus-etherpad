@@ -12,6 +12,7 @@ from cosinnus.utils.urls import group_aware_reverse
 from urllib2 import HTTPError, URLError
 from django.shortcuts import redirect
 from django.http.response import HttpResponse, Http404
+from cosinnus.views.attached_object import AttachableViewMixin
 
 try:
     from urllib.parse import urlparse
@@ -246,7 +247,7 @@ class EtherpadAddContainerView(AddContainerView):
 container_add_view = EtherpadAddContainerView.as_view()
 
 
-class EtherpadEditView(RequireWriteMixin, EtherpadFormMixin, UpdateView):
+class EtherpadEditView(RequireWriteMixin, EtherpadFormMixin, AttachableViewMixin, UpdateView):
     form_view = 'edit'
     template_name = 'cosinnus_etherpad/etherpad_edit.html'
     
