@@ -5,17 +5,17 @@ from django import forms
 from django.core.urlresolvers import reverse_lazy
 
 from cosinnus.forms.group import GroupKwargModelFormMixin
-from cosinnus.forms.tagged import get_form
+from cosinnus.forms.tagged import get_form, BaseTaggableObjectForm
 from cosinnus.forms.user import UserKwargModelFormMixin
 
 from cosinnus.forms.select2 import TagSelect2Field
 
 from cosinnus_etherpad.models import Etherpad
-from cosinnus.forms.attached_object import FormAttachable
+from cosinnus.forms.attached_object import FormAttachableMixin
 
 
 class _EtherpadForm(GroupKwargModelFormMixin, UserKwargModelFormMixin, 
-                    FormAttachable):
+                    FormAttachableMixin, BaseTaggableObjectForm):
 
     class Meta:
         model = Etherpad
