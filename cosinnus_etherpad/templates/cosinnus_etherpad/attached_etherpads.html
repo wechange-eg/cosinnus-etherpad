@@ -2,7 +2,7 @@
 
 {% for etherpad in etherpads %}
 	<div class="app-etherpad">
-        <div class="btn btn-emphasized w100 {% if not no_indent %}extra-indented"{% endif %} href="{{ etherpad.get_absolute_url }}">
+        <div class="btn btn-emphasized w100 {% if not no_indent %}indented"{% endif %} href="{{ etherpad.get_absolute_url }}">
             <ul class="media-list fine-space">
                 <li class="media">
                     <a class="pull-left" href="#">
