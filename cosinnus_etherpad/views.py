@@ -13,6 +13,7 @@ from urllib2 import HTTPError, URLError
 from django.shortcuts import redirect
 from django.http.response import HttpResponse, Http404
 from cosinnus.views.attached_object import AttachableViewMixin
+from django.utils.encoding import force_text
 
 try:
     from urllib.parse import urlparse
@@ -212,7 +213,7 @@ class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, Hi
             return ret
         except (EtherpadException, URLError) as exc:
             transaction.savepoint_rollback(sid)
-            if 'padName does already exist' in str(exc):
+            if 'padName does already exist' in force_text(exc):
                 msg = _('Etherpad with name "%(name)s" already exists on pad server. Please use another name.')
                 messages.error(self.request, msg % {'name': form.data.get('title', '')})
                 return self.form_invalid(form)
