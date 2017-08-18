@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-21 12:31+0100\n"
-"PO-Revision-Date: 2016-11-02 11:22+0100\n"
+"PO-Revision-Date: 2017-08-18 12:33+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -35,12 +35,11 @@ msgstr "Пользователь создал новый документ"
 
 #, python-format
 msgid "New etherpad by %(sender_name)s"
-msgstr ""
+msgstr "Новый документ создан %(sender_name)s"
 
-#, fuzzy, python-format
-#| msgid "A user created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created a new etherpad"
-msgstr "Пользователь создал новый документ"
+msgstr "%(sender_name)s создал новый документ"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
@@ -136,13 +135,13 @@ msgid "No etherpads have been created yet."
 msgstr "Документы пока не созданы"
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Полноэкранный режим"
 
 msgid "Leave Fullscreen"
-msgstr ""
+msgstr "Выйти из полноэкранного режима"
 
 msgid "Download CSV"
-msgstr ""
+msgstr "Загрузить CSV"
 
 #, python-format
 msgid ""
