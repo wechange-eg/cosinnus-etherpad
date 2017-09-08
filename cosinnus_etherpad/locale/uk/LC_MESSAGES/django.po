@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-11-21 12:31+0100\n"
-"PO-Revision-Date: 2015-11-11 10:40+0200\n"
+"PO-Revision-Date: 2017-09-06 11:19+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,10 +16,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: uk\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 2.0.3\n"
 
 msgid "The following Pads were re-initialized:"
-msgstr "Наступні документи були повторно ініціалізовані:"
+msgstr "Такі документи були повторно ініціалізовані:"
 
 msgid "Reinit Pads (do not use if you don't know what this is!)"
 msgstr "Реініц. документи (не використовуйте цього, якщо не знаєте, що це!)"
@@ -29,19 +29,18 @@ msgstr "Документи"
 
 msgctxt "the_app"
 msgid "etherpad"
-msgstr "Документи"
+msgstr "Документ"
 
 msgid "A user created a new etherpad"
-msgstr "Член створив/-ла новий документ"
+msgstr "Користувач створив(ла) новий документ"
 
 #, python-format
 msgid "New etherpad by %(sender_name)s"
-msgstr ""
+msgstr "%(sender_name)s створив новий документ"
 
-#, fuzzy, python-format
-#| msgid "A user created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created a new etherpad"
-msgstr "Член створив/-ла новий документ"
+msgstr "%(sender_name)s створив новий документ"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
@@ -57,15 +56,13 @@ msgid "Created By"
 msgstr "Автор"
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgid "Etherpad"
-msgstr "Документи"
+msgstr "Документ"
 
-#, fuzzy
-#| msgid "Etherpad"
 msgid "Ethercalc"
-msgstr "Документи"
+msgstr "Таблиця"
 
 msgid "Newest Pads"
 msgstr "Найновіші документи"
@@ -77,12 +74,10 @@ msgid "Description"
 msgstr "Опис"
 
 msgid "Pad Type"
-msgstr ""
+msgstr "Тип документа"
 
-#, fuzzy
-#| msgid "Etherpads"
 msgid "Ethercalcs"
-msgstr "Документи"
+msgstr "Таблиці"
 
 msgid "Pads"
 msgstr "Документи"
@@ -94,7 +89,7 @@ msgid "Edit"
 msgstr "Редагувати"
 
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "Delete"
 msgstr "Видалити"
@@ -110,7 +105,7 @@ msgid "The document can not be accessed because the etherpad server could not be
 msgstr "Неможливо відкрити документ, тому що сервер Etherpad недоступний. Будь ласка, зверніться до адміністратора/-ки!"
 
 msgid "This document is empty"
-msgstr ""
+msgstr "Це пустий документ"
 
 msgid "Enter a title for the Pad."
 msgstr "Уведіть назву для документу."
@@ -118,26 +113,20 @@ msgstr "Уведіть назву для документу."
 msgid "Save"
 msgstr "Зберегти"
 
-#, fuzzy
-#| msgid "Enter the title for a new Document."
 msgid "Enter the title for a new Document or Table."
-msgstr "Уведіть назву для нового документу."
+msgstr "Введіть назву для нового документу чи таблиці."
 
 msgid "Enter the title for a new Document."
-msgstr "Уведіть назву для нового документу."
+msgstr "Введіть назву для нового документу."
 
-#, fuzzy
-#| msgid "Delete Etherpad"
 msgid "Create Etherpad"
-msgstr "Видалити документ"
+msgstr "Створити документ"
 
-#, fuzzy
-#| msgid "Delete Etherpad"
 msgid "Create Ethercalc"
-msgstr "Видалити документ"
+msgstr "Створити таблицю"
 
 msgid "Move to another Folder"
-msgstr "Перемістити у іншу папку"
+msgstr "Перемістити у іншу теку"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
@@ -147,13 +136,13 @@ msgid "No etherpads have been created yet."
 msgstr "Ще не було створено жодного документу."
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Повноекранний режим"
 
 msgid "Leave Fullscreen"
-msgstr ""
+msgstr "Вийти з повноекранного режиму"
 
 msgid "Download CSV"
-msgstr ""
+msgstr "Завантажити CSV"
 
 #, python-format
 msgid ""
@@ -182,7 +171,7 @@ msgstr ""
 "З повагою, команда %(site_name)s."
 
 msgid "There are no etherpads yet"
-msgstr "Ще немає жодного документу."
+msgstr "Ще немає жодного документу"
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
