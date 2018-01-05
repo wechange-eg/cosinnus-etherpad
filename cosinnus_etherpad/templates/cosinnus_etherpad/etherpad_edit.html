@@ -21,49 +21,18 @@
 
 {% block content %}
 
-    <form action="" method="post" class="form-horizontal">{% csrf_token %}
-
+    <form method="POST" action="" class="form-horizontal">{% csrf_token %}
+        {{ form.forms.obj.non_field_errors }}
+        {{ form.forms.media_tag.non_field_errors }}
+        
     	<!-- a box with semi transparent background -->
     	<div class="content-box">
-            <div class="regular-space">
-
-                <div class="btn btn-extra-emphasized w100">
-                    <ul class="media-list">
-                        <li class="media">
-                            <a class="pull-left" href="#">
-                                <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
-                            </a>
-                            <div class="media-body">
-                               {% trans "Settings" %}
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-
-                <div type="submit" class="btn btn-default w100 large-space">
-                    <ul class="media-list">
-                        <li class="media">
-                            <a class="pull-left" href="#">
-                                <i class="fa fa-pencil"></i>
-                            </a>
-                            <div class="media-body media-body-form-control">
-                                {{ form.forms.obj.title.errors }}
-                                {% captureas placeholder %}{% trans "Enter a title for the Pad." %}{% endcaptureas %}
-                                {% render_field form.forms.obj.title class+="form-control" placeholder=placeholder id="etherpadTitle" %}
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="regular-space">
-                    {{ form.forms.obj.non_field_errors }}
-                    {{ form.forms.media_tag.non_field_errors }}
-                    {% include 'cosinnus/media_tags.html' with show_all=True %}
-
-                </div>
-            
-            </div> <!-- fadedown -->
+    	
+		    {% trans "Title" as title_legend %}
+		    {% trans "Enter a title for the Pad." as title_label %}
+		    {% include 'cosinnus/fields/default_field.html' with field=form.forms.obj.title legend=title_legend label=title_label placeholder=title_label first=True %}
+		    
+            {% include 'cosinnus/media_tags.html' with show_all=True %}
     
     	</div><!-- content-box -->
     
@@ -81,7 +50,7 @@
 	        </ul>
 	    </button>
 	    
-	    <button type="submit" class="btn btn-emphasized" id="etherpadSaveMetaButton">
+	    <button type="submit" class="btn btn-emphasized">
 	        <ul class="media-list">
 	            <li class="media">
 	                <a class="pull-left" href="#">
