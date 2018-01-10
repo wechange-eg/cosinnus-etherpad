@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-11-21 12:31+0100\n"
-"PO-Revision-Date: 2016-11-21 12:31+0100\n"
+"POT-Creation-Date: 2018-01-10 16:48+0100\n"
+"PO-Revision-Date: 2018-01-10 17:37+0100\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgid "Created By"
 msgstr "Erstellt von"
 
 msgid "Type"
-msgstr ""
+msgstr "Typ"
 
 msgid "Etherpad"
 msgstr "Dokument"
@@ -73,7 +73,7 @@ msgid "Description"
 msgstr "Beschreibung"
 
 msgid "Pad Type"
-msgstr ""
+msgstr "Pad-Typ"
 
 msgid "Ethercalcs"
 msgstr "Tabellen"
@@ -88,7 +88,7 @@ msgid "Edit"
 msgstr "Bearbeiten"
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Delete"
 msgstr "Löschen"
@@ -141,7 +141,7 @@ msgid "Leave Fullscreen"
 msgstr "Vollbild verlassen"
 
 msgid "Download CSV"
-msgstr ""
+msgstr "CSV Herunterladen"
 
 #, python-format
 msgid ""
