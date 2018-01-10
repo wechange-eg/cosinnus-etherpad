@@ -30,8 +30,8 @@
     	<!-- a box with semi transparent background -->
     	<div class="content-box">
     	
-		    {% trans "Title" as title_legend %}
-		    {% trans "Enter a title for the Pad." as title_label %}
+		    {% trans "Title" as title_label %}
+		    {% trans "Enter a title for the Pad." as title_legend %}
 		    {% include 'cosinnus/fields/default_field.html' with field=form.forms.obj.title legend=title_legend label=title_label placeholder=title_label first=True %}
 		    
             {% include 'cosinnus/media_tags.html' with show_all=True %}
