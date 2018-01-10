@@ -16,12 +16,12 @@
 
 {% block leftnav %}
     {% include "cosinnus/leftnav_hierarchic_itemview.html" %}
+    
+    {% include 'cosinnus/common/help_button_leftnav_for_popup.html' with help_text_id="helptext_10_documentsetting" %}
 {% endblock leftnav %}
 
 
 {% block content %}
-
-    {% include 'cosinnus/common/help_button_for_popup.html' with help_text_id="helptext_10_documentsetting" %}
 
     <form method="POST" action="" class="form-horizontal">{% csrf_token %}
         {{ form.forms.obj.non_field_errors }}
