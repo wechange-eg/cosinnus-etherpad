@@ -23,6 +23,13 @@
 
 {% block content %}
 
+    {% if form.forms.obj.errors or form.forms.media_tag.errors %}
+        <div class="alert alert-danger alert-dismissable">
+            <i class="fa fa-exclamation-triangle fa-3x"></i>
+            <p>{% trans "There was an error in one of the fields you entered. Please correct it before saving!" %}</p>
+        </div>
+    {% endif %}
+
     <form method="POST" action="" class="cosinnus-form form-horizontal">{% csrf_token %}
         {{ form.forms.obj.non_field_errors }}
         {{ form.forms.media_tag.non_field_errors }}
