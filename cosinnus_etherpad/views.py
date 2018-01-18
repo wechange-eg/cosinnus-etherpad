@@ -14,6 +14,7 @@ from django.shortcuts import redirect
 from django.http.response import HttpResponse, Http404
 from cosinnus.views.attached_object import AttachableViewMixin
 from django.utils.encoding import force_text
+from django.utils.timezone import now
 
 try:
     from urllib.parse import urlparse
@@ -142,6 +143,16 @@ pad_detail_view = EtherpadDetailView.as_view()
 
 class EtherpadWriteView(RequireLoggedInMixin, EtherpadDetailView):
     template_name = 'cosinnus_etherpad/etherpad_write.html'
+    
+    def render_to_response(self, context, **response_kwargs):
+        response = super(EtherpadWriteView, self).render_to_response(context, **response_kwargs)
+        try:
+            self.object.last_accessed = now()
+            self.object.save(update_fields=['last_accessed'])
+        except Exception, e:
+            extra = {'exception': force_text(e), 'user': self.request.user}
+            logger.error('Error when trying to set last_accessed', extra=extra)
+        return response
 
 pad_write_view = EtherpadWriteView.as_view()
 

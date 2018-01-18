@@ -75,6 +75,12 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
     type = models.PositiveSmallIntegerField(_('Pad Type'), blank=False,
         default=TYPE_ETHERPAD, choices=TYPE_CHOICES, editable=False)
     
+    last_accessed = models.DateTimeField(
+        verbose_name=_('Last accessed'),
+        help_text='This will be set to now() whenever someone with write permissions accesses the write-view for this pad.',
+        editable=False,
+        auto_now_add=True)
+    
     objects = EtherpadManager()
 
     class Meta(BaseHierarchicalTaggableObjectModel.Meta):

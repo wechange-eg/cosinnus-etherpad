@@ -10,6 +10,7 @@ from cosinnus.forms.filters import AllObjectsFilter, SelectCreatorWidget,\
     DropdownChoiceWidgetWithEmpty
 from cosinnus_etherpad.models import Etherpad
 from django_filters.filters import ChoiceFilter
+from django.forms import forms
 
 
 class EtherpadFilter(CosinnusFilterSet):
@@ -21,9 +22,11 @@ class EtherpadFilter(CosinnusFilterSet):
         fields = ['creator', 'type']
         order_by = (
             ('-created', _('Newest Pads')),
+            ('-last_accessed', _('Last Accessed')),
             ('title', _('Title')),
         )
     
     def get_order_by(self, order_value):
         return super(EtherpadFilter, self).get_order_by(order_value)
+    
     
