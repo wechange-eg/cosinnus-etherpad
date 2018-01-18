@@ -22,7 +22,7 @@ class EtherpadFilter(CosinnusFilterSet):
         fields = ['creator', 'type']
         order_by = (
             ('-created', _('Newest Pads')),
-            ('-last_accessed', _('Last Accessed')),
+            ('-last_accessed', _('Last accessed')),
             ('title', _('Title')),
         )
     

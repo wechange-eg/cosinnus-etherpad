@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-10 16:48+0100\n"
-"PO-Revision-Date: 2018-01-15 13:02+0100\n"
+"POT-Creation-Date: 2018-01-18 17:47+0100\n"
+"PO-Revision-Date: 2018-01-18 17:47+0100\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
 "MIME-Version: 1.0\n"
@@ -66,6 +66,9 @@ msgstr "Tabelle"
 msgid "Newest Pads"
 msgstr "Neueste Pads"
 
+msgid "Last accessed"
+msgstr "Letzter Zugriff"
+
 msgid "Title"
 msgstr "Titel"
 
@@ -105,6 +108,9 @@ msgstr "Das Pad kann nicht angezeigt werden weil der Etherpad-Service nicht erre
 
 msgid "This document is empty"
 msgstr "Dieses Pad ist leer"
+
+msgid "There was an error in one of the fields you entered. Please correct it before saving!"
+msgstr ""
 
 msgid "Enter a title for the Pad."
 msgstr "Gib einen Titel für das Pad ein."
