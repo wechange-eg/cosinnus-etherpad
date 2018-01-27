@@ -22,7 +22,7 @@ class Latest(DashboardWidget):
     app_name = 'etherpad'
     form_class = LatestEtherpadsForm
     model = Etherpad
-    title = _('Latest Etherpads')
+    title = _('Last accessed Etherpads')
     user_model_attr = None  # No filtering on user page
     widget_name = 'latest'
 
@@ -31,7 +31,7 @@ class Latest(DashboardWidget):
             if has_more == False, the receiving widget will assume no further data can be loaded.
          """
         count = int(self.config['amount'])
-        qs = self.get_queryset().select_related('group').order_by('-created').filter(is_container=False)
+        qs = self.get_queryset().select_related('group').order_by('-last_accessed', '-created').filter(is_container=False)
         if count != 0:
             qs = qs[offset:offset+count]
             

@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 17:47+0100\n"
-"PO-Revision-Date: 2018-01-18 17:47+0100\n"
+"POT-Creation-Date: 2018-01-27 16:20+0100\n"
+"PO-Revision-Date: 2018-01-27 16:21+0100\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
 "MIME-Version: 1.0\n"
@@ -45,8 +45,8 @@ msgstr "%(sender_name)s hat ein neues Pad erstellt"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Neues Pad: \"%(object_name)s\" wurde in %(team_name)s erstellt."
 
-msgid "Latest Etherpads"
-msgstr "Neueste Pads"
+msgid "Last accessed Etherpads"
+msgstr "Zuletzt bearbeitete Pads"
 
 msgid "No etherpads"
 msgstr "Keine Pads"
@@ -63,11 +63,11 @@ msgstr "Pad"
 msgid "Ethercalc"
 msgstr "Tabelle"
 
-msgid "Newest Pads"
-msgstr "Neueste Pads"
-
 msgid "Last accessed"
 msgstr "Letzter Zugriff"
+
+msgid "Newest Pads"
+msgstr "Neueste Pads"
 
 msgid "Title"
 msgstr "Titel"
@@ -145,6 +145,12 @@ msgstr "Vollbild"
 
 msgid "Leave Fullscreen"
 msgstr "Vollbild verlassen"
+
+msgid "Help and Assistance for this page"
+msgstr ""
+
+msgid "Help"
+msgstr ""
 
 msgid "Download CSV"
 msgstr "CSV Herunterladen"

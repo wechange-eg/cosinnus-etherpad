@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 17:47+0100\n"
+"POT-Creation-Date: 2018-01-27 16:20+0100\n"
 "PO-Revision-Date: 2018-01-15 12:57+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -45,7 +45,9 @@ msgstr "%(sender_name)s created a new Pad"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "A new Pad: \"%(object_name)s\" was uploaded in %(team_name)s."
 
-msgid "Latest Etherpads"
+#, fuzzy
+#| msgid "Latest Etherpads"
+msgid "Last accessed Etherpads"
 msgstr "Latest Pads"
 
 msgid "No etherpads"
@@ -63,10 +65,10 @@ msgstr "Pad"
 msgid "Ethercalc"
 msgstr ""
 
-msgid "Newest Pads"
+msgid "Last accessed"
 msgstr ""
 
-msgid "Last accessed"
+msgid "Newest Pads"
 msgstr ""
 
 msgid "Title"
@@ -144,6 +146,12 @@ msgid "Fullscreen"
 msgstr ""
 
 msgid "Leave Fullscreen"
+msgstr ""
+
+msgid "Help and Assistance for this page"
+msgstr ""
+
+msgid "Help"
 msgstr ""
 
 msgid "Download CSV"

@@ -202,6 +202,7 @@ class EtherpadHybridListView(RequireReadWriteHybridMixin, HierarchyPathMixin, Hi
     
     template_name = 'cosinnus_etherpad/etherpad_list.html'
     filterset_class = EtherpadFilter
+    strict_default_sort = True
     
     form_view = 'add'
     message_success = _('Etherpad "%(title)s" was added successfully.')

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 17:47+0100\n"
+"POT-Creation-Date: 2018-01-27 16:20+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -45,7 +45,7 @@ msgstr ""
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr ""
 
-msgid "Latest Etherpads"
+msgid "Last accessed Etherpads"
 msgstr ""
 
 msgid "No etherpads"
@@ -63,10 +63,10 @@ msgstr ""
 msgid "Ethercalc"
 msgstr ""
 
-msgid "Newest Pads"
+msgid "Last accessed"
 msgstr ""
 
-msgid "Last accessed"
+msgid "Newest Pads"
 msgstr ""
 
 msgid "Title"
@@ -144,6 +144,12 @@ msgid "Fullscreen"
 msgstr ""
 
 msgid "Leave Fullscreen"
+msgstr ""
+
+msgid "Help and Assistance for this page"
+msgstr ""
+
+msgid "Help"
 msgstr ""
 
 msgid "Download CSV"

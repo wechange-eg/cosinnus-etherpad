@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-18 17:47+0100\n"
+"POT-Creation-Date: 2018-01-27 16:20+0100\n"
 "PO-Revision-Date: 2017-08-16 14:34+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -45,7 +45,9 @@ msgstr "%(sender_name)s создал новый документ"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Новый документ: \"%(object_name)s\" был создан в %(team_name)s."
 
-msgid "Latest Etherpads"
+#, fuzzy
+#| msgid "Latest Etherpads"
+msgid "Last accessed Etherpads"
 msgstr "Последние документы"
 
 msgid "No etherpads"
@@ -63,11 +65,11 @@ msgstr "Документ"
 msgid "Ethercalc"
 msgstr "Таблица"
 
-msgid "Newest Pads"
-msgstr "Последние документы"
-
 msgid "Last accessed"
 msgstr ""
+
+msgid "Newest Pads"
+msgstr "Последние документы"
 
 msgid "Title"
 msgstr "Заголовок"
@@ -145,6 +147,12 @@ msgstr "Полноэкранный режим"
 
 msgid "Leave Fullscreen"
 msgstr "Выйти из полноэкранного режима"
+
+msgid "Help and Assistance for this page"
+msgstr ""
+
+msgid "Help"
+msgstr ""
 
 msgid "Download CSV"
 msgstr "Загрузить CSV"
