@@ -106,7 +106,8 @@
 		                    <div class="media-body">
 		                        {% with creator=object.creator %}
     	                            <span class="annotation">
-    	                                {% trans "by" %} 
+    	                                <!--{% trans "by" %}-->
+                                        {% trans "Created By" %}
     	                                <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a>
     	                                {% if object.last_accessed and object.last_accessed|date:'Y'|intify > 2000 %}
 	    	                                &nbsp;&nbsp;
