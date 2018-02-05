@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-27 16:20+0100\n"
-"PO-Revision-Date: 2017-08-16 14:34+0200\n"
+"POT-Creation-Date: 2018-02-05 13:07+0100\n"
+"PO-Revision-Date: 2018-01-31 23:24+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -45,10 +45,8 @@ msgstr "%(sender_name)s создал новый документ"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Новый документ: \"%(object_name)s\" был создан в %(team_name)s."
 
-#, fuzzy
-#| msgid "Latest Etherpads"
 msgid "Last accessed Etherpads"
-msgstr "Последние документы"
+msgstr "Последние открытые документы"
 
 msgid "No etherpads"
 msgstr "Документов нет"
@@ -66,7 +64,7 @@ msgid "Ethercalc"
 msgstr "Таблица"
 
 msgid "Last accessed"
-msgstr ""
+msgstr "Последние открытые"
 
 msgid "Newest Pads"
 msgstr "Последние документы"
@@ -112,7 +110,7 @@ msgid "This document is empty"
 msgstr "Этот документ пустой"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "Ошибка в одном из полей, которые вы заполнили. Пожалуйста, исправьте перед сохранением!"
 
 msgid "Enter a title for the Pad."
 msgstr "Введите название"
@@ -149,10 +147,10 @@ msgid "Leave Fullscreen"
 msgstr "Выйти из полноэкранного режима"
 
 msgid "Help and Assistance for this page"
-msgstr ""
+msgstr "Справка и помощь для этой страницы"
 
 msgid "Help"
-msgstr ""
+msgstr "Справка"
 
 msgid "Download CSV"
 msgstr "Загрузить CSV"

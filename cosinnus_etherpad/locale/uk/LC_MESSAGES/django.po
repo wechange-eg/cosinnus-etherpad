@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-27 16:20+0100\n"
-"PO-Revision-Date: 2017-09-06 11:19+0200\n"
+"POT-Creation-Date: 2018-02-05 13:07+0100\n"
+"PO-Revision-Date: 2018-02-01 13:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -46,10 +46,8 @@ msgstr "%(sender_name)s створив новий документ"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Новий документ: «%(object_name)s» було створено у %(team_name)s."
 
-#, fuzzy
-#| msgid "Latest Etherpads"
 msgid "Last accessed Etherpads"
-msgstr "Останні документи"
+msgstr "Востаннє відкриті документі"
 
 msgid "No etherpads"
 msgstr "Жодних документів"
@@ -67,7 +65,7 @@ msgid "Ethercalc"
 msgstr "Таблиця"
 
 msgid "Last accessed"
-msgstr ""
+msgstr "Востаннє відкриті"
 
 msgid "Newest Pads"
 msgstr "Найновіші документи"
@@ -113,7 +111,7 @@ msgid "This document is empty"
 msgstr "Це пустий документ"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "Помилка в одному з полів, які ви заповнили. Будь ласка, виправьте перед зберіганням!"
 
 msgid "Enter a title for the Pad."
 msgstr "Уведіть назву для документу."
@@ -150,10 +148,10 @@ msgid "Leave Fullscreen"
 msgstr "Вийти з повноекранного режиму"
 
 msgid "Help and Assistance for this page"
-msgstr ""
+msgstr "Допомога та довідка для цієї сторінки"
 
 msgid "Help"
-msgstr ""
+msgstr "Допомога"
 
 msgid "Download CSV"
 msgstr "Завантажити CSV"
