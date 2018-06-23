@@ -8,154 +8,152 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-06-23 16:59+0200\n"
-"PO-Revision-Date: 2018-01-15 12:57+0100\n"
+"PO-Revision-Date: 2018-06-23 16:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
+"Language: pl\n"
 "X-Generator: Poedit 1.8.4\n"
 
 msgid "The following Pads were re-initialized:"
-msgstr ""
+msgstr "Następujące Pady zostały zreinicjalizowane:"
 
 msgid "Reinit Pads (do not use if you don't know what this is!)"
-msgstr ""
+msgstr "Pady Reinit (nie używaj, jeśli nie wiesz, do czego służą!)"
 
 msgid "Etherpads"
-msgstr ""
+msgstr "Etherpady"
 
 msgctxt "the_app"
 msgid "etherpad"
-msgstr "Pads"
+msgstr "etherpad"
 
 msgid "A user created a new etherpad"
-msgstr "A user created a new document"
+msgstr "Użytkownik stworzył nowy etherpad"
 
 #, python-format
 msgid "New etherpad by %(sender_name)s"
-msgstr ""
+msgstr "Nowy etherpad został stworzony przez %(sender_name)s"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
-msgstr "%(sender_name)s created a new Pad"
+msgstr "%(sender_name)s utworzył nowy etherpad"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
-msgstr "A new Pad: \"%(object_name)s\" was uploaded in %(team_name)s."
+msgstr "Nowy etherpad: \"%(object_name)s\" został stworzony przez %(team_name)s."
 
-#, fuzzy
-#| msgid "Latest Etherpads"
 msgid "Last accessed Etherpads"
-msgstr "Latest Pads"
+msgstr "Ostatnio otwarte Etherpady"
 
 msgid "No etherpads"
-msgstr "No Pads"
+msgstr "Brak etherpadów"
 
 msgid "Created By"
-msgstr ""
+msgstr "Utworzone przez"
 
 msgid "Type"
-msgstr ""
+msgstr "Rodzaj"
 
 msgid "Etherpad"
-msgstr "Pad"
+msgstr "Etherpad"
 
 msgid "Ethercalc"
-msgstr ""
+msgstr "Ethercalc"
 
 msgid "Last accessed"
-msgstr ""
+msgstr "Ostatnio otwarte"
 
 msgid "Newest Pads"
-msgstr ""
+msgstr "Najnowsze Pady"
 
 msgid "Title"
-msgstr ""
+msgstr "Tytuł"
 
 msgid "Description"
-msgstr ""
+msgstr "Opis"
 
 msgid "Pad Type"
-msgstr ""
+msgstr "Rodzaj Pada"
 
 msgid "Ethercalcs"
-msgstr ""
+msgstr "Ethercalcs"
 
 msgid "Pads"
-msgstr ""
+msgstr "Pady"
 
 msgid "by"
-msgstr ""
+msgstr "wg"
 
 msgid "Edit"
-msgstr ""
+msgstr "Edytuj"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ustawienia"
 
 msgid "Delete"
-msgstr ""
+msgstr "Usuń"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(pad)s“?"
-msgstr "Do you really want to delete Pad „%(pad)s“?"
+msgstr "Czy na pewno chcesz usunąć etherpad „%(pad)s”?"
 
 msgid "Delete Etherpad"
-msgstr "Delete Pad"
+msgstr "Usuń Etherpad"
 
 msgid "The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!"
-msgstr ""
+msgstr "Nie można uzyskać dostępu do tego dokumentu, ponieważ nie ma dostępu do serwera etherpad. Skontaktuj się z administratorem!"
 
 msgid "This document is empty"
-msgstr ""
+msgstr "Ten dokument jest pusty"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "W jednym z wypełnionych pól jest błąd. Popraw go przed zapisaniem!"
 
 msgid "Enter a title for the Pad."
-msgstr ""
+msgstr "Wpisz tytuł nowego Pada."
 
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 msgid "Enter the title for a new Document or Table."
-msgstr ""
+msgstr "Wpisz tytuł nowego Dokumentu lub Tabeli."
 
 msgid "Enter the title for a new Document."
-msgstr ""
+msgstr "Wpisz tytuł nowego Dokumentu."
 
 msgid "Create Etherpad"
-msgstr ""
+msgstr "Stwórz Etherpad"
 
 msgid "Create Ethercalc"
-msgstr ""
+msgstr "Stwórz Ethercalc"
 
 msgid "Move to another Folder"
-msgstr ""
+msgstr "Przenieś do innego Folderu"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr "Do you really want to delete Pad „%(title)s“?"
+msgstr "Czy na pewno chcesz usunąć etherpad „%(title)s”?"
 
 msgid "No etherpads have been created yet."
-msgstr "No Pads have been created yet."
+msgstr "Żadne etherpady nie zostały jeszcze utworzone."
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "Pełny ekran"
 
 msgid "Leave Fullscreen"
-msgstr ""
+msgstr "Zamknij pełny ekran"
 
 msgid "Help and Assistance for this page"
-msgstr ""
+msgstr "Pomoc i wsparcie dla tej storny"
 
 msgid "Help"
-msgstr ""
+msgstr "Pomoc"
 
 msgid "Download CSV"
-msgstr ""
+msgstr "Pobierz CSV"
 
 #, python-format
 msgid ""
@@ -171,55 +169,55 @@ msgid ""
 "\n"
 "Your %(site_name)s Team."
 msgstr ""
-"Hi %(receiver_name)s,\n"
+"Cześć %(receiver_name)s,\n"
 "\n"
-"a new Pad \"%(object_name)s\" in %(team_name)s was created by %(sender_name)s. \n"
+"nowy etherpad\\’’%(object_name)s\\’’ w zespole %(team_name)s został utworzony przez %(sender_name)s.\n"
 "\n"
-"You can find it by following this link: %(object_url)s\n"
+"Dostępny jest pod następującym adresem:\n"
+"%(object_url)s\n"
 "\n"
 "\n"
+"(Kliknij tutaj, aby edytować swoje ustawienia powiadomień: %(notification_settings_url)s )\n"
 "\n"
-"(Follow this link to edit your notification preferences: %(notification_settings_url)s )\n"
-"\n"
-"Your %(site_name)s Team."
+"Twój Zespół %(site_name)s."
 
 msgid "There are no etherpads yet"
-msgstr "There are no Pads yet"
+msgstr "Nie ma jeszcze etherpadów"
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr "Pad \"%(title)s\" was edited successfully."
+msgstr "Etherpad \"%(title)s\" edytowany pomyślnie."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
-msgstr "Pad \"%(title)s\" could not be edited."
+msgstr "Etherpad \"%(title)s\" nie mógł zostać edytowany."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr "Pad \"%(title)s\" was added successfully."
+msgstr "Etherpad \"%(title)s\" dodany pomyślnie."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
-msgstr "Pad \"%(title)s\" could not be added."
+msgstr "Etherpad \"%(title)s\" nie mógł zostać dodany."
 
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
-msgstr ""
+msgstr "Folder \"%(title)s\" utworzony pomyślnie."
 
 #, python-format
 msgid "Etherpad with name \"%(name)s\" already exists on pad server. Please use another name."
-msgstr "Pad with name \"%(name)s\" already exists on pad server. Please use another name."
+msgstr "Etherpad o nazwie \\’’%(name)s\\’’ już istnieje na serwerze. Użyj innej nazwy."
 
 msgid "The document could not be created because the etherpad service is misconfigured. Please contact an administrator!"
-msgstr ""
+msgstr "Nie można stworzyć dokumentu, ponieważ serwis etherpad nie jest skonfigurowany. Skontaktuj się z administratorem!"
 
 msgid "The document could not be created because the etherpad server could not be reached. Please contact an administrator!"
-msgstr ""
+msgstr "Nie można stworzyć dokumentu, ponieważ nie ma dostępu do serwera etherpad. Skontaktuj się z administratorem!"
 
 #, python-format
 msgid "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr ""
+msgstr "Pad zarchiwizowano jako Dokument: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr ""
+msgstr "Pad zarchiwizowano jako Wpis w pliku: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
