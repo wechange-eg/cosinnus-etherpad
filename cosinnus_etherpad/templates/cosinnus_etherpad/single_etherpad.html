@@ -19,7 +19,8 @@
 	                    {% if not hide_group_name %}
 			                <div class="group-annotation">
 		                        {% include 'cosinnus/group/group_label.html' with group=etherpad.group %}
-		                    </div>
+		                        {% include 'cosinnus/common/hierarchical_object_folder_label.html' with object=etherpad %}
+                            </div>
 		                {% endif %}
 	                </div>
 	            </li>
