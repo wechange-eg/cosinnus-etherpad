@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-22 13:18+0200\n"
-"PO-Revision-Date: 2018-07-22 13:28+0200\n"
+"POT-Creation-Date: 2018-07-22 15:20+0200\n"
+"PO-Revision-Date: 2018-07-22 15:20+0200\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
 "MIME-Version: 1.0\n"
@@ -140,6 +140,9 @@ msgstr "Sind Sie sicher, dass Sie das Pad „%(title)s“ löschen wollen?"
 msgid "No etherpads have been created yet."
 msgstr "Es wurden noch keine Pads erstellt."
 
+msgid "Export (PDF)"
+msgstr "Exportieren (PDF)"
+
 msgid "Fullscreen"
 msgstr "Vollbild"
 
@@ -257,10 +260,6 @@ msgstr "Pad wurde als Dateieintrag archiviert: <a class=\"alert-link\" href=\"%(
 
 #~ msgid "No tags available."
 #~ msgstr "Keine Schlagwörter vorhanden."
-
-#~ msgctxt "the verb"
-#~ msgid "Export"
-#~ msgstr "Exportieren"
 
 #~ msgid "Add etherpad"
 #~ msgstr "Dokument hinzufügen"
