@@ -41,6 +41,7 @@ notifications = {
         'subject_template': 'cosinnus_etherpad/notifications/etherpad_created_subject.txt',
         'signals': [etherpad_created],
         'default': True,
+        'moderatable_content': True,
         
         'is_html': True,
         'snippet_type': 'doc',
