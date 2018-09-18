@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-22 15:20+0200\n"
+"POT-Creation-Date: 2018-09-18 22:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -138,9 +138,6 @@ msgid "Do you really want to delete etherpad „%(title)s“?"
 msgstr ""
 
 msgid "No etherpads have been created yet."
-msgstr ""
-
-msgid "Export (PDF)"
 msgstr ""
 
 msgid "Fullscreen"

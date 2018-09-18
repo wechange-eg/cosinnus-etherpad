@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-07-22 15:20+0200\n"
-"PO-Revision-Date: 2018-05-08 19:41+0200\n"
+"POT-Creation-Date: 2018-09-18 22:50+0200\n"
+"PO-Revision-Date: 2018-09-14 18:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "Language: fr\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 2.0.8\n"
 
 msgid "The following Pads were re-initialized:"
 msgstr "Les pads suivants ont été réinitialisés :"
@@ -46,10 +46,8 @@ msgstr "%(sender_name)s a créé un nouveau etherpad"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Un nouvel etherpad : \"%(object_name)s\" a été créé dans %(team_name)s."
 
-#, fuzzy
-#| msgid "Latest Etherpads"
 msgid "Last accessed Etherpads"
-msgstr "Derniers etherpads"
+msgstr "Derniers etherpads accédés"
 
 msgid "No etherpads"
 msgstr "Aucun etherpad"
@@ -67,10 +65,10 @@ msgid "Ethercalc"
 msgstr "Ethercalc"
 
 msgid "Last accessed"
-msgstr ""
+msgstr "Accédés récemment"
 
 msgid "Newest Pads"
-msgstr "Etherpads les plus récents"
+msgstr "Pads les plus récents"
 
 msgid "Title"
 msgstr "Titre"
@@ -113,7 +111,7 @@ msgid "This document is empty"
 msgstr "Ce document est vide"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "Il y a une erreur dans l'un des champs que tu as saisis. Corrige-la avant d'enregistrer !"
 
 msgid "Enter a title for the Pad."
 msgstr "Entrer un titre pour le pad."
@@ -143,9 +141,6 @@ msgstr "Souhaites-tu vraiment supprimer l'etherpad „%(title)s“ ?"
 msgid "No etherpads have been created yet."
 msgstr "Aucun etherpad n'a encore été créé."
 
-msgid "Export (PDF)"
-msgstr ""
-
 msgid "Fullscreen"
 msgstr "Plein écran"
 
@@ -153,10 +148,10 @@ msgid "Leave Fullscreen"
 msgstr "Quitter le mode plein écran"
 
 msgid "Help and Assistance for this page"
-msgstr ""
+msgstr "Aide et assistance pour cette page"
 
 msgid "Help"
-msgstr ""
+msgstr "Aide"
 
 msgid "Download CSV"
 msgstr "Télécharger données CSV"
@@ -227,3 +222,6 @@ msgstr "Le pad a été archivé comme document : <a class=\"alert-link\" href=\"
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 msgstr "Le pad a été archivé comme une entrée de dossier : <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+
+#~ msgid "Export (PDF)"
+#~ msgstr "Exporter (PDF)"
