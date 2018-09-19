@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
+from __future__ import print_function
 
 
+from builtins import str
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.dispatch import receiver
 
@@ -12,7 +14,7 @@ from cosinnus.conf import settings
 from uuid import uuid4
 
 if not getattr(settings, 'COSINNUS_ETHERPAD_DISABLE_HOOKS', False):
-
+    
     @receiver(post_save, sender=CosinnusGroup)
     def create_etherpad_group(sender, instance, created, **kwargs):
         """

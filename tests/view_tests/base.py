@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from builtins import str
 from django.contrib.auth.models import User
 from django.test import TestCase, Client
 from uuid import uuid4

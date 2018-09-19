@@ -3,6 +3,7 @@ Created on 05.08.2014
 
 @author: Sascha
 '''
+from builtins import object
 from django.utils.translation import ugettext_lazy as _
 
 from cosinnus.views.mixins.filters import CosinnusFilterSet
@@ -17,7 +18,7 @@ class EtherpadFilter(CosinnusFilterSet):
     creator = AllObjectsFilter(label=_('Created By'), widget=SelectCreatorWidget)
     type = ChoiceFilter(label=_('Type'), choices=((0, _('Etherpad')), (1, _('Ethercalc'))), widget=DropdownChoiceWidgetWithEmpty)
     
-    class Meta:
+    class Meta(object):
         model = Etherpad
         fields = ['creator', 'type']
         order_by = (

@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from builtins import object
 from django import forms
 from django.core.urlresolvers import reverse_lazy
 
@@ -17,7 +18,7 @@ from cosinnus.forms.attached_object import FormAttachableMixin
 class _EtherpadForm(GroupKwargModelFormMixin, UserKwargModelFormMixin, 
                     FormAttachableMixin, BaseTaggableObjectForm):
 
-    class Meta:
+    class Meta(object):
         model = Etherpad
         fields = ('title', 'description', 'media_tag')
      

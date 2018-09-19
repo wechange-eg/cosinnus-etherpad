@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from builtins import str
 import requests
 import six
 import sys
@@ -9,7 +10,7 @@ from cosinnus.views.mixins.hierarchy import HierarchicalListCreateViewMixin
 from cosinnus.views.mixins.filters import CosinnusFilterMixin
 from cosinnus_etherpad.filters import EtherpadFilter
 from cosinnus.utils.urls import group_aware_reverse
-from urllib2 import HTTPError, URLError
+from urllib.error import HTTPError, URLError
 from django.shortcuts import redirect
 from django.http.response import HttpResponse, Http404
 from cosinnus.views.attached_object import AttachableViewMixin
@@ -19,7 +20,7 @@ from django.utils.timezone import now
 try:
     from urllib.parse import urlparse
 except ImportError:
-    from urlparse import urlparse
+    from urllib.parse import urlparse
 import logging
 
 from django.contrib import messages
@@ -149,7 +150,7 @@ class EtherpadWriteView(RequireLoggedInMixin, EtherpadDetailView):
         try:
             self.object.last_accessed = now()
             self.object.save(update_fields=['last_accessed'])
-        except Exception, e:
+        except Exception as e:
             extra = {'exception': force_text(e), 'user': self.request.user}
             logger.error('Error when trying to set last_accessed', extra=extra)
         return response

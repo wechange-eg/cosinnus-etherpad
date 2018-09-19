@@ -1,3 +1,6 @@
+from builtins import str
+from builtins import range
+from builtins import object
 import requests
 import json
 import re
@@ -25,7 +28,7 @@ def set(coord, item):
         return ("set %s value n %f" % (coord, item))
     elif isinstance(item, int):
         return ("set %s value n %d" % (coord, item))
-    elif isinstance(item, str) or isinstance(item, unicode):
+    elif isinstance(item, str) or isinstance(item, str):
         if item == "":
             return ("set %s empty" % coord)
         elif item[0] == "'":
@@ -55,7 +58,7 @@ def ss_to_xy(s):
 def _grid_size(cells):
     maxx = -1
     maxy = -1
-    for k, v in cells.items():
+    for k, v in list(cells.items()):
         (x, y) = ss_to_xy(k)
         maxx = max(x, maxx)
         maxy = max(y, maxy)
@@ -140,7 +143,7 @@ class EtherCalc(object):
             cells = self.cells(page)
             (sizex, sizey) = _grid_size(cells)
             grid = [[None for _ in range(sizex)] for _ in range(sizey)]
-            for k, v in cells.items():
+            for k, v in list(cells.items()):
                 (x, y) = ss_to_xy(k)
                 if v['valuetype'] == 'n':
                     grid[y][x] = float(v['datavalue'])

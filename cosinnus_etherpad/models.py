@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from builtins import str
+from builtins import object
 from six.moves.urllib.parse import quote_plus
 
 import time
@@ -221,7 +223,7 @@ class EtherpadSpecific(Etherpad):
     
     objects = EtherpadSpecificManager()
     
-    class Meta:
+    class Meta(object):
         proxy = True
 
 
@@ -242,7 +244,7 @@ class Ethercalc(Etherpad):
         
     objects = EthercalcManager()
 
-    class Meta:
+    class Meta(object):
         proxy = True
         verbose_name = _('Ethercalc')
         verbose_name_plural = _('Ethercalcs')
@@ -263,14 +265,14 @@ class Ethercalc(Etherpad):
     def content(self):
         try:
             ret = self.client.export(self.pad_id, format='html')
-        except HTTPError, e:
+        except HTTPError as e:
             # the calc may not have been created on the server yet 
             # (empty calcs are created automatically at first data input)
             if e.response.status_code == 404:
                 ret = ''
             else:
                 raise
-        except Exception, e:
+        except Exception as e:
             logger.error('Could not display an Ethercalc because of exception "%s"' % force_text(e))
             raise
         return ret

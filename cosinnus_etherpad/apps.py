@@ -12,5 +12,5 @@ class CosinnusEtherpadAppConfig(AppConfig):
         cosinnus_app.register()
         
         # connect all signal listeners
-        from cosinnus_etherpad.hooks import *  # noqa
+        import cosinnus_etherpad.hooks  # noqa
 
