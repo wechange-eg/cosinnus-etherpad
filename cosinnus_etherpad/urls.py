@@ -14,7 +14,6 @@ cosinnus_group_patterns = patterns('cosinnus_etherpad.views',
     url(r'^(?P<slug>[^/]+)/csv/$', 'calc_csv_view', name='calc-csv'),
     
     #url(r'^add-container/$', 'container_add_view', name='container-add'),
-    url(r'^export/$', 'export_view', name='export'),
     url(r'^(?P<slug>[^/]+)/delete/$', 'pad_delete_view', name='pad-delete'),
     url(r'^(?P<slug>[^/]+)/archive/document/$',
         'pad_archive_document', name='pad-archive-document'),
