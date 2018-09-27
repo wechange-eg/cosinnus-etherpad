@@ -9,7 +9,7 @@ import requests
 
 
 def utf8_encode(s):
-    return s # py3 needs no more utf-encode here
+    return s if isinstance(s, bytes) else s.encode('utf8')
 
 
 def utf8_encode_dict_values(d):
@@ -31,7 +31,7 @@ class EtherpadLiteClient(object):
 
     def __call__(self, path, **params):
         params = utf8_encode_dict_values(params)
-        data = urlencode(dict(self.base_params, **params)).encode('ascii')
+        data = urlencode(dict(self.base_params, **params))
         url = '%s/%s/%s?%s' % (self.base_url, self.api_version, path, data)
         try:
             resp = requests.get(url, data=data, verify=self.verify)
