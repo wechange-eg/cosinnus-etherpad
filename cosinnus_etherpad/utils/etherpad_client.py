@@ -9,7 +9,7 @@ import requests
 
 
 def utf8_encode(s):
-    return s if isinstance(s, bytes) else s.encode('utf8')
+    return s # py3 needs no more utf-encode here
 
 
 def utf8_encode_dict_values(d):
