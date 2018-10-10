@@ -144,8 +144,15 @@ pad_detail_view = EtherpadDetailView.as_view()
 class EtherpadWriteView(RequireLoggedInMixin, EtherpadDetailView):
     template_name = 'cosinnus_etherpad/etherpad_write.html'
     
-    def render_to_response(self, context, **response_kwargs):
+    def render_to_response(self, context, **response_kwargs):   
+        """ Do not allow write access to pads owned by deactived users.
+            Also save last accessed on access """
+        if not self.object.creator.is_active:
+            kwargs = {'group': self.object.group, 'slug': self.object.slug}
+            return redirect(group_aware_reverse('cosinnus:etherpad:pad-detail', kwargs=kwargs))
+        
         response = super(EtherpadWriteView, self).render_to_response(context, **response_kwargs)
+        
         try:
             self.object.last_accessed = now()
             self.object.save(update_fields=['last_accessed'])
