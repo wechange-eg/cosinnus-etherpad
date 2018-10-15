@@ -19,6 +19,17 @@
 
 
 {% block content %}
+
+    {% if not etherpad.creator.is_active %}
+        <div class="alert alert-warning alert-dismissable">
+            <i class="fa fa-warning fa-3x"></i>
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&#215;</button>
+            <p>
+                {% trans "This pad can no longer be edited because its creator has deleted their account." %}
+            </p>
+        </div>
+    {% endif %}
+
     <!-- a box with semi transparent background -->
     <div class="content-box">
         <div class="btn btn-extra-emphasized w100">
@@ -34,9 +45,13 @@
                     	{% with creator=object.creator %}
 	                        <span class="annotation">{% trans "by" %} <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a></span>
 	                    {% endwith %}
-                        <a href="{% group_url "cosinnus:etherpad:pad-write" group=group slug=etherpad.slug %}">
-                        	{{ object.title }}
-                        </a>
+	                    {% if etherpad.creator.is_active %}
+	                        <a href="{% group_url "cosinnus:etherpad:pad-write" group=group slug=etherpad.slug %}">
+	                        	{{ object.title }}
+	                        </a>
+                        {% else %}
+                            {{ object.title }}
+                        {% endif %}
                     </div>
                 </li>
             </ul>
@@ -54,7 +69,7 @@
         <div class="large-space">
 		    
 		    {% if user|has_read_access:object or object.media_tag.visibility == 2 %}  
-		        <button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:pad-write" group=group slug=etherpad.slug %}">
+		        <button type="button" class="btn btn-emphasized" {% if etherpad.creator.is_active %}href="{% group_url "cosinnus:etherpad:pad-write" group=group slug=etherpad.slug %}"{% else %}disabled="disabled"{% endif %}>
 		            <ul class="media-list">
 		                <li class="media">
 		                    <a class="pull-left" href="#">

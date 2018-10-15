@@ -68,7 +68,7 @@ if not getattr(settings, 'COSINNUS_ETHERPAD_DISABLE_HOOKS', False):
             # we don't actually talk to the server to create a calc; since unknown calcs are
             # created automatically and we have no way of really checking for existing ones with the dumb API
             # we trust uuid4 to create a new pad
-            instance.pad_id = groupMapper + '-' + str(uuid4()).replace('-', '')
+            instance.pad_id = groupMapper + ('-%s' % str(uuid4()).replace('-', '')).encode('utf-8')
             
     
     """@receiver(post_delete, sender=Etherpad)"""
