@@ -74,6 +74,7 @@ def _get_cookie_domain():
 
 
 class EtherpadIndexView(RequireReadMixin, RedirectView):
+    permanent = False
 
     def get_redirect_url(self, **kwargs):
         return group_aware_reverse('cosinnus:etherpad:list',
@@ -372,6 +373,8 @@ calc_csv_view = EthercalcCSVView.as_view()
 
 
 class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
+    permanent = False
+    
     def get_title(self, request, pad_title):
         import time
         from django.utils.timezone import now
