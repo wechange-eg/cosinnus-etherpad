@@ -86,7 +86,7 @@
 	    
 	    {% for object in objects %}
 		    <div id="cosinnus_list_element_{{ object.id }}" class="fadedown {% if not forloop.last %}regular-space{% endif %}">
-		        <div class="btn btn-emphasized w100">
+		        <div class="btn btn-emphasized w100" href="{{ object.get_absolute_url }}">
 		            <ul class="media-list">
 		                <li class="media">
 		                    <a class="pull-left" href="#">
@@ -95,9 +95,6 @@
 		                    <a class="pull-right fadedown-clickarea" href="#">
 		                        <i class="fa fa-chevron-down"></i>
 		                    </a>
-		                    <a class="pull-right" href="{{ object.get_absolute_url }}">
-                                <i class="fa fa-chain"></i>
-                            </a>
                             {% if user|can_create_objects_in:group %}
 	                            <a class="pull-right" href="#" title="{% trans "Move to another Folder" %}" onclick="$.cosinnus.Feedback.cosinnus_move_element({{ object.id }}, {{ current_folder.id }});">
 	                                <i class="fa fa-arrows"></i>
@@ -105,7 +102,7 @@
                             {% endif %}
 		                    <div class="media-body">
 		                        {% with creator=object.creator %}
-    	                            <span class="annotation">
+    	                            <span class="annotation mobile-hidden">
     	                                <!--{% trans "by" %}-->
                                         {% trans "Created By" %}
     	                                <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a>
