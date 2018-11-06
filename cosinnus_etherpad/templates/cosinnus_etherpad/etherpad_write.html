@@ -75,92 +75,105 @@
 	        <div class="etherpad-iframe">
 	            <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="100%"></iframe>
 	            
-	            <button type="button" class="btn w100 btn-emphasized fullscreen-leave-button fullscreen-toggle">
-	                <ul class="media-list">
-	                    <li class="media">
-	                        <a class="pull-left" href="#">
-	                            <i class="fa fa-compress"></i>
-	                        </a>
-	                        <div class="media-body">
-	                            {% trans "Leave Fullscreen" %}
-	                        </div>
-	                    </li>
-	                </ul>
-	            </button>
+	            <button type="button" class="btn w100 btn-emphasized fullscreen-leave-button fullscreen-toggle mobile-hidden">
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-compress"></i>
+                            </a>
+                            <div class="media-body">
+                                {% trans "Leave Fullscreen" %}
+                            </div>
+                        </li>
+                    </ul>
+                </button>
+                <button type="button" class="btn w100 btn-emphasized fullscreen-leave-button mobile-only" href="{{ object.get_absolute_url }}">
+                    <ul class="media-list">
+                        <li class="media">
+                            <a class="pull-left" href="#">
+                                <i class="fa fa-reply"></i>
+                            </a>
+                            <div class="media-body">
+                                {% trans "Back" %}
+                            </div>
+                        </li>
+                    </ul>
+                </button>
 	        </div>
 	
 	    
 	    </div><!-- content-box -->
 	    
 	    
-	    
-	    {% captureas help_text_id %}helptext_11_document{% endcaptureas %}
-	    {% captureas help_modal_id %}modal-{{ help_text_id }}{% endcaptureas %}
-		{% include 'cosinnus/common/modal_box_help_popup.html' with help_text_id=help_text_id help_title=help_title help_modal_id=help_modal_id %}
-		<button type="button" class="btn btn-emphasized pull-left" style="margin: 0px;" data-toggle="modal" data-target="#{{ help_modal_id }}" title="{% trans "Help and Assistance for this page" %}">
-            <ul class="media-list">
-                <li class="media">
-                    <a class="pull-left" href="#">
-                        <i class="fa fa-question-circle-o"></i>
-                    </a>
-                    <div class="media-body">
-                        {% trans "Help" %}
-                    </div>
-                </li>
-            </ul>
-        </button>
-	    
-	    
-	    {% if user|has_write_access:object %}   
-		    <button type="button" class="btn btn-emphasized pull-left" data-toggle="modal" data-target="#deleteModal">
+	    <div class="mobile-hidden">
+		    {% captureas help_text_id %}helptext_11_document{% endcaptureas %}
+		    {% captureas help_modal_id %}modal-{{ help_text_id }}{% endcaptureas %}
+			{% include 'cosinnus/common/modal_box_help_popup.html' with help_text_id=help_text_id help_title=help_title help_modal_id=help_modal_id %}
+			<button type="button" class="btn btn-emphasized pull-left" style="margin: 0px;" data-toggle="modal" data-target="#{{ help_modal_id }}" title="{% trans "Help and Assistance for this page" %}">
 	            <ul class="media-list">
 	                <li class="media">
 	                    <a class="pull-left" href="#">
-	                        <i class="fa fa-eraser"></i>
+	                        <i class="fa fa-question-circle-o"></i>
 	                    </a>
 	                    <div class="media-body">
-	                        {% trans "Delete" %}
+	                        {% trans "Help" %}
 	                    </div>
 	                </li>
 	            </ul>
 	        </button>
-		    {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
-		    {% captureas title %}{% trans "Delete Etherpad" %}{% endcaptureas %}
-		    {% group_url "cosinnus:etherpad:pad-delete" group=group slug=etherpad.slug as delete_url %}
-		    {% include "cosinnus/modal_box.html" with id="deleteModal" label=label title=title form_action=delete_url %}
-	    {% endif %}
-	    
-	    
-	    {% if user|has_write_access:object %}
-	    	<button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:pad-edit" group=group slug=etherpad.slug %}">
-	            <ul class="media-list">
-	                <li class="media">
-	                    <a class="pull-left" href="#">
-	                        <i class="fa fa-cog"></i>
-	                    </a>
-	                    <div class="media-body">
-	                        {% trans "Settings" %}
-	                    </div>
-	                </li>
-	            </ul>
-	        </button> 
-	    {% endif %}
-	    
-	    {# Ethercalc needs external CSV export #}
-	    {% if object.type == 1 %}
-	    	<button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:calc-csv" group=group slug=etherpad.slug %}">
-	            <ul class="media-list">
-	                <li class="media">
-	                    <a class="pull-left" href="#">
-	                        <i class="fa fa-download"></i>
-	                    </a>
-	                    <div class="media-body">
-	                        {% trans "Download CSV" %}
-	                    </div>
-	                </li>
-	            </ul>
-	        </button> 
-	    {% endif %}
+		    
+		    
+		    {% if user|has_write_access:object %}   
+			    <button type="button" class="btn btn-emphasized pull-left" data-toggle="modal" data-target="#deleteModal">
+		            <ul class="media-list">
+		                <li class="media">
+		                    <a class="pull-left" href="#">
+		                        <i class="fa fa-eraser"></i>
+		                    </a>
+		                    <div class="media-body">
+		                        {% trans "Delete" %}
+		                    </div>
+		                </li>
+		            </ul>
+		        </button>
+			    {% captureas label %}{% blocktrans with pad=object.title %}Do you really want to delete etherpad „{{ pad }}“?{% endblocktrans %}{% endcaptureas %}
+			    {% captureas title %}{% trans "Delete Etherpad" %}{% endcaptureas %}
+			    {% group_url "cosinnus:etherpad:pad-delete" group=group slug=etherpad.slug as delete_url %}
+			    {% include "cosinnus/modal_box.html" with id="deleteModal" label=label title=title form_action=delete_url %}
+		    {% endif %}
+		    
+		    
+		    {% if user|has_write_access:object %}
+		    	<button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:pad-edit" group=group slug=etherpad.slug %}">
+		            <ul class="media-list">
+		                <li class="media">
+		                    <a class="pull-left" href="#">
+		                        <i class="fa fa-cog"></i>
+		                    </a>
+		                    <div class="media-body">
+		                        {% trans "Settings" %}
+		                    </div>
+		                </li>
+		            </ul>
+		        </button> 
+		    {% endif %}
+		    
+		    {# Ethercalc needs external CSV export #}
+		    {% if object.type == 1 %}
+		    	<button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:calc-csv" group=group slug=etherpad.slug %}">
+		            <ul class="media-list">
+		                <li class="media">
+		                    <a class="pull-left" href="#">
+		                        <i class="fa fa-download"></i>
+		                    </a>
+		                    <div class="media-body">
+		                        {% trans "Download CSV" %}
+		                    </div>
+		                </li>
+		            </ul>
+		        </button> 
+		    {% endif %}
+	    </div>
 
 	</div> <!-- row -->
     

@@ -20,6 +20,22 @@
 .etherpad-iframe.fullscreen .fullscreen-leave-button {
     display: inherit;
 }
+/** Always show fullscreen on mobile! */
+@media (max-width: 767px) {
+    .etherpad-iframe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: 10000000000; /* had to do that, thanks to the user-report button */
+        margin: 0;
+    }
+    .etherpad-iframe .fullscreen-leave-button {
+        display: inherit;
+    }
+}
+
 
 .fullscreen-button {
     margin-left: 25px;
