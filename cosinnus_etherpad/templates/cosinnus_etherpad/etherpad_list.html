@@ -35,9 +35,9 @@
 				<div type="button" class="btn btn-default w100 large-space">
 				    <ul class="media-list">
 				        <li class="media">
-				            <a class="pull-left" href="#">
+				            <span class="pull-left">
 				                <i class="fa fa-plus"></i>
-				            </a>
+				            </span>
 				            <div class="media-body media-body-form-control">
 				                {{ obj_form.title.errors }}
 				                {% if SETTINGS.COSINNUS_ETHERPAD_ENABLE_ETHERCALC %}
@@ -89,9 +89,9 @@
 		        <div class="btn btn-emphasized w100" href="{{ object.get_absolute_url }}">
 		            <ul class="media-list">
 		                <li class="media">
-		                    <a class="pull-left" href="#">
+		                    <span class="pull-left">
 		                        <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
-		                    </a>
+		                    </span>
 		                    <a class="pull-right fadedown-clickarea" href="#">
 		                        <i class="fa fa-chevron-down"></i>
 		                    </a>
