@@ -27,8 +27,8 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(verbose_name='Description', blank=True)),
                 ('group_mapper', models.CharField(max_length=255, null=True, blank=True)),
                 ('attached_objects', models.ManyToManyField(to='cosinnus.AttachedObject', null=True, blank=True)),
-                ('creator', models.ForeignKey(related_name='cosinnus_etherpad_etherpad_set', verbose_name='Creator', to=settings.AUTH_USER_MODEL, null=True)),
-                ('group', models.ForeignKey(related_name='cosinnus_etherpad_etherpad_set', verbose_name='Group', to='cosinnus.CosinnusGroup')),
+                ('creator', models.ForeignKey(related_name='cosinnus_etherpad_etherpad_set', verbose_name='Creator', to=settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE)),
+                ('group', models.ForeignKey(related_name='cosinnus_etherpad_etherpad_set', verbose_name='Group', to='cosinnus.CosinnusGroup', on_delete=models.CASCADE)),
             ],
             options={
                 'abstract': False,
