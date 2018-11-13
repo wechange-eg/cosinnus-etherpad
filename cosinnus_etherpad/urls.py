@@ -4,6 +4,8 @@ from __future__ import unicode_literals
 from django.conf.urls import url
 from cosinnus_etherpad import views 
 
+app_name = 'etherpad'
+
 cosinnus_group_patterns = [
     url(r'^$', views.index_view, name='index'),
     url(r'^list/$', views.pad_hybrid_list_view, name='list'),
