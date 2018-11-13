@@ -1,6 +1,8 @@
 {% extends "cosinnus_etherpad/base.html" %}
 {% load i18n static cosinnus_tags widget_tweaks sekizai_tags %}
 
+{% block html_attributes %}class="mobile-noscroll"{% endblock html_attributes %}
+
 {% block page_title %}
 {% trans "Pads" %} {{ block.super }}
 {% endblock page_title %}
