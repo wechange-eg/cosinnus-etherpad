@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 
 from builtins import str
 from django.conf import settings
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from cosinnus_etherpad.models import Etherpad
 from tests.view_tests.base import ViewTestCase

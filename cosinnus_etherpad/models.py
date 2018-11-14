@@ -7,7 +7,7 @@ from six.moves.urllib.parse import quote_plus
 
 import time
 from datetime import timedelta
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from django.db import models
 from django.db.models.signals import pre_save, post_save, post_delete
 from django.dispatch import receiver
