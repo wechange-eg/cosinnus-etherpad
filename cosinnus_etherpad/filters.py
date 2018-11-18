@@ -6,28 +6,35 @@ Created on 05.08.2014
 from builtins import object
 from django.utils.translation import ugettext_lazy as _
 
-from cosinnus.views.mixins.filters import CosinnusFilterSet
+from cosinnus.views.mixins.filters import CosinnusFilterSet,\
+    CosinnusOrderingFilter
 from cosinnus.forms.filters import AllObjectsFilter, SelectCreatorWidget,\
-    DropdownChoiceWidgetWithEmpty
+    DropdownChoiceWidgetWithEmpty, DropdownChoiceWidget
 from cosinnus_etherpad.models import Etherpad
 from django_filters.filters import ChoiceFilter
-from django.forms import forms
 
 
 class EtherpadFilter(CosinnusFilterSet):
     creator = AllObjectsFilter(label=_('Created By'), widget=SelectCreatorWidget)
     type = ChoiceFilter(label=_('Type'), choices=((0, _('Etherpad')), (1, _('Ethercalc'))), widget=DropdownChoiceWidgetWithEmpty)
     
-    class Meta(object):
-        model = Etherpad
-        fields = ['creator', 'type']
-        order_by = (
+    o = CosinnusOrderingFilter(
+        fields=(
+            ('last_accessed', 'last_accessed'),
+            ('created', 'created'),
+            ('title', 'title'),
+        ),
+        choices=(
             ('-last_accessed', _('Last accessed')),
             ('-created', _('Newest Pads')),
             ('title', _('Title')),
-        )
+        ),
+        default='-last_accessed',
+        widget=DropdownChoiceWidget
+    )
     
-    def get_order_by(self, order_value):
-        return super(EtherpadFilter, self).get_order_by(order_value)
+    class Meta(object):
+        model = Etherpad
+        fields = ['creator', 'type', 'o']
     
     
