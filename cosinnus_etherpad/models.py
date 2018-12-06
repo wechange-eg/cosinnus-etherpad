@@ -33,6 +33,7 @@ from requests.exceptions import HTTPError
 from django.utils.encoding import force_text
 
 import logging
+from uuid import uuid1
 logger = logging.getLogger('cosinnus')
 
 
@@ -126,9 +127,13 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         created = bool(self.pk) == False
         super(Etherpad, self).save(*args, **kwargs)
         if created and not self.is_container:
-            # todo was created
-            cosinnus_notifications.etherpad_created.send(sender=self, user=self.creator, obj=self, audience=get_user_model().objects.filter(id__in=self.group.members).exclude(id=self.creator.pk))
-        
+            # pad was created
+            session_id = uuid1().int
+            group_followers_except_creator_ids = [pk for pk in self.group.get_followed_user_ids() if not pk in [self.creator_id]]
+            group_followers_except_creator = get_user_model().objects.filter(id__in=group_followers_except_creator_ids)
+            cosinnus_notifications.followed_group_etherpad_created.send(sender=self, user=self.creator, obj=self, audience=group_followers_except_creator, session_id=session_id)
+            cosinnus_notifications.etherpad_created.send(sender=self, user=self.creator, obj=self, audience=get_user_model().objects.filter(id__in=self.group.members).exclude(id=self.creator.pk), session_id=session_id, end_session=True)
+            
 
     def get_user_session_id(self, user):
         group_mapper = getattr(self, 'group_mapper', None)
