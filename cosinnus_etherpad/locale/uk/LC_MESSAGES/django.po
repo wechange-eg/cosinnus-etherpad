@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-11-07 17:49+0100\n"
+"POT-Creation-Date: 2018-12-10 12:52+0100\n"
 "PO-Revision-Date: 2018-11-20 17:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,6 +44,26 @@ msgstr "%(sender_name)s створив новий документ"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+msgstr "Новий документ: «%(object_name)s» було створено у %(team_name)s."
+
+#, fuzzy
+#| msgid "A user created a new etherpad"
+msgid "A user created a new etherpad in a team you are following"
+msgstr "Користувач створив(ла) новий документ"
+
+#, fuzzy, python-format
+#| msgid "New etherpad by %(sender_name)s"
+msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+msgstr "%(sender_name)s створив новий документ"
+
+#, fuzzy, python-format
+#| msgid "%(sender_name)s created a new etherpad"
+msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
+msgstr "%(sender_name)s створив новий документ"
+
+#, fuzzy, python-format
+#| msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
 msgstr "Новий документ: «%(object_name)s» було створено у %(team_name)s."
 
 msgid "Last accessed Etherpads"
@@ -121,6 +141,9 @@ msgstr "Уведіть назву для документу."
 
 msgid "Save"
 msgstr "Зберегти"
+
+msgid "Move"
+msgstr ""
 
 msgid "Enter the title for a new Document or Table."
 msgstr "Введіть назву для нового документу чи таблиці."
