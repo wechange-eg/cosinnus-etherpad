@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-12-10 12:52+0100\n"
-"PO-Revision-Date: 2018-11-20 17:02+0100\n"
+"PO-Revision-Date: 2018-12-11 18:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: ru\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 2.0.6\n"
 
 msgid "The following Pads were re-initialized:"
 msgstr "Проведена реинициализация следующих документов:"
@@ -45,25 +45,20 @@ msgstr "%(sender_name)s создал новый документ"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Новый документ: \"%(object_name)s\" был создан в %(team_name)s."
 
-#, fuzzy
-#| msgid "A user created a new etherpad"
 msgid "A user created a new etherpad in a team you are following"
-msgstr "Пользователь создал новый документ"
+msgstr "Пользователь создал новый документ в команде, за которой вы следите"
 
-#, fuzzy, python-format
-#| msgid "New etherpad by %(sender_name)s"
+#, python-format
 msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Новый документ создан %(sender_name)s"
+msgstr "Новый документ создан %(sender_name)s в команде %(team_name)s (за которой вы следите)"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
-msgstr "%(sender_name)s создал новый документ"
+msgstr "%(sender_name)s создал новый документ в %(team_name)s (за которой Вы следите)"
 
-#, fuzzy, python-format
-#| msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+#, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
-msgstr "Новый документ: \"%(object_name)s\" был создан в %(team_name)s."
+msgstr "Новый документ: \"%(object_name)s\" был создан в %(team_name)s (за которым Вы следите)."
 
 msgid "Last accessed Etherpads"
 msgstr "Последние открытые документы"
@@ -142,7 +137,7 @@ msgid "Save"
 msgstr "Сохранить"
 
 msgid "Move"
-msgstr ""
+msgstr "Передвинуть"
 
 msgid "Enter the title for a new Document or Table."
 msgstr "Введите название нового документа или таблицы."
