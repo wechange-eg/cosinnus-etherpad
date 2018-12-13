@@ -309,7 +309,7 @@ TYPE_CLASSES = {
     
 
 def _get_group_mapping(group):
-    return smart_text('p_%d_g_%s' % (CosinnusPortal.get_current().id, group.slug)).encode('utf-8')
+    return 'p_%d_g_%s' % (CosinnusPortal.get_current().id, group.slug)
 
 
 import django
