@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 17:36+0200\n"
+"POT-Creation-Date: 2018-12-10 12:52+0100\n"
 "PO-Revision-Date: 2018-09-14 18:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,6 +44,26 @@ msgstr "%(sender_name)s a créé un nouveau etherpad"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+msgstr "Un nouvel etherpad : \"%(object_name)s\" a été créé dans %(team_name)s."
+
+#, fuzzy
+#| msgid "A user created a new etherpad"
+msgid "A user created a new etherpad in a team you are following"
+msgstr "Un utilisateur a créé un nouvel etherpad"
+
+#, fuzzy, python-format
+#| msgid "New etherpad by %(sender_name)s"
+msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+msgstr "Nouveau etherpad par %(sender_name)s"
+
+#, fuzzy, python-format
+#| msgid "%(sender_name)s created a new etherpad"
+msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
+msgstr "%(sender_name)s a créé un nouveau etherpad"
+
+#, fuzzy, python-format
+#| msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
 msgstr "Un nouvel etherpad : \"%(object_name)s\" a été créé dans %(team_name)s."
 
 msgid "Last accessed Etherpads"
@@ -122,6 +142,9 @@ msgstr "Entrer un titre pour le pad."
 msgid "Save"
 msgstr "Enregistrer"
 
+msgid "Move"
+msgstr ""
+
 msgid "Enter the title for a new Document or Table."
 msgstr "Saisir le titre pour un nouveau document ou tableau."
 
@@ -149,6 +172,9 @@ msgstr "Plein écran"
 
 msgid "Leave Fullscreen"
 msgstr "Quitter le mode plein écran"
+
+msgid "Back"
+msgstr ""
 
 msgid "Help and Assistance for this page"
 msgstr "Aide et assistance pour cette page"

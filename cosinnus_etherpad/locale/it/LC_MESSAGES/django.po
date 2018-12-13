@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 17:36+0200\n"
+"POT-Creation-Date: 2018-12-10 12:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,6 +43,21 @@ msgstr ""
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+msgstr ""
+
+msgid "A user created a new etherpad in a team you are following"
+msgstr ""
+
+#, python-format
+msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+msgstr ""
+
+#, python-format
+msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
+msgstr ""
+
+#, python-format
+msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
 msgstr ""
 
 msgid "Last accessed Etherpads"
@@ -121,6 +136,9 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+msgid "Move"
+msgstr ""
+
 msgid "Enter the title for a new Document or Table."
 msgstr ""
 
@@ -147,6 +165,9 @@ msgid "Fullscreen"
 msgstr ""
 
 msgid "Leave Fullscreen"
+msgstr ""
+
+msgid "Back"
 msgstr ""
 
 msgid "Help and Assistance for this page"

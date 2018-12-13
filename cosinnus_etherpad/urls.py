@@ -10,6 +10,7 @@ cosinnus_group_patterns = [
     url(r'^$', views.index_view, name='index'),
     url(r'^list/$', views.pad_hybrid_list_view, name='list'),
     url(r'^list/move_element/$', views.move_element_view, name='move-element'),
+    url(r'^list/delete_element/$', views.delete_element_view, name='delete-element'),
     url(r'^list/(?P<slug>[^/]+)/$', views.pad_hybrid_list_view, name='list'),
     url(r'^(?P<slug>[^/]+)/edit/$', views.pad_write_view, name='pad-write'),
     url(r'^(?P<slug>[^/]+)/settings/$', views.pad_edit_view, name='pad-edit'),

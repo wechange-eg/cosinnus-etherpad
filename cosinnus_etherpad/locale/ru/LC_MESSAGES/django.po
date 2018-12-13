@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 17:36+0200\n"
-"PO-Revision-Date: 2018-06-17 23:28+0200\n"
+"POT-Creation-Date: 2018-12-10 12:52+0100\n"
+"PO-Revision-Date: 2018-12-11 18:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -44,6 +44,21 @@ msgstr "%(sender_name)s создал новый документ"
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Новый документ: \"%(object_name)s\" был создан в %(team_name)s."
+
+msgid "A user created a new etherpad in a team you are following"
+msgstr "Пользователь создал новый документ в команде, за которой вы следите"
+
+#, python-format
+msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+msgstr "Новый документ создан %(sender_name)s в команде %(team_name)s (за которой вы следите)"
+
+#, python-format
+msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
+msgstr "%(sender_name)s создал новый документ в %(team_name)s (за которой Вы следите)"
+
+#, python-format
+msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
+msgstr "Новый документ: \"%(object_name)s\" был создан в %(team_name)s (за которым Вы следите)."
 
 msgid "Last accessed Etherpads"
 msgstr "Последние открытые документы"
@@ -85,7 +100,7 @@ msgid "Pads"
 msgstr "Документы"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr ""
+msgstr "Этот документ уже нельзя редактировать, потому что создатель удалил аккаунт."
 
 msgid "by"
 msgstr "Cоздатель:"
@@ -121,6 +136,9 @@ msgstr "Введите название."
 msgid "Save"
 msgstr "Сохранить"
 
+msgid "Move"
+msgstr "Передвинуть"
+
 msgid "Enter the title for a new Document or Table."
 msgstr "Введите название нового документа или таблицы."
 
@@ -148,6 +166,9 @@ msgstr "Полноэкранный режим"
 
 msgid "Leave Fullscreen"
 msgstr "Выйти из полноэкранного режима"
+
+msgid "Back"
+msgstr "Назад"
 
 msgid "Help and Assistance for this page"
 msgstr "Справка и помощь для этой страницы"

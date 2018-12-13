@@ -16,6 +16,7 @@ from django.http.response import HttpResponse, Http404
 from cosinnus.views.attached_object import AttachableViewMixin
 from django.utils.encoding import force_text
 from django.utils.timezone import now
+from cosinnus.views.common import DeleteElementView
 
 try:
     from urllib.parse import urlparse
@@ -483,3 +484,9 @@ class EtherpadMoveElementView(MoveElementView):
     model = Etherpad
 
 move_element_view = EtherpadMoveElementView.as_view()
+
+
+class EtherpadDeleteElementView(DeleteElementView):
+    model = Etherpad
+
+delete_element_view = EtherpadDeleteElementView.as_view()

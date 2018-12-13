@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-10 17:36+0200\n"
-"PO-Revision-Date: 2018-06-17 21:15+0200\n"
+"POT-Creation-Date: 2018-12-10 12:52+0100\n"
+"PO-Revision-Date: 2018-12-12 14:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Language: uk\n"
-"X-Generator: Poedit 2.0.6\n"
+"X-Generator: Poedit 1.8.4\n"
 
 msgid "The following Pads were re-initialized:"
 msgstr "Такі документи були повторно ініціалізовані:"
@@ -45,6 +45,21 @@ msgstr "%(sender_name)s створив новий документ"
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Новий документ: «%(object_name)s» було створено у %(team_name)s."
+
+msgid "A user created a new etherpad in a team you are following"
+msgstr "Користувач створив(ла) новий документ в команді, яку Ви відстежуєте"
+
+#, python-format
+msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+msgstr "Новий документ від %(sender_name)s в %(team_name)s (яку Ви відстежуєте)"
+
+#, python-format
+msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
+msgstr "%(sender_name)s створив новий документ в %(team_name)s (яку Ви відстежуєте)"
+
+#, python-format
+msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
+msgstr "Новий документ: «%(object_name)s» було створено у %(team_name)s (яку Ви відстежуєте)."
 
 msgid "Last accessed Etherpads"
 msgstr "Останні відкриті документи"
@@ -86,7 +101,7 @@ msgid "Pads"
 msgstr "Документи"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr ""
+msgstr "Цей документ вже не можна редагувати, тому що автор видалив акаунт."
 
 msgid "by"
 msgstr "автор"
@@ -122,6 +137,9 @@ msgstr "Уведіть назву для документу."
 msgid "Save"
 msgstr "Зберегти"
 
+msgid "Move"
+msgstr "Перемістити"
+
 msgid "Enter the title for a new Document or Table."
 msgstr "Введіть назву для нового документу чи таблиці."
 
@@ -149,6 +167,9 @@ msgstr "Повноекранний режим"
 
 msgid "Leave Fullscreen"
 msgstr "Вийти з повноекранного режиму"
+
+msgid "Back"
+msgstr "Назад"
 
 msgid "Help and Assistance for this page"
 msgstr "Довідка та допомога для цієї сторінки"

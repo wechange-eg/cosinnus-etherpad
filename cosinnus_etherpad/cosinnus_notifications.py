@@ -11,6 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 
 """ Signal definitions """
 etherpad_created = dispatch.Signal(providing_args=["user", "obj", "audience"])
+followed_group_etherpad_created = dispatch.Signal(providing_args=["user", "obj", "audience"])
 
 
 """ Notification definitions.
@@ -54,5 +55,23 @@ notifications = {
             'object_text': 'description',
         },
     },  
-                    
+    'followed_group_etherpad_created': {
+        'label': _('A user created a new etherpad in a team you are following'), 
+        'signals': [followed_group_etherpad_created],
+        'multi_preference_set': 'MULTI_followed_object_notification',
+        'supercedes_notifications': ['etherpad_created'],
+        'requires_object_state_check': 'group.is_user_following',
+        'hidden': True,
+        
+        'is_html': True,
+        'snippet_type': 'doc',
+        'event_text': _('New etherpad by %(sender_name)s in %(team_name)s (which you follow)'),
+        'notification_text': _('%(sender_name)s created a new etherpad in %(team_name)s (which you follow)'),
+        'subject_text': _('A new etherpad: "%(object_name)s" was created in %(team_name)s (which you follow).'),
+        'data_attributes': {
+            'object_name': 'title', 
+            'object_url': 'get_absolute_url', 
+            'object_text': 'description',
+        },
+    },               
 }
