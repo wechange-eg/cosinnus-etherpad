@@ -85,6 +85,8 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         auto_now_add=True)
     
     objects = EtherpadManager()
+    
+    timeline_template = 'cosinnus_etherpad/v2/timeline_item.html'
 
     class Meta(BaseHierarchicalTaggableObjectModel.Meta):
         verbose_name = _('Etherpad')
