@@ -1,7 +1,19 @@
+{% extends 'cosinnus/v2/dashboard/timeline_item_base.html' %}
 {% load i18n cosinnus_tags %}
 
-<div class="timeline-item timeline-item-pad">
-	Timeline Item: Pad.
-	<br/>
-	{{ item.title }}
-</div>
+{% block container_class %}timeline-item-pad{% endblock %}
+
+{% block creation_label %}{% trans "has created a Pad" %}{% endblock %}
+
+{% block icon %}{% if item.type == 1 %}fa-table{% else %}fa-file-text{% endif %}{% endblock %}
+
+{% block title %}{{ item.title }}{% endblock %}
+
+{% block subtitle %}{{ item.creator|full_name }}{% endblock %}
+{% block body_frame %}{% endblock %}
+
+{% comment %} TODO: don't just hide tag block, find solution for extra padding if no tags present! {% endcomment %}
+{% block tags %}{% endblock %}
+{% block upper_seperator %}{% endblock %}
+
+
