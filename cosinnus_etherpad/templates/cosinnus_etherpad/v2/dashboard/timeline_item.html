@@ -3,7 +3,7 @@
 
 {% block container_class %}timeline-item-pad{% endblock %}
 
-{% block creation_label %}{% trans "has created a Pad" %}{% endblock %}
+{% block creation_label %}{% trans "created a Pad" %}{% endblock %}
 
 {% block icon %}{% if item.type == 1 %}fa-table{% else %}fa-file-text{% endif %}{% endblock %}
 
@@ -11,9 +11,4 @@
 
 {% block subtitle %}{{ item.creator|full_name }}{% endblock %}
 {% block body_frame %}{% endblock %}
-
-{% comment %} TODO: don't just hide tag block, find solution for extra padding if no tags present! {% endcomment %}
-{% block tags %}{% endblock %}
-{% block upper_seperator %}{% endblock %}
-
 

@@ -18,12 +18,13 @@ class EtherpadRenderer(HierarchicalListCreateViewMixin, BaseRenderer):
     model = Etherpad
     
     template = 'cosinnus_etherpad/attached_etherpads.html'
+    template_v2 = 'cosinnus_etherpad/v2/attached_etherpads.html'
     template_single = 'cosinnus_etherpad/single_etherpad.html'
     template_list = 'cosinnus_etherpad/etherpad_list_standalone.html'
     
     @classmethod
-    def render(cls, context, myobjs):
-        return super(EtherpadRenderer, cls).render(context, etherpads=myobjs)
+    def render(cls, context, myobjs, **kwargs):
+        return super(EtherpadRenderer, cls).render(context, etherpads=myobjs, **kwargs)
     
     @classmethod
     def render_list_for_user(cls, user, request, qs_filter={}, limit=30, render_if_empty=True, **kwargs):
