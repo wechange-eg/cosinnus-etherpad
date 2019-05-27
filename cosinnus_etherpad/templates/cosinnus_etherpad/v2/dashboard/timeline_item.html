@@ -6,6 +6,7 @@
 {% block creation_label %}{% trans "created a Pad" %}{% endblock %}
 
 {% block icon %}{% if item.type == 1 %}fa-table{% else %}fa-file-text{% endif %}{% endblock %}
+{% block icon_class %}icon-padded{% endblock %} {% comment %} Set if there is a subtitle row! {% endcomment %}
 
 {% block title %}{{ item.title }}{% endblock %}
 
