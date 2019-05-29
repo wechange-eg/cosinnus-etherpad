@@ -38,7 +38,7 @@ from cosinnus.views.mixins.group import (
     RequireReadMixin, RequireWriteMixin, FilterGroupMixin, GroupFormKwargsMixin,
     RequireReadWriteHybridMixin, RequireLoggedInMixin)
 from cosinnus.views.mixins.tagged import (HierarchyTreeMixin,
-    HierarchyPathMixin, HierarchyDeleteMixin)
+    HierarchyPathMixin, HierarchyDeleteMixin, RecordLastVisitedMixin)
 from cosinnus.views.mixins.user import UserFormKwargsMixin
 
 from cosinnus_etherpad.conf import settings
@@ -101,7 +101,7 @@ class EtherpadListView(RequireReadMixin, FilterGroupMixin,
 list_view = EtherpadListView.as_view()
 
 
-class EtherpadDetailView(RequireReadMixin, FilterGroupMixin, DetailView):
+class EtherpadDetailView(RequireReadMixin, RecordLastVisitedMixin, FilterGroupMixin, DetailView):
     model = Etherpad
     template_name = 'cosinnus_etherpad/etherpad_detail.html'
     
