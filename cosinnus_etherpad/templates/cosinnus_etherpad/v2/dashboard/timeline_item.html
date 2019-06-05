@@ -8,8 +8,10 @@
 {% block icon %}{% if item.type == 1 %}fa-table{% else %}fa-file-text{% endif %}{% endblock %}
 {% block icon_class %}icon-padded{% endblock %} {% comment %} Set if there is a subtitle row! {% endcomment %}
 
+
 {% block title %}{{ item.title }}{% endblock %}
 
 {% block subtitle %}{{ item.creator|full_name }}{% endblock %}
 {% block body_frame %}{% endblock %}
+{% block delete_button_frame %}{% endblock %}
 
