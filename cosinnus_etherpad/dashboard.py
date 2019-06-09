@@ -49,5 +49,5 @@ class Latest(DashboardWidget):
             return ''
         if self.config.group:
             return group_aware_reverse('cosinnus:etherpad:list', kwargs={'group': self.config.group}) + '?o=-created'
-        return '#'
+        return ''
     
