@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-09 12:59+0200\n"
-"PO-Revision-Date: 2019-05-06 16:54+0100\n"
+"POT-Creation-Date: 2019-06-09 13:20+0200\n"
+"PO-Revision-Date: 2019-06-09 13:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: be\n"
@@ -29,7 +29,7 @@ msgstr "Нататнікі Etherpad"
 
 msgctxt "the_app"
 msgid "etherpad"
-msgstr "etherpad"
+msgstr "нататнік"
 
 msgid "A user created a new etherpad"
 msgstr "Карыстальнік(-ца) стварыў(-ла) новы нататнік Etherpad"
@@ -104,7 +104,7 @@ msgid "This pad can no longer be edited because its creator has deleted their ac
 msgstr "Гэты нататнік больш нельга рэдагаваць, таму што яго стваральнік(-ца) выдаліў(-ла) свой акаўнт."
 
 msgid "by"
-msgstr "карыстальнікам(-цай)"
+msgstr "Стваральнік(-ца):"
 
 msgid "Edit"
 msgstr "Рэдагаваць"
@@ -207,9 +207,9 @@ msgstr ""
 "Ваша каманда %(site_name)s."
 
 #, fuzzy
-#| msgid "Created By"
+#| msgid "A user created a new etherpad"
 msgid "You created a pad"
-msgstr "Створаны карыстальнікам(-цай)"
+msgstr "Карыстальнік(-ца) стварыў(-ла) новы нататнік Etherpad"
 
 #, fuzzy
 #| msgid "Created By"
