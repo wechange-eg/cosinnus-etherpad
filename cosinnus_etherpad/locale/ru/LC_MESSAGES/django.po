@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wechange RU\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-27 16:45+0200\n"
+"POT-Creation-Date: 2019-06-09 12:59+0200\n"
 "PO-Revision-Date: 2018-12-11 18:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -204,6 +204,11 @@ msgstr ""
 "(Перейдите по этой ссылке, чтобы изменить Ваши настройки уведомлений: %(notification_settings_url)s )\n"
 "\n"
 "Ваша команда %(site_name)s."
+
+#, fuzzy
+#| msgid "Created By"
+msgid "You created a pad"
+msgstr "Создатель:"
 
 #, fuzzy
 #| msgid "Created By"

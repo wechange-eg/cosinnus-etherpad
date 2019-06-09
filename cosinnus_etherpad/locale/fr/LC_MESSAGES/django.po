@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-05-27 16:45+0200\n"
+"POT-Creation-Date: 2019-06-09 12:59+0200\n"
 "PO-Revision-Date: 2018-09-14 18:27+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -210,6 +210,11 @@ msgstr ""
 "(Suis ce lien pour modifier tes préférences de notification : %(notification_settings_url)s )\n"
 "\n"
 "L'équipe %(site_name)s"
+
+#, fuzzy
+#| msgid "Created By"
+msgid "You created a pad"
+msgstr "Créé par"
 
 #, fuzzy
 #| msgid "Created By"
