@@ -332,6 +332,9 @@ class EthercalcDownloadBaseView(RequireReadMixin, FilterGroupMixin, DetailView):
     suffix = None # needs to be set in extending view
     model = Etherpad
     
+    def get_filename_header(self, filename):
+        return 'filename=%s' % filename
+    
     def render_to_response(self, context, **response_kwargs):
         if not self.suffix:
             raise ImproperlyConfigured('Need to set a `suffix` for this view!')
@@ -357,7 +360,19 @@ class EthercalcDownloadBaseView(RequireReadMixin, FilterGroupMixin, DetailView):
         response['Content-Length'] = len(content)
         if encoding is not None:
             response['Content-Encoding'] = encoding
+            
+        filename_header = self.get_filename_header(filename)
+        response['Content-Disposition'] = 'attachment; ' + filename_header
+        
+        return response
 
+
+class EthercalcCSVView(EthercalcDownloadBaseView):
+    """ Downloads a CSV file from the calc server and then serves it from this URL """
+    
+    suffix = 'csv'
+    
+    def get_filename_header(self, filename):
         # To inspect details for the below code, see http://greenbytes.de/tech/tc2231/
         user_agent = self.request.META.get('HTTP_USER_AGENT', [])
         if u'WebKit' in user_agent:
@@ -370,15 +385,7 @@ class EthercalcDownloadBaseView(RequireReadMixin, FilterGroupMixin, DetailView):
         else:
             # For others like Firefox, we follow RFC2231 (encoding extension in HTTP headers).
             filename_header = 'filename*=UTF-8\'\'%s' % filename
-        response['Content-Disposition'] = 'attachment; ' + filename_header
-        
-        return response
-
-
-class EthercalcCSVView(EthercalcDownloadBaseView):
-    """ Downloads a CSV file from the calc server and then serves it from this URL """
-    
-    suffix = 'csv'
+        return filename_header
     
 calc_csv_view = EthercalcCSVView.as_view()
 
