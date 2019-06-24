@@ -16,6 +16,7 @@ cosinnus_group_patterns = [
     url(r'^(?P<slug>[^/]+)/settings/$', views.pad_edit_view, name='pad-edit'),
     url(r'^(?P<slug>[^/]+)/$', views.pad_detail_view, name='pad-detail'),
     url(r'^(?P<slug>[^/]+)/csv/$', views.calc_csv_view, name='calc-csv'),
+    url(r'^(?P<slug>[^/]+)/xlsx/$', views.calc_xlsx_view, name='calc-xlsx'),
     
     #url(r'^add-container/$', container_add_view', name='container-add'),
     url(r'^(?P<slug>[^/]+)/delete/$', views.pad_delete_view, name='pad-delete'),

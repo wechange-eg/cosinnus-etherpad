@@ -17,6 +17,7 @@ from cosinnus.views.attached_object import AttachableViewMixin
 from django.utils.encoding import force_text
 from django.utils.timezone import now
 from cosinnus.views.common import DeleteElementView
+from django.core.exceptions import ImproperlyConfigured
 
 try:
     from urllib.parse import urlparse
@@ -325,18 +326,21 @@ class EtherpadDeleteView(RequireWriteMixin, EtherpadFormMixin, HierarchyDeleteMi
 pad_delete_view = EtherpadDeleteView.as_view()
 
 
-class EthercalcCSVView(RequireReadMixin, FilterGroupMixin, DetailView):
+class EthercalcDownloadBaseView(RequireReadMixin, FilterGroupMixin, DetailView):
     """ Downloads a CSV file from the calc server and then serves it from this URL """
     
+    suffix = None # needs to be set in extending view
     model = Etherpad
     
     def render_to_response(self, context, **response_kwargs):
+        if not self.suffix:
+            raise ImproperlyConfigured('Need to set a `suffix` for this view!')
         # download the CSV from the calc server
         # (works by just appending '.csv' to the calc URL)
         calc = self.object
         if not calc.type == TYPE_ETHERCALC:
             raise Http404
-        calc_url = '%s.csv' % self.object.get_pad_url()
+        calc_url = '%s.%s' % (self.object.get_pad_url(), self.suffix)
         resp = requests.get(calc_url, verify=False)
         if not resp.status_code == 200:
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
@@ -348,7 +352,7 @@ class EthercalcCSVView(RequireReadMixin, FilterGroupMixin, DetailView):
         if not content_type is None:
             content_type = 'application/octet-stream'
         encoding = resp.encoding
-        filename = '%s.csv' % calc.slug
+        filename = '%s.%s' % (calc.slug, self.suffix)
         response['Content-Type'] = content_type
         response['Content-Length'] = len(content)
         if encoding is not None:
@@ -369,8 +373,22 @@ class EthercalcCSVView(RequireReadMixin, FilterGroupMixin, DetailView):
         response['Content-Disposition'] = 'attachment; ' + filename_header
         
         return response
+
+
+class EthercalcCSVView(EthercalcDownloadBaseView):
+    """ Downloads a CSV file from the calc server and then serves it from this URL """
+    
+    suffix = 'csv'
     
 calc_csv_view = EthercalcCSVView.as_view()
+
+
+class EthercalcXLSXView(EthercalcDownloadBaseView):
+    """ Downloads a CSV file from the calc server and then serves it from this URL """
+    
+    suffix = 'xlsx'
+    
+calc_xlsx_view = EthercalcXLSXView.as_view()
 
 
 class EtherpadArchiveMixin(RequireWriteMixin, RedirectView):
