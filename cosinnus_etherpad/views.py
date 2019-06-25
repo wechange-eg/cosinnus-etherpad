@@ -348,7 +348,7 @@ class EthercalcDownloadBaseView(RequireReadMixin, FilterGroupMixin, DetailView):
         if not resp.status_code == 200:
             messages.error(self.request, _('The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!'))
             return redirect(group_aware_reverse('cosinnus:etherpad:pad-write', kwargs={'group': calc.group, 'slug': calc.slug}))
-        content = resp.text
+        content = resp.content
         
         response = HttpResponse(content)
         content_type = resp.headers['content-type']
