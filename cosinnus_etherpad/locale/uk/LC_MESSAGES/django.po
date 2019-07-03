@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-06-28 16:30+0200\n"
-"PO-Revision-Date: 2018-12-12 14:07+0100\n"
+"POT-Creation-Date: 2019-07-03 17:47+0200\n"
+"PO-Revision-Date: 2019-07-03 17:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.5.4\n"
 
 msgid "The following Pads were re-initialized:"
 msgstr "Такі документи були повторно ініціалізовані:"
@@ -180,10 +180,8 @@ msgstr "Довідка"
 msgid "Download CSV"
 msgstr "Завантажити CSV"
 
-#, fuzzy
-#| msgid "Download CSV"
 msgid "Download Excel"
-msgstr "Завантажити CSV"
+msgstr "Завантажити Excel"
 
 #, python-format
 msgid ""
@@ -211,16 +209,12 @@ msgstr ""
 "\n"
 "З повагою, команда %(site_name)s."
 
-#, fuzzy
-#| msgid "Created By"
 msgid "You created a pad"
-msgstr "Автор"
+msgstr "Ти створи(ла)в документ"
 
-#, fuzzy
-#| msgid "Created By"
 msgctxt "This appears next to new items in the timeline, as in '<Jane> created a new item'"
 msgid "created a Pad"
-msgstr "Автор"
+msgstr "створений документ"
 
 msgid "There are no etherpads yet"
 msgstr "Ще немає жодного документу"
