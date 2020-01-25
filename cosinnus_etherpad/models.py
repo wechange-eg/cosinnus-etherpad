@@ -215,7 +215,10 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
         self.client.setText(padID=self.pad_id, text=text['text'])
         
         self.save()
-        
+    
+    def get_icon(self):
+        """ Returns the font-awesome icon specific to this object type """
+        return 'fa-file-text'
         
     def __str__(self):
         return '<Etherpad%s id: %s>' % (' Folder' if self.is_container else '', self.id or '<>')
@@ -303,6 +306,10 @@ class Ethercalc(Etherpad):
         if not allow_type_change:
             self.type = TYPE_ETHERCALC
         super(Ethercalc, self).save(*args, **kwargs)
+    
+    def get_icon(self):
+        """ Returns the font-awesome icon specific to this object type """
+        return 'fa-table'
     
     def __str__(self):
         return '<Ethercalc%s id: %s>' % (' Folder' if self.is_container else '', self.id or '<>')
