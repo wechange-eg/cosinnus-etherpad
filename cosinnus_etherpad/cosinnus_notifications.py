@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 import django.dispatch as dispatch
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext_lazy as _, ngettext_lazy as n_
 
 """ Cosinnus:Notifications configuration etherpad. 
     See http://git.sinnwerkstatt.com/cosinnus/cosinnus-core/wikis/cosinnus-notifications-guidelines.
@@ -44,6 +44,10 @@ notifications = {
         'default': True,
         'moderatable_content': True,
         
+        'alert_text': _('%(sender_name)s created the pad %(object_name)s'),
+        'alert_text_multi': _('%(sender_name)s created %(count)d pads'),
+        'alert_multi_type': 2,
+        
         'is_html': True,
         'snippet_type': 'doc',
         'event_text': _('New etherpad by %(sender_name)s'),
@@ -62,6 +66,10 @@ notifications = {
         'supercedes_notifications': ['etherpad_created'],
         'requires_object_state_check': 'group.is_user_following',
         'hidden': True,
+        
+        'alert_text': _('%(sender_name)s created the pad %(object_name)s'),
+        'alert_text_multi': _('%(sender_name)s created %(count)d pads'),
+        'alert_multi_type': 2,
         
         'is_html': True,
         'snippet_type': 'doc',
