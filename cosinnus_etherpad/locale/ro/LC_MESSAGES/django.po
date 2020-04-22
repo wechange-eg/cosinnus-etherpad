@@ -8,190 +8,190 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 13:06+0200\n"
-"PO-Revision-Date: 2019-12-15 08:25+0100\n"
+"PO-Revision-Date: 2019-11-11 02:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: es\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
+"X-Generator: Poedit 2.0.7\n"
 
 msgid "The following Pads were re-initialized:"
-msgstr "Se reinicializaron los siguientes Pads:"
+msgstr "Următoarele Pad-uri au fost re-inițializate:"
 
 msgid "Reinit Pads (do not use if you don't know what this is!)"
-msgstr "Reinit Pads (¡no utilizar si no sabes de qué se trata esto!)"
+msgstr "Reluați Pad (nu folosiți dacă nu știți care este acest lucru!)"
 
 msgid "Etherpads"
-msgstr "Etherpads"
+msgstr "Etherpadul"
 
 msgctxt "the_app"
 msgid "etherpad"
 msgstr "etherpad"
 
 msgid "A user created a new etherpad"
-msgstr "Un usuario creó un nuevo etherpad"
+msgstr "Un utilizator a creat un nou etherpad"
 
 #, fuzzy, python-format
 #| msgid "%(sender_name)s created a new etherpad"
 msgid "%(sender_name)s created the pad %(object_name)s"
-msgstr "%(sender_name)s creó un nuevo etherpad"
+msgstr "%(sender_name)s a creat un nou etherpad"
 
 #, fuzzy, python-format
 #| msgid "%(sender_name)s created a new etherpad"
 msgid "%(sender_name)s created %(count)d pads"
-msgstr "%(sender_name)s creó un nuevo etherpad"
+msgstr "%(sender_name)s a creat un nou etherpad"
 
 #, python-format
 msgid "New etherpad by %(sender_name)s"
-msgstr "Nuevo etherpad de %(sender_name)s"
+msgstr "Etherpad nou de %(sender_name)s"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
-msgstr "%(sender_name)s creó un nuevo etherpad"
+msgstr "%(sender_name)s a creat un nou etherpad"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
-msgstr "Un nuevo etherpad: \"%(object_name)s\" fue creado en %(team_name)s."
+msgstr "Un nou Etherpad: ”%(object_name)s” a fost creat în %(team_name)s."
 
 msgid "A user created a new etherpad in a team you are following"
-msgstr "Un usuario creó un nuevo etherpad en un equipo que estás siguiendo"
+msgstr "Un utilizator a creat un nou Etherpad într-o echipă pe care o urmați"
 
 #, python-format
 msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Nuevo etherpad de %(sender_name)s en %(team_name)s (que estás siguiendo)"
+msgstr "Etherpad nou de %(sender_name)s în %(team_name)s (pe care le urmezi)"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
-msgstr "%(sender_name)s creó un nuevo etherpad en %(team_name)s (que estás siguiendo)"
+msgstr "%(sender_name)s a creat un nou etherpad în %(team_name)s (pe care le urmezi)"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
-msgstr "Nuevo etherpad:  \"%(object_name)s\" se ha creado en %(team_name)s (que estás siguiendo)."
+msgstr "Un nou etherpad: ”%(object_name)s” a fost creat în %(team_name)s (pe care le urmezi)."
 
 msgid "Last accessed Etherpads"
-msgstr "Últimos Etherpads visitados"
+msgstr "Ultima accesare Etherpads"
 
 msgid "No etherpads"
-msgstr "No se encuentran Etherpads"
+msgstr "Fără etherpads"
 
 msgid "Created By"
-msgstr "Creado por"
+msgstr "Creat de"
 
 msgid "Type"
-msgstr "Tipo"
+msgstr "Tip"
 
 msgid "Etherpad"
-msgstr "Etherpad"
+msgstr "EtherPad"
 
 msgid "Ethercalc"
 msgstr "Ethercalc"
 
 msgid "Last accessed"
-msgstr "Último visitado"
+msgstr "Ultima accesare"
 
 msgid "Newest Pads"
-msgstr "Pads nuevos"
+msgstr "Cel mai nou Pads"
 
 msgid "Title"
-msgstr "Título"
+msgstr "Titlul"
 
 msgid "Description"
-msgstr "Descripción"
+msgstr "Descriere"
 
 msgid "Pad Type"
-msgstr "Tipo de Pad"
+msgstr "Tip Pad"
 
 msgid "Ethercalcs"
-msgstr "Ethercalcs"
+msgstr "Ethercalc"
 
 msgid "Pads"
-msgstr "Pads"
+msgstr "Pad"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr "Este pad ya no puede ser editado porque su creador ha eliminado su cuenta."
+msgstr "Acest pad nu mai poate fi editat deoarece creatorul său și-a șters contul."
 
 msgid "by"
-msgstr "por"
+msgstr "de"
 
 msgid "Edit"
-msgstr "Editar"
+msgstr "Editați"
 
 msgid "Settings"
-msgstr "Opciones"
+msgstr "Setări"
 
 msgid "Delete"
-msgstr "Eliminar"
+msgstr "Șterge"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(pad)s“?"
-msgstr "¿Seguro que quieres eliminar el etherpad  „%(pad)s“?"
+msgstr "Vrei cu adevărat să ștergi etherpadul „%(pad)s”?"
 
 msgid "Delete Etherpad"
-msgstr "Etherpad eliminado"
+msgstr "Șterge Etherpadul"
 
 msgid "The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!"
-msgstr "No hay acceso al documento porque el servidor del etherpad no se ha encontrado. ¡Por favor contacta al administrador!"
+msgstr "Documentul nu poate fi accesat deoarece serverul etherpad nu a putut fi accesat. Vă rugăm să contactați cu administratorul!"
 
 msgid "This document is empty"
-msgstr "Este documento está vacío"
+msgstr "Acest document este gol"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "Hay un error en uno de los campos introducidos. ¡Por favor corrígelo antes de guardar!"
+msgstr "A fost o eroare într-unul din câmpurile pe care le-ați introdus. Vă rugăm să îl corectați înainte de a salva!"
 
 msgid "Enter a title for the Pad."
-msgstr "Introduce un título para el Pad."
+msgstr "Introduceți un titlu pentru Pad."
 
 msgid "Save"
-msgstr "Guardar"
+msgstr "Salvați"
 
 msgid "Move"
-msgstr "Mover"
+msgstr "Mișcare"
 
 msgid "Enter the title for a new Document or Table."
-msgstr "Introduce el título para un nuevo documento o tabla."
+msgstr "Introduceți titlul pentru un nou Document sau Tabel."
 
 msgid "Enter the title for a new Document."
-msgstr "Introduce el título para un nuevo documento."
+msgstr "Introduceți titlul pentru un nou Document."
 
 msgid "Create Etherpad"
-msgstr "Crear Etherpad"
+msgstr "Crea Etherpad"
 
 msgid "Create Ethercalc"
-msgstr "Crear Ethercalc"
+msgstr "Crea Ethercalc"
 
 msgid "Move to another Folder"
-msgstr "Mover a otra carpeta"
+msgstr "Treceți la alt Dosar"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr "¿Seguro que quieres eliminar el etherpad „%(title)s“?"
+msgstr "Vrei cu adevărat să ștergi etherpadul „%(title)s”?"
 
 msgid "No etherpads have been created yet."
-msgstr "No se ha creado aún ningún etherpad."
+msgstr "Nu s-au creat încă etherpad."
 
 msgid "Fullscreen"
-msgstr "Pantalla completa"
+msgstr "Ecran complet"
 
 msgid "Leave Fullscreen"
-msgstr "Abandonar pantalla completa"
+msgstr "Lăsați pe ecran complet"
 
 msgid "Back"
-msgstr "Volver"
+msgstr "Înapoi"
 
 msgid "Help and Assistance for this page"
-msgstr "Ayuda y Asistente para esta página"
+msgstr "Ajutor și asistență pentru această pagină"
 
 msgid "Help"
-msgstr "Ayuda"
+msgstr "Ajutor"
 
 msgid "Download CSV"
-msgstr "Descargar CSV"
+msgstr "Descărcați CSV"
 
 msgid "Download Excel"
-msgstr "Descargar Excel"
+msgstr "Descărcați Excel"
 
 #, python-format
 msgid ""
@@ -207,62 +207,62 @@ msgid ""
 "\n"
 "Your %(site_name)s Team."
 msgstr ""
-"Hola %(receiver_name)s,\n"
+"Salut %(receiver_name)s,\n"
 "\n"
-"se ha creado el nuevo etherpad \"%(object_name)s\" en %(team_name)s por %(sender_name)s. \n"
+"un nou etherpad ”%(object_name)s” în %(team_name)s a fost creat de %(sender_name)s. \n"
 "\n"
-"Puedes encontrarlo siguiendo este link: %(object_url)s\n"
+"Îl puteți găsi urmărind acest link: %(object_url)s\n"
 "\n"
 "\n"
 "\n"
-"(Sigue este link para editar tus preferencias para notificaciones: %(notification_settings_url)s )\n"
+"(Urmați acest link pentru a modifica preferințele de notificare: %(notification_settings_url)s )\n"
 "\n"
-"Tu equipo %(site_name)s."
+"A ta %(site_name)s Echipă."
 
 msgid "You created a pad"
-msgstr "Has creado un pad"
+msgstr "Ai creat un pad"
 
 msgctxt "This appears next to new items in the timeline, as in '<Jane> created a new item'"
 msgid "created a Pad"
-msgstr "creó un Pad"
+msgstr "a creat un Pad"
 
 msgid "There are no etherpads yet"
-msgstr "No existe aún ningún etherpad"
+msgstr "Nu sunt încă etherpaduri"
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr "El título del Etherpad \"%(title)s\" fue editado con éxito."
+msgstr "Etherpadul ”%(title)s” a fost editat cu succes."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
-msgstr "El título del Etherpad \"%(title)s\" no pudo editarse."
+msgstr "Etherpadul ”%(title)s” nu a putut fi editat."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr "El título del Etherpad \"%(title)s\" fue añadido con éxito."
+msgstr "Etherpadul ”%(title)s” a fost adăugat cu succes."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
-msgstr "El título del Etherpad \"%(title)s\" no pudo añadirse."
+msgstr "Etherpadul ”%(title)s” nu a putut fi adăugat."
 
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
-msgstr "La carpeta \"%(title)s\" fue creada con éxito."
+msgstr "Dosarul ”%(title)s” a fost creat cu succes."
 
 #, python-format
 msgid "Etherpad with name \"%(name)s\" already exists on pad server. Please use another name."
-msgstr "El Etherpad con nombre \"%(name)s\" ya existe en este servidor. Por favor, utiliza un nombre diferente."
+msgstr "Etherpadul cu nume ”%(name)s” există deja pe serverul pad. Vă rugăm să folosiți un alt nume."
 
 msgid "The document could not be created because the etherpad service is misconfigured. Please contact an administrator!"
-msgstr "El documento no pudo crearse porque el servidor del etherpad tiene una configuración errónea. ¡Por favor contacte a un administrador!"
+msgstr "Documentul nu a putut fi creat deoarece serviciul etherpad este neconfigurat. Vă rugăm să contactați cu administratorul!"
 
 msgid "The document could not be created because the etherpad server could not be reached. Please contact an administrator!"
-msgstr "El documento no pudo crearse porque el servidor del etherpad no se ha encontrado. ¡Por favor contacte a un administrador!"
+msgstr "Documentul nu a putut fi creat deoarece serverul etherpad nu a putut fi atins. Vă rugăm să contactați cu administratorul!"
 
 #, python-format
 msgid "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr "Se ha archivado el Pad como el documento: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+msgstr "Pad-ul a fost arhivat ca Document: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr "Se ha archivado el Pad como archivo: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+msgstr "Pad-ul a fost arhivat ca Fișier de intrare: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
