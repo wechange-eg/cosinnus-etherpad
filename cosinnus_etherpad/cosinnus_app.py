@@ -13,8 +13,9 @@ def register():
 
     from cosinnus.core.registries import (app_registry, attached_object_registry, 
         url_registry, widget_registry)
-
-    app_registry.register('cosinnus_etherpad', 'etherpad', _('Etherpads'), deactivatable=True)   
+    
+    active_by_default = "cosinnus_etherpad" in settings.COSINNUS_DEFAULT_ACTIVE_GROUP_APPS
+    app_registry.register('cosinnus_etherpad', 'etherpad', _('Etherpads'), deactivatable=True, active_by_default=active_by_default)   
     attached_object_registry.register('cosinnus_etherpad.Etherpad',
                              'cosinnus_etherpad.utils.renderer.EtherpadRenderer')
     attached_object_registry.register('cosinnus_etherpad.Ethercalc',
