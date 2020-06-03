@@ -49,9 +49,7 @@ notifications = {
         'alert_multi_type': 2,
         
         'is_html': True,
-        'snippet_type': 'doc',
-        'event_text': _('New etherpad by %(sender_name)s'),
-        'notification_text': _('%(sender_name)s created a new etherpad'),
+        'event_text': _('%(sender_name)s created a new etherpad'),
         'subject_text': _('A new etherpad: "%(object_name)s" was created in %(team_name)s.'),
         'data_attributes': {
             'object_name': 'title', 
@@ -72,9 +70,7 @@ notifications = {
         'alert_multi_type': 2,
         
         'is_html': True,
-        'snippet_type': 'doc',
-        'event_text': _('New etherpad by %(sender_name)s in %(team_name)s (which you follow)'),
-        'notification_text': _('%(sender_name)s created a new etherpad in %(team_name)s (which you follow)'),
+        'event_text': _('%(sender_name)s created a new etherpad in %(team_name)s (which you follow)'),
         'subject_text': _('A new etherpad: "%(object_name)s" was created in %(team_name)s (which you follow).'),
         'data_attributes': {
             'object_name': 'title', 
