@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-22 13:06+0200\n"
-"PO-Revision-Date: 2018-08-30 04:50+0200\n"
+"PO-Revision-Date: 2020-07-02 13:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.4\n"
+"X-Generator: Poedit 2.3.1\n"
 
 msgid "The following Pads were re-initialized:"
 msgstr "Następujące Pady zostały ponownie zainicjowane:"
@@ -33,15 +33,13 @@ msgstr "etherpad"
 msgid "A user created a new etherpad"
 msgstr "Użytkownik utworzył nowy etherpad"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created the pad %(object_name)s"
-msgstr "%(sender_name)s utworzył nowy etherpad"
+msgstr "%(sender_name)s utworzył/a nowy Pad %(object_name)s"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created %(count)d pads"
-msgstr "%(sender_name)s utworzył nowy etherpad"
+msgstr "%(sender_name)s utworzył/a nowe Pady %(count)d"
 
 #, python-format
 msgid "New etherpad by %(sender_name)s"
@@ -55,25 +53,20 @@ msgstr "%(sender_name)s utworzył nowy etherpad"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Nowy etherpad: \"%(object_name)s\" został utworzony przez %(team_name)s."
 
-#, fuzzy
-#| msgid "A user created a new etherpad"
 msgid "A user created a new etherpad in a team you are following"
-msgstr "Użytkownik utworzył nowy etherpad"
+msgstr "Użytkownik utworzył nowy etherpad w zespole, który śledzisz"
 
-#, fuzzy, python-format
-#| msgid "New etherpad by %(sender_name)s"
+#, python-format
 msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Nowy etherpad został utworzony przez %(sender_name)s"
+msgstr "Nowy etherpad został utworzony przez %(sender_name)s w %(team_name)s (który śledzisz)"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
-msgstr "%(sender_name)s utworzył nowy etherpad"
+msgstr "%(sender_name)s utworzył nowy etherpad w %(team_name)s (który śledzisz)"
 
-#, fuzzy, python-format
-#| msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+#, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
-msgstr "Nowy etherpad: \"%(object_name)s\" został utworzony przez %(team_name)s."
+msgstr "Nowy etherpad: \"%(object_name)s\" został utworzony przez %(team_name)s (który śledzisz)."
 
 msgid "Last accessed Etherpads"
 msgstr "Ostatnio otwarte Etherpady"
@@ -115,7 +108,7 @@ msgid "Pads"
 msgstr "Pady"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr ""
+msgstr "Ten Pad nie może być już edytowany, ponieważ jego twórca skasował konto."
 
 # If the context is "by (username)" then the right transtation is "przez".
 msgid "by"
@@ -153,7 +146,7 @@ msgid "Save"
 msgstr "Zapisz"
 
 msgid "Move"
-msgstr ""
+msgstr "Przenieś"
 
 msgid "Enter the title for a new Document or Table."
 msgstr "Wpisz tytuł nowego Dokumentu lub Tabeli."
@@ -184,7 +177,7 @@ msgid "Leave Fullscreen"
 msgstr "Zamknij pełny ekran"
 
 msgid "Back"
-msgstr ""
+msgstr "Cofnij"
 
 msgid "Help and Assistance for this page"
 msgstr "Pomoc i wsparcie dla tej strony"
@@ -195,10 +188,8 @@ msgstr "Pomoc"
 msgid "Download CSV"
 msgstr "Pobierz CSV"
 
-#, fuzzy
-#| msgid "Download CSV"
 msgid "Download Excel"
-msgstr "Pobierz CSV"
+msgstr "Pobierz Excel"
 
 #, python-format
 msgid ""
@@ -226,16 +217,12 @@ msgstr ""
 "\n"
 "Twój Zespół %(site_name)s."
 
-#, fuzzy
-#| msgid "Created By"
 msgid "You created a pad"
-msgstr "Utworzone przez"
+msgstr "Stworzyłeś/aś Pad"
 
-#, fuzzy
-#| msgid "Created By"
 msgctxt "This appears next to new items in the timeline, as in '<Jane> created a new item'"
 msgid "created a Pad"
-msgstr "Utworzone przez"
+msgstr "utworzono Pad"
 
 msgid "There are no etherpads yet"
 msgstr "Nie ma tu jeszcze etherpadów"
