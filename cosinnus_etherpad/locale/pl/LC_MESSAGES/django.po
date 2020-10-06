@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 13:06+0200\n"
+"POT-Creation-Date: 2020-10-06 16:06+0200\n"
 "PO-Revision-Date: 2020-07-02 13:15+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -42,10 +42,6 @@ msgid "%(sender_name)s created %(count)d pads"
 msgstr "%(sender_name)s utworzył/a nowe Pady %(count)d"
 
 #, python-format
-msgid "New etherpad by %(sender_name)s"
-msgstr "Nowy etherpad został utworzony przez %(sender_name)s"
-
-#, python-format
 msgid "%(sender_name)s created a new etherpad"
 msgstr "%(sender_name)s utworzył nowy etherpad"
 
@@ -55,10 +51,6 @@ msgstr "Nowy etherpad: \"%(object_name)s\" został utworzony przez %(team_name)s
 
 msgid "A user created a new etherpad in a team you are following"
 msgstr "Użytkownik utworzył nowy etherpad w zespole, który śledzisz"
-
-#, python-format
-msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Nowy etherpad został utworzony przez %(sender_name)s w %(team_name)s (który śledzisz)"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
@@ -104,7 +96,9 @@ msgstr "Rodzaj Pada"
 msgid "Ethercalcs"
 msgstr "Ethercalcs"
 
-msgid "Pads"
+#, fuzzy
+#| msgid "Pads"
+msgid "Pad"
 msgstr "Pady"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
@@ -135,6 +129,9 @@ msgstr "Nie można uzyskać dostępu do tego dokumentu, ponieważ nie ma dostęp
 
 msgid "This document is empty"
 msgstr "Ten dokument jest pusty"
+
+msgid "Pads"
+msgstr "Pady"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
 msgstr "W jednym z wypełnionych pól jest błąd. Napraw go przed zapisaniem!"
@@ -264,6 +261,12 @@ msgstr "Pad zarchiwizowano jako Dokument: <a class=\"alert-link\" href=\"%(href)
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 msgstr "Pad zarchiwizowano jako Plik: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+
+#~ msgid "New etherpad by %(sender_name)s"
+#~ msgstr "Nowy etherpad został utworzony przez %(sender_name)s"
+
+#~ msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+#~ msgstr "Nowy etherpad został utworzony przez %(sender_name)s w %(team_name)s (który śledzisz)"
 
 #~ msgid "Export (PDF)"
 #~ msgstr "Eksport (PDF)"

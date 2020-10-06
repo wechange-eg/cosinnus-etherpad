@@ -7,14 +7,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-23 12:30+0100\n"
+"POT-Creation-Date: 2020-10-06 16:06+0200\n"
 "PO-Revision-Date: 2020-04-01 12:39+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: hy\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 2.3\n"
 
 msgid "The following Pads were re-initialized:"
@@ -42,10 +42,6 @@ msgid "%(sender_name)s created %(count)d pads"
 msgstr "%(sender_name)s-ը ստեղծել է %(count)d պահոց"
 
 #, python-format
-msgid "New etherpad by %(sender_name)s"
-msgstr "Նոր etherpad %(sender_name)s -ի կողմից"
-
-#, python-format
 msgid "%(sender_name)s created a new etherpad"
 msgstr "%(sender_name)s-ը ստեղծել է նոր etherpad"
 
@@ -55,10 +51,6 @@ msgstr "Նոր etherpad: \"%(object_name)s\"-ը ստեղծվել է %(team_name)
 
 msgid "A user created a new etherpad in a team you are following"
 msgstr "Օգտատերը ստեղծել է նոր etherpad այն թիմում, որին հետևում եք"
-
-#, python-format
-msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Նոր etherpad %(sender_name)s -ից %(team_name)s -ում (որին դուք հետևում եք)"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
@@ -104,7 +96,9 @@ msgstr "Պահոցի Տեսակը"
 msgid "Ethercalcs"
 msgstr "Ethercalcs"
 
-msgid "Pads"
+#, fuzzy
+#| msgid "Pads"
+msgid "Pad"
 msgstr "Պահոցներ"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
@@ -134,6 +128,9 @@ msgstr "Փաստաթուղթը հասանելի չէ, քանի որ հնարավ
 
 msgid "This document is empty"
 msgstr "Այս փաստաթուղթը դատարկ է"
+
+msgid "Pads"
+msgstr "Պահոցներ"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
 msgstr "Ձեր մուտքագրած դաշտերից մեկում առկա է սխալ: Խնդրում ենք ուղղել այն նախքան պահպանելը!"
@@ -263,3 +260,9 @@ msgstr "Պահոցըը արխիվացվել է որպես Փաստաթուղթ: 
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 msgstr "Պահոցը արխիվացվել է որպես ֆայլի մուտքագրում: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+
+#~ msgid "New etherpad by %(sender_name)s"
+#~ msgstr "Նոր etherpad %(sender_name)s -ի կողմից"
+
+#~ msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+#~ msgstr "Նոր etherpad %(sender_name)s -ից %(team_name)s -ում (որին դուք հետևում եք)"

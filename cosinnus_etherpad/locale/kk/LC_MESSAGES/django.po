@@ -7,15 +7,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-25 12:12+0200\n"
+"POT-Creation-Date: 2020-10-06 16:06+0200\n"
 "PO-Revision-Date: 2020-04-06 09:28+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 2.3\n"
 
 msgid "The following Pads were re-initialized:"
@@ -34,9 +34,15 @@ msgstr "онлайн редакторлар"
 msgid "A user created a new etherpad"
 msgstr "Пайдаланушы жаңа редактор құрды"
 
-#, python-format
-msgid "New etherpad by %(sender_name)s"
-msgstr "%(sender_name)s тен жаңа редактор"
+#, fuzzy, python-format
+#| msgid "%(sender_name)s created a new etherpad"
+msgid "%(sender_name)s created the pad %(object_name)s"
+msgstr "%(sender_name)s жаңа жаңа редактор құрды"
+
+#, fuzzy, python-format
+#| msgid "%(sender_name)s created a new etherpad"
+msgid "%(sender_name)s created %(count)d pads"
+msgstr "%(sender_name)s жаңа жаңа редактор құрды"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
@@ -48,10 +54,6 @@ msgstr "Жаңа редактор: „%(object_name)s“ %(team_name)s ішін�
 
 msgid "A user created a new etherpad in a team you are following"
 msgstr "Пайдаланушы сіз бақылайтын топта бөлісу үшін жаңа редактор жасады"
-
-#, python-format
-msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "%(team_name)s і(сіз бақылайтын) шінде %(sender_name)s жаңа редактор жасады"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
@@ -97,7 +99,9 @@ msgstr "Төсем түрі"
 msgid "Ethercalcs"
 msgstr "Эфирлер"
 
-msgid "Pads"
+#, fuzzy
+#| msgid "Pads"
+msgid "Pad"
 msgstr "Мәтін бөлімдері"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
@@ -127,6 +131,9 @@ msgstr "Etherpad серверіне қол жетімділіктің болма
 
 msgid "This document is empty"
 msgstr "Бұл құжат бос"
+
+msgid "Pads"
+msgstr "Мәтін бөлімдері"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
 msgstr "Өрістердің бірінде қате пайда болды. Мұны сақтамас бұрын жөндеңіз!"
@@ -256,3 +263,9 @@ msgstr "Түйме құжат ретінде мұрағатталды: <a class=
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 msgstr "Пернетақта батырмасы файл енгізу ретінде мұрағатталды: <a class=„alert-link“ href=„%(href)s“>%(title)s</a>"
+
+#~ msgid "New etherpad by %(sender_name)s"
+#~ msgstr "%(sender_name)s тен жаңа редактор"
+
+#~ msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+#~ msgstr "%(team_name)s і(сіз бақылайтын) шінде %(sender_name)s жаңа редактор жасады"

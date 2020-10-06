@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 13:06+0200\n"
+"POT-Creation-Date: 2020-10-06 16:06+0200\n"
 "PO-Revision-Date: 2020-02-02 14:17+0100\n"
 "Last-Translator: Sebastian Henschel <sh@sinnwerkstatt.com>\n"
 "Language-Team: German <>\n"
@@ -42,10 +42,6 @@ msgid "%(sender_name)s created %(count)d pads"
 msgstr "%(sender_name)s hat %(count)d neue Pads erstellt"
 
 #, python-format
-msgid "New etherpad by %(sender_name)s"
-msgstr "Neues Pad von %(sender_name)s"
-
-#, python-format
 msgid "%(sender_name)s created a new etherpad"
 msgstr "%(sender_name)s hat ein neues Pad erstellt"
 
@@ -55,10 +51,6 @@ msgstr "Neues Pad: \"%(object_name)s\" wurde in %(team_name)s erstellt."
 
 msgid "A user created a new etherpad in a team you are following"
 msgstr "Ein neues Pad wurde in einem Projekt oder Gruppe (dem du folgst) erstellt"
-
-#, python-format
-msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Neues Pad von %(sender_name)s in %(team_name)s (dem du folgst)"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
@@ -104,7 +96,9 @@ msgstr "Pad-Typ"
 msgid "Ethercalcs"
 msgstr "Tabellen"
 
-msgid "Pads"
+#, fuzzy
+#| msgid "Pads"
+msgid "Pad"
 msgstr "Pads"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
@@ -134,6 +128,9 @@ msgstr "Das Pad kann nicht angezeigt werden weil der Etherpad-Service nicht erre
 
 msgid "This document is empty"
 msgstr "Dieses Pad ist leer"
+
+msgid "Pads"
+msgstr "Pads"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
 msgstr "In einem der eingegebenen Felder trat ein Fehler auf. Bitte korrigiere ihn vor dem Speichern!"
@@ -263,6 +260,12 @@ msgstr "Pad wurde als Dokument archiviert: <a class=\"alert-link\" href=\"%(href
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 msgstr "Pad wurde als Dateieintrag archiviert: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+
+#~ msgid "New etherpad by %(sender_name)s"
+#~ msgstr "Neues Pad von %(sender_name)s"
+
+#~ msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+#~ msgstr "Neues Pad von %(sender_name)s in %(team_name)s (dem du folgst)"
 
 #~ msgid "Export (PDF)"
 #~ msgstr "Exportieren (PDF)"

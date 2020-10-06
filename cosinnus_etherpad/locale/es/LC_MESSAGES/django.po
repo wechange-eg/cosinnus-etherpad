@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 13:06+0200\n"
+"POT-Creation-Date: 2020-10-06 16:06+0200\n"
 "PO-Revision-Date: 2019-12-15 08:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -45,10 +45,6 @@ msgid "%(sender_name)s created %(count)d pads"
 msgstr "%(sender_name)s creó un nuevo etherpad"
 
 #, python-format
-msgid "New etherpad by %(sender_name)s"
-msgstr "Nuevo etherpad de %(sender_name)s"
-
-#, python-format
 msgid "%(sender_name)s created a new etherpad"
 msgstr "%(sender_name)s creó un nuevo etherpad"
 
@@ -58,10 +54,6 @@ msgstr "Un nuevo etherpad: \"%(object_name)s\" fue creado en %(team_name)s."
 
 msgid "A user created a new etherpad in a team you are following"
 msgstr "Un usuario creó un nuevo etherpad en un equipo que estás siguiendo"
-
-#, python-format
-msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Nuevo etherpad de %(sender_name)s en %(team_name)s (que estás siguiendo)"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
@@ -107,7 +99,9 @@ msgstr "Tipo de Pad"
 msgid "Ethercalcs"
 msgstr "Ethercalcs"
 
-msgid "Pads"
+#, fuzzy
+#| msgid "Pads"
+msgid "Pad"
 msgstr "Pads"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
@@ -137,6 +131,9 @@ msgstr "No hay acceso al documento porque el servidor del etherpad no se ha enco
 
 msgid "This document is empty"
 msgstr "Este documento está vacío"
+
+msgid "Pads"
+msgstr "Pads"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
 msgstr "Hay un error en uno de los campos introducidos. ¡Por favor corrígelo antes de guardar!"
@@ -266,3 +263,9 @@ msgstr "Se ha archivado el Pad como el documento: <a class=\"alert-link\" href=\
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 msgstr "Se ha archivado el Pad como archivo: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+
+#~ msgid "New etherpad by %(sender_name)s"
+#~ msgstr "Nuevo etherpad de %(sender_name)s"
+
+#~ msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+#~ msgstr "Nuevo etherpad de %(sender_name)s en %(team_name)s (que estás siguiendo)"

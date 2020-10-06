@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 13:06+0200\n"
+"POT-Creation-Date: 2020-10-06 16:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,10 +43,6 @@ msgid "%(sender_name)s created %(count)d pads"
 msgstr ""
 
 #, python-format
-msgid "New etherpad by %(sender_name)s"
-msgstr ""
-
-#, python-format
 msgid "%(sender_name)s created a new etherpad"
 msgstr ""
 
@@ -55,10 +51,6 @@ msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr ""
 
 msgid "A user created a new etherpad in a team you are following"
-msgstr ""
-
-#, python-format
-msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
 msgstr ""
 
 #, python-format
@@ -105,7 +97,7 @@ msgstr ""
 msgid "Ethercalcs"
 msgstr ""
 
-msgid "Pads"
+msgid "Pad"
 msgstr ""
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
@@ -134,6 +126,9 @@ msgid "The document can not be accessed because the etherpad server could not be
 msgstr ""
 
 msgid "This document is empty"
+msgstr ""
+
+msgid "Pads"
 msgstr ""
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"

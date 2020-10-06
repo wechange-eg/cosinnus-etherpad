@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-22 13:06+0200\n"
+"POT-Creation-Date: 2020-10-06 16:06+0200\n"
 "PO-Revision-Date: 2019-05-08 01:15+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -45,10 +45,6 @@ msgid "%(sender_name)s created %(count)d pads"
 msgstr "%(sender_name)s стварыў(-ла) новы нататнік Etherpad"
 
 #, python-format
-msgid "New etherpad by %(sender_name)s"
-msgstr "Новы нататнік Etherpad ад %(sender_name)s"
-
-#, python-format
 msgid "%(sender_name)s created a new etherpad"
 msgstr "%(sender_name)s стварыў(-ла) новы нататнік Etherpad"
 
@@ -58,10 +54,6 @@ msgstr "Новы нататнік Etherpad: \"%(object_name)s\" створаны
 
 msgid "A user created a new etherpad in a team you are following"
 msgstr "Карыстальнік(-ца) стварыў(-ла) новы нататнік Etherpad у камандзе, за якой вы сочыце"
-
-#, python-format
-msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-msgstr "Новы нататнік Etherpad ад %(sender_name)s у %(team_name)s (за якой вы сочыце)"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
@@ -107,7 +99,9 @@ msgstr "Тып нататніка"
 msgid "Ethercalcs"
 msgstr "Нататнікі Ethercalc"
 
-msgid "Pads"
+#, fuzzy
+#| msgid "Pads"
+msgid "Pad"
 msgstr "Нататнікі"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
@@ -137,6 +131,9 @@ msgstr "Гэты дакумент нельга адкрыць, таму што �
 
 msgid "This document is empty"
 msgstr "Гэты дакумент пусты"
+
+msgid "Pads"
+msgstr "Нататнікі"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
 msgstr "У адным з палёў, якія вы запоўнілі, ёсць памылка. Калі ласка, выпраўце яе перш чым захаваць старонку!"
@@ -272,3 +269,9 @@ msgstr "Нататнік адпраўлены ў архіў як дакумен�
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 msgstr "Нататнік адпраўлены ў архіў як файлавы запіс: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
+
+#~ msgid "New etherpad by %(sender_name)s"
+#~ msgstr "Новы нататнік Etherpad ад %(sender_name)s"
+
+#~ msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
+#~ msgstr "Новы нататнік Etherpad ад %(sender_name)s у %(team_name)s (за якой вы сочыце)"
