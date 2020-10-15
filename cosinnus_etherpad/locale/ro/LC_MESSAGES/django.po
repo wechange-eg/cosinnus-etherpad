@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-10-06 16:06+0200\n"
-"PO-Revision-Date: 2019-11-11 02:46+0200\n"
+"PO-Revision-Date: 2020-10-11 03:04+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: ro\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.2.4\n"
 
 msgid "The following Pads were re-initialized:"
 msgstr "Următoarele Pad-uri au fost re-inițializate:"
@@ -34,15 +34,13 @@ msgstr "etherpad"
 msgid "A user created a new etherpad"
 msgstr "Un utilizator a creat un nou etherpad"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created the pad %(object_name)s"
-msgstr "%(sender_name)s a creat un nou etherpad"
+msgstr "%(sender_name)s a creat pad-ul %(object_name)s"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created %(count)d pads"
-msgstr "%(sender_name)s a creat un nou etherpad"
+msgstr "%(sender_name)s create %(count)d pad-ul"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
@@ -99,8 +97,6 @@ msgstr "Tip Pad"
 msgid "Ethercalcs"
 msgstr "Ethercalc"
 
-#, fuzzy
-#| msgid "Pads"
 msgid "Pad"
 msgstr "Pad"
 
