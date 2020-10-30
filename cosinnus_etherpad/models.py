@@ -15,6 +15,7 @@ from django.utils.timezone import now
 from django.utils.translation import ugettext_lazy as _
 
 from cosinnus.models import BaseHierarchicalTaggableObjectModel
+from cosinnus.models.tagged import LikeableObjectMixin
 
 from cosinnus_etherpad.utils.etherpad_client import EtherpadLiteClient, EtherpadException
 from cosinnus_etherpad.utils.ethercalc_client import EtherCalc as EtherCalcClient
@@ -63,7 +64,7 @@ TYPE_CHOICES = (
 )
 
 
-class Etherpad(BaseHierarchicalTaggableObjectModel):
+class Etherpad(BaseHierarchicalTaggableObjectModel, LikeableObjectMixin):
 
     SORT_FIELDS_ALIASES = [('title', 'title')]
     
