@@ -148,7 +148,7 @@ class Etherpad(BaseHierarchicalTaggableObjectModel):
             self.group_mapper = group_mapper
             self.save()
         author_id = self.client.createAuthorIfNotExistsFor(
-            authorMapper=user.username)
+            authorMapper=_get_author_mapping(user))
         group_id = self.client.createGroupIfNotExistsFor(
             groupMapper=group_mapper)
         one_year_from_now = now() + timedelta(days=365)
@@ -322,7 +322,10 @@ TYPE_CLASSES = {
     
 
 def _get_group_mapping(group):
-    return 'p_%d_g_%s' % (CosinnusPortal.get_current().id, group.slug)
+    return 'p_%s_g_%s' % (CosinnusPortal.get_current().slug, group.slug)
+
+def _get_author_mapping(user):
+    return 'p_%s_u_%s' % (CosinnusPortal.get_current().slug, user.username)
 
 
 import django
