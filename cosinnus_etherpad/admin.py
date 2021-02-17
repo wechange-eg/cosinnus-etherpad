@@ -5,10 +5,10 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 from cosinnus_etherpad.models import Etherpad
-from cosinnus.admin import BaseHierarchicalTaggableAdminMixin
+from cosinnus.admin import BaseHierarchicalTaggableAdmin
 
 
-class EtherpadAdmin(BaseHierarchicalTaggableAdminMixin, admin.ModelAdmin):
+class EtherpadAdmin(BaseHierarchicalTaggableAdmin):
     
     # disabled, because dangerous
     #actions = ['reinit_pads',]
