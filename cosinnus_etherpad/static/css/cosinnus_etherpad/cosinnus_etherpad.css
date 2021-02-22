@@ -12,7 +12,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 100%;
+    bottom: 24px;
+    height: calc(100% - 24px);
     width: 100%;
     z-index: 10000000000; /* had to do that, thanks to the user-report button */
     margin: 0;
@@ -25,10 +26,10 @@
     .etherpad-iframe {
         position: fixed; 
 		right: 0; 
-		bottom: 0; 
 		left: 0;
 		top: 0;
-		height: 100%;
+        bottom: 24px;
+        height: calc(100% - 24px);
 		width: 100%;
         z-index: 10000000000; /* had to do that, thanks to the user-report button */
         margin: 0;
@@ -57,5 +58,5 @@ a.fullscreen-button:hover {
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 200px !important;
+    width: 100% !important;
 }
