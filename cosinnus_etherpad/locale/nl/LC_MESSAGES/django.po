@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-02-23 18:24+0100\n"
-"PO-Revision-Date: 2019-09-19 17:29+0200\n"
+"POT-Creation-Date: 2021-03-12 17:55+0100\n"
+"PO-Revision-Date: 2021-02-18 10:41+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -16,13 +16,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 
 msgid "The following Pads were re-initialized:"
-msgstr "De volgende Pads zijn opnieuw geïnitialiseerd:"
+msgstr "The following Pads were re-initialized:"
 
 msgid "Reinit Pads (do not use if you don't know what this is!)"
-msgstr "Reinit Pads (gelieve niet gebruiken als u niet weet wat het is!)"
+msgstr "Reinit Pads (niet gebruiken als je niet weet wat dit is!)"
 
 msgid "Etherpads"
 msgstr "Etherpads"
@@ -34,15 +34,13 @@ msgstr "etherpad"
 msgid "A user created a new etherpad"
 msgstr "Een gebruiker heeft een nieuw etherpad aangemaakt"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created the pad %(object_name)s"
-msgstr "%(sender_name)s heeft een nieuw etherpad aangemaakt"
+msgstr "%(sender_name)s heeft het pad %(object_name)s aangemaakt"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created %(count)d pads"
-msgstr "%(sender_name)s heeft een nieuw etherpad aangemaakt"
+msgstr "%(sender_name)s heeft %(count)d pads aangemaakt"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
@@ -50,21 +48,21 @@ msgstr "%(sender_name)s heeft een nieuw etherpad aangemaakt"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
-msgstr "Een nieuw etherpad: “%(object_name)s” is aangemaakt in %(team_name)s."
+msgstr "Nieuw etherpad: “%(object_name)s” aangemaakt in %(team_name)s."
 
 msgid "A user created a new etherpad in a team you are following"
-msgstr "Een gebruiker uit een team die u volgt heeft een nieuw etherpad aangemaakt"
+msgstr "Een gebruiker heeft een nieuw etherpad aangemaakt in een team dat je volgt"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
-msgstr "%(sender_name)s heeft een nieuw etherpad aangemaakt in %(team_name)s (die u volgt)"
+msgstr "%(sender_name)s heeft een nieuw etherpad aangemaakt in %(team_name)s (dat je volgt)"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
-msgstr "Een nieuw etherpad: “%(object_name)s is aangemaakt in %(team_name)s (die u volgt)"
+msgstr "Nieuw etherpad: “%(object_name)s is aangemaakt in %(team_name)s (dat je volgt)"
 
 msgid "Last accessed Etherpads"
-msgstr "Laatst bezochte Etherpads"
+msgstr "Laatst bekeken etherpads"
 
 msgid "No etherpads"
 msgstr "Geen etherpads"
@@ -82,10 +80,10 @@ msgid "Ethercalc"
 msgstr "Ethercalc"
 
 msgid "Last accessed"
-msgstr "Laatst bezocht"
+msgstr "Laatst bekeken"
 
 msgid "Newest Pads"
-msgstr "Nieuwste Pads"
+msgstr "Nieuwste pads"
 
 msgid "Title"
 msgstr "Titel"
@@ -94,40 +92,38 @@ msgid "Description"
 msgstr "Beschrijving"
 
 msgid "Pad Type"
-msgstr "Pad Type"
+msgstr "Pad type"
 
 msgid "Ethercalcs"
 msgstr "Ethercalcs"
 
-#, fuzzy
-#| msgid "Pads"
 msgid "Pad"
-msgstr "Pads"
+msgstr "Pad"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr "Dit pad kan niet meer gewijzigd worden omdat de aanmaker zijn/haar account heeft verwijderd."
+msgstr "Dit pad kan niet meer worden gewijzigd omdat de maker zijn/haar account heeft verwijderd."
 
 msgid "by"
 msgstr "door"
 
 msgid "Edit"
-msgstr "Wijzig"
+msgstr "Bewerken"
 
 msgid "Settings"
 msgstr "Instellingen"
 
 msgid "Delete"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(pad)s“?"
-msgstr "Weet u zeker dat u etherpad „%(pad)s wilt verwijderen?"
+msgstr "Weet je zeker dat je etherpad „%(pad)s\" wilt verwijderen?"
 
 msgid "Delete Etherpad"
-msgstr "Verwijder Etherpad"
+msgstr "Etherpad verwijderen"
 
 msgid "The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!"
-msgstr "Dit document is niet toegankelijk omdat de etherpad-server niet kon worden bereikt. Neem contact op met een beheerder!"
+msgstr "Dit document is niet toegankelijk omdat de etherpad server niet kon worden bereikt. Neem contact op met een beheerder!"
 
 msgid "This document is empty"
 msgstr "Dit document is leeg"
@@ -136,35 +132,35 @@ msgid "Pads"
 msgstr "Pads"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "Er is een fout opgetreden in een van de velden die u heeft ingevoerd. Corrigeer dit voordat u opslaat!"
+msgstr "Er zit een fout in een van de velden die je hebt ingevoerd. Corrigeer dit voordat je opslaat!"
 
 msgid "Enter a title for the Pad."
-msgstr "Voer een titel in voor de Pad."
+msgstr "Voer een titel in voor het pad."
 
 msgid "Save"
 msgstr "Opslaan"
 
 msgid "Move"
-msgstr "Verplaats"
+msgstr "Verplaatsen"
 
 msgid "Enter the title for a new Document or Table."
-msgstr "Voer een titel in voor een nieuw Document of Tabel."
+msgstr "Voer een titel in voor een nieuw document of tabel."
 
 msgid "Enter the title for a new Document."
-msgstr "Voer de titel voor een nieuw Document in."
+msgstr "Voer een titel in voor een nieuw document."
 
 msgid "Create Etherpad"
-msgstr "Maak Etherpad aan"
+msgstr "Etherpad aanmaken"
 
 msgid "Create Ethercalc"
-msgstr "Maak Ethercalc aan"
+msgstr "Ethercalc aanmaken"
 
 msgid "Move to another Folder"
-msgstr "Verplaats naar een andere Folder"
+msgstr "Naar andere map verplaatsen"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr "Weet u zeker dat u etherpad „%(title)s“ wilt verwijderen?"
+msgstr "Weet je zeker dat je etherpad „%(title)s“ wilt verwijderen?"
 
 msgid "No etherpads have been created yet."
 msgstr "Er zijn nog geen etherpads aangemaakt."
@@ -179,16 +175,16 @@ msgid "Back"
 msgstr "Terug"
 
 msgid "Help and Assistance for this page"
-msgstr "Hulp en Assistentie voor deze pagina"
+msgstr "Hulp en ondersteuning voor deze pagina"
 
 msgid "Help"
 msgstr "Hulp"
 
 msgid "Download CSV"
-msgstr "Download CSV"
+msgstr "CSV downloaden"
 
 msgid "Download Excel"
-msgstr "Download Excel"
+msgstr "Excel downloaden"
 
 #, python-format
 msgid ""
@@ -206,22 +202,22 @@ msgid ""
 msgstr ""
 "Hallo %(receiver_name)s,\n"
 "\n"
-"Een nieuw etherpad “%(object_name)s” in %(team_name)s is aangemaakt door %(sender_name)s. \n"
+"Er is een nieuw etherpad “%(object_name)s” in %(team_name)s aangemaakt door %(sender_name)s. \n"
 "\n"
-"U kunt het vinden door op deze link te klikken %(object_url)s\n"
+"Je kunt het vinden door op deze link te klikken %(object_url)s\n"
 "\n"
 "\n"
 "\n"
-"(Volg deze link om uw notificatie instellingen aan te passen: %(notification_settings_url)s )\n"
+"(Volg deze link om je meldingsinstellingen aan te passen: %(notification_settings_url)s )\n"
 "\n"
-"Jouw %(site_name)s Team."
+"Jouw %(site_name)s team."
 
 msgid "You created a pad"
-msgstr "U heeft een pad aangemaakt"
+msgstr "Je hebt een pad aangemaakt"
 
 msgctxt "This appears next to new items in the timeline, as in '<Jane> created a new item'"
 msgid "created a Pad"
-msgstr "heeft een Pad aangemaakt"
+msgstr "heeft een pad aangemaakt"
 
 msgid "There are no etherpads yet"
 msgstr "Er zijn nog geen etherpads"
@@ -240,7 +236,7 @@ msgstr "Etherpad “%(title)s” is succesvol toegevoegd."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
-msgstr "Etherpad “%(title)s” kon niet worden aangemaakt."
+msgstr "Etherpad “%(title)s” kon niet worden toegevoegd."
 
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
@@ -248,21 +244,21 @@ msgstr "De map “%(title)s” is succesvol aangemaakt."
 
 #, python-format
 msgid "Etherpad with name \"%(name)s\" already exists on pad server. Please use another name."
-msgstr "Etherpad met naam “%(name)s” bestaat al op de pad server. Gelieve een andere naam te kiezen."
+msgstr "Etherpad met naam “%(name)s” bestaat al op de pad server. Kies een andere naam."
 
 msgid "The document could not be created because the etherpad service is misconfigured. Please contact an administrator!"
-msgstr "Dit document kon niet worden aangemaakt oude de etherpad-service een misconfiguratie heeft gehad. Neem contact op met een beheerder!"
+msgstr "Dit document kon niet worden aangemaakt vanwege een misconfiguratie in de etherpad service. Neem contact op met een beheerder!"
 
 msgid "The document could not be created because the etherpad server could not be reached. Please contact an administrator!"
-msgstr "Dit document is niet aangemaakt omdat de eterpad-server niet kon worden bereikt. Neem contact op met een beheerder!"
+msgstr "Dit document kon niet worden aangemaakt omdat de etherpad server niet kon worden bereikt. Neem contact op met een beheerder!"
 
 #, python-format
 msgid "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr "Pad is gearchiveerd als Document:<a class=“alert-link” href=“%(href)s”>%(title)s</a>"
+msgstr "Pad is gearchiveerd als document: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr "Pad is gearchiveerd als Bestandsinvoer:<a class=“alert-link” href=“%(href)s”>%(title)s</a>"
+msgstr "Pad is gearchiveerd als bestand: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 
 #~ msgid "New etherpad by %(sender_name)s"
 #~ msgstr "Nieuw etherpad door %(sender_name)s"
