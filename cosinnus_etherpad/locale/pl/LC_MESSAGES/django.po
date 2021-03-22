@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 17:55+0100\n"
+"POT-Creation-Date: 2021-02-23 18:24+0100\n"
 "PO-Revision-Date: 2020-10-09 19:07+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -132,7 +132,7 @@ msgid "Pads"
 msgstr "Pady"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "W jednym z wypełnionych pól jest błąd. Napraw go przed zapisaniem!"
+msgstr "W jednym z wypełnionych pól jest błąd. Popraw go przed zapisaniem!"
 
 msgid "Enter a title for the Pad."
 msgstr "Wpisz tytuł nowego Pada."
@@ -156,7 +156,7 @@ msgid "Create Ethercalc"
 msgstr "Utwórz Ethercalc"
 
 msgid "Move to another Folder"
-msgstr "Przenieś do innego Katalogu"
+msgstr "Przenieś do innego Folderu"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
@@ -166,7 +166,7 @@ msgid "No etherpads have been created yet."
 msgstr "Żadne etherpady nie zostały jeszcze utworzone."
 
 msgid "Fullscreen"
-msgstr "Pełny ekran"
+msgstr "Pełen ekran"
 
 msgid "Leave Fullscreen"
 msgstr "Zamknij pełny ekran"
@@ -240,7 +240,7 @@ msgstr "Etherpad \"%(title)s\" nie mógł zostać dodany."
 
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
-msgstr "Folder \"%(title)s\" został utworzony pomyślnie."
+msgstr "Folder \"%(title)s\" został pomyślnie utworzony."
 
 #, python-format
 msgid "Etherpad with name \"%(name)s\" already exists on pad server. Please use another name."

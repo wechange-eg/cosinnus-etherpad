@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-03-12 17:55+0100\n"
-"PO-Revision-Date: 2018-09-14 18:27+0200\n"
+"POT-Creation-Date: 2021-02-23 18:24+0100\n"
+"PO-Revision-Date: 2021-03-16 01:42+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 2.0.8\n"
+"X-Generator: Poedit 2.4.2\n"
 
 msgid "The following Pads were re-initialized:"
 msgstr "Les pads suivants ont été réinitialisés :"
@@ -34,15 +34,13 @@ msgstr "etherpad"
 msgid "A user created a new etherpad"
 msgstr "Un utilisateur a créé un nouvel etherpad"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created the pad %(object_name)s"
-msgstr "%(sender_name)s a créé un nouveau etherpad"
+msgstr "%(sender_name)s a créé le pad %(object_name)s"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created %(count)d pads"
-msgstr "%(sender_name)s a créé un nouveau etherpad"
+msgstr "%(sender_name)s pads %(count)d créés"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
@@ -52,20 +50,16 @@ msgstr "%(sender_name)s a créé un nouveau etherpad"
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
 msgstr "Un nouvel etherpad : \"%(object_name)s\" a été créé dans %(team_name)s."
 
-#, fuzzy
-#| msgid "A user created a new etherpad"
 msgid "A user created a new etherpad in a team you are following"
-msgstr "Un utilisateur a créé un nouvel etherpad"
+msgstr "Un utilisateur a créé un nouvel étherpad dans une équipe que tu suis"
 
-#, fuzzy, python-format
-#| msgid "%(sender_name)s created a new etherpad"
+#, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
-msgstr "%(sender_name)s a créé un nouveau etherpad"
+msgstr "%(sender_name)s a créé un nouvel étherpad dans %(team_name)s (que tu suis)"
 
-#, fuzzy, python-format
-#| msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
+#, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
-msgstr "Un nouvel etherpad : \"%(object_name)s\" a été créé dans %(team_name)s."
+msgstr "Un nouvel etherpad : \"%(object_name)s\" a été créé dans %(team_name)s (que tu suis)."
 
 msgid "Last accessed Etherpads"
 msgstr "Derniers etherpads accédés"
@@ -103,13 +97,11 @@ msgstr "Type de pad"
 msgid "Ethercalcs"
 msgstr "Ethercalcs"
 
-#, fuzzy
-#| msgid "Pads"
 msgid "Pad"
-msgstr "Pads"
+msgstr "Pad"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr ""
+msgstr "Ce pad ne peut plus être modifié parce que son créateur a supprimé son compte."
 
 msgid "by"
 msgstr "par"
@@ -149,7 +141,7 @@ msgid "Save"
 msgstr "Enregistrer"
 
 msgid "Move"
-msgstr ""
+msgstr "Déplacer"
 
 msgid "Enter the title for a new Document or Table."
 msgstr "Saisir le titre pour un nouveau document ou tableau."
@@ -180,7 +172,7 @@ msgid "Leave Fullscreen"
 msgstr "Quitter le mode plein écran"
 
 msgid "Back"
-msgstr ""
+msgstr "Retour"
 
 msgid "Help and Assistance for this page"
 msgstr "Aide et assistance pour cette page"
@@ -189,12 +181,10 @@ msgid "Help"
 msgstr "Aide"
 
 msgid "Download CSV"
-msgstr "Télécharger données CSV"
+msgstr "Télécharger CSV"
 
-#, fuzzy
-#| msgid "Download CSV"
 msgid "Download Excel"
-msgstr "Télécharger données CSV"
+msgstr "Télécharger Excel"
 
 #, python-format
 msgid ""
@@ -222,23 +212,19 @@ msgstr ""
 "\n"
 "L'équipe %(site_name)s"
 
-#, fuzzy
-#| msgid "Created By"
 msgid "You created a pad"
-msgstr "Créé par"
+msgstr "Tu as créé un pad"
 
-#, fuzzy
-#| msgid "Created By"
 msgctxt "This appears next to new items in the timeline, as in '<Jane> created a new item'"
 msgid "created a Pad"
-msgstr "Créé par"
+msgstr "a créé un pad"
 
 msgid "There are no etherpads yet"
 msgstr "Il n'y a pas encore d'etherpads"
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr "L'etherpad \"%(title)s\" a été modifié."
+msgstr "L'etherpad \"%(title)s\" a été modifié avec succès."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
@@ -246,7 +232,7 @@ msgstr "L'etherpad \"%(title)s\" n'a pas pu être modifié."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr "L'etherpad \"%(title)s\" a été ajouté."
+msgstr "L'etherpad \"%(title)s\" a été ajouté avec succès."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
@@ -254,7 +240,7 @@ msgstr "L'etherpad \"%(title)s\" n'a pas pu être ajouté."
 
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
-msgstr "Le dossier \"%(title)s\" a été créé."
+msgstr "Le dossier \"%(title)s\" a été créé avec succès."
 
 #, python-format
 msgid "Etherpad with name \"%(name)s\" already exists on pad server. Please use another name."
