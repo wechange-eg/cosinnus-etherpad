@@ -70,13 +70,17 @@
 	                </div>
 	                
 	                {% include 'cosinnus/media_tags_readonly.html' with object=object list_view="noindent" %}
+	                
+	                <div class="white-content">
+			            {% include 'cosinnus/common/likefollowstar/star_button.html' with object=object %}
+			        </div>
 	            </div> 
 	            
 	            
 		        {% if object.attached_images %}
 		            {% include 'cosinnus/common/attached_images_gallery.html' with object=object max_images=3 %}
 		        {% endif %}
-	
+	           
 	
 	        <div class="etherpad-iframe">
 	            <iframe src="{{ etherpad.get_pad_url }}" width="100%" height="100%"></iframe>
@@ -126,7 +130,6 @@
             </script>
 	    
 	    </div><!-- content-box -->
-	    
 	    
 	    <div class="mobile-hidden">
 		    {% captureas help_text_id %}helptext_11_document{% endcaptureas %}
