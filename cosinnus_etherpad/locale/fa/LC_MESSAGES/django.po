@@ -3,26 +3,26 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-14 15:23+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2021-05-24 19:24+0200\n"
+"Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.2.1\n"
 
 msgid "The following Pads were re-initialized:"
-msgstr ""
+msgstr "یادداشت‌های روبرو از نو آغاز شده‌اند:"
 
 msgid "Reinit Pads (do not use if you don't know what this is!)"
-msgstr ""
+msgstr "یادداشت‌ها را از نو آغاز کنید(اگر نمی‌دانید این چیست از کاربرد آن بپرهیزید!)"
 
 msgid "Etherpads"
 msgstr ""
@@ -32,46 +32,48 @@ msgid "etherpad"
 msgstr ""
 
 msgid "A user created a new etherpad"
-msgstr ""
+msgstr "یک کاربر یک Etherpad نو ساخته"
 
 #, python-format
 msgid "%(sender_name)s created the pad %(object_name)s"
-msgstr ""
+msgstr "%(sender_name)s این یادداشت را ساخته است: %(object_name)s"
 
 #, python-format
 msgid "%(sender_name)s created %(count)d pads"
-msgstr ""
+msgstr "%(sender_name)s %(count)d یادداشت ساخته"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
-msgstr ""
+msgstr "%(sender_name)s یک مطلب یادداشت ساخته"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
-msgstr ""
+msgstr "یک یادداشت تازه‌: \"%(object_name)s\" در %(team_name)s ساخته شد."
 
 msgid "A user created a new etherpad in a team you are following"
-msgstr ""
+msgstr "یک کاربر یک یادداشت تازه در گروهی که شما دنبال می‌کنید ساخته"
 
 #, python-format
 msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
-msgstr ""
+msgstr "\"%(sender_name)s\" یک یادداشت تازه در گروه %(team_name)s که شما دنبال می‌کنید ساخته:"
 
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
-msgstr ""
+msgstr "یک یادداشت تازه: \"%(object_name)s\" در گروه %(team_name)s که شما دنبال می‌کنید ساخته شده."
 
+#, fuzzy
 msgid "Last accessed Etherpads"
-msgstr ""
+msgstr "آخرین Etherpadهای دست‌یافته‌شده"
 
 msgid "No etherpads"
-msgstr ""
+msgstr "هیچ یادداشت Etherpadی نیست"
 
 msgid "Created By"
-msgstr ""
+msgstr "ساخته‌شده به دست"
 
+#, fuzzy
 msgid "Type"
-msgstr ""
+msgstr "نوع"
 
 msgid "Etherpad"
 msgstr ""
@@ -79,112 +81,113 @@ msgstr ""
 msgid "Ethercalc"
 msgstr ""
 
+#, fuzzy
 msgid "Last accessed"
-msgstr ""
+msgstr "آخرین بار دست‌یافته شده"
 
 msgid "Newest Pads"
-msgstr ""
+msgstr "تازه‌ترین یادداشت‌ها"
 
 msgid "Title"
-msgstr ""
+msgstr "عنوان"
 
 msgid "Description"
-msgstr ""
+msgstr "تعریف"
 
 msgid "Pad Type"
-msgstr ""
+msgstr "نوع یادداشت"
 
 msgid "Ethercalcs"
 msgstr ""
 
 msgid "Pad"
-msgstr ""
+msgstr "یادداشت"
 
 msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr ""
+msgstr "این یادداشت دیگر نمی‌تواند ویرایش شود زیرا سازنده‌ی آن پاکش کرده."
 
 msgid "by"
-msgstr ""
+msgstr "از سوی"
 
 msgid "Edit"
-msgstr ""
+msgstr "ویرایش کن"
 
 msgid "Settings"
-msgstr ""
+msgstr "تنظیمات"
 
 msgid "Delete"
-msgstr ""
+msgstr "پاک کن"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(pad)s“?"
-msgstr ""
+msgstr "آیا واقعن می‌خواهید یادداشت „%(pad)s“ را پاک کنید؟"
 
 msgid "Delete Etherpad"
-msgstr ""
+msgstr "یادداشت Etherpad را پاک کن"
 
 msgid "The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!"
-msgstr ""
+msgstr "این سند دیگر در دسترس نیست زیراکه سرور Etherpad در دسترس نیست. لطفن با مدیر تماس بگیرید!"
 
 msgid "This document is empty"
-msgstr ""
+msgstr "این سند خالی است"
 
 msgid "Pads"
-msgstr ""
+msgstr "یادداشت‌ها"
 
 msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr ""
+msgstr "یک خطا در یکی از زمینه‌هایی که وارد کرده‌اید هست. لطفن پیش از ذخیره کردن آن را برطرف کنید!"
 
 msgid "Enter a title for the Pad."
-msgstr ""
+msgstr "یک عنوان برای یادداشت وارد کنید."
 
 msgid "Save"
-msgstr ""
+msgstr "ذخیره کن"
 
 msgid "Move"
-msgstr ""
+msgstr "جابجا کن"
 
 msgid "Enter the title for a new Document or Table."
-msgstr ""
+msgstr "عنوان را برای سند تازه یا جدول وارد کن."
 
 msgid "Enter the title for a new Document."
-msgstr ""
+msgstr "عنوان را برای سند تازه وارد کن."
 
 msgid "Create Etherpad"
-msgstr ""
+msgstr "یک Etherpad بساز"
 
 msgid "Create Ethercalc"
-msgstr ""
+msgstr "یک Ethercalc بساز"
 
 msgid "Move to another Folder"
-msgstr ""
+msgstr "به یک پوشه‌ی دیگر جابجا کنید"
 
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr ""
+msgstr "آیا واقعن می‌خواهید یادداشت „%(title)s“ را پاک کنید؟"
 
 msgid "No etherpads have been created yet."
-msgstr ""
+msgstr "هنوز هیچ یادداشت Etherpadی ساخته نشده."
 
 msgid "Fullscreen"
-msgstr ""
+msgstr "نمایش در تمام صفحه"
 
 msgid "Leave Fullscreen"
-msgstr ""
+msgstr "از نمایش در تمام صفحه برو بیرون"
 
 msgid "Back"
-msgstr ""
+msgstr "برگرد"
 
 msgid "Help and Assistance for this page"
-msgstr ""
+msgstr "کمک و هم‌دستی برای این برگه"
 
 msgid "Help"
-msgstr ""
+msgstr "یاری"
 
 msgid "Download CSV"
-msgstr ""
+msgstr "CSV را دانلود کن"
 
 msgid "Download Excel"
-msgstr ""
+msgstr "Excel را دانلود کن"
 
 #, python-format
 msgid ""
@@ -200,51 +203,62 @@ msgid ""
 "\n"
 "Your %(site_name)s Team."
 msgstr ""
+"درود %(receiver_name)s,\n"
+"\n"
+"%(sender_name)s. یک یادداشت تازه با عنوان \"%(object_name)s\" در گروه %(team_name)s نوشته است  \n"
+"\n"
+"با دنبال کردن پیوند روبرو می‌توانید آن را ببینید: %(object_url)s\n"
+"\n"
+"\n"
+"\n"
+"(پیوند روبرو را برای ویرایش اولویت‌های آگاه‌سازی دنبال کنید: %(notification_settings_url)s )\n"
+"\n"
+"گروه %(site_name)s شما."
 
 msgid "You created a pad"
-msgstr ""
+msgstr "شما یک یادداشت ساخته‌اید"
 
 msgctxt "This appears next to new items in the timeline, as in '<Jane> created a new item'"
 msgid "created a Pad"
-msgstr ""
+msgstr "یک یادداشت تازه ساخته"
 
 msgid "There are no etherpads yet"
-msgstr ""
+msgstr "هیچ یادداشت Etherpadی نیست"
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr ""
+msgstr "یادداشت Etherpad \"%(title)s\" با موفقیت ویرایش شد."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
-msgstr ""
+msgstr "یادداشت Etherpad \"%(title)s\" با موفقیت ویرایش نشد."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr ""
+msgstr "یادداشت Etherpad \"%(title)s\" با موفقیت افزوده شد."
 
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
-msgstr ""
+msgstr "یادداشت Etherpad \"%(title)s\" با موفقیت افزوده نشد."
 
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
-msgstr ""
+msgstr "پوشه‌ی \"%(title)s\" با موفقیت ساخته شد."
 
 #, python-format
 msgid "Etherpad with name \"%(name)s\" already exists on pad server. Please use another name."
-msgstr ""
+msgstr "یک یادداشت با نام \"%(name)s\" روی سرور قرار داد. لطفن نام دیگری بگزینید."
 
 msgid "The document could not be created because the etherpad service is misconfigured. Please contact an administrator!"
-msgstr ""
+msgstr "این سند ساخته نشد زیراکه سروس Etherpad بد پیکربندی شده. لطفن با مدیر تماس بگیرید!"
 
 msgid "The document could not be created because the etherpad server could not be reached. Please contact an administrator!"
-msgstr ""
+msgstr "این سند ساخته نشد زیراکه سرور Etherpad در دسترس نیست. لطفن با مدیر تماس بگیرید!"
 
 #, python-format
 msgid "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr ""
+msgstr "یادداشت به عنوان یک سند ذخیره شد: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 
 #, python-format
 msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr ""
+msgstr "یادداشت به عنوان یک پرونده بایگانی شد: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
