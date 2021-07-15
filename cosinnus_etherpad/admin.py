@@ -13,6 +13,9 @@ class EtherpadAdmin(BaseHierarchicalTaggableAdmin):
     # disabled, because dangerous
     #actions = ['reinit_pads',]
     
+    list_display = BaseHierarchicalTaggableAdmin.list_display + ['type',]
+    list_filter = BaseHierarchicalTaggableAdmin.list_filter + ['type']
+    
     def reinit_pads(self, request, queryset):
         """ Converts this CosinnusGroup's type """
         reinited_names = []
