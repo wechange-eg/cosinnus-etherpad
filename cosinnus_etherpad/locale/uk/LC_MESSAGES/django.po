@@ -7,264 +7,379 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-14 15:23+0200\n"
+"POT-Creation-Date: 2021-08-04 10:08+0200\n"
 "PO-Revision-Date: 2020-10-13 15:42+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Poedit 2.4.1\n"
 
+#: cosinnus_etherpad/admin.py:27
 msgid "The following Pads were re-initialized:"
-msgstr "Такі документи були повторно ініціалізовані:"
+msgstr "Наступні Padи були повторно ініціалізовані:"
 
+#: cosinnus_etherpad/admin.py:29
 msgid "Reinit Pads (do not use if you don't know what this is!)"
-msgstr "Повторно ініціюте документи (не використовуйте цього, якщо не знаєте, що це!)"
+msgstr "Reinit Padи (не використовуйте, якщо не знаєте, що це!)"
 
+#: cosinnus_etherpad/cosinnus_app.py:18 cosinnus_etherpad/models.py:94
+#: cosinnus_etherpad/templates/cosinnus_etherpad/base.html:6
 msgid "Etherpads"
-msgstr "Документи"
+msgstr "Etherpadи"
 
+#: cosinnus_etherpad/cosinnus_app.py:28
 msgctxt "the_app"
 msgid "etherpad"
 msgstr "etherpad"
 
+#: cosinnus_etherpad/cosinnus_notifications.py:40
 msgid "A user created a new etherpad"
-msgstr "Користувач(-ка) створив(-ла) новий документ"
+msgstr "Користувач(-ка) створив(-ла) новий etherpad"
 
+#: cosinnus_etherpad/cosinnus_notifications.py:47
+#: cosinnus_etherpad/cosinnus_notifications.py:68
 #, python-format
 msgid "%(sender_name)s created the pad %(object_name)s"
-msgstr "%(sender_name)s створив новий документ %(object_name)s"
+msgstr "%(sender_name)s створив(-ла) pad %(object_name)s"
 
+#: cosinnus_etherpad/cosinnus_notifications.py:48
+#: cosinnus_etherpad/cosinnus_notifications.py:69
 #, python-format
 msgid "%(sender_name)s created %(count)d pads"
-msgstr "%(sender_name)s створив %(count)d документи"
+msgstr "%(sender_name)s створив(-ла) %(count)d padи"
 
+#: cosinnus_etherpad/cosinnus_notifications.py:52
 #, python-format
 msgid "%(sender_name)s created a new etherpad"
-msgstr "%(sender_name)s створив(-ла) новий документ"
+msgstr "%(sender_name)s створив(-ла) новий etherpad"
 
+#: cosinnus_etherpad/cosinnus_notifications.py:53
+#: cosinnus_etherpad/templates/cosinnus_etherpad/notifications/etherpad_created_subject.txt:1
 #, python-format
 msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s."
-msgstr "Новий документ: \"%(object_name)s\" було створено в %(team_name)s."
+msgstr "Новий etherpad: \"%(object_name)s\" було створено в %(team_name)s."
 
+#: cosinnus_etherpad/cosinnus_notifications.py:61
 msgid "A user created a new etherpad in a team you are following"
-msgstr "Користувач(-ка) створив(-ла) новий документ в команді, яку Ви відстежуєте"
+msgstr "Користувач(-ка) створив(-ла) новий etherpad в команді, яку Ви відстежуєте"
 
+#: cosinnus_etherpad/cosinnus_notifications.py:73
 #, python-format
-msgid "%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
-msgstr "%(sender_name)s створив(-ла) новий документ в %(team_name)s (яку Ви відстежуєте)"
+msgid ""
+"%(sender_name)s created a new etherpad in %(team_name)s (which you follow)"
+msgstr "%(sender_name)s створив(-ла) новий etherpad в %(team_name)s (яку Ви відстежуєте)"
 
+#: cosinnus_etherpad/cosinnus_notifications.py:74
 #, python-format
-msgid "A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you follow)."
+msgid ""
+"A new etherpad: \"%(object_name)s\" was created in %(team_name)s (which you "
+"follow)."
 msgstr "Новий документ: \"%(object_name)s\" було створено у %(team_name)s (яку Ви відстежуєте)."
 
+#: cosinnus_etherpad/dashboard.py:25
 msgid "Last accessed Etherpads"
-msgstr "Останні відкриті документи"
+msgstr "Останні відкриті Etherpadи"
 
+#: cosinnus_etherpad/dashboard.py:40
 msgid "No etherpads"
-msgstr "Жодних документів"
+msgstr "Жодних etherpadів"
 
+#: cosinnus_etherpad/filters.py:18
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:125
 msgid "Created By"
 msgstr "Автор"
 
+#: cosinnus_etherpad/filters.py:19
 msgid "Type"
 msgstr "Тип"
 
+#: cosinnus_etherpad/filters.py:19 cosinnus_etherpad/models.py:62
+#: cosinnus_etherpad/models.py:93
 msgid "Etherpad"
-msgstr "Документ"
+msgstr "Etherpad"
 
+#: cosinnus_etherpad/filters.py:19 cosinnus_etherpad/models.py:63
+#: cosinnus_etherpad/models.py:264
 msgid "Ethercalc"
-msgstr "Таблиця"
+msgstr "Ethercalc"
 
+#: cosinnus_etherpad/filters.py:28 cosinnus_etherpad/models.py:83
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:129
 msgid "Last accessed"
 msgstr "Останні відкриті"
 
+#: cosinnus_etherpad/filters.py:29
 msgid "Newest Pads"
-msgstr "Найновіші документи"
+msgstr "Найновіші Padи"
 
+#: cosinnus_etherpad/filters.py:30
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:40
 msgid "Title"
 msgstr "Назва"
 
+#: cosinnus_etherpad/models.py:74
 msgid "Description"
 msgstr "Опис"
 
+#: cosinnus_etherpad/models.py:79
 msgid "Pad Type"
-msgstr "Тип документа"
+msgstr "Тип Padа"
 
+#: cosinnus_etherpad/models.py:265
 msgid "Ethercalcs"
-msgstr "Таблиці"
+msgstr "Ethercalcs"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:5
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:7
 msgid "Pad"
-msgstr "Текстовий редактор"
+msgstr "Pad"
 
-msgid "This pad can no longer be edited because its creator has deleted their account."
-msgstr "Цей документ більше не можна редагувати, тому що автор видалив свій обліковий запис."
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:31
+msgid ""
+"This pad can no longer be edited because its creator has deleted their "
+"account."
+msgstr "Цей pad більше не можна редагувати, тому що автор видалив свій обліковий запис."
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:46
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:124
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:64
 msgid "by"
-msgstr "автор"
+msgstr "здійснено <username>"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:71
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:154
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:16
 msgid "Edit"
 msgstr "Редагувати"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:86
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:14
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:168
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:180
 msgid "Settings"
 msgstr "Налаштування"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:101
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:56
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:27
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:183
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:160
 msgid "Delete"
 msgstr "Видалити"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:106
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:74
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:165
 #, python-format
 msgid "Do you really want to delete etherpad „%(pad)s“?"
-msgstr "Ви справді бажаєте видалити документ „%(pad)s“?"
+msgstr "Ви справді бажаєте видалити etherpad „%(pad)s“?"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:107
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:75
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:195
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:166
 msgid "Delete Etherpad"
-msgstr "Видалити документ"
+msgstr "Видалити Etherpad"
 
-msgid "The document can not be accessed because the etherpad server could not be reached. Please contact an administrator!"
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:135
+#: cosinnus_etherpad/views.py:138 cosinnus_etherpad/views.py:302
+#: cosinnus_etherpad/views.py:349
+msgid ""
+"The document can not be accessed because the etherpad server could not be "
+"reached. Please contact an administrator!"
 msgstr "Неможливо відкрити документ, тому що сервер Etherpad недоступний. Будь ласка, зверніться до адміністратора(-ки)!"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_detail.html:137
 msgid "This document is empty"
 msgstr "Цей документ порожній"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:5
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:11
 msgid "Pads"
-msgstr "Документи"
+msgstr "Padи"
 
-msgid "There was an error in one of the fields you entered. Please correct it before saving!"
-msgstr "В одному з заповнених полів - помилка. Будь ласка, виправте її перед зберіганням!"
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:29
+msgid ""
+"There was an error in one of the fields you entered. Please correct it "
+"before saving!"
+msgstr "В одному із заповнюваних Вами полів сталася помилка. Будь ласка, виправте це перед збереженням!"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:41
 msgid "Enter a title for the Pad."
-msgstr "Уведіть назву для документу."
+msgstr "Уведіть назву для Padу."
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_edit.html:69
 msgid "Save"
 msgstr "Зберегти"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:31
 msgid "Move"
 msgstr "Перемістити"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:57
 msgid "Enter the title for a new Document or Table."
 msgstr "Введіть назву для нового документу чи таблиці."
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:59
 msgid "Enter the title for a new Document."
 msgstr "Введіть назву для нового документу."
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:69
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:76
 msgid "Create Etherpad"
-msgstr "Створити документ"
+msgstr "Створити Etherpad"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:82
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:89
 msgid "Create Ethercalc"
-msgstr "Створити таблицю"
+msgstr "Створити Ethercalc"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:117
 msgid "Move to another Folder"
-msgstr "Перемістити у іншу папку"
+msgstr "Перемістити в іншу папку"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:194
 #, python-format
 msgid "Do you really want to delete etherpad „%(title)s“?"
-msgstr "Ви справді бажаєте видалити документ „%(title)s“?"
+msgstr "Ви справді бажаєте видалити etherpad „%(title)s“?"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list.html:200
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_list_standalone.html:15
 msgid "No etherpads have been created yet."
-msgstr "Ще не було створено жодного документу."
+msgstr "Ще не було створено жодних etherpadів."
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:59
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:60
 msgid "Fullscreen"
 msgstr "Повноекранний режим"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:96
 msgid "Leave Fullscreen"
 msgstr "Вийти з повноекранного режиму"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:108
 msgid "Back"
 msgstr "Назад"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:138
 msgid "Help and Assistance for this page"
 msgstr "Довідка та допомога для цієї сторінки"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:145
 msgid "Help"
 msgstr "Довідка"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:196
 msgid "Download CSV"
 msgstr "Завантажити CSV"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/etherpad_write.html:209
 msgid "Download Excel"
 msgstr "Завантажити Excel"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/notifications/etherpad_created.txt:1
 #, python-format
 msgid ""
 "Hi %(receiver_name)s,\n"
 "\n"
-"a new etherpad \"%(object_name)s\" in %(team_name)s was created by %(sender_name)s. \n"
+"a new etherpad \"%(object_name)s\" in %(team_name)s was created by "
+"%(sender_name)s. \n"
 "\n"
 "You can find it by following this link: %(object_url)s\n"
 "\n"
 "\n"
 "\n"
-"(Follow this link to edit your notification preferences: %(notification_settings_url)s )\n"
+"(Follow this link to edit your notification preferences: "
+"%(notification_settings_url)s )\n"
 "\n"
 "Your %(site_name)s Team."
-msgstr ""
-"Вітаємо, %(receiver_name)s!\n"
-"\n"
-"%(sender_name)s створив(-ла) новий документ «%(object_name)s» у %(team_name)s.\n"
-"\n"
-"Ви можете переглянути його за наступним посиланням: %(object_url)s\n"
-"\n"
-"\n"
-"\n"
-"(Перейдіть за цим посиланням, щоб редагувати ваші налаштування сповіщень: %(notification_settings_url)s )\n"
-"\n"
-"З повагою, команда %(site_name)s."
+msgstr "Вітаємо, %(receiver_name)s!\n\n%(sender_name)s створив(-ла) новий etherpad «%(object_name)s» у %(team_name)s.\n\n. Ви можете переглянути його за наступним посиланням: %(object_url)s\n\n\n\n(Перейдіть за цим посиланням, щоб редагувати ваші налаштування сповіщень: %(notification_settings_url)s )\n\nЗ повагою, команда %(site_name)s."
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/v2/dashboard/timeline_item.html:8
 msgid "You created a pad"
-msgstr "Ви створили документ"
+msgstr "Ви створили Pad"
 
-msgctxt "This appears next to new items in the timeline, as in '<Jane> created a new item'"
+#: cosinnus_etherpad/templates/cosinnus_etherpad/v2/dashboard/timeline_item.html:10
+msgctxt ""
+"This appears next to new items in the timeline, as in '<Jane> created a new "
+"item'"
 msgid "created a Pad"
-msgstr "створено документ"
+msgstr "створено Pad"
 
+#: cosinnus_etherpad/templates/cosinnus_etherpad/widgets/latest.html:13
 msgid "There are no etherpads yet"
-msgstr "Ще немає жодного документу"
+msgstr "Ще немає жодних etherpadів"
 
+#: cosinnus_etherpad/views.py:174
 #, python-format
 msgid "Etherpad \"%(title)s\" was edited successfully."
-msgstr "Документ \"%(title)s\" успішно відредаговано."
+msgstr "Etherpad \"%(title)s\" успішно відредаговано."
 
+#: cosinnus_etherpad/views.py:175
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be edited."
-msgstr "Неможливо відредагувати документ \"%(title)s\"."
+msgstr "Неможливо відредагувати Etherpad \"%(title)s\"."
 
+#: cosinnus_etherpad/views.py:218
 #, python-format
 msgid "Etherpad \"%(title)s\" was added successfully."
-msgstr "Документ \"%(title)s\" успішно додано."
+msgstr "Etherpad \"%(title)s\" успішно додано."
 
+#: cosinnus_etherpad/views.py:219
 #, python-format
 msgid "Etherpad \"%(title)s\" could not be added."
-msgstr "Неможливо додати документ \"%(title)s\"."
+msgstr "Неможливо додати Etherpad \"%(title)s\"."
 
+#: cosinnus_etherpad/views.py:221
 #, python-format
 msgid "Folder \"%(title)s\" was created successfully."
 msgstr "Папку \"%(title)s\" успішно створено."
 
+#: cosinnus_etherpad/views.py:240
 #, python-format
-msgid "Etherpad with name \"%(name)s\" already exists on pad server. Please use another name."
-msgstr "Документ з назвою \"%(name)s\" уже існує на сервері Etherpad. Будь ласка, використайте іншу назву."
+msgid ""
+"Etherpad with name \"%(name)s\" already exists on pad server. Please use "
+"another name."
+msgstr "Etherpad з назвою \"%(name)s\" уже існує на pad сервері. Будь ласка, використайте іншу назву."
 
-msgid "The document could not be created because the etherpad service is misconfigured. Please contact an administrator!"
+#: cosinnus_etherpad/views.py:245
+msgid ""
+"The document could not be created because the etherpad service is "
+"misconfigured. Please contact an administrator!"
 msgstr "Не вдалося створити документ, тому що сервіс Etherpad неправильно налаштовано. Будь ласка, зверніться до адміністратора(-ки)!"
 
-msgid "The document could not be created because the etherpad server could not be reached. Please contact an administrator!"
+#: cosinnus_etherpad/views.py:249
+msgid ""
+"The document could not be created because the etherpad server could not be "
+"reached. Please contact an administrator!"
 msgstr "Не вдалося створити документ, тому що сервер Etherpad недоступний. Будь ласка, зверніться до адміністратора(-ки)!"
 
+#: cosinnus_etherpad/views.py:443
 #, python-format
-msgid "Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr "Документ на Etherpad заархівовано як звичайний документ: <a class=\"alert-link» href=\"%(href)s\">%(title)s</a>"
+msgid ""
+"Pad has been archived as Document: <a class=\"alert-link\" href=\"%(href)s\">"
+"%(title)s</a>"
+msgstr "Pad заархівовано як документ: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 
+#: cosinnus_etherpad/views.py:495
 #, python-format
-msgid "Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
-msgstr "Документ на Etherpad заархівовано як файл: <a class=\"alert-link» href=\"%(href)s\">%(title)s</a>"
+msgid ""
+"Pad has been archived as File entry: <a class=\"alert-link\" href=\"%(href)s"
+"\">%(title)s</a>"
+msgstr "Pad заархівовано як файл: <a class=\"alert-link\" href=\"%(href)s\">%(title)s</a>"
 
 #~ msgid "New etherpad by %(sender_name)s"
 #~ msgstr "%(sender_name)s створив новий документ"
 
 #~ msgid "New etherpad by %(sender_name)s in %(team_name)s (which you follow)"
-#~ msgstr "Новий документ від %(sender_name)s в %(team_name)s (яку Ви відстежуєте)"
+#~ msgstr ""
+#~ "Новий документ від %(sender_name)s в %(team_name)s (яку Ви відстежуєте)"
 
 #~ msgid "Create"
 #~ msgstr "Створити"
+
