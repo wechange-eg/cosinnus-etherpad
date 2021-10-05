@@ -69,9 +69,9 @@
 			            <button type="submit" class="btn btn-emphasized large-space" title="{% trans "Create Etherpad" %}">
 			                <ul class="media-list">
 			                    <li class="media">
-			                        <a class="pull-left" href="#">
+			                        <span class="pull-left">
 			                            <i class="fa fa-file-text"></i>
-			                        </a>
+			                        </span>
 			                        <div class="media-body">
 			                            {% trans "Create Etherpad" %}
 			                        </div>
@@ -82,9 +82,9 @@
 			            <button type="submit" class="btn btn-emphasized large-space" title="{% trans "Create Ethercalc" %}" onclick="$('#input-etherpad-type').val('1');">
 			                <ul class="media-list">
 			                    <li class="media">
-			                        <a class="pull-left" href="#">
+			                        <span class="pull-left">
 			                            <i class="fa fa-table"></i>
-			                        </a>
+			                        </span>
 			                        <div class="media-body">
 			                            {% trans "Create Ethercalc" %}
 			                        </div>
@@ -147,9 +147,9 @@
 			        <button type="button" class="btn btn-emphasized" href="{% group_url 'cosinnus:etherpad:pad-write' group=group slug=object.slug %}">
 			            <ul class="media-list">
 			                <li class="media">
-			                    <a class="pull-left" href="#">
+			                    <span class="pull-left">
 			                        <i class="fa fa-pencil"></i>
-			                    </a>
+			                    </span>
 			                    <div class="media-body">
 			                        {% trans "Edit" %}
 			                    </div>
@@ -161,9 +161,9 @@
 				    <button type="button" class="btn btn-emphasized pull" href="{% group_url "cosinnus:etherpad:pad-edit" group=group slug=object.slug %}">
 			            <ul class="media-list">
 			                <li class="media">
-			                    <a class="pull-left" href="#">
+			                    <span class="pull-left">
 			                        <i class="fa fa-cog"></i>
-			                    </a>
+			                    </span>
 			                    <div class="media-body">
 			                        {% trans "Settings" %}
 			                    </div>
@@ -176,9 +176,9 @@
 			        <button type="button" class="btn btn-emphasized" data-toggle="modal" data-target="#{{modal_id}}">
 			            <ul class="media-list">
 			                <li class="media">
-			                    <a class="pull-left" href="#">
+			                    <span class="pull-left">
 			                        <i class="fa fa-eraser"></i>
-			                    </a>
+			                    </span>
 			                    <div class="media-body">
 			                        {% trans "Delete" %}
 			                    </div>
