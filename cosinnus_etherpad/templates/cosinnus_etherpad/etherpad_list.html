@@ -107,9 +107,9 @@
 			                    {% include 'cosinnus/common/checkbox/checkbox_overlay_box.html' with input_name=input_name %}
 			                {% endif %}
 		                
-		                    <span class="pull-left">
+		                    <a class="pull-left">
 		                        <i class="fa {% if object.type == 1 %}fa-table{% else %}fa-file-text{% endif %}"></i>
-		                    </span>
+							</a>
 		                    <a class="pull-right fadedown-clickarea">
 		                        <i class="fa fa-chevron-down"></i>
 		                    </a>
@@ -120,18 +120,18 @@
                             {% endif %}
 		                    <div class="media-body">
 		                        {% with creator=object.creator %}
-    	                            <span class="annotation mobile-hidden">
+    	                            <a class="annotation mobile-hidden">
     	                                <!--{% trans "by" %}-->
                                         {% trans "Created By" %}
     	                                <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a>
     	                                {% if object.last_accessed and object.last_accessed|date:'Y'|intify > 2000 %}
 	    	                                &nbsp;&nbsp;
-	    	                                <span title="{% trans "Last accessed" %}">
+	    	                                <a title="{% trans "Last accessed" %}">
 		    	                                <i class="fa fa-pencil"></i>
-		    	                                <span class="moment-data-date" data-date="{{ object.last_accessed|date:'c' }}"></span>
-	    	                                </span>
+		    	                                <a class="moment-data-date" data-date="{{ object.last_accessed|date:'c' }}"></a>
+											</a>
     	                                {% endif %}
-	                                </span>
+									</a>
 		                        {% endwith %}
 		                        <a href="{{ object.get_absolute_url }}">
 		                            {{ object.title }}
