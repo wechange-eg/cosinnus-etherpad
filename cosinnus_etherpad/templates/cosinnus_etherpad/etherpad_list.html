@@ -120,18 +120,18 @@
                             {% endif %}
 		                    <div class="media-body">
 		                        {% with creator=object.creator %}
-    	                            <a class="annotation mobile-hidden">
+    	                            <span class="annotation mobile-hidden">
     	                                <!--{% trans "by" %}-->
                                         {% trans "Created By" %}
     	                                <a href="{{ creator|profile_url }}" >{{ creator|full_name }}</a>
     	                                {% if object.last_accessed and object.last_accessed|date:'Y'|intify > 2000 %}
 	    	                                &nbsp;&nbsp;
-	    	                                <a title="{% trans "Last accessed" %}">
+	    	                                <span title="{% trans "Last accessed" %}">
 		    	                                <i class="fa fa-pencil"></i>
-		    	                                <a class="moment-data-date" data-date="{{ object.last_accessed|date:'c' }}"></a>
-											</a>
+		    	                                <span class="moment-data-date" data-date="{{ object.last_accessed|date:'c' }}"></span>
+											</span>
     	                                {% endif %}
-									</a>
+									</span>
 		                        {% endwith %}
 		                        <a href="{{ object.get_absolute_url }}">
 		                            {{ object.title }}
