@@ -89,9 +89,9 @@
             <button type="button" class="btn btn-small w100 btn-emphasized btn-autosize fullscreen-leave-button fullscreen-toggle mobile-hidden">
                 <ul class="media-list">
                     <li class="media">
-                        <a class="pull-left" href="#">
+                        <span class="pull-left">
                             <i class="fa fa-compress"></i>
-                        </a>
+                        </span>
                         <div class="media-body">
                             {% trans "Leave Fullscreen" %}
                         </div>
@@ -101,9 +101,9 @@
             <button type="button" class="btn w100 btn-small btn-emphasized btn-autosize fullscreen-leave-button mobile-only" href="{{ object.get_absolute_url }}">
                 <ul class="media-list">
                     <li class="media">
-                        <a class="pull-left" href="#">
+                        <span class="pull-left">
                             <i class="fa fa-reply"></i>
-                        </a>
+                        </span>
                         <div class="media-body">
                             {% trans "Back" %}
                         </div>
@@ -138,9 +138,9 @@
 			<button type="button" class="btn btn-emphasized pull-left" style="margin: 0px;" data-toggle="modal" data-target="#{{ help_modal_id }}" title="{% trans "Help and Assistance for this page" %}">
 	            <ul class="media-list">
 	                <li class="media">
-	                    <a class="pull-left" href="#">
+	                    <span class="pull-left">
 	                        <i class="fa fa-question-circle-o"></i>
-	                    </a>
+	                    </span>
 	                    <div class="media-body">
 	                        {% trans "Help" %}
 	                    </div>
@@ -153,9 +153,9 @@
 			    <button type="button" class="btn btn-emphasized pull-left" data-toggle="modal" data-target="#deleteModal">
 		            <ul class="media-list">
 		                <li class="media">
-		                    <a class="pull-left" href="#">
+		                    <span class="pull-left">
 		                        <i class="fa fa-eraser"></i>
-		                    </a>
+		                    </span>
 		                    <div class="media-body">
 		                        {% trans "Delete" %}
 		                    </div>
@@ -173,9 +173,9 @@
 		    	<button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:pad-edit" group=group slug=etherpad.slug %}">
 		            <ul class="media-list">
 		                <li class="media">
-		                    <a class="pull-left" href="#">
+		                    <span class="pull-left">
 		                        <i class="fa fa-cog"></i>
-		                    </a>
+		                    </span>
 		                    <div class="media-body">
 		                        {% trans "Settings" %}
 		                    </div>
@@ -189,9 +189,9 @@
 		    	<button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:calc-csv" group=group slug=etherpad.slug %}">
 		            <ul class="media-list">
 		                <li class="media">
-		                    <a class="pull-left" href="#">
+		                    <span class="pull-left">
 		                        <i class="fa fa-download"></i>
-		                    </a>
+		                    </span>
 		                    <div class="media-body">
 		                        {% trans "Download CSV" %}
 		                    </div>
@@ -202,9 +202,9 @@
 		        <button type="button" class="btn btn-emphasized" href="{% group_url "cosinnus:etherpad:calc-xlsx" group=group slug=etherpad.slug %}">
 		            <ul class="media-list">
 		                <li class="media">
-		                    <a class="pull-left" href="#">
+		                    <span class="pull-left">
 		                        <i class="fa fa-download"></i>
-		                    </a>
+		                    </span>
 		                    <div class="media-body">
 		                        {% trans "Download Excel" %}
 		                    </div>
