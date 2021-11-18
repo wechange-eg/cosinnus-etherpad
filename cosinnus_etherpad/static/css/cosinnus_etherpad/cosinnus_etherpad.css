@@ -42,6 +42,7 @@
 
 .fullscreen-button {
     margin-left: 25px;
+    cursor: pointer;
 }
 .fullscreen-button i {
     font-size: 18px;
