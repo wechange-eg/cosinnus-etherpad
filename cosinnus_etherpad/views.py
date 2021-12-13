@@ -192,7 +192,8 @@ class EtherpadFormMixin(FilterGroupMixin,
         })
 
     def form_valid(self, form):
-        form.instance.creator = self.request.user
+        if form.instance.pk is None:
+            form.instance.creator = self.request.user
 
         ret = super(EtherpadFormMixin, self).form_valid(form)
         messages.success(self.request,
